@@ -1,15 +1,17 @@
 ---
 import '../styles/global.css';
 import { query } from '../lib/db';
-const { title = 'EU Lex Discovery', description = 'EU court rulings on rights at work, each linked to the official judgment on EUR-Lex.' } = Astro.props;
+const { title = 'EU Lex Discovery', description = 'European staff rights, institutional rules and accountability records linked to their official sources.' } = Astro.props;
 const path = Astro.url.pathname;
-const links = [
-  { href: '/cases', label: 'Rulings', active: path.startsWith('/cases') },
-  { href: '/rules', label: 'Rules', active: path.startsWith('/rules') },
-  { href: '/decisions', label: 'Decisions', active: path.startsWith('/decisions') },
-  { href: '/discharge', label: 'Discharge', active: path.startsWith('/discharge') },
+const researchLinks = [
+  { href: '/cases', label: 'Court rulings', active: path.startsWith('/cases') },
+  { href: '/rules', label: 'Rules & updates', active: path.startsWith('/rules') },
+  { href: '/decisions', label: 'Selected records', active: path.startsWith('/decisions') },
+  { href: '/discharge', label: 'Budget discharge', active: path.startsWith('/discharge') }
+];
+const operationalLinks = [
   { href: '/monitoring', label: 'Monitoring', active: path.startsWith('/monitoring') },
-  { href: '/settings', label: 'Settings', active: path.startsWith('/settings') }
+  { href: '/settings', label: 'AI settings', active: path.startsWith('/settings') }
 ];
 let lastCheck: string | null = null;
 try { lastCheck = (await query<{ last_checked_at: string | null }>("SELECT last_checked_at FROM sources WHERE key='eurlex-sparql'")).rows[0]?.last_checked_at ?? null; } catch { /* the bar simply omits the check time when the database is unreachable */ }
@@ -30,14 +32,21 @@ const checked = lastCheck ? new Intl.DateTimeFormat('en-GB', { day: 'numeric', m
     <header class="masthead">
       <a class="wordmark" href="/" aria-label="EU Lex Discovery, home">EU Lex <span>Discovery</span></a>
       <nav aria-label="Primary">
-        {links.map((link) => <a href={link.href} aria-current={link.active ? 'page' : undefined}>{link.label}</a>)}
+        <div class="nav-group" role="group" aria-label="Research destinations">
+          <span class="nav-group-label">Research</span>
+          {researchLinks.map((link) => <a href={link.href} aria-current={link.active ? 'page' : undefined}>{link.label}</a>)}
+        </div>
+        <div class="nav-group" role="group" aria-label="Site operations">
+          <span class="nav-group-label">Operations</span>
+          {operationalLinks.map((link) => <a href={link.href} aria-current={link.active ? 'page' : undefined}>{link.label}</a>)}
+        </div>
       </nav>
-      {checked && <p class="masthead-check"><span>Source checked</span> <time datetime={lastCheck!}>{checked}</time></p>}
+      {checked && <p class="masthead-check" title="Last attempted check of the court feed"><span>Court feed checked</span> <time datetime={lastCheck!}>{checked}</time></p>}
     </header>
     <main id="main" tabindex="-1"><slot /></main>
     <footer class="colophon">
       <p class="colophon-name">EU Lex Discovery</p>
-      <p>Research support only. Always verify against the official judgment on <a href="https://eur-lex.europa.eu/" target="_blank" rel="noreferrer">EUR-Lex</a>. Rulings are found by a daily keyword search of the official source, so coverage is not exhaustive.</p>
+      <p>Research support only. Verify each ruling, policy or report against its linked official document and publishing authority. Some sources are on <a href="https://eur-lex.europa.eu/" target="_blank" rel="noreferrer">EUR-Lex</a>; others are published by the relevant EU institution. Court records come from daily keyword searches, so coverage is not exhaustive.</p>
     </footer>
   </body>
 </html>

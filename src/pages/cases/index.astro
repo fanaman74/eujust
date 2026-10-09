@@ -1,8 +1,10 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import PageGuide from '../../components/PageGuide.astro';
 import Icon from '../../components/Icon.astro';
 import CaseRow from '../../components/CaseRow.astro';
 import { query } from '../../lib/db';
+import { pageGuides } from '../../data/page-guides';
 const PAGE_SIZE = 20;
 let cases: any[] = [], topics: { slug: string; name_en: string }[] = [], matching = 0, error = '';
 const url = Astro.url;
@@ -39,14 +41,16 @@ const first = (page - 1) * PAGE_SIZE + 1;
 const last = first + cases.length - 1;
 const hasNext = last < matching;
 ---
-<Layout title="All rulings">
+<Layout title="Court rulings on staff rights" description="Court of Justice and General Court rulings on staff rights, linked to their official records and searchable by topic, court or case reference.">
   <div class="page">
     <header class="page-head">
       <div>
-        <h1>All rulings</h1>
+        <h1>Court rulings on staff rights</h1>
         <p class="lede">Decisions of the Court of Justice and the General Court on harassment, discrimination and psychosocial risk at work.</p>
       </div>
     </header>
+
+    <PageGuide {...pageGuides.cases} />
 
     <form class="filters" method="get" role="search" aria-label="Search and filter rulings">
       <div class="field search"><label for="f-q">Search</label><input id="f-q" name="q" type="search" value={q} placeholder="Name, case number or words from the ruling" /></div>

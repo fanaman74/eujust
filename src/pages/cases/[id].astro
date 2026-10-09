@@ -1,8 +1,10 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import PageGuide from '../../components/PageGuide.astro';
 import Icon from '../../components/Icon.astro';
 import { query } from '../../lib/db';
 import { parseTitle } from '../../lib/title';
+import { pageGuides } from '../../data/page-guides';
 const id = Number(Astro.params.id);
 let item: any = null, error = '';
 try { const result = await query(`SELECT c.*,co.name court,co.jurisdiction, json_agg(DISTINCT jsonb_build_object('name',t.name_en,'matchType',ct.match_type)) FILTER (WHERE t.id IS NOT NULL) topics, json_agg(DISTINCT jsonb_build_object('url',d.official_url,'reference',d.source_reference,'retrievedAt',d.retrieved_at,'hasText',d.text_content IS NOT NULL)) docs, (SELECT report_json FROM reports r WHERE r.case_id=c.id AND r.status='complete' ORDER BY r.created_at DESC LIMIT 1) latest_report FROM cases c LEFT JOIN courts co ON co.id=c.court_id LEFT JOIN case_topics ct ON ct.case_id=c.id LEFT JOIN topics t ON t.id=ct.topic_id LEFT JOIN documents d ON d.case_id=c.id WHERE c.id=$1 GROUP BY c.id,co.name,co.jurisdiction`, [id]); item = result.rows[0]; } catch (e) { error = e instanceof Error ? e.message : 'Database unavailable'; }
@@ -17,7 +19,7 @@ const topics: any[] = (item?.topics ?? []).filter((t: any) => t.name);
 const report = item?.latest_report ?? null;
 const hasText = docs.some((doc) => doc.hasText);
 ---
-<Layout title={parsed?.heading ?? 'Case record'}>
+<Layout title={parsed?.heading ?? 'Case record'} description="Official case metadata and source links, with optional AI interpretation clearly separated from the court record.">
   <div class="page">
     <a class="back" href="/cases"><Icon name="arrow-left" size={16} /> All rulings</a>
     {error ? (
@@ -30,6 +32,7 @@ const hasText = docs.some((doc) => doc.hasText);
           <h1>{parsed!.heading}</h1>
           <p class="lede">{parsed!.formation ?? item.court ?? 'Court not recorded'}</p>
         </header>
+        <PageGuide {...pageGuides.case} />
         <div class="detail-grid">
           <div class="detail-main">
             <section class="panel" aria-labelledby="h-source">

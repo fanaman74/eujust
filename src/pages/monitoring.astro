@@ -1,7 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import PageGuide from '../components/PageGuide.astro';
 import Icon from '../components/Icon.astro';
 import { query } from '../lib/db';
+import { pageGuides } from '../data/page-guides';
 let runs: any[] = [], source: any = null, pref: any = null, error = '';
 try { runs = (await query('SELECT mr.*,s.name source_name FROM monitoring_runs mr JOIN sources s ON s.id=mr.source_id ORDER BY mr.started_at DESC LIMIT 20')).rows; source = (await query('SELECT name,last_checked_at,last_success_at FROM sources WHERE key=\'eurlex-sparql\'')).rows[0]; pref = (await query('SELECT timezone,hour,minute,enabled FROM schedule_preferences WHERE id=1')).rows[0]; } catch (e) { error = e instanceof Error ? e.message : 'Database unavailable'; }
 const date = (v: string | null) => v ? new Intl.DateTimeFormat('en-GB', { dateStyle: 'medium', timeStyle: 'short' }).format(new Date(v)) : 'Never';
@@ -14,17 +16,18 @@ const statuses: Record<string, { tone: string; icon: string; label: string }> = 
   running: { tone: '', icon: 'activity', label: 'Running' }
 };
 ---
-<Layout title="Monitoring">
+<Layout title="Monitoring collection checks" description="Operational history and scheduling for official-source collection checks, including partial and failed attempts.">
   <div class="page narrow">
     <header class="page-head">
       <div>
-        <h1>Monitoring</h1>
-        <p class="lede">A separate worker checks official sources daily. Every attempt is recorded, including partial failures.</p>
+        <h1>Monitoring collection checks</h1>
+        <p class="lede">The collection worker checks official sources and records every attempt, including partial failures.</p>
       </div>
       <div>
         <button class="button" id="run-monitor" type="button">Run check now</button>
       </div>
     </header>
+    <PageGuide {...pageGuides.monitoring} />
     <p id="run-status" class="form-status" role="status" style="margin:calc(var(--space-4) * -1) 0 var(--space-4)"></p>
 
     {error ? <p class="notice error" role="alert"><Icon name="error" /><span>{error}</span></p> : (

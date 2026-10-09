@@ -1,23 +1,25 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import PageGuide from '../components/PageGuide.astro';
 import Icon from '../components/Icon.astro';
 import CaseRow from '../components/CaseRow.astro';
 import { query } from '../lib/db';
+import { pageGuides } from '../data/page-guides';
 let latest: any[] = [], total = 0, error = '';
 try {
   latest = (await query(`SELECT c.id,c.celex,c.case_number,c.title,c.judgment_date,c.summary,co.name court, COALESCE(array_agg(DISTINCT t.name_en) FILTER (WHERE t.id IS NOT NULL),'{}') topics FROM cases c LEFT JOIN courts co ON co.id=c.court_id LEFT JOIN case_topics ct ON ct.case_id=c.id LEFT JOIN topics t ON t.id=ct.topic_id GROUP BY c.id,co.name ORDER BY c.judgment_date DESC NULLS LAST,c.id DESC LIMIT 5`)).rows;
   total = Number((await query<{ total: string }>('SELECT count(*) total FROM cases')).rows[0].total);
 } catch (e) { error = e instanceof Error ? e.message : 'Database unavailable'; }
 ---
-<Layout title="EU court rulings on rights at work">
+<Layout title="European staff rights and institutional accountability" description="Court rulings, workplace rules and institutional accountability records linked to their official sources.">
   <section class="hero home-hero">
     <picture>
       <img src="/images/home-hero.png" alt="European Union flag hanging inside a glass and steel atrium." width="1011" height="673" fetchpriority="high" />
     </picture>
     <div class="hero-block">
-      <h1>What Europe’s top courts decide about your rights at work</h1>
+      <h1>European staff rights, rules and accountability</h1>
       <div>
-      <p>Rulings from the Court of Justice and the General Court on harassment, discrimination and mental health at work. Every one links to the official judgment on EUR-Lex.</p>
+      <p>Follow court rulings, workplace rules and institutional updates on harassment, discrimination and mental health at work, alongside wider institutional and budget accountability. Every record links to its official source.</p>
       <div class="hero-actions">
         <a class="button wire" href="#latest">Read the latest rulings</a>
         <a class="button ghost" href="/cases">Browse all{total > 0 && ` ${total}`}</a>
@@ -25,6 +27,8 @@ try {
       </div>
     </div>
   </section>
+
+  <PageGuide {...pageGuides.home} />
 
   <section class="latest" id="latest" aria-labelledby="h-latest">
     <header class="latest-head">

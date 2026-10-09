@@ -1,6 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import PageGuide from '../components/PageGuide.astro';
 import Icon from '../components/Icon.astro';
+import { pageGuides } from '../data/page-guides';
 
 const official = {
   overview: 'https://www.europarl.europa.eu/committees/en/cont/discharge-procedure/discharge-2024',
@@ -14,7 +16,7 @@ const official = {
 };
 ---
 
-<Layout title="Parliamentary discharge and institutional responses" description="European Parliament budgetary discharge decisions, follow-up reports and institutional responses, linked to official EU documents.">
+<Layout title="Budget discharge and institutional follow-up" description="European Parliament budgetary discharge decisions, institutional responses and follow-up documents linked to their official sources.">
   <div class="page discharge-page">
     <header class="page-head discharge-hero">
       <div>
@@ -28,6 +30,8 @@ const official = {
         <time datetime="2026-04-29">29 Apr 2026</time>
       </div>
     </header>
+
+    <PageGuide {...pageGuides.discharge} />
 
     <nav class="jump" aria-label="On this page">
       <a href="#latest">Latest decision</a>

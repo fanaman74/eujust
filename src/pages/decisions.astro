@@ -1,7 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import PageGuide from '../components/PageGuide.astro';
 import Icon from '../components/Icon.astro';
 import { selectedDecisions, selectedDecisionsCheckedOn } from '../data/rules';
+import { pageGuides } from '../data/page-guides';
 const format = (iso: string, options: Intl.DateTimeFormatOptions) => new Intl.DateTimeFormat('en-GB', { ...options, timeZone: 'UTC' }).format(new Date(iso));
 const orderedSelectedDecisions = selectedDecisions
   .map((item, index) => ({ item, index }))
@@ -13,18 +15,23 @@ const orderedSelectedDecisions = selectedDecisions
   })
   .map(({ item }) => item);
 ---
-<Layout title="Selected decisions and reports" description="A hand-curated selection of official EU decisions and reports relevant to staff safeguards and oversight, linked to their original sources.">
+<Layout title="Selected official records" description="A hand-curated selection of official court, Ombudsman and Commission records on staff safeguards, oversight and OLAF.">
   <div class="page">
     <header class="page-head decisions-head">
       <div>
-        <h1>Selected decisions and reports</h1>
-        <p class="lede">A hand-curated selection of recent official records relevant to staff safeguards and oversight. Each entry links to the authority that published it.</p>
+        <h1>Selected official records</h1>
+        <p class="lede">A hand-curated selection of recent official records relevant to staff safeguards and oversight. Each entry links to its publishing authority.</p>
       </div>
     </header>
 
+    <PageGuide {...pageGuides.decisions} />
+
     <section class="rule-group" aria-labelledby="h-selected-decisions">
       <header class="rule-group-head">
-        <h2 id="h-selected-decisions">Official records</h2>
+        <div>
+          <p class="page-guide-kicker">Editorial selection</p>
+          <h2 id="h-selected-decisions">Decisions and reports</h2>
+        </div>
         <p>Checked on <time datetime={selectedDecisionsCheckedOn}>{format(selectedDecisionsCheckedOn, { day: 'numeric', month: 'long', year: 'numeric' })}</time>. These entries are separate from the daily feeds and are not presented as automatic search results.</p>
       </header>
       <div class="rule-group-content">
@@ -35,11 +42,12 @@ const orderedSelectedDecisions = selectedDecisions
                 {item.date ? <time datetime={item.date}><span>{format(item.date, { day: 'numeric' })}</span> {format(item.date, { month: 'short', year: 'numeric' })}</time> : <span class="undated">Undated</span>}
               </p>
               <div class="dispatch-body">
+                <p class="dispatch-kind">{item.kind}</p>
                 <h3><a href={item.url} target="_blank" rel="noreferrer">{item.title}<span class="sr-only"> (opens the official source in a new tab)</span></a></h3>
                 <p class="rule-summary">{item.summary}</p>
                 <ul class="tags" aria-label="Topics">{item.topics.map((topic) => <li class="tag">{topic}</li>)}</ul>
               </div>
-              <p class="dispatch-ref"><strong>{item.reference}</strong>{item.host}<span>{item.kind}</span><Icon name="external" size={22} /></p>
+              <p class="dispatch-ref"><strong>{item.reference}</strong>{item.host}<Icon name="external" size={22} /></p>
             </li>
           ))}
         </ul>

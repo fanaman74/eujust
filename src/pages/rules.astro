@@ -1,13 +1,15 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import PageGuide from '../components/PageGuide.astro';
 import Icon from '../components/Icon.astro';
 import { query } from '../lib/db';
 import { ruleGroups, rulesCheckedOn } from '../data/rules';
+import { pageGuides } from '../data/page-guides';
 const format = (iso: string, options: Intl.DateTimeFormatOptions) => new Intl.DateTimeFormat('en-GB', { ...options, timeZone: 'UTC' }).format(new Date(iso));
 type Update = { title: string; kind: string; reference: string | null; day: string | null; official_url: string; matched_terms: string[]; source: string };
 const feeds = [
-  { id: 'ombudsman-latest', institution: 'ombudsman', heading: 'Latest from the European Ombudsman', intro: 'Decisions, recommendations and newly opened inquiries on how EU institutions handle harassment, dignity at work and whistleblowing. The Ombudsman does not write staff rules; the office examines whether institutions apply theirs properly.', checked: null as string | null, items: [] as Update[] },
-  { id: 'commission-latest', institution: 'commission', heading: 'Latest from the European Commission', intro: 'Commission documents published in EUR-Lex and items from its Press Corner on harassment, psychosocial risk, whistleblowing, staff inquiries and the rules that give effect to the Staff Regulations.', checked: null as string | null, items: [] as Update[] }
+  { id: 'ombudsman-latest', institution: 'ombudsman', heading: 'Ombudsman decisions & inquiries', summary: 'Decisions, recommendations and inquiries found by daily source checks.', intro: 'Decisions, recommendations and newly opened inquiries on how EU institutions handle harassment, dignity at work and whistleblowing. The Ombudsman does not write staff rules; the office examines whether institutions apply theirs properly.', checked: null as string | null, items: [] as Update[] },
+  { id: 'commission-latest', institution: 'commission', heading: 'Commission documents & updates', summary: 'Commission documents and Press Corner updates found by daily checks.', intro: 'Commission documents published in EUR-Lex and items from its Press Corner on harassment, psychosocial risk, whistleblowing, staff inquiries and the rules that give effect to the Staff Regulations.', checked: null as string | null, items: [] as Update[] }
 ];
 let error = '';
 try {
@@ -27,14 +29,16 @@ const orderedStandingRules = ruleGroups
     return b.rule.date.localeCompare(a.rule.date);
   });
 ---
-<Layout title="Rules on harassment and staff well-being" description="New decisions and rules on harassment, dignity and well-being at work from the European Ombudsman and the European Commission, each linked to its official source.">
+<Layout title="Rules and institutional updates" description="Ombudsman and Commission updates plus hand-maintained references on harassment, dignity and staff well-being, linked to official sources.">
   <div class="page">
     <header class="page-head">
       <div>
-        <h1>The rules on harassment and staff well-being</h1>
-        <p class="lede">What the European Ombudsman and the European Commission publish on harassment, dignity and mental health at work, checked daily, followed by the standing rules they work from.</p>
+        <h1>Rules and institutional updates</h1>
+        <p class="lede">What the European Ombudsman and European Commission publish on harassment, dignity and mental health at work, followed by the standing references they work from.</p>
       </div>
     </header>
+
+    <PageGuide {...pageGuides.rules} />
 
     <nav class="jump" aria-label="On this page">
       {feeds.map((feed) => <a href={`#${feed.id}`}>{feed.heading}</a>)}
@@ -47,7 +51,10 @@ const orderedStandingRules = ruleGroups
       <section class="rule-group" id={feed.id} aria-labelledby={`h-${feed.id}`}>
         <details class="rule-group-details">
           <summary class="rule-group-head rule-group-summary">
-            <h2 id={`h-${feed.id}`}>{feed.heading}</h2>
+            <div class="rule-group-summary-main">
+              <h2 id={`h-${feed.id}`}>{feed.heading}</h2>
+              <p class="rule-group-summary-text">{feed.summary}</p>
+            </div>
             <span class="rule-group-toggle" aria-hidden="true"></span>
           </summary>
           <div class="rule-group-content">
@@ -78,7 +85,10 @@ const orderedStandingRules = ruleGroups
     <section class="rule-group" id="standing" aria-labelledby="h-standing">
       <details class="rule-group-details">
         <summary class="rule-group-head rule-group-summary">
-          <h2 id="h-standing">Standing rules</h2>
+          <div class="rule-group-summary-main">
+            <h2 id="h-standing">Standing rules</h2>
+            <p class="rule-group-summary-text">Hand-maintained reference documents, separate from the daily institution feeds.</p>
+          </div>
           <span class="rule-group-toggle" aria-hidden="true"></span>
         </summary>
         <div class="rule-group-content">

@@ -1,0 +1,28 @@
+---
+import type { PageGuide as PageGuideContent } from '../data/page-guides';
+
+interface Props extends PageGuideContent {}
+
+const { label, what, coverage, related = [], relatedGroups = [] } = Astro.props;
+---
+<section class="page-guide" aria-labelledby="page-guide-heading">
+  <header class="page-guide-head">
+    <p class="page-guide-kicker">{label}</p>
+    <h2 id="page-guide-heading">About this page</h2>
+  </header>
+  <dl class="page-guide-fields">
+    <div>
+      <dt>What you’ll find</dt>
+      <dd>{what}</dd>
+    </div>
+    <div>
+      <dt>Coverage and updates</dt>
+      <dd>{coverage}</dd>
+    </div>
+  </dl>
+  {relatedGroups?.length ? (
+    <div class="page-guide-related">
+      {relatedGroups.map((group) => <p><span>{group.label}:</span> {group.links.map((link, index) => <><a href={link.href}>{link.label}</a>{index < group.links.length - 1 && <span aria-hidden="true"> · </span>}</>)}</p>)}
+    </div>
+  ) : related.length > 0 && <p class="page-guide-related"><span>Related:</span> {related.map((link, index) => <><a href={link.href}>{link.label}</a>{index < related.length - 1 && <span aria-hidden="true"> · </span>}</>)}</p>}
+</section>
