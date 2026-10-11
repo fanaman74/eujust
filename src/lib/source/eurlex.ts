@@ -54,16 +54,57 @@ export async function fetchEurLexCases(fetchImpl: typeof fetch = fetch): Promise
 }
 
 export async function fetchEurLexDocument(record: Pick<EurLexRecord, 'celex'>, fetchImpl: typeof fetch = fetch) {
-  const url = `https://publications.europa.eu/resource/celex/${encodeURIComponent(record.celex)}?language=ENG`;
-  const response = await fetchOfficial(url, { headers: { accept: 'application/xhtml+xml, text/html', 'accept-language': 'en' } }, fetchImpl, 30_000);
-  if (!response.ok) throw new Error(`EUR-Lex document returned HTTP ${response.status}`);
-  assertOfficialUrl(response.url || url);
-  const contentType = response.headers.get('content-type') ?? '';
-  const html = await response.text();
-  if (contentType && !/html|xhtml/i.test(contentType)) throw new Error('EUR-Lex returned a non-HTML document body');
-  if (!/<(?:html|body|p|div)\b/i.test(html)) throw new Error('EUR-Lex returned an unusable document body');
-  const text = htmlToText(html);
-  return { url, text: text.slice(0, 600_000), truncated: text.length > 600_000 };
+  const urls = [
+    `https://publications.europa.eu/resource/celex/${encodeURIComponent(record.celex)}?language=ENG`,
+    `https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:${encodeURIComponent(record.celex)}`
+  ];
+  let lastError: Error | null = null;
+  const errors: Error[] = [];
+  for (const url of urls) {
+    try {
+      const response = await fetchOfficial(url, { headers: { accept: 'application/xhtml+xml, text/html', 'accept-language': 'en' } }, fetchImpl, 30_000);
+      if (!response.ok) {
+        lastError = new Error(`EUR-Lex document returned HTTP ${response.status}`);
+        errors.push(lastError);
+        continue;
+      }
+      assertOfficialUrl(response.url || url);
+      const contentType = response.headers.get('content-type') ?? '';
+      const html = await response.text();
+      if (contentType && !/html|xhtml/i.test(contentType)) {
+        lastError = new Error('EUR-Lex returned a non-HTML document body');
+        errors.push(lastError);
+        continue;
+      }
+      if (!/<(?:html|body)\b/i.test(html) || !/<p\b/i.test(html)) {
+        lastError = new Error('EUR-Lex returned an unusable document body');
+        errors.push(lastError);
+        continue;
+      }
+      const contentHtml = html.replace(/<head[\s\S]*?<\/head>|<nav[\s\S]*?<\/nav>/gi, ' ');
+      const text = htmlToText(contentHtml);
+      const firstParagraph = text.search(/\[paragraph 1\]/i);
+      const documentText = firstParagraph >= 0 ? text.slice(firstParagraph) : '';
+      const englishWords = ['the', 'of', 'and', 'to', 'in', 'for', 'with', 'court', 'applicant', 'judgment', 'where', 'that', 'was', 'has', 'this', 'not'];
+      const frenchWords = ['le', 'la', 'les', 'de', 'des', 'du', 'et', 'dans', 'que', 'qui', 'est', 'une', 'un', 'travail', 'notamment'];
+      const countWords = (words: string[]) => words.reduce((count, word) => count + (documentText.match(new RegExp(`\\b${word}\\b`, 'gi'))?.length ?? 0), 0);
+      const englishScore = countWords(englishWords);
+      const frenchScore = countWords(frenchWords);
+      const hasCourtHeading = /\b(?:JUDGMENT|ORDER|OPINION)\s+(?:OF\s+)?(?:THE\s+)?(?:COURT|GENERAL COURT|TRIBUNAL)\b/.test(text);
+      const challengePrefix = text.slice(0, 500);
+      if (!text || /just a moment|checking your browser|enable javascript|captcha|cf-chl-|access denied/i.test(challengePrefix) || documentText.length < 500 || !hasCourtHeading || englishScore < 5 || englishScore < frenchScore * 2) {
+        lastError = new Error('EUR-Lex returned an unusable document body');
+        errors.push(lastError);
+        continue;
+      }
+      return { url, text: text.slice(0, 600_000), truncated: text.length > 600_000 };
+    } catch (error) {
+      lastError = error instanceof Error ? error : new Error(String(error));
+      errors.push(lastError);
+    }
+  }
+  if (errors.length > 1) throw new Error(`${errors[0].message}; alternate EUR-Lex manifestations failed: ${errors[errors.length - 1].message}`);
+  throw lastError ?? new Error('EUR-Lex document could not be retrieved');
 }
 
 function assertOfficialUrl(value: string) {

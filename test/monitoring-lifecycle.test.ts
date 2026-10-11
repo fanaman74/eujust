@@ -92,7 +92,7 @@ test('retry POST reserves a new run, targets only the stored failed CELEX, and p
   (pg as unknown as { Pool: typeof FakePool }).Pool = FakePool;
   process.env.NODE_ENV = 'development';
   const originalFetch = globalThis.fetch;
-  globalThis.fetch = (async (url: string) => { fetches.push(url); return new Response('<html><body>new source text</body></html>', { status: 200, headers: { 'content-type': 'text/html' } }); }) as typeof fetch;
+  globalThis.fetch = (async (url: string) => { fetches.push(url); return new Response(`<html><body><p class="coj-count" id="point1">1</p><p>JUDGMENT OF THE COURT ${'The court considered the applicant and the relevant facts. new source text '.repeat(20)}</p></body></html>`, { status: 200, headers: { 'content-type': 'text/html' } }); }) as typeof fetch;
   try {
     const { POST } = await import('../src/pages/api/monitor/retry.ts');
     const response = await POST({ request: new Request('https://fixture.test/api/monitor/retry', { method: 'POST', body: JSON.stringify({ runId: 7 }), headers: { 'content-type': 'application/json' } }) } as any);
@@ -107,7 +107,8 @@ test('retry POST reserves a new run, targets only the stored failed CELEX, and p
     assert.equal(retry.details.retryOf, 7);
     assert.equal(fetches.length, 1);
     assert.match(fetches[0], /62024TJ0145/);
-    assert.equal(documents.get('62024TJ0145')?.text_content, 'new source text');
+    assert.match(documents.get('62024TJ0145')?.text_content ?? '', /JUDGMENT OF THE COURT/);
+    assert.match(documents.get('62024TJ0145')?.text_content ?? '', /new source text/);
     documents.set('62024TJ0145', { text_content: 'preserve this text', metadata: { work: 'urn:work', truncated: true } });
     globalThis.fetch = (async () => { throw new Error('EUR-Lex document returned HTTP 500'); }) as typeof fetch;
     const failedRetry = await POST({ request: new Request('https://fixture.test/api/monitor/retry', { method: 'POST', body: JSON.stringify({ runId: 7 }), headers: { 'content-type': 'application/json' } }) } as any);
