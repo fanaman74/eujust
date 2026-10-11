@@ -210,8 +210,8 @@ main:focus { outline: none; }
 
 .page-guide { max-width: 1440px; margin: 0 auto var(--space-7); padding: var(--space-6) var(--gutter) 0; }
 .page > .page-guide { max-width: none; margin: 0 0 var(--space-6); padding: 0; }
-.page-guide-head { display: flex; align-items: baseline; gap: var(--space-4); padding: var(--space-3) var(--space-4); border-left: 5px solid var(--wire); background: var(--wash); }
-.page-guide-kicker { color: var(--wire-deep); font-size: 0.8125rem; font-weight: 800; white-space: nowrap; }
+.page-guide-head { display: grid; gap: var(--space-1); padding: var(--space-3) var(--space-4); border-left: 5px solid var(--wire); background: var(--wash); }
+.page-guide-kicker { color: var(--wire-deep); font-size: 0.8125rem; font-weight: 800; }
 .page-guide-head h2 { font-size: clamp(1.5rem, 1.25rem + 1vw, 2.25rem); }
 .page-guide-fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); margin: 0; border-bottom: 1px solid var(--line); }
 .page-guide-fields > div { display: grid; gap: var(--space-2); padding: var(--space-4); }
@@ -220,8 +220,21 @@ main:focus { outline: none; }
 .page-guide-fields dd { margin: 0; color: var(--grey); max-width: 68ch; }
 .page-guide-related { margin: var(--space-3) 0 0; color: var(--grey); font-size: 0.9375rem; }
 .page-guide-related > p + p { margin-top: var(--space-1); }
-.page-guide-related span:first-child { color: var(--ink); font-weight: 700; }
+.page-guide-related > p > span:first-child { color: var(--ink); font-weight: 700; }
 .page-guide-related a { color: var(--ink); font-weight: 700; }
+.page-guide-related-groups { display: grid; gap: var(--space-5); }
+.page-guide-related-group { display: grid; gap: var(--space-3); }
+.page-guide-related-group h3 { font-size: 1.125rem; }
+.page-guide-card-grid { display: grid; gap: var(--space-3); }
+.page-guide-card-grid.research { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.page-guide-card-grid.operations { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.page-guide-card { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: var(--space-2) var(--space-3); align-items: end; min-width: 0; padding: var(--space-4); border: 1px solid var(--line); background: var(--wash); color: var(--ink); text-decoration: none; }
+.page-guide-card:hover { border-color: var(--ink); background: var(--ink); color: #fff; }
+.page-guide-card:focus-visible { outline-offset: 2px; }
+.page-guide-card-title { grid-column: 1; color: inherit; font-size: 1.0625rem; font-weight: 800; font-stretch: var(--condensed); }
+.page-guide-card-description { grid-column: 1; color: var(--grey); font-size: 0.875rem; line-height: 1.4; }
+.page-guide-card:hover .page-guide-card-description { color: var(--on-ink-muted); }
+.page-guide-card > .icon { grid-column: 2; grid-row: 1 / span 2; align-self: end; }
 
 .badge { display: inline-flex; align-items: center; gap: 6px; padding: 2px 8px; font-size: 0.8125rem; font-weight: 700; line-height: 1.5; white-space: nowrap; background: var(--wash); color: var(--ink); }
 .badge.ai { background: var(--ai-surface); color: var(--ai-fg); }
@@ -311,6 +324,27 @@ td.nowrap { white-space: nowrap; }
 .provider-name { display: flex; align-items: center; gap: var(--space-3); flex-wrap: wrap; font-weight: 700; font-size: 1.125rem; }
 .provider-actions { display: flex; flex-wrap: wrap; gap: var(--space-2); align-items: center; }
 .provider-result { flex-basis: 100%; }
+.provider-token-field { max-width: 32rem; margin-bottom: var(--space-5); }
+.provider-token-field input { max-width: 100%; }
+.provider-model-list { flex-basis: 100%; margin-top: var(--space-2); border-top: 1px solid var(--line); padding-top: var(--space-2); }
+.provider-model-list summary { cursor: pointer; font-weight: 700; }
+.provider-model-list ul { columns: 3; margin: var(--space-2) 0 0; padding-left: 1.25rem; }
+#model-catalog { width: 100%; min-height: 42px; padding: 0.55rem 0.7rem; border: 1px solid var(--line); background: #fff; color: var(--ink); font: inherit; }
+#model-catalog:focus-visible { outline: 3px solid var(--wire); outline-offset: 2px; }
+
+.monitor-actions { display: grid; grid-template-columns: minmax(220px, 280px) auto; gap: var(--space-3); align-items: end; }
+.monitor-token { min-width: 0; }
+.monitor-token input { min-height: 40px; }
+.monitor-failure-details { margin-top: var(--space-2); }
+.monitor-failure-details summary { cursor: pointer; color: var(--ink); font-weight: 700; }
+.monitor-failures { display: grid; gap: var(--space-2); margin: var(--space-2) 0 0; padding-left: 1.2em; }
+.monitor-failures li { display: grid; gap: 2px; }
+.monitor-failures a { font-weight: 700; }
+.monitor-failure-label { font-weight: 700; }
+.monitor-run-meta { display: block; color: var(--grey); font-size: 0.8125rem; }
+.monitor-retry { min-height: 38px; padding-inline: var(--space-3); font-size: 0.875rem; }
+.monitor-action-status { display: block; margin-top: var(--space-1); max-width: 18ch; color: var(--grey); font-size: 0.8125rem; }
+.monitor-action-status[data-state="error"] { color: var(--danger-fg); }
 
 /* ---------- Rules page ---------- */
 
@@ -404,6 +438,7 @@ td.nowrap { white-space: nowrap; }
 }
 
 @media (max-width: 820px) {
+  .page-guide-card-grid.research { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .dispatch, .rule-group .dispatch { grid-template-columns: 96px minmax(0, 1fr); }
   .rule-group-head:not(.rule-group-summary) { grid-template-columns: minmax(0, 1fr); }
   .rule-group-summary { grid-template-columns: minmax(0, 1fr) auto; align-items: center; }
@@ -430,10 +465,11 @@ td.nowrap { white-space: nowrap; }
   .nav-group { flex: 0 0 auto; }
   .nav-group-label { padding-inline: 6px; }
   .nav-group + .nav-group { margin-left: var(--space-2); padding-left: var(--space-2); }
-  .page-guide-head { display: block; }
-  .page-guide-kicker { margin-bottom: var(--space-1); }
   .page-guide-fields { grid-template-columns: minmax(0, 1fr); }
   .page-guide-fields > div + div { border-top: 1px solid var(--line); border-left: 0; }
+  .page-guide-card-grid.research, .page-guide-card-grid.operations { grid-template-columns: minmax(0, 1fr); }
+  .provider-model-list ul { columns: 1; }
+  .monitor-actions { grid-template-columns: minmax(0, 1fr); }
   .dispatch, .rule-group .dispatch { grid-template-columns: minmax(0, 1fr); gap: var(--space-3); }
   .dispatch-date span { display: inline; font-size: 1.5rem; }
   .dispatch-ref { grid-column: 1; }

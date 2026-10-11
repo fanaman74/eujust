@@ -1,11 +1,11 @@
-export type PageGuideLink = { href: string; label: string };
+export type PageGuideLink = { href: string; label: string; description?: string };
 
 export type PageGuide = {
   label: string;
   what: string;
   coverage: string;
   related?: PageGuideLink[];
-  relatedGroups?: { label: string; links: PageGuideLink[] }[];
+  relatedGroups?: { label: string; links: PageGuideLink[]; cards?: boolean }[];
 };
 
 export const pageGuides: Record<string, PageGuide> = {
@@ -16,18 +16,20 @@ export const pageGuides: Record<string, PageGuide> = {
     relatedGroups: [
       {
         label: 'Research',
+        cards: true,
         links: [
-          { href: '/cases', label: 'Court rulings — search case law' },
-          { href: '/rules', label: 'Rules & updates — policies and institution feeds' },
-          { href: '/decisions', label: 'Selected records — editorial highlights' },
-          { href: '/discharge', label: 'Budget discharge — votes and follow-up' }
+          { href: '/cases', label: 'Court rulings', description: 'Search case law on European staff rights.' },
+          { href: '/rules', label: 'Rules & updates', description: 'Browse policies, institution feeds and standing references.' },
+          { href: '/decisions', label: 'Selected records', description: 'Read editorial highlights from official records.' },
+          { href: '/discharge', label: 'Budget discharge', description: 'Follow votes, replies and budget oversight.' }
         ]
       },
       {
         label: 'Site operations',
+        cards: true,
         links: [
-          { href: '/monitoring', label: 'Monitoring' },
-          { href: '/settings', label: 'AI settings' }
+          { href: '/monitoring', label: 'Monitoring', description: 'Review source checks, failures and schedules.' },
+          { href: '/settings', label: 'AI settings', description: 'Manage optional summary provider configuration.' }
         ]
       }
     ]

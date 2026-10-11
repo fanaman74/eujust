@@ -1,14 +1,16 @@
 ---
 import type { PageGuide as PageGuideContent } from '../data/page-guides';
+import Icon from './Icon.astro';
 
 interface Props extends PageGuideContent {}
 
 const { label, what, coverage, related = [], relatedGroups = [] } = Astro.props;
+const cardGroups = relatedGroups.some((group) => group.cards);
 ---
 <section class="page-guide" aria-labelledby="page-guide-heading">
   <header class="page-guide-head">
-    <p class="page-guide-kicker">{label}</p>
     <h2 id="page-guide-heading">About this page</h2>
+    <p class="page-guide-kicker">{label}</p>
   </header>
   <dl class="page-guide-fields">
     <div>
@@ -21,8 +23,19 @@ const { label, what, coverage, related = [], relatedGroups = [] } = Astro.props;
     </div>
   </dl>
   {relatedGroups?.length ? (
-    <div class="page-guide-related">
-      {relatedGroups.map((group) => <p><span>{group.label}:</span> {group.links.map((link, index) => <><a href={link.href}>{link.label}</a>{index < group.links.length - 1 && <span aria-hidden="true"> · </span>}</>)}</p>)}
+    <div class:list={['page-guide-related', { 'page-guide-related-groups': cardGroups }]}>
+      {relatedGroups.map((group, groupIndex) => group.cards ? (
+        <section class="page-guide-related-group" aria-labelledby={`page-guide-related-group-${groupIndex}`}>
+          <h3 id={`page-guide-related-group-${groupIndex}`}>{group.label}</h3>
+          <div class:list={['page-guide-card-grid', groupIndex === 0 ? 'research' : 'operations']}>
+            {group.links.map((link) => <a class="page-guide-card" href={link.href}>
+              <span class="page-guide-card-title">{link.label}</span>
+              {link.description && <span class="page-guide-card-description">{link.description}</span>}
+              <Icon name="arrow-right" size={18} />
+            </a>)}
+          </div>
+        </section>
+      ) : <p><span>{group.label}:</span> {group.links.map((link, index) => <><a href={link.href}>{link.label}</a>{index < group.links.length - 1 && <span aria-hidden="true"> · </span>}</>)}</p>)}
     </div>
   ) : related.length > 0 && <p class="page-guide-related"><span>Related:</span> {related.map((link, index) => <><a href={link.href}>{link.label}</a>{index < related.length - 1 && <span aria-hidden="true"> · </span>}</>)}</p>}
 </section>

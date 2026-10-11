@@ -35,6 +35,7 @@ const names: Record<string, string> = { openai: 'OpenAI', deepseek: 'DeepSeek', 
                 <button class="button danger" data-action="remove" type="button">Remove</button>
               </div>
               <span class="form-status provider-result" role="status"></span>
+              <details class="provider-model-list" data-provider-models hidden><summary>Provider-reported models</summary><ul></ul></details>
             </li>
           ))}
         </ul>
@@ -44,15 +45,16 @@ const names: Record<string, string> = { openai: 'OpenAI', deepseek: 'DeepSeek', 
     <section class="panel" aria-labelledby="h-connect">
       <h2 id="h-connect">Add or update a provider</h2>
       <form id="provider-form">
+        <div class="field provider-token-field"><label for="operator-token">Operator token <span class="muted">(optional)</span></label><input id="operator-token" type="password" autocomplete="off" aria-describedby="operator-token-hint" /><span class="hint" id="operator-token-hint">For protected deployments. Held only in this page while it is open.</span></div>
         <div class="form-grid">
           <div class="field"><label for="p-provider">Provider</label><select id="p-provider" name="provider">{Object.entries(names).map(([value, label]) => <option value={value}>{label}</option>)}</select></div>
           <div class="field"><label for="p-key">API key</label><input id="p-key" name="apiKey" type="password" autocomplete="new-password" aria-describedby="p-key-hint" /><span class="hint" id="p-key-hint">Leave blank to keep a key that is already saved.</span></div>
-          <div class="field"><label for="p-model">Model identifier</label><input id="p-model" name="model" list="model-catalog" autocomplete="off" spellcheck="false" aria-describedby="p-model-hint" /><datalist id="model-catalog"></datalist><span class="hint" id="p-model-hint">Type the identifier, or load the provider’s catalog to pick from it.</span></div>
+          <div class="field"><label for="p-model">Model identifier</label><input id="p-model" name="model" autocomplete="off" spellcheck="false" aria-describedby="p-model-hint" /><label class="hint" for="model-catalog" id="model-catalog-label" hidden>Provider-reported model catalog</label><select id="model-catalog" hidden aria-label="Provider-reported model catalog"><option value="">Choose a reported model…</option></select><span class="hint" id="p-model-hint">Type the identifier, or test the connection to choose from the provider’s reported catalog.</span></div>
           <div class="field"><label for="p-url">API endpoint <span class="muted">(optional)</span></label><input id="p-url" name="baseUrl" type="url" placeholder="https://" aria-describedby="p-url-hint" /><span class="hint" id="p-url-hint">Official provider hosts only. Leave blank for the default.</span></div>
         </div>
         <div class="form-actions">
           <button class="button" type="submit">Save provider</button>
-          <button class="button secondary" id="load-models" type="button">Load model catalog</button>
+          <button class="button secondary" id="test-provider" type="button">Test connection</button>
           <span id="form-status" class="form-status" role="status"></span>
         </div>
       </form>
@@ -61,11 +63,49 @@ const names: Record<string, string> = { openai: 'OpenAI', deepseek: 'DeepSeek', 
 </Layout>
 <script>
   const setStatus = (el: Element | null, state: string, text: string) => { if (el instanceof HTMLElement) { el.dataset.state = state; el.textContent = text; } };
-  const post = (url: string, body?: unknown) => fetch(url, { method: 'POST', headers: body ? { 'content-type': 'application/json' } : undefined, body: body ? JSON.stringify(body) : undefined });
+  const tokenInput = document.querySelector<HTMLInputElement>('#operator-token');
+  const requestHeaders = (body: boolean) => ({ ...(body ? { 'content-type': 'application/json' } : {}), ...(tokenInput?.value ? { 'x-admin-token': tokenInput.value } : {}) });
+  const post = (url: string, body?: unknown, signal?: AbortSignal) => fetch(url, { method: 'POST', headers: requestHeaders(body !== undefined), body: body !== undefined ? JSON.stringify(body) : undefined, signal });
+  const remove = (url: string) => fetch(url, { method: 'DELETE', headers: requestHeaders(false) });
   const errorOf = async (response: Response) => String((await response.json().catch(() => ({}))).error ?? 'unknown error').slice(0, 200);
+  const modelSummary = (models: unknown) => {
+    if (!Array.isArray(models)) return 'no model catalog was returned';
+    const names = models.filter((model): model is string => typeof model === 'string');
+    if (!names.length) return 'no provider-reported models were returned';
+    return `${names.length} provider-reported model${names.length === 1 ? '' : 's'} available${names.length <= 3 ? ` (${names.join(', ')})` : ''}.`;
+  };
 
   const form = document.querySelector<HTMLFormElement>('#provider-form');
   const formStatus = document.querySelector('#form-status');
+  const providerField = form?.querySelector<HTMLSelectElement>('[name=provider]');
+  const keyField = form?.querySelector<HTMLInputElement>('[name=apiKey]');
+  const urlField = form?.querySelector<HTMLInputElement>('[name=baseUrl]');
+  const modelField = form?.querySelector<HTMLInputElement>('[name=model]');
+  const testButton = document.querySelector<HTMLButtonElement>('#test-provider');
+  const catalog = document.querySelector<HTMLSelectElement>('#model-catalog');
+  const catalogLabel = document.querySelector<HTMLElement>('#model-catalog-label');
+  let catalogGeneration = 0;
+  let catalogAbort: AbortController | undefined;
+  const hideCatalog = () => {
+    if (catalog) { catalog.replaceChildren(new Option('Choose a reported model…', '')); catalog.hidden = true; }
+    if (catalogLabel) catalogLabel.hidden = true;
+  };
+  const clearCatalog = (invalidate = true) => {
+    if (invalidate) catalogGeneration += 1;
+    catalogAbort?.abort(); catalogAbort = undefined;
+    if (invalidate) { if (testButton) testButton.disabled = false; setStatus(formStatus, '', ''); }
+    hideCatalog();
+  };
+  const renderCatalog = (models: unknown) => {
+    if (!catalog || !Array.isArray(models)) return;
+    const ids = models.filter((model): model is string => typeof model === 'string' && model.length > 0);
+    catalog.replaceChildren(new Option('Choose a reported model…', ''), ...ids.map((model) => new Option(model, model)));
+    catalog.hidden = ids.length === 0;
+    if (catalogLabel) catalogLabel.hidden = ids.length === 0;
+  };
+  [providerField, keyField, urlField].forEach((field) => { field?.addEventListener('input', () => clearCatalog()); field?.addEventListener('change', () => clearCatalog()); });
+  catalog?.addEventListener('change', () => { if (catalog.value && modelField) modelField.value = catalog.value; });
+
   form?.addEventListener('submit', async (event) => {
     event.preventDefault();
     const button = form.querySelector<HTMLButtonElement>('button[type=submit]')!;
@@ -78,25 +118,36 @@ const names: Record<string, string> = { openai: 'OpenAI', deepseek: 'DeepSeek', 
     button.disabled = false;
   });
 
-  document.querySelector<HTMLButtonElement>('#load-models')?.addEventListener('click', async (event) => {
+  testButton?.addEventListener('click', async (event) => {
     const button = event.currentTarget as HTMLButtonElement;
-    const provider = form!.querySelector<HTMLSelectElement>('[name=provider]')!.value;
-    button.disabled = true; setStatus(formStatus, '', 'Loading model catalog…');
+    const provider = providerField!.value;
+    const generation = ++catalogGeneration;
+    catalogAbort?.abort(); catalogAbort = new AbortController();
+    hideCatalog(); button.disabled = true; setStatus(formStatus, '', 'Testing connection and requesting models…');
     try {
-      const response = await fetch(`/api/providers/${provider}/models`);
+      const response = await post(`/api/providers/${provider}/test`, { apiKey: keyField?.value ?? '', baseUrl: urlField?.value ?? '' }, catalogAbort.signal);
       if (response.ok) {
-        const { models } = await response.json();
-        const catalog = document.querySelector('#model-catalog')!;
-        catalog.replaceChildren(...models.map((model: string) => Object.assign(document.createElement('option'), { value: model })));
-        setStatus(formStatus, models.length ? 'ok' : '', models.length ? `${models.length} models loaded. Start typing in “Model identifier” to pick one.` : 'The provider returned no models.');
-      } else setStatus(formStatus, 'error', `Catalog unavailable: ${await errorOf(response)}`);
-    } catch { setStatus(formStatus, 'error', 'Network error while loading models.'); }
-    button.disabled = false;
+        const result = await response.json().catch(() => null);
+        if (generation !== catalogGeneration) return;
+        if (!result || !Array.isArray(result.models)) { clearCatalog(false); setStatus(formStatus, 'error', 'The provider returned an invalid model catalog.'); return; }
+        renderCatalog(result.models);
+        setStatus(formStatus, result.models.length ? 'ok' : '', result.models.length ? `${modelSummary(result.models)} Choose one below or keep typing your own identifier.` : 'Connection succeeded, but the provider returned no models.');
+      } else {
+        const message = await errorOf(response);
+        if (generation === catalogGeneration) { clearCatalog(false); setStatus(formStatus, 'error', `Connection failed: ${message}`); }
+      }
+    } catch (error) {
+      if (generation === catalogGeneration && !(error instanceof DOMException && error.name === 'AbortError')) { clearCatalog(false); setStatus(formStatus, 'error', 'Network error while testing the provider.'); }
+    } finally {
+      if (generation === catalogGeneration) { button.disabled = false; catalogAbort = undefined; }
+    }
   });
 
   document.querySelectorAll<HTMLElement>('.provider-actions').forEach((group) => {
     const { provider, name } = group.dataset;
     const result = group.parentElement!.querySelector('.provider-result');
+    const modelList = group.parentElement!.querySelector<HTMLDetailsElement>('[data-provider-models]');
+    const modelListItems = modelList?.querySelector('ul');
     group.addEventListener('click', async (event) => {
       const button = (event.target as HTMLElement).closest<HTMLButtonElement>('button[data-action]');
       if (!button) return;
@@ -105,11 +156,20 @@ const names: Record<string, string> = { openai: 'OpenAI', deepseek: 'DeepSeek', 
       button.disabled = true;
       try {
         if (action === 'test') {
+          if (modelList) modelList.hidden = true;
+          modelListItems?.replaceChildren();
           setStatus(result, '', 'Testing connection…');
           const response = await post(`/api/providers/${provider}/test`);
-          setStatus(result, response.ok ? 'ok' : 'error', response.ok ? 'Connection OK.' : `Test failed: ${await errorOf(response)}`);
+          if (response.ok) {
+            const payload = await response.json().catch(() => ({}));
+            const models = Array.isArray(payload.models) ? payload.models.filter((model: unknown): model is string => typeof model === 'string') : [];
+            if (modelListItems) modelListItems.replaceChildren(...models.map((model: string) => Object.assign(document.createElement('li'), { textContent: model })));
+            if (modelList) modelList.hidden = models.length === 0;
+            setStatus(result, 'ok', `Connection OK. ${modelSummary(models)}`);
+          }
+          else setStatus(result, 'error', `Test failed: ${await errorOf(response)}`);
         } else {
-          const response = action === 'remove' ? await fetch(`/api/providers/${provider}`, { method: 'DELETE' }) : await post('/api/providers', { provider, enabled: button.dataset.enabled !== 'true' });
+          const response = action === 'remove' ? await remove(`/api/providers/${provider}`) : await post('/api/providers', { provider, enabled: button.dataset.enabled !== 'true' });
           if (response.ok) { location.reload(); return; }
           setStatus(result, 'error', `Failed: ${await errorOf(response)}`);
         }

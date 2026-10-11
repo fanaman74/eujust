@@ -5,10 +5,24 @@ import Icon from '../components/Icon.astro';
 import { query } from '../lib/db';
 import { pageGuides } from '../data/page-guides';
 let runs: any[] = [], source: any = null, pref: any = null, error = '';
-try { runs = (await query('SELECT mr.*,s.name source_name FROM monitoring_runs mr JOIN sources s ON s.id=mr.source_id ORDER BY mr.started_at DESC LIMIT 20')).rows; source = (await query('SELECT name,last_checked_at,last_success_at FROM sources WHERE key=\'eurlex-sparql\'')).rows[0]; pref = (await query('SELECT timezone,hour,minute,enabled FROM schedule_preferences WHERE id=1')).rows[0]; } catch (e) { error = e instanceof Error ? e.message : 'Database unavailable'; }
+try { runs = (await query('SELECT mr.*,s.name source_name,s.key source_key,s.enabled source_enabled FROM monitoring_runs mr JOIN sources s ON s.id=mr.source_id ORDER BY mr.started_at DESC LIMIT 20')).rows; source = (await query('SELECT name,last_checked_at,last_success_at FROM sources WHERE key=\'eurlex-sparql\'')).rows[0]; pref = (await query('SELECT timezone,hour,minute,enabled FROM schedule_preferences WHERE id=1')).rows[0]; } catch (e) { error = e instanceof Error ? e.message : 'Database unavailable'; }
 const date = (v: string | null) => v ? new Intl.DateTimeFormat('en-GB', { dateStyle: 'medium', timeStyle: 'short' }).format(new Date(v)) : 'Never';
 const pad = (value: number) => String(value).padStart(2, '0');
 const time = `${pad(pref?.hour ?? 6)}:${pad(pref?.minute ?? 30)}`;
+const detailsOf = (run: any): Record<string, any> => run.details && typeof run.details === 'object' ? run.details : {};
+const failuresOf = (run: any): { celex?: string; kind: string; error: string; officialUrl?: string; source?: string }[] => Array.isArray(detailsOf(run).failures) ? detailsOf(run).failures : [];
+const failureUrl = (run: any, failure: { celex?: string; officialUrl?: string }) => failure.officialUrl ?? (run.source_key === 'eurlex-sparql' && failure.celex ? `https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:${encodeURIComponent(failure.celex)}` : '');
+const failureSummary = (run: any) => {
+  const counts = new Map<string, number>();
+  for (const failure of failuresOf(run)) {
+    const http = failure.error.match(/\bHTTP\s+(\d{3})\b/i)?.[1] ?? failure.error.match(/\[http_(\d{3})/)?.[1];
+    const label = http ? `HTTP ${http}` : /timeout|timed out|abort/i.test(failure.error) ? 'Timeout' : failure.kind === 'document' ? 'Document retrieval' : failure.kind === 'record' ? 'Record import' : 'Source check';
+    counts.set(label, (counts.get(label) ?? 0) + 1);
+  }
+  return [...counts.entries()].map(([label, count]) => `${label} × ${count}`).join(' · ');
+};
+const retryableSource = (key: string) => ['eurlex-sparql', 'ombudsman-documents', 'commission-cellar', 'commission-press'].includes(key);
+const scopeLabel = (run: any) => detailsOf(run).retryScope === 'failed-records' ? 'Retry scope: failed records' : detailsOf(run).retryScope === 'source' ? 'Retry scope: source' : '';
 const statuses: Record<string, { tone: string; icon: string; label: string }> = {
   success: { tone: 'success', icon: 'check', label: 'Success' },
   partial: { tone: 'warning', icon: 'warning', label: 'Partial' },
@@ -23,7 +37,8 @@ const statuses: Record<string, { tone: string; icon: string; label: string }> = 
         <h1>Monitoring collection checks</h1>
         <p class="lede">The collection worker checks official sources and records every attempt, including partial failures.</p>
       </div>
-      <div>
+      <div class="monitor-actions">
+        <label class="field monitor-token" for="operator-token"><span>Operator token <span class="muted">(optional)</span></span><input id="operator-token" type="password" autocomplete="off" spellcheck="false" placeholder="For protected deployments" /><span class="hint">Held in memory only. Your deployment proxy may supply it automatically.</span></label>
         <button class="button" id="run-monitor" type="button">Run check now</button>
       </div>
     </header>
@@ -56,23 +71,35 @@ const statuses: Record<string, { tone: string; icon: string; label: string }> = 
 
         <section class="panel" aria-labelledby="h-runs">
           <h2 id="h-runs">Run history</h2>
+          <p class="hint">Partial means some source metadata or document work completed while another part failed; it is not a complete successful check.</p>
           {runs.length === 0 ? <p class="muted">No checks have run yet. Use “Run check now” to verify the official source.</p> : (
             <div class="table-wrap">
               <table>
                 <caption class="sr-only">The 20 most recent source checks</caption>
-                <thead><tr><th scope="col">Started</th><th scope="col">Source</th><th scope="col">Status</th><th scope="col" class="num">Discovered</th><th scope="col" class="num">New</th><th scope="col" class="num">Failed</th><th scope="col">Note</th></tr></thead>
+                <thead><tr><th scope="col">Started</th><th scope="col">Source</th><th scope="col">Status</th><th scope="col" class="num">Discovered</th><th scope="col" class="num">New</th><th scope="col" class="num">Failed</th><th scope="col">Failure details</th><th scope="col">Action</th></tr></thead>
                 <tbody>
                   {runs.map((run) => {
                     const state = statuses[run.status] ?? { tone: '', icon: 'info', label: run.status };
                     return (
-                      <tr>
+                      <tr id={`run-${run.id}`}>
                         <td class="nowrap">{date(run.started_at)}</td>
-                        <td>{run.source_name}</td>
-                        <td><span class:list={['badge', state.tone]}><Icon name={state.icon} size={14} />{state.label}</span></td>
+                        <td>{run.source_name}{detailsOf(run).retryOf && <span class="monitor-run-meta"><a href={`#run-${detailsOf(run).retryOf}`}>Retry of run {detailsOf(run).retryOf}</a></span>}{scopeLabel(run) && <span class="monitor-run-meta">{scopeLabel(run)}</span>}</td>
+                        <td><span class:list={['badge', state.tone]} data-run-status={run.id}><Icon name={state.icon} size={14} />{state.label}</span></td>
                         <td class="num">{run.discovered_count}</td>
                         <td class="num">{run.imported_count}</td>
                         <td class="num">{run.failure_count}</td>
-                        <td class="small">{run.error_message ?? <span class="muted">—</span>}</td>
+                        <td class="small">
+                          {run.error_message && <p>{run.error_message}</p>}
+                          {failuresOf(run).length > 0 ? (
+                            <details class="monitor-failure-details">
+                              <summary>{failuresOf(run).length} recorded failure{failuresOf(run).length === 1 ? '' : 's'}{failureSummary(run) && ` · ${failureSummary(run)}`}</summary>
+                              <ul class="monitor-failures">
+                                {failuresOf(run).map((failure) => <li><span class="monitor-failure-label">{failure.kind}{failure.celex && ` · ${failure.celex}`}</span>{failureUrl(run, failure) && <a href={failureUrl(run, failure)} target="_blank" rel="noreferrer">Official source<span class="sr-only"> (opens in a new tab)</span></a>}<span>{failure.error}</span></li>)}
+                              </ul>
+                            </details>
+                          ) : run.status === 'partial' ? <span class="muted">Some metadata or document work failed; no detailed cause was saved.</span> : !run.error_message && <span class="muted">—</span>}
+                        </td>
+                        <td>{['failed', 'partial'].includes(run.status) && retryableSource(run.source_key) && run.source_enabled && <><button class="button secondary monitor-retry" data-run-id={run.id} type="button" aria-label={`Retry run ${run.id} for ${run.source_name}`}>Retry</button><span class="monitor-action-status" data-retry-status-for={run.id} role="status"></span></>}</td>
                       </tr>
                     );
                   })}
@@ -87,19 +114,92 @@ const statuses: Record<string, { tone: string; icon: string; label: string }> = 
 </Layout>
 <script>
   const setStatus = (el: HTMLElement | null, state: string, text: string) => { if (el) { el.dataset.state = state; el.textContent = text; } };
+  const tokenInput = document.querySelector<HTMLInputElement>('#operator-token');
+  const requestHeaders = (extra: Record<string, string> = {}) => {
+    const headers = { ...extra };
+    const token = tokenInput?.value.trim();
+    if (token) headers['x-admin-token'] = token;
+    return headers;
+  };
+  const authMessage = (response: Response, fallback: string) => response.status === 401
+    ? (tokenInput?.value.trim() ? 'Operator token rejected. Check the token supplied by your deployment proxy.' : 'Enter the operator token supplied by your deployment proxy to run checks.')
+    : fallback;
+  const monitorResultMessage = (status: string) => status === 'success'
+    ? ['ok', 'Check completed successfully.']
+    : status === 'partial'
+      ? ['error', 'Check completed with partial failures. Review the run history.']
+      : ['error', 'Check failed. Review the run history for the recorded cause.'];
+  const aggregateFullStatus = (body: { status?: string; institutions?: { status?: string }[] }) => {
+    const statuses = [body.status, ...(body.institutions ?? []).map((item) => item.status)].filter(Boolean);
+    if (statuses.some((status) => status === 'failed')) return 'failed';
+    return statuses.some((status) => status !== 'success') ? 'partial' : 'success';
+  };
 
   const runButton = document.querySelector<HTMLButtonElement>('#run-monitor');
   const runStatus = document.querySelector<HTMLElement>('#run-status');
-  runButton?.addEventListener('click', async () => {
-    runButton.disabled = true; runButton.textContent = 'Checking…';
-    setStatus(runStatus, '', 'Querying the official source. This can take a minute.');
+  const pollRun = (runId: number, target: HTMLElement | null = runStatus, onTerminal?: (completed: boolean) => void) => {
+    const startedAt = Date.now();
+    const poll = async () => {
+      try {
+        const response = await fetch(`/api/monitor/runs/${runId}`);
+        const body = await response.json().catch(() => ({}));
+        if (!response.ok) { setStatus(target, 'error', body.error ?? 'Could not read the monitoring run.'); onTerminal?.(false); return; }
+        if (body.status === 'running') {
+          if (Date.now() - startedAt > 10 * 60_000) { setStatus(target, 'error', 'The check is still running. Refresh later to inspect its final status.'); onTerminal?.(false); return; }
+          setStatus(target, '', target === runStatus ? 'Checking the official source…' : 'Running'); window.setTimeout(poll, 1500); return;
+        }
+        const [state, message] = monitorResultMessage(body.status);
+        setStatus(target, state, target === runStatus ? message : body.status === 'success' ? 'Success' : body.status === 'partial' ? 'Partial' : 'Failed');
+        onTerminal?.(true);
+        window.setTimeout(() => location.reload(), 2200);
+      } catch { setStatus(target, 'error', 'Network error while reading the monitoring run.'); onTerminal?.(false); }
+    };
+    void poll();
+  };
+  const startFullCheck = async () => {
+    if (!runButton) return;
+    runButton.disabled = true; runButton.textContent = 'Starting…';
+    setStatus(runStatus, '', 'Reserving the source check…');
     try {
-      const response = await fetch('/api/monitor', { method: 'POST' });
+      const response = await fetch('/api/monitor', { method: 'POST', headers: requestHeaders() });
       const body = await response.json().catch(() => ({}));
-      if (response.ok) { location.reload(); return; }
-      setStatus(runStatus, 'error', `Check failed: ${body.error ?? 'unknown error'}`);
+      if (response.status === 202 && body.runId) { runButton.textContent = 'Checking…'; pollRun(Number(body.runId), runStatus, () => { runButton.disabled = false; runButton.textContent = 'Run check now'; }); return; }
+      if (response.ok) {
+        const [state, message] = monitorResultMessage(aggregateFullStatus(body));
+        setStatus(runStatus, state, message);
+        runButton.disabled = false; runButton.textContent = 'Run check now';
+        window.setTimeout(() => { if (body.runId) location.hash = `run-${body.runId}`; location.reload(); }, 2200);
+        return;
+      }
+      setStatus(runStatus, 'error', authMessage(response, body.error ?? 'Check could not start.'));
     } catch { setStatus(runStatus, 'error', 'Network error. The check may not have started.'); }
     runButton.disabled = false; runButton.textContent = 'Run check now';
+  };
+  runButton?.addEventListener('click', () => { void startFullCheck(); });
+
+  document.querySelectorAll<HTMLButtonElement>('.monitor-retry').forEach((button) => {
+    button.addEventListener('click', async () => {
+      const runId = Number(button.dataset.runId);
+      const retryStatus = document.querySelector<HTMLElement>(`[data-retry-status-for="${runId}"]`);
+      button.disabled = true; button.textContent = 'Starting…';
+      setStatus(retryStatus, '', 'Reserving retry…');
+      try {
+        const response = await fetch('/api/monitor/retry', { method: 'POST', headers: requestHeaders({ 'content-type': 'application/json' }), body: JSON.stringify({ runId }) });
+        const body = await response.json().catch(() => ({}));
+        if (response.status === 202 && body.runId) {
+          button.textContent = 'Retrying…';
+          setStatus(retryStatus, '', `Retrying run ${body.runId}…`);
+          pollRun(Number(body.runId), retryStatus, (completed) => { button.disabled = false; button.textContent = 'Retry'; if (completed) location.hash = `run-${body.runId}`; });
+          return;
+        }
+        setStatus(retryStatus, 'error', authMessage(response, body.error ?? 'Retry could not start.'));
+      } catch { setStatus(retryStatus, 'error', 'Network error. The retry may not have started.'); }
+      button.disabled = false; button.textContent = 'Retry';
+    });
+  });
+
+  document.querySelectorAll<HTMLElement>('[data-run-status]').forEach((status) => {
+    if (status.textContent?.trim() === 'Running') pollRun(Number(status.dataset.runStatus), status);
   });
 
   const scheduleForm = document.querySelector<HTMLFormElement>('#schedule-form');
@@ -117,10 +217,10 @@ const statuses: Record<string, { tone: string; icon: string; label: string }> = 
     const button = scheduleForm.querySelector('button')!;
     button.disabled = true; setStatus(scheduleStatus, '', 'Saving…');
     try {
-      const response = await fetch('/api/schedule', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ timezone, hour, minute, enabled: data.get('enabled') === 'on' }) });
+      const response = await fetch('/api/schedule', { method: 'POST', headers: requestHeaders({ 'content-type': 'application/json' }), body: JSON.stringify({ timezone, hour, minute, enabled: data.get('enabled') === 'on' }) });
       if (response.ok) { location.reload(); return; }
       const body = await response.json().catch(() => ({}));
-      setStatus(scheduleStatus, 'error', `Not saved: ${String(body.error ?? 'unknown error').slice(0, 160)}`);
+      setStatus(scheduleStatus, 'error', authMessage(response, `Not saved: ${String(body.error ?? 'unknown error').slice(0, 160)}`));
     } catch { setStatus(scheduleStatus, 'error', 'Network error. The schedule was not saved.'); }
     button.disabled = false;
   });

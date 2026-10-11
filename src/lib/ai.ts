@@ -3,15 +3,16 @@ import { decryptSecret, encryptSecret, redactError } from './security.ts';
 import { z } from 'zod';
 
 export type ProviderName = 'openai' | 'deepseek' | 'openrouter' | 'anthropic';
+export const providerNames = ['openai', 'deepseek', 'openrouter', 'anthropic'] as const satisfies readonly ProviderName[];
 const defaults: Record<ProviderName, string> = {
   openai: 'https://api.openai.com/v1', deepseek: 'https://api.deepseek.com/v1', openrouter: 'https://openrouter.ai/api/v1', anthropic: 'https://api.anthropic.com/v1'
 };
 
-const allowedHosts = new Set(['api.openai.com', 'api.deepseek.com', 'openrouter.ai', 'api.anthropic.com']);
+const allowedHosts: Record<ProviderName, string> = { openai: 'api.openai.com', deepseek: 'api.deepseek.com', openrouter: 'openrouter.ai', anthropic: 'api.anthropic.com' };
 function safeBaseUrl(provider: ProviderName, value?: string) {
   const candidate = value || defaults[provider];
   const parsed = new URL(candidate);
-  if (parsed.protocol !== 'https:' || parsed.port || parsed.username || parsed.password || parsed.search || parsed.hash || !allowedHosts.has(parsed.hostname)) throw new Error('Provider endpoint must use the exact allowlisted HTTPS provider host');
+  if (parsed.protocol !== 'https:' || parsed.port || parsed.username || parsed.password || parsed.search || parsed.hash || parsed.hostname !== allowedHosts[provider]) throw new Error('Provider endpoint must use the exact allowlisted HTTPS provider host');
   return parsed.toString().replace(/\/$/, '');
 }
 
@@ -29,23 +30,77 @@ export async function listProviders() {
 
 export async function removeProvider(provider: ProviderName) { await query('DELETE FROM provider_settings WHERE provider = $1', [provider]); }
 
-export async function providerModels(provider: ProviderName) {
-  const config = await providerConfig(provider);
-  const response = await providerFetch(provider, `${config.baseUrl}/models`, { headers: headers(provider, config.apiKey) });
-  if (!response.ok) throw new Error(`Provider model list failed with HTTP ${response.status}`);
-  const data = await response.json() as { data?: { id?: string }[] };
-  return (data.data ?? []).flatMap((model) => model.id ? [model.id] : []).slice(0, 200);
+export type ProviderConnectionInput = { apiKey?: string; baseUrl?: string };
+type ProviderFetcher = (input: RequestInfo | URL, init?: RequestInit) => Promise<Response>;
+type SavedProvider = { baseUrl: string | null; model: string | null; apiKey: string };
+type SavedProviderLoader = (provider: ProviderName) => Promise<SavedProvider | undefined>;
+
+/** Redact the exact in-memory credential as well as the generic bearer forms. */
+export function redactProviderError(error: unknown, secrets: string[] = []) {
+  let raw = String(error instanceof Error ? error.message : error);
+  for (const secret of secrets.map((value) => value.trim()).filter(Boolean)) raw = raw.split(secret).join('[redacted]');
+  let message = redactError(raw);
+  for (const secret of secrets.map((value) => value.trim()).filter(Boolean)) message = message.split(secret).join('[redacted]');
+  return message.slice(0, 1_000);
 }
 
-export async function testProvider(provider: ProviderName) {
-  const config = await providerConfig(provider);
-  if (provider === 'anthropic') {
-    const response = await providerFetch(provider, `${config.baseUrl}/models`, { headers: headers(provider, config.apiKey) });
-    if (!response.ok) throw new Error(`Provider test failed with HTTP ${response.status}`);
-    return { ok: true };
+function modelIds(value: unknown) {
+  if (!value || typeof value !== 'object' || !Array.isArray((value as { data?: unknown }).data)) throw new Error('Provider returned a malformed model catalog');
+  const ids: string[] = [];
+  for (const model of (value as { data: unknown[] }).data) {
+    if (!model || typeof model !== 'object' || typeof (model as { id?: unknown }).id !== 'string' || !(model as { id: string }).id.trim()) throw new Error('Provider returned a malformed model catalog');
+    const id = (model as { id: string }).id.trim(); if (!ids.includes(id)) ids.push(id);
   }
-  await providerModels(provider);
-  return { ok: true };
+  return ids;
+}
+
+async function fetchModels(provider: ProviderName, config: { baseUrl: string; apiKey: string }, fetcher: ProviderFetcher = fetch) {
+  const request = (url: string) => fetcher(url, { headers: headers(provider, config.apiKey), redirect: 'error', signal: AbortSignal.timeout(25_000) });
+  if (provider === 'openrouter') {
+    const keyCheck = await request(`${config.baseUrl}/key`);
+    if (!keyCheck.ok) throw new Error(`Provider key validation failed with HTTP ${keyCheck.status}`);
+  }
+  if (provider !== 'anthropic') {
+    const response = await request(`${config.baseUrl}/models`);
+    if (!response.ok) throw new Error(`Provider model list failed with HTTP ${response.status}`);
+    return modelIds(await response.json());
+  }
+  const models: string[] = [];
+  const seenModels = new Set<string>();
+  const seenCursors = new Set<string>();
+  let next: string | undefined;
+  for (let page = 0; page < 100; page += 1) {
+    const url = new URL(`${config.baseUrl}/models`);
+    if (next) url.searchParams.set('after_id', next);
+    const response = await request(url.toString());
+    if (!response.ok) throw new Error(`Provider model list failed with HTTP ${response.status}`);
+    const data = await response.json() as { data?: unknown; has_more?: boolean; last_id?: unknown };
+    for (const id of modelIds(data)) if (!seenModels.has(id)) { seenModels.add(id); models.push(id); }
+    if (!data.has_more) return models;
+    if (typeof data.last_id !== 'string' || !data.last_id || seenCursors.has(data.last_id)) throw new Error('Provider returned an invalid model pagination cursor');
+    seenCursors.add(data.last_id); next = data.last_id;
+  }
+  throw new Error('Provider returned too many model catalog pages');
+}
+
+export async function providerModels(provider: ProviderName, input?: ProviderConnectionInput, fetcher: ProviderFetcher = fetch) {
+  let secret = input?.apiKey?.trim() || '';
+  try {
+    const config = await providerConfig(provider, input); secret = config.apiKey;
+    return await fetchModels(provider, config, fetcher);
+  } catch (error) { throw new Error(redactProviderError(error, [secret])); }
+}
+
+export async function testProviderConnection(provider: ProviderName, input?: ProviderConnectionInput, fetcher: ProviderFetcher = fetch, loadSaved: SavedProviderLoader = loadSavedProvider) {
+  let secret = input?.apiKey?.trim() || '';
+  try {
+    const config = await providerConfig(provider, input, loadSaved); secret = config.apiKey;
+    return { ok: true as const, models: await fetchModels(provider, config, fetcher) };
+  } catch (error) { throw new Error(redactProviderError(error, [secret])); }
+}
+
+export async function testProvider(provider: ProviderName, input?: ProviderConnectionInput) {
+  return testProviderConnection(provider, input);
 }
 
 export async function generateSummary(caseId: number) {
@@ -61,11 +116,19 @@ export async function generateSummary(caseId: number) {
   return { provider: config.provider, model: config.model, report: result, sourceDocumentIds: [source.rows[0].id] };
 }
 
-async function providerConfig(provider: ProviderName) {
+async function loadSavedProvider(provider: ProviderName): Promise<SavedProvider | undefined> {
   const result = await query<{ base_url: string | null; model: string | null; encrypted_api_key: string | null; enabled: boolean }>('SELECT base_url, model, encrypted_api_key, enabled FROM provider_settings WHERE provider=$1', [provider]);
   const row = result.rows[0];
-  if (!row?.encrypted_api_key) throw new Error('Provider has no saved API key');
-  return { baseUrl: safeBaseUrl(provider, row.base_url || undefined), model: row.model, apiKey: decryptSecret(row.encrypted_api_key) };
+  return row?.encrypted_api_key ? { baseUrl: row.base_url, model: row.model, apiKey: decryptSecret(row.encrypted_api_key) } : undefined;
+}
+
+async function providerConfig(provider: ProviderName, input?: ProviderConnectionInput, loadSaved: SavedProviderLoader = loadSavedProvider) {
+  if (input?.apiKey?.trim()) return { baseUrl: safeBaseUrl(provider, input.baseUrl?.trim() || undefined), model: null, apiKey: input.apiKey.trim() };
+  const row = await loadSaved(provider);
+  const apiKey = row?.apiKey || '';
+  if (!apiKey) throw new Error('Provider has no API key to test');
+  const baseUrl = input ? safeBaseUrl(provider, input.baseUrl?.trim() || undefined) : safeBaseUrl(provider, row?.baseUrl || undefined);
+  return { baseUrl, model: row?.model ?? null, apiKey };
 }
 
 async function chat(provider: ProviderName, baseUrl: string, apiKey: string, model: string, prompt: string, sourceText: string) {
