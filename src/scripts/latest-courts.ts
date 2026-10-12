@@ -16,6 +16,12 @@ const highlight = () => {
   section.style.setProperty('--scan-distance', `${height}px`);
   section.style.setProperty('--scan-duration', `${duration.toFixed(2)}s`);
   grid.querySelectorAll<HTMLElement>('.court-card').forEach((card) => card.style.setProperty('--card-delay', `${(Math.max(0, card.getBoundingClientRect().top - bounds.top + 30) / height * duration).toFixed(2)}s`));
+  grid.querySelectorAll<HTMLElement>('.court-card-content').forEach((content) => {
+    const rect = content.getBoundingClientRect();
+    content.style.setProperty('--text-delay', `${Math.max(0, rect.top - bounds.top) / height * duration}s`);
+    content.style.setProperty('--text-duration', `${Math.max(.1, rect.height / height * duration)}s`);
+  });
+  section.classList.add('latest-prepared');
   section.classList.remove('latest-scan');
   replayFrame = requestAnimationFrame(() => { replayFrame = requestAnimationFrame(() => section.classList.add('latest-scan')); });
   played = true;
@@ -35,7 +41,7 @@ pause?.addEventListener('click', () => {
 });
 replay?.addEventListener('click', highlight);
 preference.addEventListener('change', () => {
-  if (preference.matches) { cancelAnimationFrame(replayFrame); section?.classList.remove('latest-scan'); }
+  if (preference.matches) { cancelAnimationFrame(replayFrame); section?.classList.remove('latest-scan', 'latest-prepared'); }
   else syncVisibility();
 });
 if (section) {
@@ -57,4 +63,5 @@ if (section) {
     new ResizeObserver(observeCards).observe(grid);
   }
   document.addEventListener('visibilitychange', syncVisibility);
+  if (grid && !preference.matches) section.classList.add('latest-prepared');
 }

@@ -1,0 +1,31 @@
+{
+  "name": "eujust-europe-map",
+  "version": "1.0.0",
+  "description": "Remotion Europe map hero for EU JUST",
+  "scripts": {
+    "dev": "remotion studio",
+    "build": "remotion bundle",
+    "upgrade": "remotion upgrade",
+    "lint": "eslint src && tsc",
+    "render:landscape": "remotion render EuropeLandscape ../public/videos/europe-landscape.mp4 --browser-executable=/usr/bin/chromium --gl=swangle --concurrency=1 --codec=h264 --crf=26",
+    "render:portrait": "remotion render EuropePortrait ../public/videos/europe-portrait.mp4 --browser-executable=/usr/bin/chromium --gl=swangle --concurrency=1 --codec=h264 --crf=26"
+  },
+  "repository": {},
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@remotion/cli": "4.0.535",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "remotion": "4.0.535",
+    "maplibre-gl": "^5.0.0"
+  },
+  "devDependencies": {
+    "@remotion/eslint-config-flat": "4.0.535",
+    "@types/react": "19.2.7",
+    "@types/web": "0.0.166",
+    "eslint": "9.39.5",
+    "prettier": "3.8.1",
+    "typescript": "5.9.3"
+  },
+  "private": true
+}

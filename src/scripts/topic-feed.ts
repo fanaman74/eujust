@@ -56,7 +56,11 @@ if (feed && viewport && list && list.children.length) {
   pause?.addEventListener('click', () => {
     paused = !paused;
     pause.setAttribute('aria-pressed', String(paused));
-    pause.textContent = paused ? 'Play feed' : 'Pause feed';
+    const label = paused ? 'Play feed' : 'Pause feed';
+    pause.setAttribute('aria-label', label);
+    pause.title = label;
+    pause.querySelector<HTMLElement>('[data-play-icon]')!.hidden = !paused;
+    pause.querySelector<HTMLElement>('[data-pause-icon]')!.hidden = paused;
     sync();
   });
   next?.addEventListener('click', () => { cancelSlide(); advance(false); sync(); });

@@ -31,7 +31,7 @@ Source-first. Every case links to the official EUR-Lex document, and AI-generate
 ## Capabilities and Constraints
 
 - Search and filter by text, topic, court; sort; paginate.
-- Home Feed: five recent court/institution records with source dates and actual keyword matches, shown in a three-row window that advances upward every five seconds, with Pause/Next and reading/reduced-motion protection; RSS 2.0 at `/rss.xml` serves up to twenty records. RSS publication dates reflect first collection, separately from judgment/document dates.
+- Home Feed: five recent court/institution records with source dates and actual keyword matches, shown in a three-row window that advances upward every five seconds, with accessible icon-only Pause/Play and Next controls and reading/reduced-motion protection; RSS 2.0 at `/rss.xml` serves up to twenty records. RSS publication dates reflect first collection, separately from judgment/document dates.
 - Public topic guides for workplace harassment, employment discrimination and psychosocial risks, linked to recent matched records and the full archive.
 - Canonical domain: https://www.eujust.online; public records and guides are discoverable through XML sitemaps, while operator/search/preview/error pages are excluded from indexing.
 - Case detail: official source, metadata, optional AI summary with verified paragraph citations.
@@ -46,7 +46,7 @@ Source-first. Every case links to the official EUR-Lex document, and AI-generate
 
 - Name: EU JUST.
 - The standing disclaimer: research support only; always verify against the official judgment.
-- Visual direction: the owner requested the Brainfish theme on 12 October 2026. Cream backgrounds, charcoal structure, lime actions, pink editorial accents, Fraunces headings and Geist interface text replace the earlier paper/navy/gold register. Research keeps a top menu; home retains the supplied EU flag image, working search, real collection data and five latest cases with a view-all action. Reading and operational pages adapt the reference to their own tasks. Motion and focus remain accessible. See DESIGN.md.
+- Visual direction: the owner requested the Brainfish theme on 12 October 2026. Cream backgrounds, charcoal structure, lime actions, pink editorial accents, Fraunces headings and Geist interface text replace the earlier paper/navy/gold register. Research keeps a top menu; home uses a full-viewport Remotion Europe map, retains the supplied EU flag image in the Feed below it, and presents real collection data and five latest cases with a view-all action. The hero search/topic strip is removed; collection search remains available in navigation. Reading and operational pages adapt the reference to their own tasks. Motion and focus remain accessible. See DESIGN.md.
 
 ## Evidence on Hand
 
@@ -54,7 +54,7 @@ Source-first. Every case links to the official EUR-Lex document, and AI-generate
 - No AI summaries have been generated yet; none may be invented.
 - No testimonials, user counts, or press mentions exist; none may be fabricated.
 - Hero photography is sourced from freely licensed photographs with credit.
-- The user-supplied home hero image is the product's approved home-page image; it belongs to the home hero only and should retain its source credit where displayed.
+- The approved EU flag photograph stays on the home Feed panel with its source credit. The animated hero map uses public-domain Natural Earth geometry.
 
 ## Product Principles
 

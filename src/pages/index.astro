@@ -3,14 +3,12 @@ import Layout from '../layouts/Layout.astro';
 import Icon from '../components/Icon.astro';
 import CourtCard from '../components/CourtCard.astro';
 import { query } from '../lib/db';
-import { researchTopics } from '../data/research-topics';
 import { getTopicFeed, type TopicFeedItem } from '../lib/topic-feed';
 
-let latest: any[] = [], topics: { slug: string; name_en: string }[] = [], total = 0, sourceCount = 0, lastCheck: string | null = null, error = '';
+let latest: any[] = [], total = 0, sourceCount = 0, lastCheck: string | null = null, error = '';
 try {
   latest = (await query(`SELECT c.id,c.celex,c.case_number,c.title,c.judgment_date,c.summary,co.name court, (SELECT d.official_url FROM documents d WHERE d.case_id=c.id ORDER BY d.retrieved_at DESC NULLS LAST,d.id DESC LIMIT 1) official_url, COALESCE(array_agg(DISTINCT t.name_en) FILTER (WHERE t.id IS NOT NULL),'{}') topics FROM cases c LEFT JOIN courts co ON co.id=c.court_id LEFT JOIN case_topics ct ON ct.case_id=c.id LEFT JOIN topics t ON t.id=ct.topic_id GROUP BY c.id,co.name ORDER BY c.judgment_date DESC NULLS LAST,c.id DESC LIMIT 5`)).rows;
   total = Number((await query<{ total: string }>('SELECT count(*) total FROM cases')).rows[0].total);
-  topics = (await query<{ slug: string; name_en: string }>('SELECT slug,name_en FROM topics WHERE enabled ORDER BY name_en')).rows;
   const sources = (await query<{ enabled: string; checked: string | null }>(`SELECT count(*) FILTER (WHERE enabled) enabled, max(last_checked_at) FILTER (WHERE key='eurlex-sparql') checked FROM sources`)).rows[0];
   sourceCount = Number(sources?.enabled ?? 0);
   lastCheck = sources?.checked ?? null;
@@ -33,23 +31,23 @@ if (error || feedError) { Astro.response.status = 503; Astro.response.headers.se
 
 <Layout title="EU employment law: court rulings & workplace rights" description="Find EU court rulings on workplace harassment, discrimination and psychosocial risks. Explore institutional rules and accountability, linked to official sources." noindex={Boolean(error)}>
   <section class="home-hero" aria-labelledby="home-title">
-    <div class="hero-aura" aria-hidden="true"></div>
+    <div class="hero-map-media" aria-hidden="true">
+      <picture><source media="(max-width: 700px)" srcset="/videos/europe-portrait-poster.png" /><img class="hero-map-poster" src="/videos/europe-landscape-poster.png" alt="" width="1920" height="1080" fetchpriority="high" /></picture>
+      <video class="hero-map-video" muted loop playsinline preload="none" data-landscape="/videos/europe-landscape.mp4" data-portrait="/videos/europe-portrait.mp4" aria-label="Animated map of Europe" aria-hidden="true"></video>
+      <div class="hero-map-shade"></div>
+    </div>
     <div class="home-hero-copy">
       <h1 id="home-title">Workplace rights.<br /><span>Straight to the source.</span></h1>
       <p class="home-lede">Follow European court rulings on harassment, discrimination and psychosocial risk at work. Find the record, understand the context, and go straight to the official source.</p>
-      <form class="home-search" action="/cases" method="get" role="search" aria-label="Search court rulings">
-        <label class="sr-only" for="home-q">Search court rulings</label>
-        <input id="home-q" name="q" type="search" placeholder="Party, case number or keyword" autocomplete="off" />
-        <button class="button" type="submit">Search rulings <Icon name="arrow-right" size={17} /></button>
-      </form>
-      {topics.length > 0 && (
-        <p class="home-topics">
-          <span>Browse by topic</span>
-          {topics.map((topic) => <a href={researchTopics.some((item) => item.slug === topic.slug) ? `/topics/${topic.slug}` : `/cases?topic=${encodeURIComponent(topic.slug)}`}>{topic.name_en}</a>)}
-        </p>
-      )}
+
     </div>
-    <button class="hero-motion" type="button" aria-pressed="false">Pause background animation</button>
+    <div class="hero-map-controls">
+      <button class="hero-motion icon-control" type="button" aria-label="Pause map animation" title="Pause map animation" aria-pressed="false"><span data-pause-icon><Icon name="pause" size={20} /></span><span data-play-icon hidden><Icon name="play" size={20} /></span></button>
+      <button class="hero-fullscreen icon-control" type="button" aria-label="View Europe map full screen" title="View Europe map full screen"><Icon name="fullscreen" size={20} /></button>
+    </div>
+    <a class="hero-map-credit" href="https://www.naturalearthdata.com/">Map: Natural Earth</a>
+  </section>
+  <section class="wrap home-feed" aria-label="Latest research updates">
     <div class="research-window">
       <div class="research-window-bar"><span class="window-brand">EU JUST / Feed</span><span>Official source records</span></div>
       <div class="research-window-body">
@@ -69,7 +67,7 @@ if (error || feedError) { Astro.response.status = 503; Astro.response.headers.se
               </li>)}
             </ol></div>
           )}
-          <div class="topic-feed-actions"><a href="/topics">Explore all topics <Icon name="arrow-right" size={15} /></a><div class="topic-feed-controls" hidden><button class="topic-feed-pause" type="button" aria-pressed="false">Pause feed</button><button class="topic-feed-next" type="button">Next update <Icon name="arrow-right" size={15} /></button></div></div>
+          <div class="topic-feed-actions"><a href="/topics">Explore all topics <Icon name="arrow-right" size={15} /></a><div class="topic-feed-controls" hidden><button class="topic-feed-pause icon-control" type="button" aria-pressed="false" aria-label="Pause feed" title="Pause feed"><span data-pause-icon><Icon name="pause" size={18} /></span><span data-play-icon hidden><Icon name="play" size={18} /></span></button><button class="topic-feed-next icon-control" type="button" aria-label="Next update" title="Next update"><Icon name="arrow-right" size={18} /></button></div></div>
         </section>
       </div>
     </div>
@@ -127,10 +125,12 @@ if (error || feedError) { Astro.response.status = 503; Astro.response.headers.se
         <ul class="court-card-grid" aria-label="Latest court rulings">
           {latest.map((item) => <CourtCard item={item} />)}
           <li class="court-card court-card-archive">
+            <div class="court-card-content">
             <Icon name="search" size={28} />
             <h3><a href="/cases">Keep exploring.</a></h3>
             <p>Search all {total} collected rulings by party, case number, court or matched topic.</p>
             <a class="court-card-action" href="/cases">Browse the collection <Icon name="arrow-right" size={16} /></a>
+            </div>
           </li>
         </ul>
       )}
@@ -163,24 +163,5 @@ if (error || feedError) { Astro.response.status = 503; Astro.response.headers.se
 <script>
   import '../scripts/latest-courts';
   import '../scripts/topic-feed';
-  const hero = document.querySelector<HTMLElement>('.home-hero');
-  const motionButton = document.querySelector<HTMLButtonElement>('.hero-motion');
-  const motionPreference = matchMedia('(prefers-reduced-motion: reduce)');
-  const setMotion = (paused: boolean) => {
-    if (hero) hero.dataset.motion = paused ? 'paused' : 'playing';
-    motionButton?.setAttribute('aria-pressed', String(paused));
-    if (motionButton) motionButton.textContent = paused ? 'Play background animation' : 'Pause background animation';
-  };
-  setMotion(motionPreference.matches);
-  motionPreference.addEventListener('change', () => setMotion(motionPreference.matches));
-  let inView = true;
-  const updateVisibility = () => { if (hero) hero.dataset.visibility = document.hidden || !inView ? 'hidden' : 'visible'; };
-  if (hero) {
-    new IntersectionObserver(([entry]) => { inView = entry.isIntersecting; updateVisibility(); }).observe(hero);
-    document.addEventListener('visibilitychange', updateVisibility);
-  }
-  motionButton?.addEventListener('click', () => {
-    const paused = motionButton.getAttribute('aria-pressed') !== 'true';
-    setMotion(paused);
-  });
+  import '../scripts/hero-map';
 </script>

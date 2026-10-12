@@ -4,6 +4,15 @@
     "allowJs": true,
     "checkJs": true,
     "baseUrl": ".",
-    "paths": { "@/*": ["src/*"] }
-  }
+    "paths": {
+      "@/*": [
+        "src/*"
+      ]
+    }
+  },
+  "exclude": [
+    "node_modules",
+    "dist",
+    "video"
+  ]
 }
