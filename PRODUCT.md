@@ -46,15 +46,14 @@ Source-first. Every case links to the official EUR-Lex document, and AI-generate
 
 - Name: EU JUST.
 - The standing disclaimer: research support only; always verify against the official judgment.
-- Visual direction: the owner requested the Brainfish theme on 12 October 2026. Cream backgrounds, charcoal structure, lime actions, pink editorial accents, Fraunces headings and Geist interface text replace the earlier paper/navy/gold register. Research keeps a top menu; home uses a full-viewport Remotion Europe map, retains the supplied EU flag image in the Feed below it, and presents real collection data and five latest cases with a view-all action. The hero search/topic strip is removed; collection search remains available in navigation. Reading and operational pages adapt the reference to their own tasks. Motion and focus remain accessible. See DESIGN.md.
+- Visual direction: the owner requested the Brainfish theme on 12 October 2026. Cream backgrounds, charcoal structure, lime actions, pink editorial accents, Fraunces headings and Geist interface text replace the earlier paper/navy/gold register. Research keeps a top menu; home uses a full-viewport Remotion Europe map, uses a full-width text Feed below it, and presents real collection data and five latest cases with a view-all action. The hero search/topic strip is removed; collection search remains available in navigation. Reading and operational pages adapt the reference to their own tasks. Motion and focus remain accessible. See DESIGN.md.
 
 ## Evidence on Hand
 
 - 84 real cases with official titles, case numbers, courts, dates and source links.
 - No AI summaries have been generated yet; none may be invented.
 - No testimonials, user counts, or press mentions exist; none may be fabricated.
-- Hero photography is sourced from freely licensed photographs with credit.
-- The approved EU flag photograph stays on the home Feed panel with its source credit. The animated hero map uses public-domain Natural Earth geometry.
+- The owner removed the EU flag photograph from the Feed. The animated hero map uses public-domain Natural Earth geometry.
 
 ## Product Principles
 

@@ -51,9 +51,6 @@ if (error || feedError) { Astro.response.status = 503; Astro.response.headers.se
     <div class="research-window">
       <div class="research-window-bar"><span class="window-brand">EU JUST / Feed</span><span>Official source records</span></div>
       <div class="research-window-body">
-        <figure class="home-hero-figure">
-          <img src="/images/home-hero.png" alt="European Union flag hanging inside a glass and steel atrium." width="1011" height="673" fetchpriority="high" />
-        </figure>
         <section class="topic-feed" aria-labelledby="topic-feed-title">
           <h2 id="topic-feed-title">Latest updates.</h2>
           <p class="topic-feed-note">Recent court rulings and institutional records; topics are keyword matches.</p>
@@ -74,27 +71,27 @@ if (error || feedError) { Astro.response.status = 503; Astro.response.headers.se
   </section>
 
   {ledger.length > 0 && (
-    <div class="wrap">
-      <dl class="ledger" aria-label="Collection at a glance">
+    <section class="wrap collection-overview" aria-labelledby="collection-title">
+      <header><h2 id="collection-title">Collection overview.</h2><a href="/monitoring">View source checks <Icon name="arrow-right" size={16} /></a></header>
+      <dl class="ledger">
         {ledger.map((cell) => <div><dt>{cell.label}</dt><dd>{cell.value}</dd></div>)}
       </dl>
-    </div>
+    </section>
   )}
 
   <section class="wrap home-services" aria-labelledby="services-title">
     <h2 id="services-title">Four ways to explore the record.</h2>
     <div class="service-grid">
       {[
-        { href: '/cases', title: 'Court rulings', icon: 'search', description: 'Find European court decisions on rights at work, with the official source close at hand.', features: ['Search by party, case or keyword', 'Filter by court and matched topic', 'Open the official judgment'], action: 'Find a ruling' },
-        { href: '/rules', title: 'Rules & updates', icon: 'scale', description: 'Explore the commitments and policies that shape working life in EU institutions.', features: ['Standing institutional references', 'Ombudsman and Commission updates', 'Official policies and source links'], action: 'Explore the rules' },
-        { href: '/decisions', title: 'Selected records', icon: 'book', description: 'Read a focused editorial selection of judgments, reports and oversight records.', features: ['Hand-picked source records', 'Workplace rights and oversight', 'Clear dates and official references'], action: 'Browse the selection' },
-        { href: '/discharge', title: 'Budget discharge', icon: 'activity', description: 'Follow how Parliament scrutinises spending and holds EU institutions to account.', features: ['Institution outcomes and decisions', 'Previous-cycle replies', 'Guide to the discharge procedure'], action: 'Follow the accountability' }
+        { href: '/cases', title: 'Court rulings', icon: 'search', description: 'Find European court decisions on workplace rights, linked to the official judgment.', action: 'Find a ruling' },
+        { href: '/rules', title: 'Rules & updates', icon: 'scale', description: 'Explore the rules and policies that shape working life in EU institutions.', action: 'Explore the rules' },
+        { href: '/decisions', title: 'Selected records', icon: 'book', description: 'Read selected judgments, reports and oversight records.', action: 'Browse the selection' },
+        { href: '/discharge', title: 'Budget discharge', icon: 'activity', description: 'Follow how Parliament scrutinises spending by EU institutions.', action: 'Follow accountability' }
       ].map((service) => (
         <a class="service-card" href={service.href}>
           <Icon name={service.icon} size={28} />
           <h3>{service.title}</h3>
           <p>{service.description}</p>
-          <ul>{service.features.map((feature) => <li><Icon name="tick" size={16} /><span>{feature}</span></li>)}</ul>
           <span class="service-card-action">{service.action}<Icon name="arrow-right" size={17} /></span>
         </a>
       ))}
