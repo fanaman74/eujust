@@ -99,3 +99,30 @@ test('provider test route preserves same-origin and production admin gates', asy
     if (originalAdminToken === undefined) delete process.env.ADMIN_TOKEN; else process.env.ADMIN_TOKEN = originalAdminToken;
   }
 });
+
+test('OpenRouter returns routing providers separately from models without leaking credentials to the directory', async () => {
+  const calls: string[] = [];
+  const fetcher: Fetcher = async (input, init) => {
+    const url = String(input); calls.push(url);
+    if (url.endsWith('/key')) return json({ data: { label: 'valid test key' } });
+    if (url.endsWith('/models')) return json({ data: [{ id: 'anthropic/claude-test' }] });
+    assert.equal(new Headers(init?.headers).has('authorization'), false);
+    assert.equal(init?.redirect, 'error');
+    return json({ data: [{ name: 'Together', slug: 'together' }, { name: 'Anthropic', slug: 'anthropic' }, { name: 'Together', slug: 'together' }] });
+  };
+  const result = await testProviderConnection('openrouter', { apiKey: 'private-test-key' }, fetcher);
+  assert.deepEqual(result.models, ['anthropic/claude-test']);
+  assert.deepEqual(result.providers, [{ name: 'Anthropic', slug: 'anthropic' }, { name: 'Together', slug: 'together' }]);
+  assert.deepEqual(calls, ['https://openrouter.ai/api/v1/key', 'https://openrouter.ai/api/v1/models', 'https://openrouter.ai/api/v1/providers']);
+});
+
+test('OpenRouter directory errors keep a verified connection and models usable with a retry message', async () => {
+  for (const directory of [json({}, 503), json({ data: [{ name: 'Invalid' }] })]) {
+    const fetcher: Fetcher = async (input) => String(input).endsWith('/providers') ? directory : json({ data: [{ id: 'model-test' }] });
+    const result = await testProviderConnection('openrouter', { apiKey: 'test-key' }, fetcher);
+    assert.equal(result.ok, true);
+    assert.deepEqual(result.models, ['model-test']);
+    assert.deepEqual(result.providers, []);
+    assert.match(result.catalogWarning ?? '', /test again to retry/);
+  }
+});

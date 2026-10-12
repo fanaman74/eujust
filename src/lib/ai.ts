@@ -95,7 +95,24 @@ export async function testProviderConnection(provider: ProviderName, input?: Pro
   let secret = input?.apiKey?.trim() || '';
   try {
     const config = await providerConfig(provider, input, loadSaved); secret = config.apiKey;
-    return { ok: true as const, models: await fetchModels(provider, config, fetcher) };
+    const models = await fetchModels(provider, config, fetcher);
+    if (provider !== 'openrouter') return { ok: true as const, models };
+    // Routing providers are distinct from models. The directory is public;
+    // never send the user's API key to this request.
+    try {
+      const response = await fetcher(`${config.baseUrl}/providers`, { redirect: 'error', signal: AbortSignal.timeout(15_000) });
+      if (!response.ok) throw new Error('Provider directory unavailable');
+      const payload = await response.json() as { data?: unknown };
+      if (!Array.isArray(payload.data)) throw new Error('Invalid provider directory');
+      const providers = new Map<string, { name: string; slug: string }>();
+      for (const item of payload.data) {
+        if (!item || typeof item.name !== 'string' || !item.name.trim() || typeof item.slug !== 'string' || !item.slug.trim()) throw new Error('Invalid provider directory');
+        providers.set(item.slug, { name: item.name.trim(), slug: item.slug.trim() });
+      }
+      return { ok: true as const, models, providers: [...providers.values()].sort((a, b) => a.name.localeCompare(b.name)) };
+    } catch {
+      return { ok: true as const, models, providers: [], catalogWarning: 'Connection succeeded. OpenRouter’s provider directory is temporarily unavailable; test again to retry.' };
+    }
   } catch (error) { throw new Error(redactProviderError(error, [secret])); }
 }
 

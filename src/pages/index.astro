@@ -38,6 +38,7 @@ const sections = [
 
 <Layout title="EU employment law: court rulings & workplace rights" description="Find EU court rulings on workplace harassment, discrimination and psychosocial risks. Explore institutional rules and accountability, linked to official sources." noindex={Boolean(error)}>
   <section class="home-hero" aria-labelledby="home-title">
+    <div class="hero-aura" aria-hidden="true"></div>
     <div class="home-hero-copy">
       <h1 id="home-title">Workplace rights.<br /><span>Straight to the source.</span></h1>
       <p class="home-lede">Follow European court rulings on harassment, discrimination and psychosocial risk at work. Find the record, understand the context, and go straight to the official source.</p>
@@ -53,6 +54,7 @@ const sections = [
         </p>
       )}
     </div>
+    <button class="hero-motion" type="button" aria-pressed="false">Pause background animation</button>
     <div class="research-window">
       <div class="research-window-bar"><span class="window-brand">EU JUST / Research desk</span><span>Official sources, connected</span></div>
       <div class="research-window-body">
@@ -140,3 +142,14 @@ const sections = [
     </dl>
   </section>
 </Layout>
+
+<script>
+  const motionButton = document.querySelector<HTMLButtonElement>('.hero-motion');
+  motionButton?.addEventListener('click', () => {
+    const paused = motionButton.getAttribute('aria-pressed') !== 'true';
+    motionButton.setAttribute('aria-pressed', String(paused));
+    motionButton.textContent = paused ? 'Resume background animation' : 'Pause background animation';
+    const hero = motionButton.closest<HTMLElement>('.home-hero');
+    if (hero) hero.dataset.motion = paused ? 'paused' : 'playing';
+  });
+</script>

@@ -580,3 +580,47 @@ td { padding: 16px 16px 16px 0; border-bottom: 1px solid var(--line); vertical-a
   .topic-tools .button { width: 100%; }
   .breadcrumbs { margin-bottom: 24px; }
 }
+
+/* The owner-supplied connection card: form left, capabilities and discovery right. */
+.provider-page { max-width: var(--max); }
+.provider-access { margin-bottom: 28px; }
+.provider-access > summary, .provider-advanced > summary { cursor: pointer; width: fit-content; font-size: .875rem; }
+.provider-access .field { margin-top: 16px; }
+.provider-card { display: grid; grid-template-columns: 1.12fr 1fr; background: #fff; border: 1px solid var(--ink); border-radius: 16px; box-shadow: 6px 6px 0 var(--ink); margin-bottom: 48px; }
+.provider-connect { padding: clamp(24px, 3.4vw, 48px); min-width: 0; }
+.provider-connect h2 { font-size: clamp(2.4rem, 3.5vw, 3.2rem); }
+.provider-intro { margin-block: 20px 28px; max-width: 48ch; }
+.provider-connect fieldset { padding: 0; margin: 0; border: 0; min-width: 0; }
+.provider-connect .field + .field { margin-top: 22px; }
+.provider-advanced { margin-top: 22px; }
+.provider-advanced .field { margin-top: 16px; }
+.provider-connect .form-actions { padding-top: 24px; border-top: 1px solid var(--line); }
+.provider-connect .form-status { display: block; margin-top: 16px; }
+.provider-includes { padding: clamp(24px, 3.4vw, 48px); background: #f5f6f1; border-left: 1px solid var(--line); border-radius: 0 16px 16px 0; min-width: 0; }
+.provider-includes h3 { font-family: var(--font); font-size: 1.125rem; font-weight: 600; letter-spacing: 0; }
+.provider-features { list-style: none; margin: 12px 0 0; padding: 0; }
+.provider-features li { display: grid; grid-template-columns: 24px 1fr 20px; align-items: center; gap: 16px; padding: 22px 0; border-bottom: 1px solid var(--line); }
+.provider-features li > .icon:first-child { color: var(--blue); }
+.provider-features li > .icon:last-child { color: var(--wire-deep); background: var(--wire); border-radius: 50%; }
+.provider-features p { color: var(--grey); font-size: .875rem; margin-top: 3px; }
+.provider-discovery { margin-top: 32px; }
+.provider-discovery > .hint { margin-block: 10px 20px; }
+.provider-discovery .field { margin-bottom: 12px; }
+.router-providers { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; margin: 14px 0 0; max-height: 260px; overflow-y: auto; scrollbar-gutter: stable; }
+.router-providers li { padding: 5px 10px; background: #fff; border: 1px solid var(--line); border-radius: 6px; font-size: .8125rem; overflow-wrap: anywhere; }
+.provider-catalog-note { margin-top: 28px; font-size: .875rem; color: var(--grey); }
+.provider-row .provider-info { overflow-wrap: anywhere; }
+@media (max-width: 850px) {
+  .provider-card { grid-template-columns: 1fr; }
+  .provider-includes { border-left: 0; border-top: 1px solid var(--line); border-radius: 0 0 16px 16px; }
+}
+
+/* Soft blue, violet and pink drift behind the hero; content stays on a light ground. */
+.home-hero { position: relative; isolation: isolate; }
+.hero-aura { position: absolute; top: 0; left: 50%; width: 100vw; height: min(700px, 90%); transform: translateX(-50%); overflow: clip; z-index: -1; pointer-events: none; mask-image: linear-gradient(#000 65%, transparent); }
+.hero-aura::before, .hero-aura::after { content: ''; position: absolute; inset: -15%; background: radial-gradient(ellipse at 20% 50%, #b9d8fc 0, transparent 48%), radial-gradient(ellipse at 82% 32%, #d9c5f7 0, transparent 45%), radial-gradient(ellipse at 64% 86%, #f7c8d9 0, transparent 42%); opacity: .7; animation: hero-drift 20s ease-in-out infinite alternate; }
+.hero-aura::after { background: radial-gradient(ellipse at 52% 35%, #fcfff7 10%, transparent 65%); animation-direction: alternate-reverse; animation-duration: 26s; }
+@keyframes hero-drift { from { transform: translate(-3%, -2%) rotate(-5deg) scale(1); } to { transform: translate(5%, 5%) rotate(7deg) scale(1.12); } }
+.home-hero[data-motion='paused'] .hero-aura::before, .home-hero[data-motion='paused'] .hero-aura::after { animation-play-state: paused; }
+.hero-motion { display: block; margin: 20px 0 0 auto; padding: 6px 0 6px 12px; border: 0; background: transparent; font-size: .75rem; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; color: var(--grey); }
+@media (prefers-reduced-motion: reduce) { .hero-aura::before, .hero-aura::after { animation: none; } .hero-motion { display: none; } }

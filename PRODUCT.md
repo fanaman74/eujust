@@ -35,7 +35,7 @@ Source-first. Every case links to the official EUR-Lex document, and AI-generate
 - Canonical domain: https://www.eujust.online; public records and guides are discoverable through XML sitemaps, while operator/search/preview/error pages are excluded from indexing.
 - Case detail: official source, metadata, optional AI summary with verified paragraph citations.
 - Monitoring page: manual source check, daily schedule, run history.
-- Provider settings: OpenAI, DeepSeek, OpenRouter, Anthropic; keys encrypted server-side.
+- Provider settings: OpenAI / ChatGPT, Anthropic Claude, DeepSeek and OpenRouter; test API access, choose a reported model or enter an identifier, and save keys encrypted server-side. OpenRouter's searchable public provider directory is distinct from its model catalogue; routing remains with OpenRouter.
 - In production, write actions require an admin token header and currently fail closed; there is no login.
 - Stack: Astro (server output, Node adapter), plain CSS, self-hosted fonts, PostgreSQL.
 - Undecided: how operator pages are protected on the public site.
