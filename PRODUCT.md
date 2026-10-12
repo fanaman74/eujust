@@ -31,7 +31,7 @@ Source-first. Every case links to the official EUR-Lex document, and AI-generate
 ## Capabilities and Constraints
 
 - Search and filter by text, topic, court; sort; paginate.
-- Home topic feed: three recent court/institution records with source dates and actual keyword matches; RSS 2.0 at `/rss.xml` serves up to twenty records. RSS publication dates reflect first collection, separately from judgment/document dates.
+- Home Feed: five recent court/institution records with source dates and actual keyword matches, shown in a three-row window that advances upward every five seconds, with Pause/Next and reading/reduced-motion protection; RSS 2.0 at `/rss.xml` serves up to twenty records. RSS publication dates reflect first collection, separately from judgment/document dates.
 - Public topic guides for workplace harassment, employment discrimination and psychosocial risks, linked to recent matched records and the full archive.
 - Canonical domain: https://www.eujust.online; public records and guides are discoverable through XML sitemaps, while operator/search/preview/error pages are excluded from indexing.
 - Case detail: official source, metadata, optional AI summary with verified paragraph citations.

@@ -174,16 +174,21 @@ input:focus-visible, select:focus-visible, textarea:focus-visible { outline: non
 .topic-feed-note { margin-top: 10px; color: var(--grey); font-size: .8125rem; max-width: 55ch; }
 .topic-feed-list { list-style: none; margin: 18px 0 0; padding: 0; }
 .topic-feed-list > li { padding: 14px 0; border-top: 1px solid var(--line); }
+.topic-feed[data-enhanced] .topic-feed-viewport { height: var(--feed-viewport-height); overflow: hidden; margin-top: 18px; }
+.topic-feed[data-enhanced] .topic-feed-list { margin: 0; }
+.topic-feed[data-enhanced] .topic-feed-list > li { height: var(--feed-row-height); }
 .topic-feed-meta { display: flex; flex-wrap: wrap; gap: 6px 10px; font-size: .6875rem; color: var(--grey); }
 .topic-feed-title { display: flex; justify-content: space-between; align-items: start; gap: 16px; margin-top: 5px; font-size: .9375rem; line-height: 1.4; font-weight: 500; text-decoration: none; overflow-wrap: anywhere; }
 .topic-feed-title > .icon { flex: none; margin-top: 2px; color: var(--wire-deep); }
+.topic-feed-title > span { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; }
 .topic-feed-title:hover { text-decoration: underline; text-underline-offset: 3px; }
 .topic-feed-source { margin-top: 4px; font-size: .6875rem; color: var(--grey); }
 .topic-feed-matches { margin-top: 4px; font-size: .6875rem; color: var(--wire-deep); }
 .topic-feed-actions { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px 20px; padding-top: 16px; border-top: 1px solid var(--line); }
 .topic-feed-actions a { display: inline-flex; align-items: center; gap: 8px; min-height: 36px; font-size: .75rem; font-weight: 500; text-underline-offset: 3px; }
-.topic-feed-rss { padding: 6px 10px; border: 1px solid var(--ink); border-radius: 5px; background: var(--wire); color: var(--ink); text-decoration: none; }
-.topic-feed-rss:hover { background: #b5ed5f; }
+.topic-feed-controls { display: flex; flex-wrap: wrap; gap: 8px 16px; }
+.topic-feed-controls[hidden], .topic-feed-pause[hidden] { display: none; }
+.topic-feed-controls button { display: inline-flex; align-items: center; gap: 6px; min-height: 36px; padding: 0; border: 0; background: transparent; color: var(--ink); font-size: .75rem; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
 .topic-feed-state { padding-block: 24px; font-size: .875rem; color: var(--grey); }
 @keyframes window-reveal { from { clip-path: inset(0 0 15% 0 round 14px); } to { clip-path: inset(0 0 0 0 round 14px); } }
 .ledger { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 24px; padding: 32px 0; margin: 24px 0 0; border-bottom: 1px solid var(--line); }

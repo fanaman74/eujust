@@ -19,7 +19,7 @@ try {
 const formatDate = (value: string | Date, options: Intl.DateTimeFormatOptions = { day: 'numeric', month: 'short', year: 'numeric' }) => new Intl.DateTimeFormat('en-GB', { ...options, timeZone: 'Europe/Brussels' }).format(new Date(value));
 const latestJudgment = latest.find((item) => item.judgment_date)?.judgment_date ?? null;
 let feed: TopicFeedItem[] = [], feedError = false;
-try { feed = await getTopicFeed(3); } catch { feedError = true; }
+try { feed = await getTopicFeed(5); } catch { feedError = true; }
 
 const ledger = [
   total > 0 && { label: 'Court rulings on record', value: String(total) },
@@ -51,25 +51,25 @@ if (error || feedError) { Astro.response.status = 503; Astro.response.headers.se
     </div>
     <button class="hero-motion" type="button" aria-pressed="false">Pause background animation</button>
     <div class="research-window">
-      <div class="research-window-bar"><span class="window-brand">EU JUST / Topic feed</span><span>Official source records</span></div>
+      <div class="research-window-bar"><span class="window-brand">EU JUST / Feed</span><span>Official source records</span></div>
       <div class="research-window-body">
         <figure class="home-hero-figure">
           <img src="/images/home-hero.png" alt="European Union flag hanging inside a glass and steel atrium." width="1011" height="673" fetchpriority="high" />
         </figure>
         <section class="topic-feed" aria-labelledby="topic-feed-title">
-          <h2 id="topic-feed-title">Latest topic updates.</h2>
-          <p class="topic-feed-note">Court rulings and institutional records. Newest source dates first; topics are keyword matches.</p>
+          <h2 id="topic-feed-title">Latest updates.</h2>
+          <p class="topic-feed-note">Recent court rulings and institutional records; topics are keyword matches.</p>
           {feedError ? <p class="topic-feed-state" role="alert">Updates cannot be loaded right now. Please try again later.</p> : !feed.length ? <p class="topic-feed-state">No topic updates collected yet. New source records will appear here after a monitoring check.</p> : (
-            <ol class="topic-feed-list">
+            <div class="topic-feed-viewport"><ol class="topic-feed-list">
               {feed.map((item) => <li>
                 <div class="topic-feed-meta"><span>{item.dateLabel}</span>{item.date ? <time datetime={item.date}>{formatDate(item.date)}</time> : <span>Date not recorded</span>}</div>
-                <a class="topic-feed-title" href={item.href}>{item.title}<Icon name={item.href.startsWith('/') ? 'arrow-right' : 'external'} size={16} /></a>
+                <a class="topic-feed-title" href={item.href} title={item.title}><span>{item.title}</span><Icon name={item.href.startsWith('/') ? 'arrow-right' : 'external'} size={16} /></a>
                 <p class="topic-feed-source">{item.source}</p>
                 <p class="topic-feed-matches">{item.categories.join(' · ')}</p>
               </li>)}
-            </ol>
+            </ol></div>
           )}
-          <div class="topic-feed-actions"><a href="/topics">Explore all topics <Icon name="arrow-right" size={15} /></a><a class="topic-feed-rss" href="/rss.xml"><Icon name="rss" size={16} />Subscribe via RSS</a></div>
+          <div class="topic-feed-actions"><a href="/topics">Explore all topics <Icon name="arrow-right" size={15} /></a><div class="topic-feed-controls" hidden><button class="topic-feed-pause" type="button" aria-pressed="false">Pause feed</button><button class="topic-feed-next" type="button">Next update <Icon name="arrow-right" size={15} /></button></div></div>
         </section>
       </div>
     </div>
@@ -162,6 +162,7 @@ if (error || feedError) { Astro.response.status = 503; Astro.response.headers.se
 
 <script>
   import '../scripts/latest-courts';
+  import '../scripts/topic-feed';
   const hero = document.querySelector<HTMLElement>('.home-hero');
   const motionButton = document.querySelector<HTMLButtonElement>('.hero-motion');
   const motionPreference = matchMedia('(prefers-reduced-motion: reduce)');

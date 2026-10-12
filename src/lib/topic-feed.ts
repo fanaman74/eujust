@@ -70,7 +70,7 @@ export function topicFeedXml(items: TopicFeedItem[]) {
   const timestamps = items.map((item) => Date.parse(item.addedAt)).filter(Number.isFinite);
   const updated = timestamps.length ? `<lastBuildDate>${new Date(Math.max(...timestamps)).toUTCString()}</lastBuildDate>` : '';
   return `<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel>
-<title>EU JUST — Latest topic updates</title><link>${escape(canonicalUrl('/'))}</link>
+<title>EU JUST — Latest updates</title><link>${escape(canonicalUrl('/'))}</link>
 <description>Recent court rulings and institutional records from bounded, keyword-based workplace-topic searches. Newest source dates first; coverage is not exhaustive.</description>
 <language>en-gb</language><atom:link href="${escape(canonicalUrl('/rss.xml'))}" rel="self" type="application/rss+xml"/>${updated}
 ${items.map((item) => {
