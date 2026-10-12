@@ -70,4 +70,4 @@ In production, keep the app behind a private reverse proxy or identity layer. Th
 
 The canonical public address is `https://www.eujust.online`. Public pages include canonical URLs, sharing metadata and structured data; `/sitemap.xml` automatically lists landing pages and collected cases. The topic guides at `/topics` provide searchable entry points to the collection. Operators, internal search results, previews and error pages are excluded from indexing.
 
-Use `NODE_ENV=production` on the published web service. The optional `SITE_URL` override must be an HTTPS origin. See [Search visibility](docs/search-visibility.md) for deployment checks and Google Search Console/Bing verification and sitemap submission.
+Use `NODE_ENV=production` on the published web service. Astro trusts forwarded HTTPS headers only for the exact configured site hostname (and the existing EU JUST apex redirect), so browser actions retain the public HTTPS origin behind Railway’s proxy. The optional `SITE_URL` override must be an HTTPS origin. See [Search visibility](docs/search-visibility.md) for deployment checks and Google Search Console/Bing verification and sitemap submission.
