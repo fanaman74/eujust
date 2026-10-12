@@ -9,7 +9,7 @@ const topics: string[] = item.topics ?? [];
 ---
 <li class:list={['dispatch', { lead }]}>
   <p class="dispatch-date">
-    {judged ? <time datetime={judged.toISOString().slice(0, 10)}><span>{part({ day: 'numeric' })}</span> {part({ month: 'short', year: 'numeric' })}</time> : <span class="undated">Undated</span>}
+    {judged ? <time datetime={judged.toISOString().slice(0, 10)}><span>{part({ day: 'numeric', month: 'short' })}</span> {part({ year: 'numeric' })}</time> : <span class="undated">Undated</span>}
   </p>
   <div class="dispatch-body">
     <h3><a href={`/cases/${item.id}`}>{parsed.heading}</a></h3>
@@ -17,5 +17,5 @@ const topics: string[] = item.topics ?? [];
     {item.summary && <p class="dispatch-summary"><span class="badge ai">AI summary</span> {item.summary}</p>}
     {topics.length > 0 && <ul class="tags" aria-label="Topics">{topics.map((tag) => <li class="tag">{tag}</li>)}</ul>}
   </div>
-  <p class="dispatch-ref"><strong>{item.case_number ?? item.celex}</strong>{item.court ?? 'Court not recorded'}<Icon name="arrow-right" size={22} /></p>
+  <p class="dispatch-ref"><strong>{item.case_number ?? item.celex}</strong><span>{item.court ?? 'Court not recorded'}</span><Icon name="arrow-right" size={20} /></p>
 </li>

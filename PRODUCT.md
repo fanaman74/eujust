@@ -35,14 +35,14 @@ Source-first. Every case links to the official EUR-Lex document, and AI-generate
 - Monitoring page: manual source check, daily schedule, run history.
 - Provider settings: OpenAI, DeepSeek, OpenRouter, Anthropic; keys encrypted server-side.
 - In production, write actions require an admin token header and currently fail closed; there is no login.
-- Stack: Astro (server output, Node adapter), plain CSS, PostgreSQL.
+- Stack: Astro (server output, Node adapter), plain CSS, self-hosted fonts, PostgreSQL.
 - Undecided: how operator pages are protected on the public site.
 
 ## Brand Commitments
 
 - Name: EU JUST.
 - The standing disclaimer: research support only; always verify against the official judgment.
-- The supplied landing-page reference establishes the visual direction: a warm paper surface, deep navy structure, restrained blue and gold accents, a readable serif display face paired with Archivo body text, a top menu bar, and a large photographic hero. The home page retains the user-supplied EU flag image and the five latest cases with a "view all" action. Motion stays purposeful and accessible: the hero wire-in, hover transitions, dropdown chevron and reduced-motion fallback remain part of the system.
+- Visual direction: a public legal register on warm paper, with deep navy structure and one gold signal; Newsreader display type, Archivo interface text and IBM Plex Mono for case numbers, dates and labels; a top menu bar with the research sections always visible. The home page retains the user-supplied EU flag image, a search box, real collection counts and the five latest cases with a "view all" action. Motion stays purposeful and accessible: the hero rise and photograph wipe-in, hover transitions, menu chevron and reduced-motion fallback. See DESIGN.md.
 
 ## Evidence on Hand
 

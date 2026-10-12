@@ -29,6 +29,7 @@ const hasText = docs.some((doc) => doc.hasText);
     ) : (
       <>
         <header class="detail-head">
+          <p class="detail-meta"><span><strong>{item.case_number ?? item.celex}</strong></span><span>{item.court ?? 'Court not recorded'}</span>{item.judgment_date && <span>Judgment of <time datetime={new Date(item.judgment_date).toISOString().slice(0, 10)}>{date(item.judgment_date)}</time></span>}</p>
           <h1>{parsed!.heading}</h1>
           <p class="lede">{parsed!.formation ?? item.court ?? 'Court not recorded'}</p>
         </header>

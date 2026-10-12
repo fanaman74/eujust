@@ -19,6 +19,7 @@ const orderedSelectedDecisions = selectedDecisions
   <div class="page">
     <header class="page-head decisions-head">
       <div>
+        <p class="kicker">Research · Editorial selection</p>
         <h1>Selected official records</h1>
         <p class="lede">A hand-curated selection of recent official records relevant to staff safeguards and oversight. Each entry links to its publishing authority.</p>
       </div>
@@ -39,7 +40,7 @@ const orderedSelectedDecisions = selectedDecisions
           {orderedSelectedDecisions.map((item) => (
             <li class="dispatch">
               <p class="dispatch-date">
-                {item.date ? <time datetime={item.date}><span>{format(item.date, { day: 'numeric' })}</span> {format(item.date, { month: 'short', year: 'numeric' })}</time> : <span class="undated">Undated</span>}
+                {item.date ? <time datetime={item.date}><span>{format(item.date, { day: 'numeric', month: 'short' })}</span> {format(item.date, { year: 'numeric' })}</time> : <span class="undated">Undated</span>}
               </p>
               <div class="dispatch-body">
                 <p class="dispatch-kind">{item.kind}</p>
@@ -47,7 +48,7 @@ const orderedSelectedDecisions = selectedDecisions
                 <p class="rule-summary">{item.summary}</p>
                 <ul class="tags" aria-label="Topics">{item.topics.map((topic) => <li class="tag">{topic}</li>)}</ul>
               </div>
-              <p class="dispatch-ref"><strong>{item.reference}</strong>{item.host}<Icon name="external" size={22} /></p>
+              <p class="dispatch-ref"><strong>{item.reference}</strong><span>{item.host}</span><Icon name="external" size={22} /></p>
             </li>
           ))}
         </ul>

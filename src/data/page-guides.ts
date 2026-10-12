@@ -9,11 +9,6 @@ export type PageGuide = {
 };
 
 export const pageGuides: Record<string, PageGuide> = {
-  home: {
-    label: 'Research overview',
-    what: 'A starting point for European staff rights and institutional accountability: court rulings, workplace rules and updates, selected official records, and parliamentary budget discharge.',
-    coverage: 'Court and institutional feeds are checked on the configured daily schedule. Standing references, selected records and budget discharge are maintained by hand; none is a complete legal or policy record.',
-  },
   cases: {
     label: 'Court records',
     what: 'Court of Justice and General Court records relevant to harassment, discrimination, psychosocial risk and related staff-rights questions, with official metadata and source links.',

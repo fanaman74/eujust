@@ -1,30 +1,26 @@
 ---
-version: 1
+version: 2
 slug: "src-pages-index-astro"
 primary_target: "src/pages/index.astro"
-related_targets: ["src/pages/cases/index.astro","src/layouts/Layout.astro"]
+related_targets: ["src/pages/cases/index.astro","src/layouts/Layout.astro","src/components/CaseRow.astro"]
 ---
 
 # Home page
 
-Scope: `/` (home). Visitor mode: Persuade. Related: `/cases` list and case rows inherit the same world in Read mode; monitoring and settings in Operate mode.
+Scope: `/` (home). Visitor mode: Find, then trust. Related: `/cases` list and case rows inherit the same register in Read mode; monitoring and settings in Operate mode.
 
-Audience: general public and press arriving cold. Job: see what this tracks, trust it, open a recent ruling. Action: read the latest rulings, then browse all. Proof: the real cases, each with its official EUR-Lex link; no invented claims.
+Audience: general public and press arriving cold. Job: see in seconds what is tracked, search or open a recent ruling, and reach the official judgment. Proof: real counts from the database and real cases, each with its official link; no invented claims, quotes or statistics.
 
-Pinned by the owner: top menu bar (no side menu), big photographic hero, the five latest cases, a view-all button. A plain or timid result is a failure. Build path: code-led (no image generation available).
-
-Unresolved: how operator pages are protected on the public site.
+Pinned by the owner: top menu bar (no side menu), the supplied EU flag photograph on the home page only, the five latest cases, a view-all action.
 
 ## Direction contract
 
-THESIS: Court Wire. Each ruling is filed like a dispatch from Luxembourg: dateline, headline, what it is about. Refuses the legal-portal arrangement of a centred headline on a dimmed photo above a table of links.
+THESIS: A public legal register. The site reads like a well-edited official gazette with a newsroom's clarity: an editorial serif for what things are called, a monospace docket for references and dates, and plain Archivo for everything you act on.
 
-OWN-WORLD: Newsprint black, white, one wire-service red. A single grotesque family whose width axis does the hierarchy: condensed and heavy for headlines, normal for reading. Square corners, heavy black rules between dispatches, no cards, no serif, no monospace. Rows invert to black on hover with a red arrow.
+REFUSES: the generic AI landing page: tricolon headline, uppercase gold eyebrow, shield-icon trust row, a grid of identical icon-in-tinted-square cards, a self-quoted blockquote, and a closing "Start with the evidence" CTA band.
 
-STORY: The visitor understands these are real EU court decisions about rights at work, believes them because every row names its case number, court and date and leads to the official judgment, and opens one.
+FIRST VIEWPORT: Paper masthead with the four research sections visible as links, the feed-check time and an Operations menu. Hero on paper: mono kicker naming the courts, a Newsreader headline with its second clause in gold italic, a two-sentence lede, a prominent search box that submits to `/cases?q=`, and topic shortcuts from the topics table. The supplied photograph sits right in a frame with a gold base rule. A ledger strip of real counts closes the fold.
 
-FIRST VIEWPORT: Black top bar with the wordmark left, three links and the last source-check time right. Below it the full-bleed photograph of the Court's entrance with its yellow canopy, filling most of the viewport. A solid black block sits over the lower left of the photo carrying the headline at front-page scale (up to 6rem, condensed, heavy), a two-sentence standfirst, and two actions: "Read the latest rulings" (red) and "Browse all". Photo credit bottom right.
+BELOW: Latest five rulings as docket rows; a navy band indexing the four sections with their real cadence and source; a three-part "How to read a record" (source, interpretation, coverage).
 
-FORM: News-agency wire dispatch front page; candidate 1 of 7 on the grounded list, chosen by the owner over the rolled direction; seed key dd66b801. Signature interaction: dispatch rows invert on hover and focus. Motion: the headline block wipes in once on load.
-
-FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance
+MOTION: copy rises once, the photograph wipes in (`wire-in`), row titles underline-draw on hover, arrows shift. All collapse under reduced motion.
