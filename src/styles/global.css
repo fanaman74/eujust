@@ -695,7 +695,8 @@ td { padding: 16px 16px 16px 0; border-bottom: 1px solid var(--line); vertical-a
 .latest-empty { padding: 32px; border: 1px solid #373341; border-radius: 12px; background: #15141f; }
 .latest-empty p { color: #c5c1d2; margin: 20px 0; }
 .latest-empty a { color: var(--wire); }
-.latest-sonar { position: absolute; z-index: 2; inset: 0 0 auto; height: 1px; pointer-events: none; opacity: 0; background: #a3e635; box-shadow: 0 0 14px 1px #a3e6358c; }
+.latest-scan-stage { position: absolute; z-index: 2; inset: 0; overflow: hidden; pointer-events: none; }
+.latest-sonar { position: absolute; inset: 0 0 auto; height: 1px; opacity: 0; background: #a3e635; box-shadow: 0 0 14px 1px #a3e6358c; }
 .latest-sonar::before { content: ''; position: absolute; inset: auto 0 1px; height: 140px; background: linear-gradient(to top, #a3e63521, #a3e63500); }
 .latest-scan .latest-sonar { animation: court-scan var(--scan-duration, 3s) linear forwards; }
 .latest-scan .court-card { animation: court-highlight 900ms var(--ease-out) both; animation-delay: var(--card-delay, 0ms); }
