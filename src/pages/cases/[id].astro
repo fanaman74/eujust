@@ -95,6 +95,18 @@ const mainEntity = item ? {
                 <button class="button" type="submit" disabled={!hasText}>{item.summary ? 'Regenerate summary' : 'Generate summary'}</button>
                 <span id="summary-status" class="form-status" role="status">{!hasText && 'Unavailable: no source text has been retrieved for this case.'}</span>
               </form>
+              <details class="subscription-reading">
+                <summary>Use your ChatGPT or Claude subscription</summary>
+                <p>Copy a research prompt, then open your AI app and paste it into a new chat. You use your own account there; the answer stays in that app.</p>
+                <p class="hint">{hasText ? 'The prompt includes retrieved official source text and marks any known gaps.' : 'The prompt includes this record and its source links. Add the full judgment in your AI app before asking for analysis.'}</p>
+                <div class="form-actions">
+                  <button class="button secondary" id="copy-research-prompt" type="button" data-url={`/api/cases/${item.id}/prompt`}>Copy research prompt</button>
+                  <a href="https://chatgpt.com/" target="_blank" rel="noreferrer">Open ChatGPT <Icon name="external" size={14} /><span class="sr-only"> (opens in a new tab)</span></a>
+                  <a href="https://claude.ai/new" target="_blank" rel="noreferrer">Open Claude <Icon name="external" size={14} /><span class="sr-only"> (opens in a new tab)</span></a>
+                </div>
+                <p id="prompt-status" class="form-status" role="status"></p>
+                <details id="prompt-preview" hidden><summary>Research prompt to copy</summary><label class="sr-only" for="research-prompt">Research prompt</label><textarea id="research-prompt" rows="8" readonly></textarea></details>
+              </details>
             </section>
           </div>
 
@@ -125,6 +137,7 @@ const mainEntity = item ? {
   </div>
 </Layout>
 <script>
+  import '../../scripts/research-prompt';
   const form = document.querySelector<HTMLFormElement>('#summary-form');
   const status = document.querySelector<HTMLElement>('#summary-status');
   form?.addEventListener('submit', async (event) => {

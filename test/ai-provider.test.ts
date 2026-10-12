@@ -126,3 +126,19 @@ test('OpenRouter directory errors keep a verified connection and models usable w
     assert.match(result.catalogWarning ?? '', /test again to retry/);
   }
 });
+
+test('subscription handoff distinguishes metadata from evidence and flags incomplete source text', async () => {
+  const { buildResearchPrompt } = await import('../src/lib/research-prompt.ts');
+  const metadata = { title: 'QA record title', reference: 'QA-1', celex: 'QA-CELEX', officialUrl: 'https://eur-lex.europa.eu/example' };
+  const referenceOnly = buildResearchPrompt(metadata);
+  assert.match(referenceOnly, /Only metadata and links are supplied, not the judgment text/);
+  assert.match(referenceOnly, /ask me to paste it before analysing/);
+  const full = buildResearchPrompt({ ...metadata, text: '[paragraph 1] Actual source text.' });
+  assert.match(full, /\[paragraph 1\] Actual source text\./);
+  assert.doesNotMatch(full, /OFFICIAL SOURCE TEXT \(incomplete\)/);
+  const truncated = buildResearchPrompt({ ...metadata, text: 'a'.repeat(120_001) });
+  assert.match(truncated, /OFFICIAL SOURCE TEXT \(incomplete\)/);
+  assert.match(truncated, /do not claim to summarise the full judgment/);
+  assert.equal(truncated.includes('a'.repeat(120_001)), false);
+  assert.match(buildResearchPrompt({ ...metadata, text: 'Partial source', truncated: true }), /OFFICIAL SOURCE TEXT \(incomplete\)/);
+});

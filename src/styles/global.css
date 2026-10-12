@@ -615,12 +615,45 @@ td { padding: 16px 16px 16px 0; border-bottom: 1px solid var(--line); vertical-a
   .provider-includes { border-left: 0; border-top: 1px solid var(--line); border-radius: 0 0 16px 16px; }
 }
 
-/* Soft blue, violet and pink drift behind the hero; content stays on a light ground. */
+/* Pale-green flow and a quiet dot pattern, requested for the home hero. */
 .home-hero { position: relative; isolation: isolate; }
 .hero-aura { position: absolute; top: 0; left: 50%; width: 100vw; height: min(700px, 90%); transform: translateX(-50%); overflow: clip; z-index: -1; pointer-events: none; mask-image: linear-gradient(#000 65%, transparent); }
-.hero-aura::before, .hero-aura::after { content: ''; position: absolute; inset: -15%; background: radial-gradient(ellipse at 20% 50%, #b9d8fc 0, transparent 48%), radial-gradient(ellipse at 82% 32%, #d9c5f7 0, transparent 45%), radial-gradient(ellipse at 64% 86%, #f7c8d9 0, transparent 42%); opacity: .7; animation: hero-drift 20s ease-in-out infinite alternate; }
-.hero-aura::after { background: radial-gradient(ellipse at 52% 35%, #fcfff7 10%, transparent 65%); animation-direction: alternate-reverse; animation-duration: 26s; }
-@keyframes hero-drift { from { transform: translate(-3%, -2%) rotate(-5deg) scale(1); } to { transform: translate(5%, 5%) rotate(7deg) scale(1.12); } }
-.home-hero[data-motion='paused'] .hero-aura::before, .home-hero[data-motion='paused'] .hero-aura::after { animation-play-state: paused; }
+.hero-aura::before { content: ''; position: absolute; inset: -40%; background: radial-gradient(ellipse at 22% 48%, #bfe98c 0, #dbf7b5 18%, transparent 44%), radial-gradient(ellipse at 76% 26%, #d0f39f 0, transparent 42%), radial-gradient(ellipse at 63% 82%, #e5f9cf 0, transparent 44%); opacity: .85; animation: hero-green-flow 12s ease-in-out infinite; }
+.hero-aura::after { content: ''; position: absolute; inset: -30px; background-image: radial-gradient(circle, #71974238 1px, transparent 1.6px); background-size: 26px 26px; opacity: .65; animation: hero-pattern-flow 18s linear infinite; }
+@keyframes hero-green-flow { 0%, 100% { transform: translate(-12%, -6%) rotate(-8deg) scale(1); } 50% { transform: translate(16%, 9%) rotate(10deg) scale(1.15); } }
+@keyframes hero-pattern-flow { from { transform: translate(0, 0); } to { transform: translate(26px, 26px); } }
+.home-hero[data-motion='paused'] .hero-aura::before, .home-hero[data-motion='paused'] .hero-aura::after,
+.home-hero[data-visibility='hidden'] .hero-aura::before, .home-hero[data-visibility='hidden'] .hero-aura::after { animation-play-state: paused !important; }
 .hero-motion { display: block; margin: 20px 0 0 auto; padding: 6px 0 6px 12px; border: 0; background: transparent; font-size: .75rem; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; color: var(--grey); }
-@media (prefers-reduced-motion: reduce) { .hero-aura::before, .hero-aura::after { animation: none; } .hero-motion { display: none; } }
+@media (prefers-reduced-motion: reduce) {
+  .hero-aura::before, .hero-aura::after { animation: none; }
+  /* Explicit user playback overrides the default static preference for this effect only. */
+  .home-hero[data-motion='playing'] .hero-aura::before { animation-name: hero-green-flow !important; animation-duration: 12s !important; animation-timing-function: ease-in-out !important; animation-iteration-count: infinite !important; }
+  .home-hero[data-motion='playing'] .hero-aura::after { animation-name: hero-pattern-flow !important; animation-duration: 18s !important; animation-timing-function: linear !important; animation-iteration-count: infinite !important; }
+}
+
+.home-services { margin-top: 56px; }
+.home-services > h2 { margin-bottom: 28px; }
+.service-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; }
+.service-card { display: flex; flex-direction: column; min-width: 0; padding: 28px 24px; border: 1px solid var(--line); border-radius: 16px; background: #fff; text-decoration: none; }
+.service-card:first-child { border-color: var(--ink); box-shadow: 5px 5px 0 var(--ink); }
+.service-card > .icon { color: var(--blue); margin-bottom: 26px; }
+.service-card h3 { font-family: var(--font); font-size: 1.125rem; font-weight: 600; letter-spacing: 0; }
+.service-card > p { color: var(--grey); font-size: .9375rem; margin-top: 14px; }
+.service-card ul { list-style: none; padding: 0; margin: 20px 0 28px; display: grid; gap: 12px; font-size: .875rem; }
+.service-card li { display: flex; gap: 10px; align-items: flex-start; }
+.service-card li .icon { color: var(--wire-deep); margin-top: 3px; }
+.service-card-action { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: auto; font-size: .875rem; font-weight: 600; }
+.service-card:hover { border-color: var(--wire-deep); background: #fafff3; }
+.service-card:hover .service-card-action { text-decoration: underline; text-underline-offset: 4px; }
+@media (max-width: 1050px) { .service-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 600px) { .service-grid { grid-template-columns: 1fr; gap: 20px; } .home-services { margin-top: 40px; } }
+
+.subscription-reading { margin-top: 28px; border-top: 1px solid var(--ai-line); padding-top: 20px; }
+.subscription-reading > summary { cursor: pointer; font-weight: 600; }
+.subscription-reading > p { margin-top: 16px; max-width: 65ch; }
+.subscription-reading .form-actions { gap: 16px 24px; }
+.subscription-reading .form-actions a { font-size: .875rem; }
+.subscription-reading #prompt-preview { margin-top: 20px; }
+.subscription-reading #prompt-preview > summary { cursor: pointer; font-size: .875rem; }
+.subscription-reading textarea { display: block; width: 100%; margin-top: 12px; padding: 14px; border: 1px solid var(--ai-line); border-radius: var(--radius); background: #fff; resize: vertical; font-size: .875rem; line-height: 1.6; }
