@@ -33,6 +33,7 @@ const orderedStandingRules = ruleGroups
   <div class="page">
     <header class="page-head">
       <div>
+        <p class="kicker">Research · Ombudsman and Commission</p>
         <h1>Rules and institutional updates</h1>
         <p class="lede">What the European Ombudsman and European Commission publish on harassment, dignity and mental health at work, followed by the standing references they work from.</p>
       </div>
@@ -66,13 +67,13 @@ const orderedStandingRules = ruleGroups
                 {feed.items.map((item) => (
                   <li class="dispatch">
                     <p class="dispatch-date">
-                      {item.day ? <time datetime={item.day}><span>{format(item.day, { day: 'numeric' })}</span> {format(item.day, { month: 'short', year: 'numeric' })}</time> : <span class="undated">Undated</span>}
+                      {item.day ? <time datetime={item.day}><span>{format(item.day, { day: 'numeric', month: 'short' })}</span> {format(item.day, { year: 'numeric' })}</time> : <span class="undated">Undated</span>}
                     </p>
                     <div class="dispatch-body">
                       <h3><a href={item.official_url} target="_blank" rel="noreferrer">{item.title}<span class="sr-only"> (opens the official source in a new tab)</span></a></h3>
                       <ul class="tags" aria-label="Matched words">{item.matched_terms.map((term) => <li class="tag">{term}</li>)}</ul>
                     </div>
-                    <p class="dispatch-ref"><strong>{item.kind}</strong>{item.reference ?? ''}<span>{item.source}</span><Icon name="external" size={22} /></p>
+                    <p class="dispatch-ref"><strong>{item.kind}</strong>{item.reference && <span>{item.reference}</span>}<span>{item.source}</span><Icon name="external" size={22} /></p>
                   </li>
                 ))}
               </ul>
@@ -97,14 +98,14 @@ const orderedStandingRules = ruleGroups
             {orderedStandingRules.map(({ group, rule }) => (
               <li class="dispatch">
                 <p class="dispatch-date">
-                  {rule.date ? <time datetime={rule.date}><span>{format(rule.date, { year: 'numeric' })}</span> {format(rule.date, { day: 'numeric', month: 'short' })}</time> : <span class="undated">Undated</span>}
+                  {rule.date ? <time datetime={rule.date}><span>{format(rule.date, { day: 'numeric', month: 'short' })}</span> {format(rule.date, { year: 'numeric' })}</time> : <span class="undated">Undated</span>}
                 </p>
                 <div class="dispatch-body">
                   <h3><a href={rule.url} target="_blank" rel="noreferrer">{rule.title}<span class="sr-only"> (opens the official source in a new tab)</span></a></h3>
                   <p class="rule-summary">{rule.summary}</p>
                   <ul class="tags" aria-label="Topics">{rule.topics.map((topic) => <li class="tag">{topic}</li>)}</ul>
                 </div>
-                <p class="dispatch-ref"><strong>{rule.reference}</strong>{group.body}<span>{rule.kind}</span><Icon name="external" size={22} /></p>
+                <p class="dispatch-ref"><strong>{rule.reference}</strong><span>{group.body}</span><span>{rule.kind}</span><Icon name="external" size={22} /></p>
               </li>
             ))}
           </ul>

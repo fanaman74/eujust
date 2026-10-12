@@ -1,46 +1,50 @@
 {
   "schema": "impeccable:design-system",
   "title": "Design System: EU JUST",
-  "description": "Source-first European legal research on warm paper, with deep navy structure, restrained gold and blue signals, readable serif display type and Archivo interface text.",
+  "description": "A public legal register on warm paper: deep navy structure, one gold signal, Newsreader display type, Archivo interface text and IBM Plex Mono for docket references.",
   "colors": {
-    "ink": "#10213a",
-    "paper": "#fbfaf6",
-    "wash": "#eef2f5",
-    "line": "#cbd4dd",
-    "grey": "#526274",
-    "blue": "#1757bd",
-    "blue-soft": "#eaf1fb",
-    "wire": "#f0b83e",
-    "wire-deep": "#8b5c00",
-    "on-ink-muted": "#c8d2df",
+    "ink": "#0e1b30",
+    "paper": "#f6f3eb",
+    "wash": "#ece7db",
+    "line": "#d8d0bf",
+    "grey": "#575f6d",
+    "blue": "#1c4fa3",
+    "blue-soft": "#e6edf8",
+    "wire": "#e9b03b",
+    "wire-deep": "#8a5a00",
+    "on-ink-muted": "#b9c3d2",
     "ai-fg": "#7a4a00",
-    "ai-surface": "#fff4d6",
+    "ai-surface": "#fdf1d3",
     "success-fg": "#0b6b34",
-    "success-surface": "#e5f5ea",
+    "success-surface": "#e3f2e6",
     "warning-fg": "#7a4a00",
-    "warning-surface": "#fff4d6",
+    "warning-surface": "#fdf1d3",
     "danger-fg": "#b4233c",
-    "danger-surface": "#fdecef"
+    "danger-surface": "#fbe9ec",
+    "ink-2": "#1d2d47",
+    "paper-raised": "#fffdf7",
+    "on-ink": "#f6f3eb",
+    "ai-line": "#e8cf8f"
   },
   "typography": {
     "display": {
-      "fontFamily": "Georgia, 'Times New Roman', serif",
+      "fontFamily": "'Newsreader', Georgia, 'Times New Roman', serif",
       "fontSize": "clamp(2.75rem, 1.2rem + 4.4vw, 5rem)",
-      "fontWeight": 700,
+      "fontWeight": 500,
       "lineHeight": 1.04,
       "letterSpacing": "-0.025em"
     },
     "page-title": {
-      "fontFamily": "Georgia, 'Times New Roman', serif",
+      "fontFamily": "'Newsreader', Georgia, 'Times New Roman', serif",
       "fontSize": "clamp(2.5rem, 1.6rem + 3.6vw, 4.5rem)",
-      "fontWeight": 700,
+      "fontWeight": 500,
       "lineHeight": 1.04,
       "letterSpacing": "-0.025em"
     },
     "headline": {
-      "fontFamily": "Georgia, 'Times New Roman', serif",
+      "fontFamily": "'Newsreader', Georgia, 'Times New Roman', serif",
       "fontSize": "clamp(2rem, 1.4rem + 2.4vw, 3.5rem)",
-      "fontWeight": 700,
+      "fontWeight": 500,
       "lineHeight": 1.04,
       "letterSpacing": "-0.025em"
     },
@@ -72,6 +76,12 @@
       "fontSize": "0.8125rem",
       "fontWeight": 700,
       "lineHeight": 1.5
+    },
+    "mono": {
+      "fontFamily": "'IBM Plex Mono', ui-monospace, monospace",
+      "fontSize": "0.75rem–0.8125rem",
+      "fontWeight": 500,
+      "usage": "Kickers, case numbers, CELEX, dates, table headings, metadata labels"
     }
   },
   "spacing": {
@@ -98,61 +108,53 @@
     "wide": "1100px",
     "medium": "820px",
     "narrow": "600px",
-    "homeHeroStack": "680px",
     "wideBehavior": "Filters reduce to three columns and detail asides stop being sticky.",
-    "mediumBehavior": "Dispatch references move below the record body and method points become one column.",
-    "homeHeroBehavior": "The two-column navy home panel stacks to copy above image at 680px.",
-    "narrowBehavior": "The masthead wraps, forms become one column, and records collapse to a single readable column."
+    "mediumBehavior": "Record references move below the record body.",
+    "homeHeroBehavior": "The paper home hero (copy and search left, framed photograph right) stacks at 1000px; below 600px the photograph moves above the copy.",
+    "narrowBehavior": "The masthead wraps, forms become one column, and records collapse to a single readable column.",
+    "navBehavior": "Below 900px the four research links and Operations menu collapse into one Menu disclosure."
   },
   "components": {
     "masthead": {
       "backgroundColor": "{colors.paper}",
       "textColor": "{colors.ink}",
       "borderColor": "{colors.line}",
-      "height": "64px",
-      "behavior": "Sticky paper masthead with Research and Operations disclosure menus."
+      "height": "68px",
+      "behavior": "Sticky translucent paper masthead. The four research sections are visible links; Monitoring and AI settings sit in a small Operations menu. Menus close on outside click and Escape."
     },
     "button": {
       "backgroundColor": "{colors.ink}",
       "textColor": "{colors.paper}",
-      "hoverBackgroundColor": "{colors.wire-deep}",
+      "hoverBackgroundColor": "{colors.ink-2}",
       "height": "{spacing.control-height}",
-      "border": "2px solid currentColor",
-      "radius": "2px"
-    },
-    "home-button": {
-      "radius": "4px"
-    },
-    "home-card": {
-      "radius": "6px"
+      "border": "1.5px solid currentColor",
+      "radius": "3px"
     },
     "button-wire": {
       "backgroundColor": "{colors.wire}",
       "textColor": "{colors.ink}",
-      "hoverBackgroundColor": "#ffd671"
+      "hoverBackgroundColor": "#f4c766"
     },
     "input": {
-      "backgroundColor": "{colors.paper}",
+      "backgroundColor": "{colors.paper-raised}",
       "textColor": "{colors.ink}",
-      "border": "2px solid {colors.ink}",
-      "height": "{spacing.control-height}"
-    },
-    "hero-block": {
-      "backgroundColor": "{colors.ink}",
-      "textColor": "#ffffff",
-      "layout": "Two columns: copy left, supplied photograph right; stack at 680px.",
-      "borderTop": "none on home copy",
-      "animation": "wire-in on home copy"
+      "border": "1px solid #b9b09d",
+      "height": "{spacing.control-height}",
+      "radius": "3px",
+      "focus": "ink border plus a translucent gold ring"
     },
     "record-row": {
       "backgroundColor": "{colors.paper}",
-      "hoverBackgroundColor": "{colors.ink}",
+      "hoverBackgroundColor": "{colors.paper-raised}",
       "borderBottom": "1px solid {colors.line}",
-      "behavior": "Date, title, subject, court and case number remain identifiable without hover."
+      "behavior": "Date, title, subject, court and case number remain identifiable without hover.",
+      "hoverAccent": "3px gold inset rule; title underline draws in; arrow shifts",
+      "date": "IBM Plex Mono",
+      "reference": "IBM Plex Mono case number, Archivo court"
     },
     "source-box": {
       "backgroundColor": "{colors.ink}",
-      "textColor": "#ffffff",
+      "textColor": "{colors.on-ink}",
       "padding": "24px",
       "behavior": "Official source link and retrieval note are kept together."
     },
@@ -162,6 +164,14 @@
       "warning": "{colors.warning-fg} on {colors.warning-surface}",
       "danger": "{colors.danger-fg} on {colors.danger-surface}",
       "behavior": "Every state has a visible text label; colour never carries meaning alone."
+    },
+    "home-hero": {
+      "backgroundColor": "{colors.paper}",
+      "layout": "Copy, search box and topic links left; supplied photograph right, framed with a 6px gold base rule.",
+      "animation": "rise on copy, wire-in on the photograph"
+    },
+    "ledger": {
+      "behavior": "Four real counts from the database (rulings, latest judgment, last feed check, monitored feeds); cells without data are omitted."
     }
   },
   "narrative": {
@@ -174,10 +184,26 @@
       "The site is research support and does not provide legal advice."
     ],
     "rules": [
-      { "name": "Source before summary", "body": "Keep the official document link, case metadata and retrieval status easy to find before any generated interpretation.", "section": "content" },
-      { "name": "Paper and navy structure", "body": "Use warm paper for reading and deep navy for structural blocks; use gold and blue as restrained signals rather than decoration.", "section": "colors" },
-      { "name": "Motion explains state", "body": "Keep wire-in, hover, accordion and dropdown motion subtle, and collapse it under prefers-reduced-motion.", "section": "motion" },
-      { "name": "Readable legal records", "body": "Show dates, case numbers, courts and official links in a predictable order with plain-language context.", "section": "typography" }
+      {
+        "name": "Source before summary",
+        "body": "Keep the official document link, case metadata and retrieval status easy to find before any generated interpretation.",
+        "section": "content"
+      },
+      {
+        "name": "Paper and navy structure",
+        "body": "Use warm paper for reading and deep navy for structural blocks; use gold and blue as restrained signals rather than decoration.",
+        "section": "colors"
+      },
+      {
+        "name": "Motion explains state",
+        "body": "Keep wire-in, hover, accordion and dropdown motion subtle, and collapse it under prefers-reduced-motion.",
+        "section": "motion"
+      },
+      {
+        "name": "Readable legal records",
+        "body": "Show dates, case numbers, courts and official links in a predictable order with plain-language context.",
+        "section": "typography"
+      }
     ],
     "dos": [
       "Use the supplied EU flag image on the home hero only and preserve attribution when it is supplied.",

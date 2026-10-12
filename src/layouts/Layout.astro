@@ -5,18 +5,25 @@ import Icon from '../components/Icon.astro';
 const { title = 'EU JUST', description = 'European staff rights, institutional rules and accountability records linked to their official sources.' } = Astro.props;
 const path = Astro.url.pathname;
 const researchLinks = [
-  { href: '/cases', label: 'Court rulings', active: path.startsWith('/cases') },
-  { href: '/rules', label: 'Rules & updates', active: path.startsWith('/rules') },
-  { href: '/decisions', label: 'Selected records', active: path.startsWith('/decisions') },
-  { href: '/discharge', label: 'Budget discharge', active: path.startsWith('/discharge') }
+  { href: '/cases', label: 'Court rulings', note: 'Daily feed from EUR-Lex', active: path.startsWith('/cases') },
+  { href: '/rules', label: 'Rules & updates', note: 'Ombudsman, Commission, staff rules', active: path.startsWith('/rules') },
+  { href: '/decisions', label: 'Selected records', note: 'Editorial selection', active: path.startsWith('/decisions') },
+  { href: '/discharge', label: 'Budget discharge', note: 'Parliament’s scrutiny cycle', active: path.startsWith('/discharge') }
 ];
 const operationalLinks = [
-  { href: '/monitoring', label: 'Monitoring', active: path.startsWith('/monitoring') },
-  { href: '/settings', label: 'AI settings', active: path.startsWith('/settings') }
+  { href: '/monitoring', label: 'Monitoring', note: 'Source checks and schedule', active: path.startsWith('/monitoring') },
+  { href: '/settings', label: 'AI settings', note: 'Summary providers', active: path.startsWith('/settings') }
+];
+const officialSources = [
+  { href: 'https://eur-lex.europa.eu/', label: 'EUR-Lex' },
+  { href: 'https://www.ombudsman.europa.eu/', label: 'European Ombudsman' },
+  { href: 'https://ec.europa.eu/commission/presscorner/', label: 'Commission Press Corner' },
+  { href: 'https://www.europarl.europa.eu/committees/en/cont/discharge-procedure/discharge-2024', label: 'Parliament discharge file' }
 ];
 let lastCheck: string | null = null;
 try { lastCheck = (await query<{ last_checked_at: string | null }>("SELECT last_checked_at FROM sources WHERE key='eurlex-sparql'")).rows[0]?.last_checked_at ?? null; } catch { /* the bar simply omits the check time when the database is unreachable */ }
 const checked = lastCheck ? new Intl.DateTimeFormat('en-GB', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'Europe/Brussels' }).format(new Date(lastCheck)) : null;
+const operationsCurrent = operationalLinks.some((link) => link.active);
 ---
 <!doctype html>
 <html lang="en">
@@ -24,39 +31,73 @@ const checked = lastCheck ? new Intl.DateTimeFormat('en-GB', { day: 'numeric', m
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="light" />
-    <meta name="theme-color" content="#fbfaf6" />
+    <meta name="theme-color" content="#f6f3eb" />
     <meta name="description" content={description} />
     <link rel="preload" href="/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/newsreader-latin.woff2" as="font" type="font/woff2" crossorigin />
     <title>{title} · EU JUST</title>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to main content</a>
     <header class="masthead">
-      <a class="wordmark" href="/" aria-label="EU JUST, home">EU <span>JUST</span></a>
-      <nav aria-label="Primary">
-        <details class:list={['nav-dropdown', { 'is-current': researchLinks.some((link) => link.active) }]}>
-          <summary aria-label="Research menu" aria-current={researchLinks.some((link) => link.active) ? 'location' : undefined}>
-            Research <Icon name="chevron-down" size={16} />
-          </summary>
-          <div class="nav-menu">
-            {researchLinks.map((link) => <a href={link.href} aria-current={link.active ? 'page' : undefined}>{link.label}</a>)}
-          </div>
+      <div class="masthead-inner">
+        <a class="wordmark" href="/" aria-label="EU JUST, home"><span class="wordmark-eu" aria-hidden="true">EU</span><span class="wordmark-just" aria-hidden="true">JUST</span></a>
+        <nav class="primary-nav" aria-label="Primary">
+          {researchLinks.map((link) => <a href={link.href} aria-current={link.active ? 'page' : undefined}>{link.label}</a>)}
+        </nav>
+        <div class="masthead-tools">
+          {checked && <p class="masthead-check" title="Last attempted check of the court feed">Court feed checked <time datetime={lastCheck!}>{checked}</time></p>}
+          <details class:list={['nav-dropdown', { 'is-current': operationsCurrent }]}>
+            <summary aria-current={operationsCurrent ? 'location' : undefined}>Operations <Icon name="chevron-down" size={16} /></summary>
+            <div class="nav-menu">
+              {operationalLinks.map((link) => <a href={link.href} aria-current={link.active ? 'page' : undefined}>{link.label}<small>{link.note}</small></a>)}
+            </div>
+          </details>
+        </div>
+        <details class="mobile-menu">
+          <summary>Menu <Icon name="chevron-down" size={16} /></summary>
+          <nav class="nav-menu" aria-label="Site">
+            <p class="nav-menu-label">Research</p>
+            {researchLinks.map((link) => <a href={link.href} aria-current={link.active ? 'page' : undefined}>{link.label}<small>{link.note}</small></a>)}
+            <p class="nav-menu-label">Operations</p>
+            {operationalLinks.map((link) => <a href={link.href} aria-current={link.active ? 'page' : undefined}>{link.label}<small>{link.note}</small></a>)}
+            {checked && <p class="masthead-check">Court feed checked <time datetime={lastCheck!}>{checked}</time></p>}
+          </nav>
         </details>
-        <details class:list={['nav-dropdown', { 'is-current': operationalLinks.some((link) => link.active) }]}>
-          <summary aria-label="Operations menu" aria-current={operationalLinks.some((link) => link.active) ? 'location' : undefined}>
-            Operations <Icon name="chevron-down" size={16} />
-          </summary>
-          <div class="nav-menu">
-            {operationalLinks.map((link) => <a href={link.href} aria-current={link.active ? 'page' : undefined}>{link.label}</a>)}
-          </div>
-        </details>
-      </nav>
-      {checked && <p class="masthead-check" title="Last attempted check of the court feed"><span>Court feed checked</span> <time datetime={lastCheck!}>{checked}</time></p>}
+      </div>
     </header>
     <main id="main" tabindex="-1"><slot /></main>
     <footer class="colophon">
-      <p class="colophon-name">EU JUST</p>
-      <p>Research support only. Verify each ruling, policy or report against its linked official document and publishing authority. Some sources are on <a href="https://eur-lex.europa.eu/" target="_blank" rel="noreferrer">EUR-Lex</a>; others are published by the relevant EU institution. Court records come from daily keyword searches, so coverage is not exhaustive.</p>
+      <div class="colophon-inner">
+        <div class="colophon-brand">
+          <a class="wordmark" href="/" aria-label="EU JUST, home"><span class="wordmark-eu" aria-hidden="true">EU</span><span class="wordmark-just" aria-hidden="true">JUST</span></a>
+          <p>Research support only, not legal advice. Verify each ruling, policy or report against its linked official document and publishing authority. Court records come from daily keyword searches, so coverage is not exhaustive.</p>
+        </div>
+        <nav aria-labelledby="footer-research">
+          <h2 id="footer-research">Research</h2>
+          <ul>{researchLinks.map((link) => <li><a href={link.href}>{link.label}</a></li>)}</ul>
+        </nav>
+        <nav aria-labelledby="footer-operations">
+          <h2 id="footer-operations">Operations</h2>
+          <ul>{operationalLinks.map((link) => <li><a href={link.href}>{link.label}</a></li>)}</ul>
+        </nav>
+        <nav aria-labelledby="footer-sources">
+          <h2 id="footer-sources">Official sources</h2>
+          <ul>{officialSources.map((link) => <li><a href={link.href} target="_blank" rel="noreferrer">{link.label}<Icon name="external" size={13} /><span class="sr-only"> (opens in a new tab)</span></a></li>)}</ul>
+        </nav>
+      </div>
+      <div class="colophon-base"><p>The linked official document is always the authority. AI summaries, where present, are labelled as generated.</p></div>
     </footer>
+    <script>
+      // Close open header menus on an outside click or Escape, so the disclosure menus behave like menus.
+      const menus = () => [...document.querySelectorAll<HTMLDetailsElement>('.masthead details[open]')];
+      document.addEventListener('click', (event) => {
+        for (const menu of menus()) if (!menu.contains(event.target as Node)) menu.open = false;
+      });
+      document.addEventListener('keydown', (event) => {
+        if (event.key !== 'Escape') return;
+        for (const menu of menus()) { menu.open = false; menu.querySelector('summary')?.focus(); }
+      });
+    </script>
   </body>
 </html>
