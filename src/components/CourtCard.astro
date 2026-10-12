@@ -1,0 +1,21 @@
+---
+import Icon from './Icon.astro';
+import { parseTitle } from '../lib/title';
+const { item } = Astro.props;
+const parsed = parseTitle(item.title);
+const topics: string[] = item.topics ?? [];
+const judged = item.judgment_date ? new Date(item.judgment_date) : null;
+const date = judged ? new Intl.DateTimeFormat('en-GB', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'Europe/Brussels' }).format(judged) : 'Date not recorded';
+---
+<li class="court-card">
+  <div class="court-card-meta"><span>{item.case_number ?? item.celex}</span>{judged ? <time datetime={judged.toISOString().slice(0, 10)}>{date}</time> : <span>{date}</span>}</div>
+  <h3><a href={`/cases/${item.id}`}>{parsed.heading}</a></h3>
+  <p class="court-card-court">{item.court ?? 'Court not recorded'}</p>
+  {topics.length > 0 && <ul class="court-card-topics" aria-label="Matched topics">{topics.map((topic) => <li>{topic}</li>)}</ul>}
+  {parsed.keywords.length > 0 && <p class="court-card-subject">{parsed.keywords.slice(0, 2).join(' · ')}</p>}
+  {item.summary && <p class="court-card-ai">AI summary available</p>}
+  <div class="court-card-links">
+    <a class="court-card-action" href={`/cases/${item.id}`}>View case record <Icon name="arrow-right" size={16} /></a>
+    {item.official_url && <a class="court-card-source" href={item.official_url} target="_blank" rel="noreferrer">Official source <Icon name="external" size={13} /><span class="sr-only"> (opens in a new tab)</span></a>}
+  </div>
+</li>

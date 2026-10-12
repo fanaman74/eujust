@@ -1,14 +1,14 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Icon from '../components/Icon.astro';
-import CaseRow from '../components/CaseRow.astro';
+import CourtCard from '../components/CourtCard.astro';
 import { query } from '../lib/db';
 import { selectedDecisions, selectedDecisionsCheckedOn, ruleGroups } from '../data/rules';
 import { researchTopics } from '../data/research-topics';
 
 let latest: any[] = [], topics: { slug: string; name_en: string }[] = [], total = 0, sourceCount = 0, lastCheck: string | null = null, error = '';
 try {
-  latest = (await query(`SELECT c.id,c.celex,c.case_number,c.title,c.judgment_date,c.summary,co.name court, COALESCE(array_agg(DISTINCT t.name_en) FILTER (WHERE t.id IS NOT NULL),'{}') topics FROM cases c LEFT JOIN courts co ON co.id=c.court_id LEFT JOIN case_topics ct ON ct.case_id=c.id LEFT JOIN topics t ON t.id=ct.topic_id GROUP BY c.id,co.name ORDER BY c.judgment_date DESC NULLS LAST,c.id DESC LIMIT 5`)).rows;
+  latest = (await query(`SELECT c.id,c.celex,c.case_number,c.title,c.judgment_date,c.summary,co.name court, (SELECT d.official_url FROM documents d WHERE d.case_id=c.id ORDER BY d.retrieved_at DESC NULLS LAST,d.id DESC LIMIT 1) official_url, COALESCE(array_agg(DISTINCT t.name_en) FILTER (WHERE t.id IS NOT NULL),'{}') topics FROM cases c LEFT JOIN courts co ON co.id=c.court_id LEFT JOIN case_topics ct ON ct.case_id=c.id LEFT JOIN topics t ON t.id=ct.topic_id GROUP BY c.id,co.name ORDER BY c.judgment_date DESC NULLS LAST,c.id DESC LIMIT 5`)).rows;
   total = Number((await query<{ total: string }>('SELECT count(*) total FROM cases')).rows[0].total);
   topics = (await query<{ slug: string; name_en: string }>('SELECT slug,name_en FROM topics WHERE enabled ORDER BY name_en')).rows;
   const sources = (await query<{ enabled: string; checked: string | null }>(`SELECT count(*) FILTER (WHERE enabled) enabled, max(last_checked_at) FILTER (WHERE key='eurlex-sparql') checked FROM sources`)).rows[0];
@@ -100,23 +100,37 @@ const sections = [
     </div>
   </section>
 
-  <section class="wrap home-latest latest" id="latest" aria-labelledby="home-latest-title">
-    <header class="section-head">
-      <div>
-        <h2 id="home-latest-title">The latest from the courts.</h2><p>Newest first, by judgment date. Each record links to its official source.</p>
-      </div>
-      {!error && total > 0 && <a class="text-link" href="/cases">All {total} rulings <Icon name="arrow-right" size={18} /></a>}
-    </header>
-    {error ? (
-      <div class="empty" role="alert"><h3>The rulings cannot be loaded right now</h3><p>{error}</p></div>
-    ) : latest.length === 0 ? (
-      <div class="empty"><h3>No rulings collected yet</h3><p>Rulings appear here after the first check of the official source.</p><a class="button" href="/monitoring">Go to monitoring</a></div>
-    ) : (
-      <>
-        <ul class="dispatches">{latest.map((item, index) => <CaseRow item={item} lead={index === 0} />)}</ul>
-        <a class="view-all" href="/cases"><span>Search and filter all {total} rulings</span> <Icon name="arrow-right" size={24} /></a>
-      </>
-    )}
+  <section class="home-latest latest-courts" id="latest" aria-labelledby="home-latest-title">
+    <div class="latest-wave-edge" aria-hidden="true">
+      <svg class="latest-wave" viewBox="0 0 2880 74" preserveAspectRatio="none"><path d="M0 46 C171 46 209 30 380 30 C533 30 567 50 720 50 C873 50 907 36 1060 36 C1231 36 1269 46 1440 46 C1611 46 1649 30 1820 30 C1973 30 2007 50 2160 50 C2313 50 2347 36 2500 36 C2671 36 2709 46 2880 46 L2880 74 L0 74 Z" /></svg>
+    </div>
+    <div class="wrap latest-layout">
+      <header class="latest-intro">
+        <h2 id="home-latest-title">The latest<br />from the courts.</h2>
+        <p>Newest first, by judgment date. Read the case record, follow its matched topics, and open the official source.</p>
+        {!error && latest.length > 0 && <p class="latest-coverage">{latest.length} latest collected rulings · keyword-based coverage</p>}
+        <a class="latest-archive-link" href="/cases">Search all {total > 0 ? `${total} rulings` : 'rulings'} <Icon name="arrow-right" size={17} /></a>
+        <div class="latest-motion-controls">
+          <button class="latest-motion" type="button" aria-pressed="false">Pause section animation</button>
+          {latest.length > 0 && <button class="latest-replay" type="button">Replay card highlight</button>}
+        </div>
+      </header>
+      {error ? (
+        <div class="latest-empty" role="alert"><h3>The rulings cannot be loaded right now</h3><p>{error}</p></div>
+      ) : latest.length === 0 ? (
+        <div class="latest-empty"><h3>No rulings collected yet</h3><p>Rulings appear here after the first check of the official source.</p><a href="/monitoring">Go to monitoring <Icon name="arrow-right" /></a></div>
+      ) : (
+        <ul class="court-card-grid" aria-label="Latest court rulings">
+          {latest.map((item) => <CourtCard item={item} />)}
+          <li class="court-card court-card-archive">
+            <Icon name="search" size={28} />
+            <h3><a href="/cases">Keep exploring.</a></h3>
+            <p>Search all {total} collected rulings by party, case number, court or matched topic.</p>
+            <a class="court-card-action" href="/cases">Browse the collection <Icon name="arrow-right" size={16} /></a>
+          </li>
+        </ul>
+      )}
+    </div>
   </section>
 
   <section class="home-index" aria-labelledby="home-index-title">
@@ -164,6 +178,7 @@ const sections = [
 </Layout>
 
 <script>
+  import '../scripts/latest-courts';
   const hero = document.querySelector<HTMLElement>('.home-hero');
   const motionButton = document.querySelector<HTMLButtonElement>('.hero-motion');
   const motionPreference = matchMedia('(prefers-reduced-motion: reduce)');
