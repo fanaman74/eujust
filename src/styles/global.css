@@ -188,20 +188,6 @@ input:focus-visible, select:focus-visible, textarea:focus-visible { outline: non
 .section-head { display: flex; align-items: end; justify-content: space-between; flex-wrap: wrap; gap: 24px; margin-bottom: 30px; }
 .section-head p:not(.kicker) { margin-top: 12px; color: var(--grey); max-width: 65ch; }
 .text-link { display: inline-flex; align-items: center; gap: 8px; font-size: .9375rem; font-weight: 600; text-decoration: none; border-bottom: 1px solid var(--ink); padding-bottom: 3px; }
-.home-index { background: var(--ink-2); color: var(--on-ink); }
-.home-index-inner { display: grid; grid-template-columns: .85fr 1.15fr; gap: 72px; padding-block: 88px; }
-.home-index-head h2 { font-size: clamp(2rem, 1.5rem + 1.8vw, 3.1rem); }
-.home-index-head p { margin-top: 24px; max-width: 42ch; color: var(--on-ink-muted); }
-.index-list { list-style: none; margin: 0; padding: 0; }
-.index-list li + li { margin-top: 0; }
-.index-list a { position: relative; display: grid; grid-template-columns: 1fr auto; gap: 8px 20px; padding: 25px 0; border-bottom: 1px solid var(--on-ink-line); color: var(--on-ink); text-decoration: none; }
-.index-list li:first-child a { padding-top: 0; }
-.index-title { font-family: var(--display); font-size: 1.75rem; line-height: 1.2; }
-.index-desc { grid-column: 1; font-size: .9375rem; color: var(--on-ink-muted); max-width: 62ch; }
-.index-meta { grid-column: 1; font-size: .75rem; color: var(--wire); }
-.index-list .icon { grid-column: 2; grid-row: 1 / span 3; align-self: center; color: var(--wire); transition: transform 180ms var(--ease-out); }
-.index-list a:hover .icon { transform: translateX(6px); }
-.index-list a:focus-visible { outline-color: var(--wire); }
 .home-method { padding-block: 88px; }
 .method-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 36px; margin: 0; }
 .method-grid > div { padding-top: 24px; border-top: 1px solid var(--line); }
@@ -448,9 +434,6 @@ td { padding: 16px 16px 16px 0; border-bottom: 1px solid var(--line); vertical-a
   .mobile-menu .nav-menu { left: 0; right: 0; top: 100%; min-width: 0; border-radius: 0; padding: 16px var(--gutter); }
   .research-window-body { grid-template-columns: .8fr 1.2fr; }
   .source-path { padding: 28px; }
-  .home-index-inner { grid-template-columns: 1fr; gap: 32px; }
-  .home-index-head { max-width: 70ch; }
-  .home-index-head p { max-width: 60ch; }
   .detail-grid { grid-template-columns: minmax(0,1fr); gap: 32px; }
   .detail-aside { position: static; grid-template-columns: 1fr 1fr; }
   .dispatch, .rule-group .dispatch { grid-template-columns: 82px minmax(0,1fr) 140px; gap: 18px; }
@@ -479,7 +462,6 @@ td { padding: 16px 16px 16px 0; border-bottom: 1px solid var(--line); vertical-a
   .ledger { gap: 18px; padding-block: 24px; }
   .ledger > div { width: 100%; }
   .home-latest, .home-method { padding-block: 56px; }
-  .home-index-inner { padding-block: 56px; }
   .method-grid { grid-template-columns: 1fr; }
   .page { padding-top: 40px; padding-bottom: 64px; }
   .page-head { flex-direction: column; gap: 24px; }
@@ -662,7 +644,7 @@ td { padding: 16px 16px 16px 0; border-bottom: 1px solid var(--line); vertical-a
 /* Latest court records adapt the reference's wave and one-time card scan. */
 .home-latest.latest-courts { position: relative; margin-top: 104px; padding: 84px 0 88px; background: #0c0c12; color: #f4f2fc; border-bottom: 1px solid #2d2b36; }
 .latest-wave-edge { position: absolute; inset: -73px 0 auto; height: 74px; overflow: hidden; pointer-events: none; }
-.latest-wave { display: block; position: absolute; bottom: 0; width: 200%; height: 74px; fill: #0c0c12; animation: latest-wave-flow 30s linear infinite; }
+.latest-wave { display: block; position: absolute; left: 0; bottom: 0; width: 200%; max-width: none; height: 74px; fill: #0c0c12; animation: latest-wave-flow 30s linear infinite; }
 @keyframes latest-wave-flow { to { transform: translateX(-50%); } }
 .latest-layout { display: grid; grid-template-columns: 1fr; gap: 40px; align-items: start; }
 .latest-intro { max-width: 70ch; }

@@ -3,7 +3,6 @@ import Layout from '../layouts/Layout.astro';
 import Icon from '../components/Icon.astro';
 import CourtCard from '../components/CourtCard.astro';
 import { query } from '../lib/db';
-import { selectedDecisions, selectedDecisionsCheckedOn, ruleGroups } from '../data/rules';
 import { researchTopics } from '../data/research-topics';
 
 let latest: any[] = [], topics: { slug: string; name_en: string }[] = [], total = 0, sourceCount = 0, lastCheck: string | null = null, error = '';
@@ -18,7 +17,6 @@ try {
 
 const formatDate = (value: string | Date, options: Intl.DateTimeFormatOptions = { day: 'numeric', month: 'short', year: 'numeric' }) => new Intl.DateTimeFormat('en-GB', { ...options, timeZone: 'Europe/Brussels' }).format(new Date(value));
 const latestJudgment = latest.find((item) => item.judgment_date)?.judgment_date ?? null;
-const standingCount = ruleGroups.reduce((sum, group) => sum + group.rules.length, 0);
 
 const ledger = [
   total > 0 && { label: 'Court rulings on record', value: String(total) },
@@ -28,12 +26,6 @@ const ledger = [
 ].filter(Boolean) as { label: string; value: string }[];
 if (error) { Astro.response.status = 503; Astro.response.headers.set('Retry-After', '60'); }
 
-const sections = [
-  { href: '/cases', title: 'Court rulings', description: 'Court of Justice and General Court decisions on harassment, psychosocial risk and discrimination at work, searchable by party, case number or topic.', meta: 'Daily source checks · EUR-Lex / Cellar' },
-  { href: '/rules', title: 'Rules & updates', description: 'What the European Ombudsman and Commission publish on dignity at work, alongside the staff rules and policies those institutions apply.', meta: `Institution feeds · ${standingCount} standing references` },
-  { href: '/decisions', title: 'Selected records', description: 'A short, hand-picked list of judgments, Ombudsman decisions and Commission reports on staff safeguards and OLAF.', meta: `${selectedDecisions.length} records · checked ${formatDate(selectedDecisionsCheckedOn, { day: 'numeric', month: 'short', year: 'numeric' })}` },
-  { href: '/discharge', title: 'Budget discharge', description: 'How Parliament scrutinises the way EU institutions spent their budget, what it decided and where the replies are published.', meta: 'Editorial guide · FY2024 cycle' }
-];
 ---
 
 <Layout title="EU employment law: court rulings & workplace rights" description="Find EU court rulings on workplace harassment, discrimination and psychosocial risks. Explore institutional rules and accountability, linked to official sources." noindex={Boolean(error)}>
@@ -131,27 +123,6 @@ const sections = [
           </li>
         </ul>
       )}
-    </div>
-  </section>
-
-  <section class="home-index" aria-labelledby="home-index-title">
-    <div class="wrap home-index-inner">
-      <header class="home-index-head">
-        <h2 id="home-index-title">See the ruling.<br />Explore the bigger picture.</h2>
-        <p>Rulings show how the law was applied. The rules show what institutions committed to. Discharge shows how Parliament holds them to account.</p>
-      </header>
-      <ul class="index-list">
-        {sections.map((section) => (
-          <li>
-            <a href={section.href}>
-              <span class="index-title">{section.title}</span>
-              <span class="index-desc">{section.description}</span>
-              <span class="index-meta">{section.meta}</span>
-              <Icon name="arrow-right" size={22} />
-            </a>
-          </li>
-        ))}
-      </ul>
     </div>
   </section>
 
