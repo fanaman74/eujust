@@ -5,35 +5,62 @@ import Icon from '../components/Icon.astro';
 import CaseRow from '../components/CaseRow.astro';
 import { query } from '../lib/db';
 import { pageGuides } from '../data/page-guides';
+
 let latest: any[] = [], total = 0, error = '';
 try {
   latest = (await query(`SELECT c.id,c.celex,c.case_number,c.title,c.judgment_date,c.summary,co.name court, COALESCE(array_agg(DISTINCT t.name_en) FILTER (WHERE t.id IS NOT NULL),'{}') topics FROM cases c LEFT JOIN courts co ON co.id=c.court_id LEFT JOIN case_topics ct ON ct.case_id=c.id LEFT JOIN topics t ON t.id=ct.topic_id GROUP BY c.id,co.name ORDER BY c.judgment_date DESC NULLS LAST,c.id DESC LIMIT 5`)).rows;
   total = Number((await query<{ total: string }>('SELECT count(*) total FROM cases')).rows[0].total);
 } catch (e) { error = e instanceof Error ? e.message : 'Database unavailable'; }
+
+const researchAreas = [
+  { href: '/cases', icon: 'scale', title: 'Court rulings', description: 'Search case law on European staff rights, harassment and discrimination.' },
+  { href: '/rules', icon: 'info', title: 'Rules & updates', description: 'Follow institution feeds, policies and standing workplace references.' },
+  { href: '/decisions', icon: 'external', title: 'Selected records', description: 'Read editorially selected decisions and reports from official sources.' },
+  { href: '/discharge', icon: 'activity', title: 'Budget discharge', description: 'Track Parliament’s discharge votes, replies and follow-up.' }
+];
 ---
-<Layout title="European staff rights and institutional accountability" description="Court rulings, workplace rules and institutional accountability records linked to their official sources.">
-  <section class="hero home-hero">
-    <picture>
+
+<Layout title="European staff rights and institutional accountability" description="EU JUST helps readers follow European staff rights, court rulings, workplace rules and institutional accountability through links to official records.">
+  <section class="hero home-hero" aria-labelledby="home-title">
+    <div class="hero-block home-hero-copy">
+      <p class="home-eyebrow">European law and public accountability</p>
+      <h1 id="home-title">Understand the decisions.<br /><em>Explore the rules.</em><br />Follow accountability.</h1>
+      <p>Explore court rulings, workplace rules and institutional records about staff rights and wellbeing. Follow each item back to the official source, and see where this site’s coverage has limits.</p>
+      <div class="hero-actions">
+        <a class="button wire" href="/cases">Browse court rulings <Icon name="arrow-right" size={18} /></a>
+        <a class="button ghost" href="#explore">Explore the records <Icon name="arrow-right" size={18} /></a>
+      </div>
+      <p class="home-trust"><Icon name="shield" size={18} /> Official source links <span aria-hidden="true">·</span> AI summaries clearly labelled <span aria-hidden="true">·</span> Coverage limits shown</p>
+    </div>
+    <picture class="home-hero-image">
       <img src="/images/home-hero.png" alt="European Union flag hanging inside a glass and steel atrium." width="1011" height="673" fetchpriority="high" />
     </picture>
-    <div class="hero-block">
-      <h1>European staff rights, rules and accountability</h1>
-      <div>
-      <p>Follow court rulings, workplace rules and institutional updates on harassment, discrimination and mental health at work, alongside wider institutional and budget accountability. Every record links to its official source.</p>
-      <div class="hero-actions">
-        <a class="button wire" href="#latest">Read the latest rulings</a>
-        <a class="button ghost" href="/cases">Browse all{total > 0 && ` ${total}`}</a>
-      </div>
-      </div>
-    </div>
   </section>
 
   <PageGuide {...pageGuides.home} />
 
-  <section class="latest" id="latest" aria-labelledby="h-latest">
-    <header class="latest-head">
-      <h2 id="h-latest">Latest rulings</h2>
-      <p>The five most recent decisions by judgment date.</p>
+  <section class="home-explore" id="explore" aria-labelledby="home-explore-title">
+    <div class="home-section-head">
+      <h2 id="home-explore-title">Explore the records</h2>
+      <p>Move from court decisions to workplace policy and public scrutiny. Each section explains its sources and scope.</p>
+    </div>
+    <nav class="home-categories" aria-label="Research sections">
+      {researchAreas.map((area) => <a class="home-category" href={area.href}>
+        <span class="home-category-icon"><Icon name={area.icon} size={22} /></span>
+        <h3>{area.title}</h3>
+        <p>{area.description}</p>
+        <span class="home-category-link">Open section <Icon name="arrow-right" size={17} /></span>
+      </a>)}
+    </nav>
+  </section>
+
+  <section class="latest home-latest" id="latest" aria-labelledby="home-latest-title">
+    <header class="home-section-head">
+      <div>
+        <h2 id="home-latest-title">Recent court rulings</h2>
+        <p>Five latest records by judgment date, linked to their case details.</p>
+      </div>
+      {!error && total > 0 && <a class="home-text-link" href="/cases">Browse all {total} rulings <Icon name="arrow-right" size={19} /></a>}
     </header>
     {error ? (
       <div class="empty" role="alert"><h3>The rulings cannot be loaded right now</h3><p>{error}</p></div>
@@ -42,17 +69,235 @@ try {
     ) : (
       <>
         <ul class="dispatches">{latest.map((item, index) => <CaseRow item={item} lead={index === 0} />)}</ul>
-        <a class="view-all" href="/cases">View all {total} rulings <Icon name="arrow-right" size={28} /></a>
+        <a class="view-all" href="/cases">View all {total} rulings <Icon name="arrow-right" size={24} /></a>
       </>
     )}
   </section>
 
-  <section class="method" aria-labelledby="h-method">
-    <h2 id="h-method">How to read this site</h2>
-    <div class="method-points">
-      <div><h3>The court’s text comes first</h3><p>Each ruling carries its case number, court and date, and a link to the official document on EUR-Lex. That document is the authority, not this site.</p></div>
-      <div><h3>Summaries are labelled</h3><p>Where an AI summary exists it is marked as generated and kept apart from the official record. It is a reading aid, never a court finding.</p></div>
-      <div><h3>Coverage has limits</h3><p>Rulings are found by a daily keyword search of EUR-Lex for harassment, psychosocial risk and discrimination. Some relevant decisions will be missing.</p></div>
+  <section class="home-method" aria-labelledby="home-method-title">
+    <div class="home-method-copy">
+      <h2 id="home-method-title">Clarity starts with the source.</h2>
+      <p class="home-method-intro">EU JUST is a research starting point. The issuing court or institution remains the authority.</p>
+      <div class="home-method-points">
+        <article>
+          <h3>Read the official text</h3>
+          <p>Case records link to EUR-Lex. Other items link to the institution that published them.</p>
+        </article>
+        <article>
+          <h3>Separate records from interpretation</h3>
+          <p>Any AI-generated summary is labelled and kept apart from the official document.</p>
+        </article>
+        <article>
+          <h3>Keep the limits in view</h3>
+          <p>Search terms and hand-selected records shape coverage; relevant material may be missing.</p>
+        </article>
+      </div>
     </div>
+    <aside class="home-method-note">
+      <Icon name="shield" size={27} />
+      <blockquote>“The official record is the authority. This site helps you find it.”</blockquote>
+      <p>Research support only. Check the linked source before relying on a record or summary.</p>
+    </aside>
+  </section>
+
+  <section class="home-closing" aria-labelledby="home-closing-title">
+    <div>
+      <h2 id="home-closing-title">Start with the evidence.</h2>
+      <p>Search court rulings, then follow the source trail into policy and institutional oversight.</p>
+    </div>
+    <a class="button secondary" href="/cases">Open the case library <Icon name="arrow-right" size={18} /></a>
   </section>
 </Layout>
+
+<style>
+  .home-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(360px, 0.92fr);
+    align-items: stretch;
+    min-height: min(690px, calc(100svh - 72px));
+    background: #10213a;
+    color: #fff;
+  }
+  .home-hero-copy {
+    width: auto;
+    min-width: 0;
+    align-self: center;
+    padding: clamp(36px, 6vw, 88px) clamp(28px, 5vw, 76px);
+    border: 0;
+    background: transparent;
+    animation: wire-in 900ms var(--ease-out) both;
+  }
+  .home-eyebrow {
+    color: #e2c57c;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .home-hero-copy h1 {
+    max-width: 15ch;
+    margin: 20px 0 22px;
+    color: #fff;
+    font-size: clamp(2.65rem, 4.1vw, 4.55rem);
+    line-height: 1.13;
+    font-weight: 500;
+    letter-spacing: -0.035em;
+  }
+  .home-hero-copy h1 em { color: #e2c57c; font-style: normal; }
+  .home-hero-copy > p:not(.home-eyebrow):not(.home-trust) {
+    max-width: 52ch;
+    color: #d6deea;
+    font-size: 1.075rem;
+    line-height: 1.75;
+  }
+  .home-hero-copy .hero-actions { gap: 12px; margin-top: 28px; }
+  .home-hero-copy .button { border-radius: 4px; }
+  .home-hero :focus-visible { outline-color: var(--wire, #f0b83e); }
+  .home-trust {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 30px;
+    color: #c3d0df;
+    font-size: 0.82rem;
+  }
+  .home-trust .icon { color: #e2c57c; }
+  .home-hero-image {
+    position: relative;
+    inset: auto;
+    display: block;
+    min-width: 0;
+    min-height: 440px;
+    overflow: hidden;
+    background: #0b1930;
+  }
+  .home-hero-image img {
+    position: relative;
+    inset: auto;
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 440px;
+    object-fit: cover;
+    object-position: 44% center;
+  }
+  .home-explore, .home-latest { max-width: 1240px; margin-inline: auto; padding-inline: clamp(24px, 5vw, 64px); }
+  .home-explore { padding-top: clamp(58px, 8vw, 100px); padding-bottom: clamp(58px, 8vw, 100px); }
+  .home-section-head {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 28px;
+    margin-bottom: 28px;
+  }
+  .home-section-head h2, .home-method h2, .home-closing h2 {
+    color: var(--ink, #17263d);
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: clamp(2rem, 3vw, 2.65rem);
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+  }
+  .home-section-head > p, .home-section-head > div > p {
+    max-width: 54ch;
+    color: var(--grey, #536273);
+    font-size: 0.96rem;
+    line-height: 1.65;
+  }
+  .home-categories { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+  .home-category {
+    display: flex;
+    flex-direction: column;
+    min-height: 235px;
+    padding: 22px;
+    border: 1px solid var(--line, #dfe4e8);
+    border-radius: 6px;
+    background: #fff;
+    color: var(--ink, #17263d);
+    text-decoration: none;
+    transition: border-color 180ms var(--ease-out), background-color 180ms var(--ease-out), transform 180ms var(--ease-out);
+  }
+  .home-category:hover { border-color: #aac1dc; background: #f2f6fb; transform: translateY(-3px); }
+  .home-category-icon {
+    display: grid;
+    place-items: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 5px;
+    background: var(--blue-soft, #eaf0f7);
+    color: var(--blue, #1757bd);
+  }
+  .home-category h3 { margin-top: 19px; font-size: 1.1rem; line-height: 1.25; font-weight: 700; }
+  .home-category > p { margin-top: 8px; color: var(--grey, #536273); font-size: 0.9rem; line-height: 1.55; }
+  .home-category-link { display: inline-flex; align-items: center; gap: 8px; margin-top: auto; padding-top: 18px; color: var(--blue, #1757bd); font-size: 0.86rem; font-weight: 700; }
+  .home-category-link .icon { transition: transform 180ms var(--ease-out); }
+  .home-category:hover .home-category-link .icon { transform: translateX(4px); }
+  .home-latest { padding-top: 24px; padding-bottom: clamp(62px, 8vw, 104px); }
+  .home-latest .home-section-head { align-items: center; }
+  .home-latest .home-section-head > div { display: grid; gap: 7px; }
+  .home-text-link { display: inline-flex; align-items: center; gap: 9px; color: var(--blue, #1757bd); font-weight: 700; text-decoration: none; white-space: nowrap; }
+  .home-text-link .icon { transition: transform 180ms var(--ease-out); }
+  .home-text-link:hover .icon { transform: translateX(4px); }
+  .home-method {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+    gap: clamp(34px, 7vw, 92px);
+    align-items: center;
+    padding: clamp(58px, 8vw, 100px) clamp(24px, 7vw, 96px);
+    background: #edf1f3;
+  }
+  .home-method-copy { max-width: 780px; justify-self: end; }
+  .home-method h2 { max-width: 16ch; }
+  .home-method-intro { margin-top: 13px; color: var(--grey, #536273); font-size: 1.03rem; line-height: 1.65; }
+  .home-method-points { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; margin-top: 34px; }
+  .home-method-points article { padding-top: 15px; border-top: 2px solid #263f60; }
+  .home-method-points h3 { font-size: 1rem; line-height: 1.3; }
+  .home-method-points p { margin-top: 8px; color: #46576a; font-size: 0.9rem; line-height: 1.6; }
+  .home-method-note {
+    max-width: 420px;
+    padding: 30px;
+    background: #dfe7ef;
+    color: #1c3451;
+  }
+  .home-method-note > .icon { color: var(--blue, #1757bd); }
+  .home-method-note blockquote {
+    margin: 18px 0 13px;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: clamp(1.35rem, 2.2vw, 1.7rem);
+    line-height: 1.5;
+  }
+  .home-method-note p { color: #465b73; font-size: 0.9rem; line-height: 1.65; }
+  .home-closing {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 28px;
+    padding: 38px clamp(24px, 7vw, 96px);
+    background: #10213a;
+    color: #fff;
+  }
+  .home-closing h2 { color: #fff; font-size: clamp(1.65rem, 2.6vw, 2.2rem); }
+  .home-closing p { margin-top: 7px; color: #d6deea; line-height: 1.55; }
+  .home-closing .button { border-color: #eaf0f7; color: #10213a; }
+
+  @media (max-width: 980px) {
+    .home-hero { grid-template-columns: minmax(0, 1fr) minmax(280px, 0.8fr); min-height: 560px; }
+    .home-hero-copy { padding-inline: clamp(24px, 4vw, 44px); }
+    .home-categories { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .home-method { grid-template-columns: 1fr; }
+    .home-method-copy { justify-self: stretch; }
+    .home-method-note { max-width: none; }
+  }
+  @media (max-width: 680px) {
+    .home-hero { grid-template-columns: 1fr; min-height: auto; }
+    .home-hero-copy { padding: 42px 24px; }
+    .home-hero-copy h1 { font-size: clamp(2.35rem, 10vw, 3.35rem); }
+    .home-hero-image, .home-hero-image img { min-height: 280px; max-height: 44svh; }
+    .home-section-head, .home-latest .home-section-head { align-items: start; flex-direction: column; }
+    .home-categories { grid-template-columns: 1fr; }
+    .home-category { min-height: auto; }
+    .home-method-points { grid-template-columns: 1fr; }
+    .home-closing { align-items: start; flex-direction: column; }
+  }
+</style>

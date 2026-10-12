@@ -1,187 +1,195 @@
 {
-  "schemaVersion": 2,
-  "generatedAt": "2026-10-02T00:00:00.000Z",
-  "title": "Design System: EU Lex Discovery",
-  "extensions": {
-    "colorMeta": {
-      "ink": { "role": "neutral", "displayName": "Ink", "canonical": "#0e0e0e", "tonalRamp": ["oklch(15% 0 0)", "oklch(27% 0 0)", "oklch(39% 0 0)", "oklch(51% 0 0)", "oklch(63% 0 0)", "oklch(75% 0 0)", "oklch(86% 0 0)", "oklch(95% 0 0)"] },
-      "paper": { "role": "neutral", "displayName": "Paper", "canonical": "#ffffff", "tonalRamp": ["oklch(15% 0 0)", "oklch(27% 0 0)", "oklch(39% 0 0)", "oklch(51% 0 0)", "oklch(63% 0 0)", "oklch(75% 0 0)", "oklch(86% 0 0)", "oklch(100% 0 0)"] },
-      "wash": { "role": "neutral", "displayName": "Wash", "canonical": "#f1f1ef", "tonalRamp": ["oklch(15% 0.003 106)", "oklch(27% 0.003 106)", "oklch(39% 0.003 106)", "oklch(51% 0.003 106)", "oklch(63% 0.003 106)", "oklch(75% 0.003 106)", "oklch(86% 0.003 106)", "oklch(95% 0.003 106)"] },
-      "line": { "role": "neutral", "displayName": "Line", "canonical": "#d9d9d6", "tonalRamp": ["oklch(15% 0.004 106)", "oklch(27% 0.004 106)", "oklch(39% 0.004 106)", "oklch(51% 0.004 106)", "oklch(63% 0.004 106)", "oklch(75% 0.004 106)", "oklch(88% 0.004 106)", "oklch(95% 0.004 106)"] },
-      "grey": { "role": "neutral", "displayName": "Grey", "canonical": "#5f5f5b", "tonalRamp": ["oklch(15% 0.006 106)", "oklch(27% 0.006 106)", "oklch(48% 0.006 106)", "oklch(57% 0.006 106)", "oklch(66% 0.006 106)", "oklch(76% 0.006 106)", "oklch(86% 0.006 106)", "oklch(95% 0.006 106)"] },
-      "on-ink-muted": { "role": "neutral", "displayName": "On-Ink Muted", "canonical": "#b9b9b5", "tonalRamp": ["oklch(15% 0.005 106)", "oklch(27% 0.005 106)", "oklch(39% 0.005 106)", "oklch(51% 0.005 106)", "oklch(63% 0.005 106)", "oklch(78% 0.005 106)", "oklch(87% 0.005 106)", "oklch(95% 0.005 106)"] },
-      "wire": { "role": "primary", "displayName": "Wire Red", "canonical": "#e4002b", "tonalRamp": ["oklch(15% 0.06 25)", "oklch(27% 0.11 25)", "oklch(39% 0.16 25)", "oklch(50% 0.21 25)", "oklch(58% 0.23 25)", "oklch(72% 0.14 25)", "oklch(85% 0.07 25)", "oklch(95% 0.02 25)"] },
-      "wire-deep": { "role": "primary", "displayName": "Wire Red Deep", "canonical": "#c20025", "tonalRamp": ["oklch(15% 0.06 24)", "oklch(27% 0.11 24)", "oklch(39% 0.16 24)", "oklch(51% 0.21 24)", "oklch(62% 0.19 24)", "oklch(74% 0.13 24)", "oklch(86% 0.06 24)", "oklch(95% 0.02 24)"] },
-      "ai-fg": { "role": "status", "displayName": "AI Amber", "canonical": "#7a4a00", "tonalRamp": ["oklch(15% 0.04 70)", "oklch(27% 0.07 70)", "oklch(45% 0.1 70)", "oklch(55% 0.11 70)", "oklch(66% 0.12 75)", "oklch(78% 0.11 80)", "oklch(88% 0.08 88)", "oklch(97% 0.04 92)"] },
-      "ai-surface": { "role": "status", "displayName": "AI Amber Surface", "canonical": "#fff4d6", "tonalRamp": ["oklch(15% 0.04 70)", "oklch(27% 0.07 70)", "oklch(45% 0.1 70)", "oklch(55% 0.11 70)", "oklch(66% 0.12 75)", "oklch(78% 0.11 80)", "oklch(88% 0.08 88)", "oklch(97% 0.04 92)"] },
-      "warning-fg": { "role": "status", "displayName": "Warning (same as AI Amber)", "canonical": "#7a4a00", "tonalRamp": ["oklch(15% 0.04 70)", "oklch(27% 0.07 70)", "oklch(45% 0.1 70)", "oklch(55% 0.11 70)", "oklch(66% 0.12 75)", "oklch(78% 0.11 80)", "oklch(88% 0.08 88)", "oklch(97% 0.04 92)"] },
-      "warning-surface": { "role": "status", "displayName": "Warning Surface (same as AI Amber Surface)", "canonical": "#fff4d6", "tonalRamp": ["oklch(15% 0.04 70)", "oklch(27% 0.07 70)", "oklch(45% 0.1 70)", "oklch(55% 0.11 70)", "oklch(66% 0.12 75)", "oklch(78% 0.11 80)", "oklch(88% 0.08 88)", "oklch(97% 0.04 92)"] },
-      "success-fg": { "role": "status", "displayName": "Success Green", "canonical": "#0b6b34", "tonalRamp": ["oklch(15% 0.04 150)", "oklch(27% 0.08 150)", "oklch(46% 0.12 150)", "oklch(56% 0.13 150)", "oklch(67% 0.12 150)", "oklch(78% 0.09 150)", "oklch(88% 0.06 150)", "oklch(95% 0.03 150)"] },
-      "success-surface": { "role": "status", "displayName": "Success Surface", "canonical": "#e5f5ea", "tonalRamp": ["oklch(15% 0.04 150)", "oklch(27% 0.08 150)", "oklch(46% 0.12 150)", "oklch(56% 0.13 150)", "oklch(67% 0.12 150)", "oklch(78% 0.09 150)", "oklch(88% 0.06 150)", "oklch(95% 0.03 150)"] },
-      "danger-fg": { "role": "status", "displayName": "Danger (same as Wire Red Deep)", "canonical": "#c20025", "tonalRamp": ["oklch(15% 0.06 24)", "oklch(27% 0.11 24)", "oklch(39% 0.16 24)", "oklch(51% 0.21 24)", "oklch(62% 0.19 24)", "oklch(74% 0.13 24)", "oklch(86% 0.06 24)", "oklch(95% 0.02 24)"] },
-      "danger-surface": { "role": "status", "displayName": "Danger Surface", "canonical": "#fde8ec", "tonalRamp": ["oklch(15% 0.06 10)", "oklch(27% 0.11 10)", "oklch(39% 0.16 10)", "oklch(51% 0.19 10)", "oklch(64% 0.15 10)", "oklch(76% 0.1 10)", "oklch(87% 0.05 10)", "oklch(94% 0.025 10)"] }
-    },
-    "typographyMeta": {
-      "display": { "displayName": "Display", "purpose": "Home hero headline inside the ink block, max 19ch. Capped at 5rem so the block does not cover the photograph." },
-      "page-title": { "displayName": "Page title", "purpose": "The h1 of list, detail, monitoring and settings pages." },
-      "headline": { "displayName": "Headline", "purpose": "Home section headings and the lead dispatch heading." },
-      "panel-heading": { "displayName": "Panel heading", "purpose": "Section headings inside inner pages." },
-      "title": { "displayName": "Title", "purpose": "Dispatch headings; smaller steps (1.5rem, 1.375rem) in the method band, prose and source link." },
-      "dateline": { "displayName": "Dateline numeral", "purpose": "Day of the month in a dispatch row, tabular figures." },
-      "lede": { "displayName": "Lede", "purpose": "Hero standfirst, page ledes, lead dispatch subject line." },
-      "body": { "displayName": "Body", "purpose": "All reading text; prose held to 70ch." },
-      "small": { "displayName": "Small", "purpose": "Dispatch reference column, footer copy, secondary notes." },
-      "label": { "displayName": "Label", "purpose": "Field labels and table headers, sentence case." },
-      "badge": { "displayName": "Badge", "purpose": "Badges and topic tags." }
-    },
-    "shadows": [
-      { "name": "nav-current-bar", "value": "inset 0 -4px 0 #e4002b", "purpose": "Indicator bar under the current masthead link. Not elevation; the system has no drop shadows." }
-    ],
-    "motion": [
-      { "name": "ease-out", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "The single easing curve for every transition." },
-      { "name": "swap", "value": "160ms", "purpose": "Button and nav colour swaps." },
-      { "name": "invert", "value": "180ms", "purpose": "Dispatch row and view-all bar fill inversion." },
-      { "name": "arrow-slide", "value": "220ms translateX(8px)", "purpose": "Arrow movement on an inverted row or bar." },
-      { "name": "wire-in", "value": "900ms clip-path: inset(0 100% 0 0) to inset(0 0 0 0)", "purpose": "Hero block wipes in once on load, left to right." },
-      { "name": "reduced-motion", "value": "0.01ms", "purpose": "All transitions and animations collapse under prefers-reduced-motion." }
-    ],
-    "breakpoints": [
-      { "name": "wide", "value": "1100px" },
-      { "name": "medium", "value": "820px" },
-      { "name": "narrow", "value": "600px" }
-    ],
-    "rules": [
-      { "name": "hero-top", "value": "8px solid #e4002b", "purpose": "Top edge of the hero block. Used once." },
-      { "name": "list-top", "value": "6px solid #0e0e0e", "purpose": "Top of the dispatch list." },
-      { "name": "group-head", "value": "4px solid #0e0e0e", "purpose": "Head of a data group: facts, table header, provider list, detail header, method columns." },
-      { "name": "dispatch", "value": "3px solid #0e0e0e", "purpose": "Between dispatches." },
-      { "name": "control", "value": "2px solid #0e0e0e", "purpose": "Button and input borders; dashed for empty states." },
-      { "name": "hairline", "value": "1px solid #d9d9d6", "purpose": "Between rows inside a data group." }
-    ]
+  "schema": "impeccable:design-system",
+  "title": "Design System: EU JUST",
+  "description": "Source-first European legal research on warm paper, with deep navy structure, restrained gold and blue signals, readable serif display type and Archivo interface text.",
+  "colors": {
+    "ink": "#10213a",
+    "paper": "#fbfaf6",
+    "wash": "#eef2f5",
+    "line": "#cbd4dd",
+    "grey": "#526274",
+    "blue": "#1757bd",
+    "blue-soft": "#eaf1fb",
+    "wire": "#f0b83e",
+    "wire-deep": "#8b5c00",
+    "on-ink-muted": "#c8d2df",
+    "ai-fg": "#7a4a00",
+    "ai-surface": "#fff4d6",
+    "success-fg": "#0b6b34",
+    "success-surface": "#e5f5ea",
+    "warning-fg": "#7a4a00",
+    "warning-surface": "#fff4d6",
+    "danger-fg": "#b4233c",
+    "danger-surface": "#fdecef"
   },
-  "components": [
-    {
-      "name": "Primary Button",
-      "kind": "button",
-      "refersTo": "button-primary",
-      "description": "Default action on paper: ink fill that turns wire-deep on hover.",
-      "html": "<button class=\"ds-btn\">Run check now</button>",
-      "css": ".ds-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 46px; padding: 0 24px; border: 2px solid var(--ink, #0e0e0e); border-radius: 0; background: var(--ink, #0e0e0e); color: #fff; font-family: 'Archivo', 'Helvetica Neue', Arial, sans-serif; font-size: 1.0625rem; font-weight: 700; white-space: nowrap; cursor: pointer; transition: background-color 160ms cubic-bezier(0.16, 1, 0.3, 1), border-color 160ms cubic-bezier(0.16, 1, 0.3, 1), color 160ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-btn:hover { background: var(--wire-deep, #c20025); border-color: var(--wire-deep, #c20025); } .ds-btn:focus-visible { outline: 3px solid var(--wire, #e4002b); outline-offset: 3px; }"
+  "typography": {
+    "display": {
+      "fontFamily": "Georgia, 'Times New Roman', serif",
+      "fontSize": "clamp(2.75rem, 1.2rem + 4.4vw, 5rem)",
+      "fontWeight": 700,
+      "lineHeight": 1.04,
+      "letterSpacing": "-0.025em"
     },
-    {
-      "name": "Wire and Ghost Buttons",
-      "kind": "button",
-      "refersTo": "button-wire",
-      "description": "The action pair used on ink surfaces: one red main action, one outlined alternative.",
-      "html": "<div class=\"ds-on-ink\"><a class=\"ds-btn-wire\" href=\"#\">Read the latest rulings</a><a class=\"ds-btn-ghost\" href=\"#\">Browse all 84</a></div>",
-      "css": ".ds-on-ink { display: flex; flex-wrap: wrap; gap: 12px; padding: 24px; background: var(--ink, #0e0e0e); } .ds-btn-wire, .ds-btn-ghost { display: inline-flex; align-items: center; justify-content: center; min-height: 46px; padding: 0 24px; border-radius: 0; color: #fff; font-family: 'Archivo', 'Helvetica Neue', Arial, sans-serif; font-size: 1.0625rem; font-weight: 700; text-decoration: none; white-space: nowrap; transition: background-color 160ms cubic-bezier(0.16, 1, 0.3, 1), border-color 160ms cubic-bezier(0.16, 1, 0.3, 1), color 160ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-btn-wire { background: var(--wire-deep, #c20025); border: 2px solid var(--wire-deep, #c20025); } .ds-btn-wire:hover { background: #fff; border-color: #fff; color: var(--ink, #0e0e0e); } .ds-btn-ghost { background: transparent; border: 2px solid #fff; } .ds-btn-ghost:hover { background: #fff; color: var(--ink, #0e0e0e); } .ds-btn-wire:focus-visible, .ds-btn-ghost:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }"
+    "page-title": {
+      "fontFamily": "Georgia, 'Times New Roman', serif",
+      "fontSize": "clamp(2.5rem, 1.6rem + 3.6vw, 4.5rem)",
+      "fontWeight": 700,
+      "lineHeight": 1.04,
+      "letterSpacing": "-0.025em"
     },
-    {
-      "name": "Secondary and Danger Buttons",
-      "kind": "button",
-      "refersTo": "button-secondary",
-      "description": "Outlined actions on paper: secondary inverts to ink, danger inverts to red.",
-      "html": "<div class=\"ds-btn-row\"><button class=\"ds-btn-secondary\">Clear filters</button><button class=\"ds-btn-danger\">Remove key</button></div>",
-      "css": ".ds-btn-row { display: flex; flex-wrap: wrap; gap: 8px; } .ds-btn-secondary, .ds-btn-danger { display: inline-flex; align-items: center; justify-content: center; min-height: 46px; padding: 0 24px; border-radius: 0; background: var(--paper, #fff); font-family: 'Archivo', 'Helvetica Neue', Arial, sans-serif; font-size: 1.0625rem; font-weight: 700; white-space: nowrap; cursor: pointer; transition: background-color 160ms cubic-bezier(0.16, 1, 0.3, 1), border-color 160ms cubic-bezier(0.16, 1, 0.3, 1), color 160ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-btn-secondary { color: var(--ink, #0e0e0e); border: 2px solid var(--ink, #0e0e0e); } .ds-btn-secondary:hover { background: var(--ink, #0e0e0e); color: #fff; } .ds-btn-danger { color: var(--danger-fg, #c20025); border: 2px solid var(--danger-fg, #c20025); } .ds-btn-danger:hover { background: var(--danger-fg, #c20025); color: #fff; } .ds-btn-secondary:focus-visible, .ds-btn-danger:focus-visible { outline: 3px solid var(--wire, #e4002b); outline-offset: 3px; }"
+    "headline": {
+      "fontFamily": "Georgia, 'Times New Roman', serif",
+      "fontSize": "clamp(2rem, 1.4rem + 2.4vw, 3.5rem)",
+      "fontWeight": 700,
+      "lineHeight": 1.04,
+      "letterSpacing": "-0.025em"
     },
-    {
-      "name": "Text Field",
-      "kind": "input",
-      "refersTo": "input",
-      "description": "Square 46px field with a 2px ink border, bold label above and grey hint below.",
-      "html": "<div class=\"ds-field\"><label for=\"ds-tz\">Timezone</label><input id=\"ds-tz\" value=\"Europe/Brussels\" /><span class=\"ds-hint\">IANA name, for example Europe/Brussels.</span></div>",
-      "css": ".ds-field { display: grid; gap: 4px; max-width: 360px; font-family: 'Archivo', 'Helvetica Neue', Arial, sans-serif; color: var(--ink, #0e0e0e); } .ds-field label { font-size: 0.875rem; font-weight: 700; } .ds-field input { width: 100%; min-height: 46px; padding: 0 12px; background: var(--paper, #fff); border: 2px solid var(--ink, #0e0e0e); border-radius: 0; font: inherit; font-size: 1.0625rem; color: inherit; caret-color: var(--wire, #e4002b); } .ds-field input:focus-visible { outline: 3px solid var(--wire, #e4002b); outline-offset: 0; } .ds-hint { color: var(--grey, #5f5f5b); font-size: 0.875rem; line-height: 1.45; }"
+    "body": {
+      "fontFamily": "'Archivo', 'Helvetica Neue', Arial, sans-serif",
+      "fontSize": "1.0625rem",
+      "fontWeight": 400,
+      "lineHeight": 1.55
     },
-    {
-      "name": "Masthead",
-      "kind": "nav",
-      "refersTo": "masthead",
-      "description": "Sticky ink top bar: wordmark, three links with a red bar under the current page, last source-check date.",
-      "html": "<header class=\"ds-masthead\"><a class=\"ds-wordmark\" href=\"#\">EU Lex <span>Discovery</span></a><nav><a href=\"#\" aria-current=\"page\">Rulings</a><a href=\"#\">Monitoring</a><a href=\"#\">Settings</a></nav><p class=\"ds-check\">Source checked <time>2 Oct 2026</time></p></header>",
-      "css": ".ds-masthead { display: flex; align-items: center; gap: 24px; min-height: 64px; padding: 0 24px; background: var(--ink, #0e0e0e); color: #fff; font-family: 'Archivo', 'Helvetica Neue', Arial, sans-serif; } .ds-wordmark { font-size: 1.625rem; font-weight: 900; font-stretch: 68%; text-transform: uppercase; letter-spacing: 0.01em; line-height: 1; text-decoration: none; color: #fff; white-space: nowrap; } .ds-wordmark span { color: var(--wire, #e4002b); } .ds-masthead nav { display: flex; gap: 4px; margin-left: auto; } .ds-masthead nav a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; font-weight: 600; text-decoration: none; color: var(--on-ink-muted, #b9b9b5); box-shadow: inset 0 -4px 0 transparent; transition: color 160ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 160ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-masthead nav a:hover { color: #fff; } .ds-masthead nav a[aria-current='page'] { color: #fff; box-shadow: inset 0 -4px 0 var(--wire, #e4002b); } .ds-masthead a:focus-visible { outline: 3px solid #fff; outline-offset: 3px; } .ds-check { margin: 0; color: var(--on-ink-muted, #b9b9b5); font-size: 0.875rem; white-space: nowrap; padding-left: 24px; border-left: 1px solid #3a3a38; } .ds-check time { color: #fff; font-weight: 600; font-variant-numeric: tabular-nums; }"
+    "lede": {
+      "fontFamily": "'Archivo', 'Helvetica Neue', Arial, sans-serif",
+      "fontSize": "1.1875rem",
+      "fontWeight": 400,
+      "lineHeight": 1.55
     },
-    {
-      "name": "Dispatch Row",
-      "kind": "custom",
-      "refersTo": "dispatch",
-      "description": "Signature component: one ruling as a wire dispatch. The whole row inverts to ink on hover and focus; the arrow turns red and slides.",
-      "html": "<ul class=\"ds-dispatches\"><li class=\"ds-dispatch\"><p class=\"ds-dispatch-date\"><time><span>18</span> Sept 2026</time></p><div class=\"ds-dispatch-body\"><h3><a href=\"#\">Example applicant v European Parliament</a></h3><p class=\"ds-dispatch-subject\">Civil service · Psychological harassment · Request for assistance</p><ul class=\"ds-tags\"><li class=\"ds-tag\">Harassment</li></ul></div><p class=\"ds-dispatch-ref\"><strong>T-000/25</strong>General Court<svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg></p></li></ul>",
-      "css": ".ds-dispatches { list-style: none; margin: 0; padding: 0 16px; border-top: 6px solid var(--ink, #0e0e0e); font-family: 'Archivo', 'Helvetica Neue', Arial, sans-serif; font-size: 1.0625rem; line-height: 1.55; color: var(--ink, #0e0e0e); } .ds-dispatch { position: relative; display: grid; grid-template-columns: 130px minmax(0, 1fr) max-content; gap: 24px; align-items: start; padding: 24px 16px; margin: 0 -16px; border-bottom: 3px solid var(--ink, #0e0e0e); transition: background-color 180ms cubic-bezier(0.16, 1, 0.3, 1), color 180ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-dispatch p, .ds-dispatch h3 { margin: 0; } .ds-dispatch-date { color: var(--grey, #5f5f5b); font-weight: 600; line-height: 1.2; font-variant-numeric: tabular-nums; } .ds-dispatch-date span { display: block; font-size: 3rem; font-weight: 800; font-stretch: 68%; line-height: 0.9; color: var(--ink, #0e0e0e); } .ds-dispatch-body { display: grid; gap: 12px; min-width: 0; } .ds-dispatch h3 { font-size: 1.75rem; font-weight: 800; font-stretch: 68%; line-height: 1.05; letter-spacing: -0.015em; } .ds-dispatch h3 a { color: inherit; text-decoration: none; } .ds-dispatch h3 a::after { content: ''; position: absolute; inset: 0; } .ds-dispatch h3 a:focus-visible { outline: none; } .ds-dispatch h3 a:focus-visible::after { outline: 3px solid var(--wire, #e4002b); outline-offset: -3px; } .ds-dispatch-subject { color: var(--grey, #5f5f5b); max-width: 72ch; } .ds-tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; } .ds-tag { padding: 1px 8px; border: 1.5px solid var(--ink, #0e0e0e); font-size: 0.8125rem; font-weight: 700; transition: border-color 180ms cubic-bezier(0.16, 1, 0.3, 1), color 180ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-dispatch-ref { display: grid; gap: 2px; justify-items: end; text-align: right; font-size: 0.9375rem; color: var(--grey, #5f5f5b); line-height: 1.3; white-space: nowrap; } .ds-dispatch-ref strong { color: var(--ink, #0e0e0e); font-size: 1.0625rem; } .ds-dispatch-ref svg { margin-top: 12px; color: var(--ink, #0e0e0e); transition: transform 220ms cubic-bezier(0.16, 1, 0.3, 1), color 180ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-dispatch:hover, .ds-dispatch:focus-within { background: var(--ink, #0e0e0e); color: #fff; } .ds-dispatch:hover :is(.ds-dispatch-date, .ds-dispatch-subject, .ds-dispatch-ref), .ds-dispatch:focus-within :is(.ds-dispatch-date, .ds-dispatch-subject, .ds-dispatch-ref) { color: var(--on-ink-muted, #b9b9b5); } .ds-dispatch:hover :is(.ds-dispatch-date span, .ds-dispatch-ref strong), .ds-dispatch:focus-within :is(.ds-dispatch-date span, .ds-dispatch-ref strong) { color: #fff; } .ds-dispatch:hover .ds-dispatch-ref svg, .ds-dispatch:focus-within .ds-dispatch-ref svg { color: var(--wire, #e4002b); transform: translateX(8px); } .ds-dispatch:hover .ds-tag, .ds-dispatch:focus-within .ds-tag { border-color: #fff; color: #fff; }"
+    "small": {
+      "fontFamily": "'Archivo', 'Helvetica Neue', Arial, sans-serif",
+      "fontSize": "0.9375rem",
+      "fontWeight": 400,
+      "lineHeight": 1.45
     },
-    {
-      "name": "View-all Bar",
-      "kind": "custom",
-      "refersTo": "view-all",
-      "description": "Full-width ink bar that closes a dispatch list; turns wire-deep on hover while the arrow slides.",
-      "html": "<a class=\"ds-view-all\" href=\"#\">View all 84 rulings <svg width=\"28\" height=\"28\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg></a>",
-      "css": ".ds-view-all { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 24px; background: var(--ink, #0e0e0e); color: #fff; text-decoration: none; font-family: 'Archivo', 'Helvetica Neue', Arial, sans-serif; font-size: clamp(1.5rem, 1.1rem + 1.6vw, 2.25rem); font-weight: 800; font-stretch: 68%; line-height: 1; transition: background-color 180ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-view-all svg { flex: none; transition: transform 220ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-view-all:hover { background: var(--wire-deep, #c20025); } .ds-view-all:hover svg { transform: translateX(8px); } .ds-view-all:focus-visible { outline: 3px solid var(--wire, #e4002b); outline-offset: 4px; }"
+    "label": {
+      "fontFamily": "'Archivo', 'Helvetica Neue', Arial, sans-serif",
+      "fontSize": "0.875rem",
+      "fontWeight": 700
     },
-    {
-      "name": "Badges and Tag",
-      "kind": "chip",
-      "refersTo": "badge",
-      "description": "Filled status badges (neutral, AI, success, danger) and the outlined topic tag.",
-      "html": "<div class=\"ds-chips\"><span class=\"ds-badge\">Not generated</span><span class=\"ds-badge ds-badge-ai\">AI summary</span><span class=\"ds-badge ds-badge-success\">Success</span><span class=\"ds-badge ds-badge-danger\">Failed</span><span class=\"ds-tag-solo\">Discrimination</span></div>",
-      "css": ".ds-chips { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; font-family: 'Archivo', 'Helvetica Neue', Arial, sans-serif; } .ds-badge { display: inline-flex; align-items: center; gap: 6px; padding: 2px 8px; font-size: 0.8125rem; font-weight: 700; line-height: 1.5; white-space: nowrap; background: var(--wash, #f1f1ef); color: var(--ink, #0e0e0e); } .ds-badge-ai { background: var(--ai-surface, #fff4d6); color: var(--ai-fg, #7a4a00); } .ds-badge-success { background: var(--success-surface, #e5f5ea); color: var(--success-fg, #0b6b34); } .ds-badge-danger { background: var(--danger-surface, #fde8ec); color: var(--danger-fg, #c20025); } .ds-tag-solo { padding: 1px 8px; border: 1.5px solid var(--ink, #0e0e0e); font-size: 0.8125rem; font-weight: 700; color: var(--ink, #0e0e0e); }"
-    },
-    {
-      "name": "Source Box",
-      "kind": "custom",
-      "refersTo": "source-box",
-      "description": "Ink block carrying the link to the official EUR-Lex document and its retrieval note.",
-      "html": "<div class=\"ds-source-box\"><a href=\"#\">EUR-Lex document 62024CJ0000 <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M15 3h6v6\"/><path d=\"M10 14 21 3\"/><path d=\"M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6\"/></svg></a><span>Text not retrieved. Only the link and metadata are available.</span></div>",
-      "css": ".ds-source-box { display: grid; gap: 8px; padding: 24px; background: var(--ink, #0e0e0e); color: #fff; font-family: 'Archivo', 'Helvetica Neue', Arial, sans-serif; } .ds-source-box a { display: inline-flex; align-items: center; gap: 8px; color: #fff; font-size: 1.375rem; font-weight: 800; font-stretch: 68%; text-decoration-thickness: 2px; text-underline-offset: 3px; overflow-wrap: anywhere; } .ds-source-box a:hover { text-decoration-color: var(--wire, #e4002b); } .ds-source-box a:focus-visible { outline: 3px solid #fff; outline-offset: 3px; } .ds-source-box span { color: var(--on-ink-muted, #b9b9b5); font-size: 0.9375rem; }"
-    },
-    {
-      "name": "Fact List",
-      "kind": "custom",
-      "refersTo": "",
-      "description": "Definition list under a 4px ink rule: grey term over bold value, hairlines between rows.",
-      "html": "<dl class=\"ds-facts\"><div><dt>Case number</dt><dd>C-000/24</dd></div><div><dt>Court</dt><dd>Court of Justice</dd></div><div><dt>Judgment date</dt><dd>18 September 2026</dd></div></dl>",
-      "css": ".ds-facts { margin: 0; display: grid; max-width: 320px; border-top: 4px solid var(--ink, #0e0e0e); font-family: 'Archivo', 'Helvetica Neue', Arial, sans-serif; font-size: 1.0625rem; color: var(--ink, #0e0e0e); } .ds-facts > div { display: grid; gap: 2px; padding: 12px 0; border-bottom: 1px solid var(--line, #d9d9d6); } .ds-facts dt { color: var(--grey, #5f5f5b); font-size: 0.875rem; } .ds-facts dd { margin: 0; font-weight: 700; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }"
+    "badge": {
+      "fontFamily": "'Archivo', 'Helvetica Neue', Arial, sans-serif",
+      "fontSize": "0.8125rem",
+      "fontWeight": 700,
+      "lineHeight": 1.5
     }
-  ],
+  },
+  "spacing": {
+    "space-1": "4px",
+    "space-2": "8px",
+    "space-3": "12px",
+    "space-4": "16px",
+    "space-5": "24px",
+    "space-6": "40px",
+    "space-7": "64px",
+    "space-8": "104px",
+    "gutter": "clamp(16px, 4vw, 56px)",
+    "control-height": "46px"
+  },
+  "motion": {
+    "ease-out": "cubic-bezier(0.16, 1, 0.3, 1)",
+    "swap": "160ms",
+    "invert": "180ms",
+    "arrow-slide": "220ms translateX(8px)",
+    "wire-in": "900ms clip-path: inset(0 100% 0 0) to inset(0 0 0 0)",
+    "reduced-motion": "0.01ms under prefers-reduced-motion"
+  },
+  "responsive": {
+    "wide": "1100px",
+    "medium": "820px",
+    "narrow": "600px",
+    "homeHeroStack": "680px",
+    "wideBehavior": "Filters reduce to three columns and detail asides stop being sticky.",
+    "mediumBehavior": "Dispatch references move below the record body and method points become one column.",
+    "homeHeroBehavior": "The two-column navy home panel stacks to copy above image at 680px.",
+    "narrowBehavior": "The masthead wraps, forms become one column, and records collapse to a single readable column."
+  },
+  "components": {
+    "masthead": {
+      "backgroundColor": "{colors.paper}",
+      "textColor": "{colors.ink}",
+      "borderColor": "{colors.line}",
+      "height": "64px",
+      "behavior": "Sticky paper masthead with Research and Operations disclosure menus."
+    },
+    "button": {
+      "backgroundColor": "{colors.ink}",
+      "textColor": "{colors.paper}",
+      "hoverBackgroundColor": "{colors.wire-deep}",
+      "height": "{spacing.control-height}",
+      "border": "2px solid currentColor",
+      "radius": "2px"
+    },
+    "home-button": {
+      "radius": "4px"
+    },
+    "home-card": {
+      "radius": "6px"
+    },
+    "button-wire": {
+      "backgroundColor": "{colors.wire}",
+      "textColor": "{colors.ink}",
+      "hoverBackgroundColor": "#ffd671"
+    },
+    "input": {
+      "backgroundColor": "{colors.paper}",
+      "textColor": "{colors.ink}",
+      "border": "2px solid {colors.ink}",
+      "height": "{spacing.control-height}"
+    },
+    "hero-block": {
+      "backgroundColor": "{colors.ink}",
+      "textColor": "#ffffff",
+      "layout": "Two columns: copy left, supplied photograph right; stack at 680px.",
+      "borderTop": "none on home copy",
+      "animation": "wire-in on home copy"
+    },
+    "record-row": {
+      "backgroundColor": "{colors.paper}",
+      "hoverBackgroundColor": "{colors.ink}",
+      "borderBottom": "1px solid {colors.line}",
+      "behavior": "Date, title, subject, court and case number remain identifiable without hover."
+    },
+    "source-box": {
+      "backgroundColor": "{colors.ink}",
+      "textColor": "#ffffff",
+      "padding": "24px",
+      "behavior": "Official source link and retrieval note are kept together."
+    },
+    "status": {
+      "ai": "{colors.ai-fg} on {colors.ai-surface}",
+      "success": "{colors.success-fg} on {colors.success-surface}",
+      "warning": "{colors.warning-fg} on {colors.warning-surface}",
+      "danger": "{colors.danger-fg} on {colors.danger-surface}",
+      "behavior": "Every state has a visible text label; colour never carries meaning alone."
+    }
+  },
   "narrative": {
-    "northStar": "Court Wire",
-    "overview": "Every ruling is filed like a dispatch from Luxembourg: a dateline, a headline, what it is about, and the reference that proves it. The system is a news-agency front page rendered in newsprint black, white and one wire-service red. It is loud where a ruling is announced and plain where a ruling is read. The audience is the general public and press arriving cold, so trust is built by showing the case number, court and date on every row, not by decoration.\n\nOne grotesque family, Archivo, does all the work. Its width axis carries the hierarchy: headings are condensed to 68% and heavy, reading text sits at normal width and regular weight. Surfaces are flat, corners are square, and structure comes from heavy black rules and solid blocks of ink rather than boxes, shadows or tints. The photograph of the Court's entrance on the home page is shown undimmed; text sits on a solid black block beside it, never on a scrim over it.\n\nThis world replaces an earlier navy-and-gold sidebar design. Navigation is a black top bar; there is no side menu.",
-    "keyCharacteristics": [
-      "Black, white and one red; status colours appear only on status.",
-      "One family, two widths: condensed heavy for headings, normal for reading.",
-      "Square corners everywhere; no drop shadows.",
-      "Heavy rules separate items; rule thickness signals rank.",
-      "Rows and bars invert to solid ink or red on hover and focus.",
-      "Every ruling shows case number, court and date; generated text is marked in amber."
+    "northStar": "The open legal research desk",
+    "overview": "EU JUST presents bounded, source-first European legal research on a calm paper surface. Deep navy carries structure and trust; gold and blue provide restrained signals; serif display headings add editorial character while Archivo keeps controls and metadata practical. The supplied EU flag photograph belongs to the home hero only.",
+    "productTruths": [
+      "Official EUR-Lex and institutional documents outrank every product summary.",
+      "AI summaries are optional, clearly labelled and separate from source records.",
+      "Monitoring is bounded by configured topics, source windows and pagination; coverage is not exhaustive.",
+      "The site is research support and does not provide legal advice."
     ],
     "rules": [
-      { "name": "The One Red Rule", "body": "Red is the only chromatic colour in the brand layer. Amber, green and the pink danger surface exist solely to report status and never decorate.", "section": "colors" },
-      { "name": "The Line-and-Fill Rule", "body": "`wire` draws lines and marks; `wire-deep` carries fills and any red next to text. White text is never set on `wire` for running copy.", "section": "colors" },
-      { "name": "The Amber Means Generated Rule", "body": "Amber marks AI-generated text and nothing else on public pages. Court facts are never set on amber.", "section": "colors" },
-      { "name": "The Width Axis Rule", "body": "Hierarchy is made by width and weight, not by a second typeface. Headings are 68% wide at 800; reading text is normal width at 400; emphasis in running text is 600 or 700 at normal width.", "section": "typography" },
-      { "name": "The Sentence Case Rule", "body": "Headings, labels, table headers and buttons are sentence case with no added tracking. Uppercase is reserved for the product name in the masthead and footer (weight 900).", "section": "typography" },
-      { "name": "The Tabular Figures Rule", "body": "Dates, counts and tables use tabular numerals.", "section": "typography" },
-      { "name": "The Solid Block Rule", "body": "Text over the photograph sits on an opaque ink block. The photograph is never dimmed, tinted or covered with a gradient.", "section": "elevation" },
-      { "name": "The Inversion Rule", "body": "Interaction is shown by flipping a surface to solid ink or red, not by lifting it. Dispatch rows turn ink with white text on hover and on keyboard focus within; bars and buttons swap fill.", "section": "elevation" }
+      { "name": "Source before summary", "body": "Keep the official document link, case metadata and retrieval status easy to find before any generated interpretation.", "section": "content" },
+      { "name": "Paper and navy structure", "body": "Use warm paper for reading and deep navy for structural blocks; use gold and blue as restrained signals rather than decoration.", "section": "colors" },
+      { "name": "Motion explains state", "body": "Keep wire-in, hover, accordion and dropdown motion subtle, and collapse it under prefers-reduced-motion.", "section": "motion" },
+      { "name": "Readable legal records", "body": "Show dates, case numbers, courts and official links in a predictable order with plain-language context.", "section": "typography" }
     ],
     "dos": [
-      "Do show case number, court and judgment date on every ruling, with the official EUR-Lex link one step away.",
-      "Do build hierarchy with Archivo's width axis: 68% width at weight 800 for headings, normal width at 400 for reading.",
-      "Do separate items with ink rules and pick the thickness from the ladder (6, 4, 3, 2, 1px) by rank.",
-      "Do keep every corner square.",
-      "Do show hover and focus by inverting the surface to ink or wire-deep, and give keyboard focus the same inversion plus a 3px wire outline.",
-      "Do use `wire-deep` for any red fill or red text, and `wire` for rules, marks and outlines.",
-      "Do mark generated text with the amber AI badge or panel and keep it apart from the official record.",
-      "Do keep interactive targets at least 44px tall and controls at 46px.",
-      "Do credit sourced photographs in the footer with author and licence."
+      "Use the supplied EU flag image on the home hero only and preserve attribution when it is supplied.",
+      "Make every page's purpose explicit before records or controls.",
+      "Keep official links one clear action away from every result.",
+      "Retain keyboard operation, visible focus and reduced-motion behavior."
     ],
     "donts": [
-      "Don't add a second typeface, a serif, or a monospace; code and figures stay in Archivo.",
-      "Don't set headings, labels or buttons in uppercase or with added tracking; uppercase belongs to the product name only.",
-      "Don't round corners or add drop shadows, glows or blur.",
-      "Don't box content in bordered or shadowed cards; group with a rule, the wash tone, or a solid ink block.",
-      "Don't dim, tint or gradient the hero photograph, and don't set text directly on it.",
-      "Don't introduce another accent colour, or use amber, green or the pink danger surface for anything but status.",
-      "Don't use amber for court facts or official metadata.",
-      "Don't bring back the side menu or the navy-and-gold palette."
+      "Do not present AI interpretation as a court finding.",
+      "Do not invent records, statistics, testimonials or provider capabilities.",
+      "Do not resurrect the earlier black-and-red palette or an obsolete brand identity.",
+      "Do not use decorative gradients, glass effects or repeated hero imagery."
     ]
   }
 }

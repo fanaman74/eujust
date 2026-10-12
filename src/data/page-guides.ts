@@ -13,26 +13,6 @@ export const pageGuides: Record<string, PageGuide> = {
     label: 'Research overview',
     what: 'A starting point for European staff rights and institutional accountability: court rulings, workplace rules and updates, selected official records, and parliamentary budget discharge.',
     coverage: 'Court and institutional feeds are checked on the configured daily schedule. Standing references, selected records and budget discharge are maintained by hand; none is a complete legal or policy record.',
-    relatedGroups: [
-      {
-        label: 'Research',
-        cards: true,
-        links: [
-          { href: '/cases', label: 'Court rulings', description: 'Search case law on European staff rights.' },
-          { href: '/rules', label: 'Rules & updates', description: 'Browse policies, institution feeds and standing references.' },
-          { href: '/decisions', label: 'Selected records', description: 'Read editorial highlights from official records.' },
-          { href: '/discharge', label: 'Budget discharge', description: 'Follow votes, replies and budget oversight.' }
-        ]
-      },
-      {
-        label: 'Site operations',
-        cards: true,
-        links: [
-          { href: '/monitoring', label: 'Monitoring', description: 'Review source checks, failures and schedules.' },
-          { href: '/settings', label: 'AI settings', description: 'Manage optional summary provider configuration.' }
-        ]
-      }
-    ]
   },
   cases: {
     label: 'Court records',

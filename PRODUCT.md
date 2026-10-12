@@ -14,7 +14,7 @@ The owner also operates the site: running source checks, setting the daily sched
 
 ## Product Purpose
 
-EU Lex Discovery monitors the official EUR-Lex / Cellar source for Court of Justice and General Court decisions touching workplace harassment, psychosocial risk and employment discrimination, and presents each one with its official source link. Success is a visitor finding a recent ruling, understanding what it is about, and reaching the official judgment.
+EU JUST monitors the official EUR-Lex / Cellar source for Court of Justice and General Court decisions touching workplace harassment, psychosocial risk and employment discrimination, and presents each one with its official source link. Success is a visitor finding a recent ruling, understanding what it is about, and reaching the official judgment.
 
 ## Positioning
 
@@ -40,9 +40,9 @@ Source-first. Every case links to the official EUR-Lex document, and AI-generate
 
 ## Brand Commitments
 
-- Name: EU Lex Discovery.
+- Name: EU JUST.
 - The standing disclaimer: research support only; always verify against the official judgment.
-- The owner rejected the previous navy-and-gold sidebar design as "terrible" and asked for a top menu bar, a large photographic hero, and the five latest cases on the home page with a "view all" action. A plain or timid result is a failure.
+- The supplied landing-page reference establishes the visual direction: a warm paper surface, deep navy structure, restrained blue and gold accents, a readable serif display face paired with Archivo body text, a top menu bar, and a large photographic hero. The home page retains the user-supplied EU flag image and the five latest cases with a "view all" action. Motion stays purposeful and accessible: the hero wire-in, hover transitions, dropdown chevron and reduced-motion fallback remain part of the system.
 
 ## Evidence on Hand
 
@@ -50,6 +50,7 @@ Source-first. Every case links to the official EUR-Lex document, and AI-generate
 - No AI summaries have been generated yet; none may be invented.
 - No testimonials, user counts, or press mentions exist; none may be fabricated.
 - Hero photography is sourced from freely licensed photographs with credit.
+- The user-supplied home hero image is the product's approved home-page image; it belongs to the home hero only and should retain its source credit where displayed.
 
 ## Product Principles
 

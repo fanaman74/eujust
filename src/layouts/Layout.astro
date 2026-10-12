@@ -1,7 +1,8 @@
 ---
 import '../styles/global.css';
 import { query } from '../lib/db';
-const { title = 'EU Lex Discovery', description = 'European staff rights, institutional rules and accountability records linked to their official sources.' } = Astro.props;
+import Icon from '../components/Icon.astro';
+const { title = 'EU JUST', description = 'European staff rights, institutional rules and accountability records linked to their official sources.' } = Astro.props;
 const path = Astro.url.pathname;
 const researchLinks = [
   { href: '/cases', label: 'Court rulings', active: path.startsWith('/cases') },
@@ -23,29 +24,38 @@ const checked = lastCheck ? new Intl.DateTimeFormat('en-GB', { day: 'numeric', m
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="light" />
+    <meta name="theme-color" content="#fbfaf6" />
     <meta name="description" content={description} />
     <link rel="preload" href="/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin />
-    <title>{title} · EU Lex Discovery</title>
+    <title>{title} · EU JUST</title>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to main content</a>
     <header class="masthead">
-      <a class="wordmark" href="/" aria-label="EU Lex Discovery, home">EU Lex <span>Discovery</span></a>
+      <a class="wordmark" href="/" aria-label="EU JUST, home">EU <span>JUST</span></a>
       <nav aria-label="Primary">
-        <div class="nav-group" role="group" aria-label="Research destinations">
-          <span class="nav-group-label">Research</span>
-          {researchLinks.map((link) => <a href={link.href} aria-current={link.active ? 'page' : undefined}>{link.label}</a>)}
-        </div>
-        <div class="nav-group" role="group" aria-label="Site operations">
-          <span class="nav-group-label">Operations</span>
-          {operationalLinks.map((link) => <a href={link.href} aria-current={link.active ? 'page' : undefined}>{link.label}</a>)}
-        </div>
+        <details class:list={['nav-dropdown', { 'is-current': researchLinks.some((link) => link.active) }]}>
+          <summary aria-label="Research menu" aria-current={researchLinks.some((link) => link.active) ? 'location' : undefined}>
+            Research <Icon name="chevron-down" size={16} />
+          </summary>
+          <div class="nav-menu">
+            {researchLinks.map((link) => <a href={link.href} aria-current={link.active ? 'page' : undefined}>{link.label}</a>)}
+          </div>
+        </details>
+        <details class:list={['nav-dropdown', { 'is-current': operationalLinks.some((link) => link.active) }]}>
+          <summary aria-label="Operations menu" aria-current={operationalLinks.some((link) => link.active) ? 'location' : undefined}>
+            Operations <Icon name="chevron-down" size={16} />
+          </summary>
+          <div class="nav-menu">
+            {operationalLinks.map((link) => <a href={link.href} aria-current={link.active ? 'page' : undefined}>{link.label}</a>)}
+          </div>
+        </details>
       </nav>
       {checked && <p class="masthead-check" title="Last attempted check of the court feed"><span>Court feed checked</span> <time datetime={lastCheck!}>{checked}</time></p>}
     </header>
     <main id="main" tabindex="-1"><slot /></main>
     <footer class="colophon">
-      <p class="colophon-name">EU Lex Discovery</p>
+      <p class="colophon-name">EU JUST</p>
       <p>Research support only. Verify each ruling, policy or report against its linked official document and publishing authority. Some sources are on <a href="https://eur-lex.europa.eu/" target="_blank" rel="noreferrer">EUR-Lex</a>; others are published by the relevant EU institution. Court records come from daily keyword searches, so coverage is not exhaustive.</p>
     </footer>
   </body>

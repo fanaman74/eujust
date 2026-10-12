@@ -1,6 +1,6 @@
-# EU Lex Discovery
+# EU JUST
 
-EU Lex Discovery is a source-first legal monitoring desk for European employment and workplace law. Phase 1 connects to the official EUR-Lex / Cellar SPARQL endpoint, imports genuine CJEU and General Court records, retrieves the official English source document, and stores source metadata separately from optional AI reports.
+EU JUST is a source-first legal monitoring desk for European employment and workplace law. Phase 1 connects to the official EUR-Lex / Cellar SPARQL endpoint, imports genuine CJEU and General Court records, retrieves the official English source document, and stores source metadata separately from optional AI reports. The public interface uses a warm paper and deep navy visual system with a restrained gold signal, while official-source links and clear AI labels keep the product grounded in the record.
 
 ## Run locally
 
