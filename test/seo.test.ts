@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { getSiteOrigin } from '../src/config/site.mjs';
 import { canonicalUrl, isIndexable, jsonLd, pageStructuredData } from '../src/lib/seo';
-import { sitemapXml, xmlEscape } from '../src/lib/sitemap';
+import { sitemapXml, xmlEscape, xmlResponse } from '../src/lib/sitemap';
 
 const production = { NODE_ENV: 'production', SITE_URL: 'https://www.eujust.online' };
 
@@ -48,4 +48,13 @@ test('sitemaps escape XML, use real update dates and omit invalid or invented ti
   assert.match(xml, /<loc>https:\/\/www\.eujust\.online\/cases\/7<\/loc><lastmod>2026-10-01T12:30:00.000Z<\/lastmod>/);
   assert.equal((xml.match(/<lastmod>/g) ?? []).length, 1);
   assert.equal(xml.includes('Invalid Date'), false);
+});
+
+test('sitemap responses remain fetchable without an indexing-exclusion header', async () => {
+  const xml = sitemapXml([{ path: '/cases/7' }]);
+  const response = xmlResponse(xml);
+  assert.equal(response.status, 200);
+  assert.equal(response.headers.get('Content-Type'), 'application/xml; charset=utf-8');
+  assert.equal(response.headers.has('X-Robots-Tag'), false);
+  assert.equal(await response.text(), xml);
 });

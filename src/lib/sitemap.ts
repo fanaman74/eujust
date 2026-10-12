@@ -10,5 +10,6 @@ export function dateIso(value: unknown) {
 export function sitemapXml(entries: { path: string; updated?: unknown }[]) {
   return `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${entries.map((entry) => `<url><loc>${xmlEscape(canonicalUrl(entry.path))}</loc>${dateIso(entry.updated) ? `<lastmod>${dateIso(entry.updated)}</lastmod>` : ''}</url>`).join('')}</urlset>`;
 }
-export const xmlResponse = (body: string) => new Response(body, { headers: { 'Content-Type': 'application/xml; charset=utf-8', 'Cache-Control': 'public, max-age=300', 'X-Robots-Tag': 'noindex' } });
+// Google must be allowed to fetch and revisit sitemap files; don't attach noindex here.
+export const xmlResponse = (body: string) => new Response(body, { headers: { 'Content-Type': 'application/xml; charset=utf-8', 'Cache-Control': 'public, max-age=300' } });
 export const sitemapUnavailable = () => new Response('Sitemap temporarily unavailable. Please retry.', { status: 503, headers: { 'Retry-After': '60', 'Cache-Control': 'no-store' } });
