@@ -12,7 +12,8 @@ const q = url.searchParams.get('q')?.trim() ?? '';
 const topic = url.searchParams.get('topic')?.trim() ?? '';
 const court = url.searchParams.get('court')?.trim() ?? '';
 const sort = ['publication','judgment','name'].includes(url.searchParams.get('sort') ?? '') ? url.searchParams.get('sort')! : 'judgment';
-const page = Math.max(1, Number(url.searchParams.get('page') ?? 1) || 1);
+const pageInput = Number(url.searchParams.get('page') ?? 1);
+const page = Number.isSafeInteger(pageInput) && pageInput > 0 && Number.isSafeInteger((pageInput - 1) * PAGE_SIZE) ? pageInput : 1;
 try {
   const params: unknown[] = [];
   const where: string[] = [];
@@ -27,6 +28,8 @@ try {
   topics = (await query<{ slug: string; name_en: string }>('SELECT slug,name_en FROM topics WHERE enabled ORDER BY name_en')).rows;
 } catch (e) { error = e instanceof Error ? e.message : 'Database unavailable'; }
 const filtered = Boolean(q || topic || court);
+if (error) { Astro.response.status = 503; Astro.response.headers.set('Retry-After', '60'); }
+else if (page > 1 && cases.length === 0) Astro.response.status = 404;
 const pageHref = (target: number) => {
   const search = new URLSearchParams();
   if (q) search.set('q', q);
@@ -47,7 +50,7 @@ const topicHref = (slug: string) => {
   return `/cases${search.size ? `?${search}` : ''}`;
 };
 ---
-<Layout title="Court rulings on staff rights" description="Court of Justice and General Court rulings on staff rights, linked to their official records and searchable by topic, court or case reference.">
+<Layout title={`EU court rulings on workplace rights${page > 1 ? ` — page ${page}` : ''}`} description="Search Court of Justice and General Court rulings on harassment, discrimination and psychosocial risks. Find case references and official judgment links." noindex={Boolean(error) || (page > 1 && !cases.length)} canonicalPage={page} pageType="CollectionPage">
   <div class="page">
     <header class="page-head">
       <div>

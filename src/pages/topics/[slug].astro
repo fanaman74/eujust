@@ -1,0 +1,32 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Icon from '../../components/Icon.astro';
+import CaseRow from '../../components/CaseRow.astro';
+import { researchTopics } from '../../data/research-topics';
+import { query } from '../../lib/db';
+const topic = researchTopics.find((item) => item.slug === Astro.params.slug);
+let cases: any[] = [], error = false;
+if (!topic) Astro.response.status = 404;
+else {
+  try {
+    cases = (await query(`SELECT c.id,c.celex,c.case_number,c.title,c.judgment_date,co.name court,COALESCE(array_agg(DISTINCT t.name_en) FILTER (WHERE t.id IS NOT NULL),'{}') topics FROM cases c LEFT JOIN courts co ON co.id=c.court_id LEFT JOIN case_topics ct ON ct.case_id=c.id LEFT JOIN topics t ON t.id=ct.topic_id WHERE EXISTS (SELECT 1 FROM case_topics topic_match JOIN topics mt ON mt.id=topic_match.topic_id WHERE topic_match.case_id=c.id AND mt.slug=$1) GROUP BY c.id,co.name ORDER BY c.judgment_date DESC NULLS LAST,c.id DESC LIMIT 10`, [topic.slug])).rows;
+  } catch { error = true; Astro.response.status = 503; Astro.response.headers.set('Retry-After', '60'); }
+}
+const breadcrumbs = [{ name: 'Home', path: '/' }, { name: 'Research topics', path: '/topics' }, { name: topic?.name ?? 'Topic not found', path: `/topics/${Astro.params.slug}` }];
+---
+<Layout title={topic?.title ?? 'Topic not found'} description={topic?.description ?? 'The requested research topic could not be found.'} noindex={!topic || error} pageType="CollectionPage" breadcrumbs={breadcrumbs}>
+  <div class="page">
+    <Breadcrumbs items={breadcrumbs} />
+    {!topic ? <div class="empty"><h1>Topic not found</h1><p>Choose one of the collection’s research topics, or search all court rulings.</p><a class="button" href="/topics">Explore research topics</a></div> : <>
+      <header class="page-head"><div><h1>{topic.title}</h1><p class="lede">{topic.introduction}</p></div></header>
+      <div class="topic-tools"><a class="button" href={`/cases?topic=${topic.slug}`}>Search these rulings <Icon name="arrow-right" size={16} /></a><a href="/rules">Institutional rules & updates</a></div>
+      <section class="topic-context"><h2>Read the topic in context.</h2><p>{topic.context}</p><p>The monitor uses English keyword matches over a bounded discovery window. Relevant cases may be missing, and matched topics are not legal analysis.</p></section>
+      <section class="topic-results" aria-labelledby="topic-rulings"><header class="section-head"><div><h2 id="topic-rulings">Collected court rulings</h2><p>Up to ten recent records, newest judgment first. Each links to its source.</p></div><a class="text-link" href={`/cases?topic=${topic.slug}`}>View the full collection <Icon name="arrow-right" size={16} /></a></header>
+        {error ? <div class="empty" role="alert"><h3>The records are temporarily unavailable</h3><p>Please try again later. The official source remains available directly through EUR-Lex.</p><a href="https://eur-lex.europa.eu/" target="_blank" rel="noreferrer">Open EUR-Lex <span class="sr-only">(opens in a new tab)</span></a></div> : cases.length ? <ul class="dispatches">{cases.map((item) => <CaseRow item={item} />)}</ul> : <div class="empty"><h3>No records collected for this topic yet</h3><p>A record will appear here when an official-source check imports a matching case.</p><a class="button secondary" href="/cases">Browse all court rulings</a></div>}
+      </section>
+      <section class="topic-context"><h2>Try a more specific search.</h2><p>These terms are suggestions for searching the collection; they are not findings about a case.</p><nav class="collection-topics" aria-label="Suggested search terms">{topic.terms.map((term) => <a href={`/cases?topic=${topic.slug}&q=${encodeURIComponent(term)}`}>{term}</a>)}</nav></section>
+      <nav class="topic-related" aria-label="Related research topics"><h2>Explore related topics</h2>{researchTopics.filter((item) => item.slug !== topic.slug).map((item) => <a class="text-link" href={`/topics/${item.slug}`}>{item.name} <Icon name="arrow-right" size={16} /></a>)}</nav>
+    </>}
+  </div>
+</Layout>

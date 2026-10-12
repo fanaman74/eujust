@@ -2,7 +2,23 @@
 import '../styles/global.css';
 import { query } from '../lib/db';
 import Icon from '../components/Icon.astro';
-const { title = 'EU JUST', description = 'European staff rights, institutional rules and accountability records linked to their official sources.' } = Astro.props;
+import { canonicalUrl, isIndexable, jsonLd, pageStructuredData, type Breadcrumb, type StructuredData } from '../lib/seo';
+interface Props {
+  title?: string;
+  description?: string;
+  noindex?: boolean;
+  canonicalPath?: string;
+  canonicalPage?: number;
+  pageType?: string;
+  breadcrumbs?: Breadcrumb[];
+  mainEntity?: StructuredData;
+}
+const { title = 'EU JUST', description = 'European staff rights, institutional rules and accountability records linked to their official sources.', noindex = false, canonicalPath, canonicalPage = 1, pageType = 'WebPage', breadcrumbs = [], mainEntity } = Astro.props;
+const fullTitle = title === 'EU JUST' ? 'EU JUST — European workplace law & official court records' : `${title} · EU JUST`;
+const canonical = canonicalUrl(canonicalPath ?? Astro.url.pathname, canonicalPage);
+const indexable = isIndexable(Astro.url, Astro.response.status ?? 200, noindex);
+const sharingImage = canonicalUrl('/social-card.png');
+const structuredData = indexable ? pageStructuredData(fullTitle, description, canonical, pageType, breadcrumbs, mainEntity) : null;
 const path = Astro.url.pathname;
 const researchLinks = [
   { href: '/cases', label: 'Court rulings', note: 'Daily feed from EUR-Lex', active: path.startsWith('/cases') },
@@ -34,9 +50,28 @@ const surface = path === '/' ? 'home' : path === '/monitoring' || path === '/set
     <meta name="color-scheme" content="light" />
     <meta name="theme-color" content="#fcfff7" />
     <meta name="description" content={description} />
+    <meta name="robots" content={indexable ? 'index, follow, max-image-preview:large' : 'noindex, follow'} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="EU JUST" />
+    <meta property="og:locale" content="en_GB" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={sharingImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="EU JUST — European workplace law, traced to the official source." />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={sharingImage} />
+    <meta name="twitter:image:alt" content="EU JUST — European workplace law, traced to the official source." />
+    {structuredData && <script type="application/ld+json" set:html={jsonLd(structuredData)} />}
     <link rel="preload" href="/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin />
-    <title>{title} · EU JUST</title>
+    <title>{fullTitle}</title>
   </head>
   <body data-surface={surface}>
     <a class="skip-link" href="#main">Skip to main content</a>
@@ -77,7 +112,7 @@ const surface = path === '/' ? 'home' : path === '/monitoring' || path === '/set
         </div>
         <nav aria-labelledby="footer-research">
           <h2 id="footer-research">Research</h2>
-          <ul>{researchLinks.map((link) => <li><a href={link.href}>{link.label}</a></li>)}</ul>
+          <ul><li><a href="/topics">Research topics</a></li>{researchLinks.map((link) => <li><a href={link.href}>{link.label}</a></li>)}</ul>
         </nav>
         <nav aria-labelledby="footer-operations">
           <h2 id="footer-operations">Operations</h2>

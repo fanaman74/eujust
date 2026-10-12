@@ -4,6 +4,7 @@ import Icon from '../components/Icon.astro';
 import CaseRow from '../components/CaseRow.astro';
 import { query } from '../lib/db';
 import { selectedDecisions, selectedDecisionsCheckedOn, ruleGroups } from '../data/rules';
+import { researchTopics } from '../data/research-topics';
 
 let latest: any[] = [], topics: { slug: string; name_en: string }[] = [], total = 0, sourceCount = 0, lastCheck: string | null = null, error = '';
 try {
@@ -25,6 +26,7 @@ const ledger = [
   lastCheck && { label: 'Court feed last checked', value: formatDate(lastCheck) },
   sourceCount > 0 && { label: 'Official feeds monitored', value: String(sourceCount) }
 ].filter(Boolean) as { label: string; value: string }[];
+if (error) { Astro.response.status = 503; Astro.response.headers.set('Retry-After', '60'); }
 
 const sections = [
   { href: '/cases', title: 'Court rulings', description: 'Court of Justice and General Court decisions on harassment, psychosocial risk and discrimination at work, searchable by party, case number or topic.', meta: 'Daily source checks · EUR-Lex / Cellar' },
@@ -34,7 +36,7 @@ const sections = [
 ];
 ---
 
-<Layout title="EU court rulings on staff rights, traced to the source" description="EU JUST follows EU court rulings on harassment, psychosocial risk and discrimination at work, plus the institutional rules and oversight around them, each linked to its official source.">
+<Layout title="EU employment law: court rulings & workplace rights" description="Find EU court rulings on workplace harassment, discrimination and psychosocial risks. Explore institutional rules and accountability, linked to official sources." noindex={Boolean(error)}>
   <section class="home-hero" aria-labelledby="home-title">
     <div class="home-hero-copy">
       <h1 id="home-title">Workplace rights.<br /><span>Straight to the source.</span></h1>
@@ -47,7 +49,7 @@ const sections = [
       {topics.length > 0 && (
         <p class="home-topics">
           <span>Browse by topic</span>
-          {topics.map((topic) => <a href={`/cases?topic=${encodeURIComponent(topic.slug)}`}>{topic.name_en}</a>)}
+          {topics.map((topic) => <a href={researchTopics.some((item) => item.slug === topic.slug) ? `/topics/${topic.slug}` : `/cases?topic=${encodeURIComponent(topic.slug)}`}>{topic.name_en}</a>)}
         </p>
       )}
     </div>

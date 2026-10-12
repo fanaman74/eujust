@@ -28,8 +28,9 @@ const orderedStandingRules = ruleGroups
     if (!b.rule.date) return -1;
     return b.rule.date.localeCompare(a.rule.date);
   });
+if (error) { Astro.response.status = 503; Astro.response.headers.set('Retry-After', '60'); }
 ---
-<Layout title="Rules and institutional updates" description="Ombudsman and Commission updates plus hand-maintained references on harassment, dignity and staff well-being, linked to official sources.">
+<Layout title="EU staff rules, Ombudsman & Commission updates" description="Explore EU staff rules and official Ombudsman and Commission records on harassment, dignity and mental health at work, linked to their publishing sources." noindex={Boolean(error)} pageType="CollectionPage">
   <div class="page">
     <header class="page-head">
       <div>

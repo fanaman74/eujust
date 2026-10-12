@@ -551,3 +551,32 @@ td { padding: 16px 16px 16px 0; border-bottom: 1px solid var(--line); vertical-a
   .selected-records .dispatches { grid-template-columns: 1fr; gap: 20px; }
   .selected-records .dispatch { padding: 24px; }
 }
+
+/* Search landing pages inherit the research reading layout. */
+.breadcrumbs { margin-bottom: 28px; color: var(--grey); font-size: .8125rem; }
+.breadcrumbs ol { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; list-style: none; margin: 0; padding: 0; }
+.breadcrumbs li + li::before { content: '/'; margin-right: 12px; color: #68705f; }
+.breadcrumbs a { display: inline-block; min-height: 32px; padding-block: 6px; text-decoration: none; }
+.breadcrumbs a:hover { text-decoration: underline; }
+.topic-directory { display: grid; gap: 0; border-top: 1px solid var(--line); }
+.topic-directory section { display: grid; grid-template-columns: 1fr 1fr; gap: 16px 40px; padding-block: 32px; border-bottom: 1px solid var(--line); }
+.topic-directory h2 { font-size: 1.8rem; }
+.topic-directory h2 a { display: inline-flex; gap: 12px; align-items: center; text-decoration: none; }
+.topic-directory p { color: var(--grey); max-width: 66ch; }
+.topic-directory .text-link { grid-column: 2; justify-self: start; }
+.topic-context { max-width: 72ch; margin-block: 48px; }
+.topic-context h2 { margin-bottom: 20px; font-size: 1.85rem; }
+.topic-context p { color: var(--grey); margin-bottom: 16px; }
+.topic-context .collection-topics { margin-top: 24px; }
+.topic-tools { display: flex; flex-wrap: wrap; align-items: center; gap: 24px; margin-bottom: 32px; }
+.topic-tools > a:not(.button) { font-size: .9375rem; }
+.topic-results { margin-block: 48px; }
+.topic-related { display: flex; flex-wrap: wrap; align-items: center; gap: 20px 32px; padding-top: 32px; border-top: 1px solid var(--line); }
+.topic-related h2 { width: 100%; font-size: 1.8rem; }
+@media (max-width: 650px) {
+  .topic-directory section { grid-template-columns: 1fr; gap: 16px; padding-block: 28px; }
+  .topic-directory .text-link { grid-column: 1; }
+  .topic-tools { gap: 20px; }
+  .topic-tools .button { width: 100%; }
+  .breadcrumbs { margin-bottom: 24px; }
+}

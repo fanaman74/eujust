@@ -5,9 +5,17 @@ import Icon from '../../components/Icon.astro';
 import { query } from '../../lib/db';
 import { parseTitle } from '../../lib/title';
 import { pageGuides } from '../../data/page-guides';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { excerpt } from '../../lib/seo';
+import { dateIso } from '../../lib/sitemap';
 const id = Number(Astro.params.id);
 let item: any = null, error = '';
-try { const result = await query(`SELECT c.*,co.name court,co.jurisdiction, json_agg(DISTINCT jsonb_build_object('name',t.name_en,'matchType',ct.match_type)) FILTER (WHERE t.id IS NOT NULL) topics, json_agg(DISTINCT jsonb_build_object('url',d.official_url,'reference',d.source_reference,'retrievedAt',d.retrieved_at,'hasText',d.text_content IS NOT NULL)) docs, (SELECT report_json FROM reports r WHERE r.case_id=c.id AND r.status='complete' ORDER BY r.created_at DESC LIMIT 1) latest_report FROM cases c LEFT JOIN courts co ON co.id=c.court_id LEFT JOIN case_topics ct ON ct.case_id=c.id LEFT JOIN topics t ON t.id=ct.topic_id LEFT JOIN documents d ON d.case_id=c.id WHERE c.id=$1 GROUP BY c.id,co.name,co.jurisdiction`, [id]); item = result.rows[0]; } catch (e) { error = e instanceof Error ? e.message : 'Database unavailable'; }
+if (/^\d+$/.test(Astro.params.id ?? '') && Number.isSafeInteger(id) && id > 0) {
+  try { const result = await query(`SELECT c.*,co.name court,co.jurisdiction, json_agg(DISTINCT jsonb_build_object('name',t.name_en,'matchType',ct.match_type)) FILTER (WHERE t.id IS NOT NULL) topics, json_agg(DISTINCT jsonb_build_object('url',d.official_url,'reference',d.source_reference,'retrievedAt',d.retrieved_at,'hasText',d.text_content IS NOT NULL)) docs, (SELECT report_json FROM reports r WHERE r.case_id=c.id AND r.status='complete' ORDER BY r.created_at DESC LIMIT 1) latest_report FROM cases c LEFT JOIN courts co ON co.id=c.court_id LEFT JOIN case_topics ct ON ct.case_id=c.id LEFT JOIN topics t ON t.id=ct.topic_id LEFT JOIN documents d ON d.case_id=c.id WHERE c.id=$1 GROUP BY c.id,co.name,co.jurisdiction`, [id]); item = result.rows[0]; } catch (e) { error = e instanceof Error ? e.message : 'Database unavailable'; }
+}
+if (error) { Astro.response.status = 503; Astro.response.headers.set('Retry-After', '60'); }
+else if (!item) Astro.response.status = 404;
+else if (Astro.params.id !== String(id)) return Astro.redirect(`/cases/${id}`, 308);
 const date = (v: string | null) => v ? new Intl.DateTimeFormat('en-GB', { dateStyle: 'long' }).format(new Date(v)) : 'Not recorded';
 const parsed = item ? parseTitle(item.title) : null;
 const docs: any[] = (item?.docs ?? []).filter((doc: any) => doc.url).sort((a: any, b: any) => {
@@ -18,10 +26,22 @@ const docs: any[] = (item?.docs ?? []).filter((doc: any) => doc.url).sort((a: an
 const topics: any[] = (item?.topics ?? []).filter((t: any) => t.name);
 const report = item?.latest_report ?? null;
 const hasText = docs.some((doc) => doc.hasText);
+const reference = item?.case_number ?? item?.celex;
+const seoTitle = item ? excerpt(`${reference}: ${parsed!.heading}`, 100) : 'Case record unavailable';
+const seoDescription = item ? excerpt(`${reference}, ${item.court ?? 'EU court'}. ${parsed!.keywords.length ? `${parsed!.keywords.slice(0, 3).join('; ')}. ` : ''}${item.judgment_date ? `Judgment of ${date(item.judgment_date)}. ` : ''}Official case metadata and source links.`) : 'The requested case record is unavailable. Browse the collected EU court rulings instead.';
+const breadcrumbs = [{ name: 'Home', path: '/' }, { name: 'Court rulings', path: '/cases' }, { name: reference ?? 'Case record', path: `/cases/${id}` }];
+const mainEntity = item ? {
+  '@type': 'CreativeWork', name: parsed!.heading,
+  identifier: [{ '@type': 'PropertyValue', propertyID: 'CELEX', value: item.celex }, ...(item.case_number ? [{ '@type': 'PropertyValue', propertyID: 'Case number', value: item.case_number }] : [])],
+  ...(dateIso(item.updated_at) ? { dateModified: dateIso(item.updated_at) } : {}),
+  ...(dateIso(item.publication_date) ? { datePublished: dateIso(item.publication_date) } : {}),
+  ...(item.language?.includes('English') ? { inLanguage: 'en' } : {}),
+  keywords: parsed!.keywords.join(', '), citation: docs.map((doc) => doc.url)
+} : undefined;
 ---
-<Layout title={parsed?.heading ?? 'Case record'} description="Official case metadata and source links, with optional AI interpretation clearly separated from the court record.">
+<Layout title={seoTitle} description={seoDescription} noindex={!item || Boolean(error)} canonicalPath={item ? `/cases/${id}` : undefined} breadcrumbs={breadcrumbs} mainEntity={mainEntity}>
   <div class="page">
-    <a class="back" href="/cases"><Icon name="arrow-left" size={16} /> All rulings</a>
+    <Breadcrumbs items={breadcrumbs} />
     {error ? (
       <div class="empty" role="alert"><h1>Unable to load this case</h1><p>{error}</p></div>
     ) : !item ? (

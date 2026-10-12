@@ -31,6 +31,8 @@ Source-first. Every case links to the official EUR-Lex document, and AI-generate
 ## Capabilities and Constraints
 
 - Search and filter by text, topic, court; sort; paginate.
+- Public topic guides for workplace harassment, employment discrimination and psychosocial risks, linked to recent matched records and the full archive.
+- Canonical domain: https://www.eujust.online; public records and guides are discoverable through XML sitemaps, while operator/search/preview/error pages are excluded from indexing.
 - Case detail: official source, metadata, optional AI summary with verified paragraph citations.
 - Monitoring page: manual source check, daily schedule, run history.
 - Provider settings: OpenAI, DeepSeek, OpenRouter, Anthropic; keys encrypted server-side.

@@ -1,0 +1,17 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Icon from '../../components/Icon.astro';
+import { researchTopics } from '../../data/research-topics';
+const breadcrumbs = [{ name: 'Home', path: '/' }, { name: 'Research topics', path: '/topics' }];
+---
+<Layout title="EU workplace rights: research topics" description="Explore EU case law on workplace harassment, employment discrimination and psychosocial risks, with collected records and official source links." pageType="CollectionPage" breadcrumbs={breadcrumbs}>
+  <div class="page">
+    <Breadcrumbs items={breadcrumbs} />
+    <header class="page-head"><div><h1>Explore workplace rights<br />in EU law.</h1><p class="lede">Choose a topic to find collected European court records, understand the scope of the collection and follow the official source.</p></div></header>
+    <div class="topic-directory">
+      {researchTopics.map((topic) => <section><h2><a href={`/topics/${topic.slug}`}>{topic.name}<Icon name="arrow-right" size={20} /></a></h2><p>{topic.introduction}</p><a class="text-link" href={`/topics/${topic.slug}`}>Explore this topic <Icon name="arrow-right" size={16} /></a></section>)}
+    </div>
+    <section class="topic-context"><h2>A starting point for research.</h2><p>Records are discovered through bounded searches of the official source and grouped using English keyword matches. The collection is not exhaustive, and a topic match is not a legal assessment. Always verify the facts and outcome against the linked official judgment.</p><a class="text-link" href="/cases">Search all court rulings <Icon name="arrow-right" size={16} /></a></section>
+  </div>
+</Layout>
