@@ -1,0 +1,10 @@
+---
+const path = Astro.url.pathname;
+const links = [
+  { href: '/monitoring', label: 'Source monitoring' },
+  { href: '/settings', label: 'AI providers' }
+];
+---
+<nav class="operations-nav" aria-label="Operations">
+  {links.map((link) => <a href={link.href} aria-current={path === link.href ? 'page' : undefined}>{link.label}</a>)}
+</nav>

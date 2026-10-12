@@ -24,6 +24,7 @@ let lastCheck: string | null = null;
 try { lastCheck = (await query<{ last_checked_at: string | null }>("SELECT last_checked_at FROM sources WHERE key='eurlex-sparql'")).rows[0]?.last_checked_at ?? null; } catch { /* the bar simply omits the check time when the database is unreachable */ }
 const checked = lastCheck ? new Intl.DateTimeFormat('en-GB', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'Europe/Brussels' }).format(new Date(lastCheck)) : null;
 const operationsCurrent = operationalLinks.some((link) => link.active);
+const surface = path === '/' ? 'home' : path === '/monitoring' || path === '/settings' ? 'operations' : /^\/cases\/.+/.test(path) ? 'record' : 'research';
 ---
 <!doctype html>
 <html lang="en">
@@ -31,13 +32,13 @@ const operationsCurrent = operationalLinks.some((link) => link.active);
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="light" />
-    <meta name="theme-color" content="#f6f3eb" />
+    <meta name="theme-color" content="#fcfff7" />
     <meta name="description" content={description} />
-    <link rel="preload" href="/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="/fonts/newsreader-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin />
     <title>{title} · EU JUST</title>
   </head>
-  <body>
+  <body data-surface={surface}>
     <a class="skip-link" href="#main">Skip to main content</a>
     <header class="masthead">
       <div class="masthead-inner">
@@ -53,6 +54,7 @@ const operationsCurrent = operationalLinks.some((link) => link.active);
               {operationalLinks.map((link) => <a href={link.href} aria-current={link.active ? 'page' : undefined}>{link.label}<small>{link.note}</small></a>)}
             </div>
           </details>
+          <a class="button nav-search" href="/cases">Find a ruling <Icon name="arrow-right" size={15} /></a>
         </div>
         <details class="mobile-menu">
           <summary>Menu <Icon name="chevron-down" size={16} /></summary>
@@ -86,6 +88,7 @@ const operationsCurrent = operationalLinks.some((link) => link.active);
           <ul>{officialSources.map((link) => <li><a href={link.href} target="_blank" rel="noreferrer">{link.label}<Icon name="external" size={13} /><span class="sr-only"> (opens in a new tab)</span></a></li>)}</ul>
         </nav>
       </div>
+      <div class="colophon-lockup" aria-hidden="true">EU JUST<span>Closer to the source.</span></div>
       <div class="colophon-base"><p>The linked official document is always the authority. AI summaries, where present, are labelled as generated.</p></div>
     </footer>
     <script>

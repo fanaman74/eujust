@@ -42,7 +42,7 @@ Source-first. Every case links to the official EUR-Lex document, and AI-generate
 
 - Name: EU JUST.
 - The standing disclaimer: research support only; always verify against the official judgment.
-- Visual direction: a public legal register on warm paper, with deep navy structure and one gold signal; Newsreader display type, Archivo interface text and IBM Plex Mono for case numbers, dates and labels; a top menu bar with the research sections always visible. The home page retains the user-supplied EU flag image, a search box, real collection counts and the five latest cases with a "view all" action. Motion stays purposeful and accessible: the hero rise and photograph wipe-in, hover transitions, menu chevron and reduced-motion fallback. See DESIGN.md.
+- Visual direction: the owner requested the Brainfish theme on 12 October 2026. Cream backgrounds, charcoal structure, lime actions, pink editorial accents, Fraunces headings and Geist interface text replace the earlier paper/navy/gold register. Research keeps a top menu; home retains the supplied EU flag image, working search, real collection data and five latest cases with a view-all action. Reading and operational pages adapt the reference to their own tasks. Motion and focus remain accessible. See DESIGN.md.
 
 ## Evidence on Hand
 

@@ -1,92 +1,53 @@
 ---
 name: EU JUST
-description: A public legal register on warm paper, with deep navy structure, one gold signal, Newsreader display type, Archivo interface text and IBM Plex Mono docket references.
+description: A source-first legal research desk inspired by Brainfish: cream surfaces, charcoal structure, lime actions, Fraunces headings and Geist interface text.
 platform: web
 ---
 
-# Design System: EU JUST
+# Design system: EU JUST
 
-## Overview
+The owner requested a redesign using https://www.brainfishai.com/. The reference's home, product, blog and integrations pages were inspected at desktop and mobile sizes on 12 October 2026. Their shared language is a light cream canvas, charcoal type, lime actions, expressive serif headings, compact sans-serif controls and framed product views. EU JUST adapts that system to finding and reading legal records rather than importing the reference's sales journey.
 
-EU JUST is a public-facing legal research desk. It should read like a well-edited official register with a newsroom's clarity, not like a generic dashboard or an AI-generated marketing page. Three typefaces carry three jobs: an editorial serif for what things are called, a monospace "docket" for references, dates and labels, and a plain sans for reading and acting.
+## Product truth
 
-The product truth comes first. Court records, institutional updates and parliamentary discharge material remain linked to the official publishing authority. AI interpretation is optional, clearly labelled and kept separate from the source record. Coverage is bounded by the configured monitors and keyword rules; it is never presented as exhaustive legal coverage.
+The official document remains the authority. AI interpretation is optional and separate, with its generated status visible. Topics are keyword matches, discovery is bounded, and research support is not legal advice. Only real database figures and actual curated records are shown. Never invent cases, findings, summaries, credentials or source-check success.
 
-## Colors
+## Palette and type
 
-Defined as tokens on `:root` in `src/styles/global.css`.
+Tokens live in `src/styles/global.css`.
 
-### Brand
+- Cream canvas `#fcfff7`; white reading/form surfaces; pale green operational background `#f5f7ef`.
+- Charcoal `#262626`; deeper charcoal `#111114` for the home research-index band and discharge source material.
+- Lime `#a3e635` for primary actions. Deep green `#42651d` for accent text, focus and borders. Pale lime `#e9fec8` for official-source panels and monitoring context.
+- Pink `#f7c8d9` and pale pink `#fff0f5` distinguish editorial selections and the discharge cycle. AI panels use a separate lavender system to keep interpretation distinct from source material.
+- Secondary text `#5b6056`; border `#dfe3d9`. Status colours retain text labels.
+- Fraunces variable is the heading face; Geist variable carries interface/body text; Geist Mono is limited to case references and dates.
+- Latin and Latin Extended font subsets are self-hosted with their SIL Open Font Licences in `public/fonts`. No runtime font request is required.
 
-- **Navy ink** (`--ink`, `#0e1b30`) and **ink 2** (`--ink-2`, `#1d2d47`): text, structural rules, primary buttons, the home index band, source boxes and footer.
-- **Warm paper** (`--paper`, `#f6f3eb`): page background. **Raised paper** (`--paper-raised`, `#fffdf7`): inputs, scope notes, tags, row hover.
-- **Wash** (`--wash`, `#ece7db`): quiet bands such as the discharge explainer and menu hover.
-- **Hairline** (`--line`, `#d8d0bf`): dividers, borders of notes, tags and pills.
-- **Slate** (`--grey`, `#575f6d`): secondary copy, kickers, dates. Passes AA on paper.
-- **Signal gold** (`--wire`, `#e9b03b`): on navy only, or as a non-text accent (hero frame rule, row hover rule, focus ring, selection).
-- **Deep gold** (`--wire-deep`, `#8a5a00`): gold text on paper (headline emphasis, kickers that need weight), link hover and focus outlines.
-- **On ink** (`--on-ink`, `#f6f3eb`) and **on-ink muted** (`--on-ink-muted`, `#b9c3d2`): text on navy.
+## Shared shell
 
-### Status
+A sticky, opaque cream masthead keeps the EU JUST wordmark, four research sections and Operations menu. The desktop search action links to the existing collection. Mobile uses a native disclosure menu; outside click and Escape close menus, and Escape returns focus to the summary.
 
-- **AI amber** (`#7a4a00` on `#fdf1d3`, border `#e8cf8f`): generated interpretation only.
-- **Success green** (`#0b6b34` on `#e3f2e6`), **warning amber** (`#7a4a00` on `#fdf1d3`), **danger red** (`#b4233c` on `#fbe9ec`).
+The footer is light, with research, operations and official-source links, a quiet oversized EU JUST lockup and the standing source/AI disclaimer. It does not claim deployment status or completeness.
 
-Status colours communicate state; they never decorate unrelated content.
+Content is limited to 1240px with responsive gutters. Reading and operational content uses stable columns rather than marketing spacing. Headings cap at 5rem on home, with smaller inner-page titles. Body copy has a comfortable reading measure.
 
-## Typography
+## Page compositions
 
-All fonts are self-hosted in `public/fonts` (SIL Open Font License).
+- **Home — find, then understand.** Centred introduction and GET search; real topic shortcuts. A framed research panel pairs the approved EU flag photograph with three working paths through court rulings, institutional rules and parliamentary accountability. It adapts the reference's prominent product view without pretending to show an executed workflow. Real collection metadata, the latest five rulings, a dark research index and source/interpretation/coverage guidance follow.
+- **Court rulings — operate.** Concise heading, expandable scope guidance, topic category links, a grouped search/filter area, result rows and pagination. Topic shortcuts preserve the other filters and reset pagination. Long titles, judgment dates and case references are readable without invented thumbnails.
+- **Case record — read.** Case identity and an official-document action lead. Source information and optional AI interpretation are visually distinct. Secondary metadata and matched topics occupy an aside on desktop and stack below on mobile.
+- **Selected records — read.** The reference's editorial/blog collection is adapted as a two-column set of curated records with factual dates, topics and source references. The selection date and its separation from automatic discovery remain explicit.
+- **Rules — read.** Institution groups and standing references use expandable library sections with existing in-page links. A fragment link opens the requested section. Official links and monitoring limits remain available.
+- **Budget discharge — read.** A pink fiscal-year stamp, institution outcome panels, official material, previous-cycle replies and the numbered procedural explanation form a structured guide. The actual sequence earns the step numbers.
+- **Monitoring and AI settings — operate.** Pale green workspace, local navigation between monitoring and providers, white form/history panels, compact controls and labelled states. Existing token, retry, polling, schedule and model-catalogue behaviours remain intact.
 
-- **Display:** Newsreader (variable, optical sizing), weight 450–500, slight negative tracking. Page titles, section headings, record titles, ledger figures and the source link. The home headline sets its second clause in gold italic.
-- **Interface and body:** Archivo variable. Navigation, controls, ledes, running text. Body 1.0625rem / 1.55; ledes 1.1875rem.
-- **Docket:** IBM Plex Mono 400/500 at 0.75–0.8125rem. Kickers above headings, dates in record rows, case numbers and CELEX, fact labels, table headings, result counts and footer labels.
-- Headings and controls stay in sentence case. Nothing is set in uppercase except the `EU JUST` wordmark.
+## Components, motion and accessibility
 
-## Layout and hierarchy
+Primary buttons use the reference's lime fill and restrained 2px dark offset. Secondary buttons are plain outlined controls. Inputs have 7px rounding; panels 12–14px; category/topic controls are pills. Focus is a visible deep-green outline or input ring. Hover states clarify the active link or control without moving the content layout.
 
-- Content max width is 1280px (`--max`) with gutter `clamp(16px, 4vw, 48px)`; narrow operational pages use 1040px.
-- The masthead is sticky, translucent paper. The four research sections are always-visible links with a drawn underline for the current page; Monitoring and AI settings sit in a small bordered Operations menu with the feed-check time beside it. Below 900px everything collapses into one Menu disclosure. Menus close on outside click and Escape.
-- Inner pages open with a mono kicker, a Newsreader title and a lede, then a hairline, then the scope note ("About this page": what you will find, coverage and limits) as a quiet bordered two-column box.
-- Records are rows, not cards: mono date, serif title, slate subject, tags, and a right-aligned mono reference with court. Rows are separated by hairlines under a 1.5px ink rule.
-- Sections separate with rules and whitespace. Use one navy band per page at most.
+The home research frame reveals once through a bounded clip-path animation. Other motion is limited to controls, chevrons and arrows. Reduced-motion users receive static frames and negligible transitions.
 
-## Home page
+Coverage guidance is a keyboard-operable native disclosure, initially closed so it does not push the primary task away. Source and AI labels remain visible where the content appears. Hidden model-catalogue controls remain hidden until populated. Empty, no-match, missing-record, loading and failure states use the same system.
 
-1. Hero on paper: kicker, headline, lede, a prominent search box (GET `/cases?q=`) and topic shortcuts from the topics table. The supplied EU flag photograph sits right in a frame with a 6px gold base rule. It stacks at 1000px and moves above the copy below 600px.
-2. Ledger: up to four real figures (rulings on record, most recent judgment, last court-feed check, monitored feeds). A cell without data is omitted, never estimated.
-3. Latest five rulings, newest judgment first, with a link to all.
-4. Navy index band: the four sections with a one-sentence description and their real cadence or source.
-5. "How to read a record": source, interpretation, coverage.
-
-## Shape, depth and motion
-
-- Radius is 3px for controls, panels and frames; pills (topic shortcuts, jump links) are fully rounded. No other rounding.
-- Depth comes from rules and tone. The only shadows are on open menus and the home search box.
-- Motion: home copy rises once (700ms); the hero photograph wipes in with `wire-in` (900ms). Row hover fades a raised surface with a gold inset rule, draws the title underline and shifts the arrow. Nav underline draws on hover. Colour swaps use 160ms with the shared ease-out curve.
-- `prefers-reduced-motion: reduce` collapses all transitions and animations. Focus remains visible.
-- Never use gradients, glows or decorative animation to imply authority.
-
-## Components
-
-- **Buttons:** 46px tall, 1.5px border, 3px radius. Primary is navy; secondary is outlined; gold is reserved for use on navy; danger keeps the danger pair. Disabled is visibly muted and non-interactive.
-- **Fields:** raised paper, 1px warm-grey border, ink border on hover, ink border plus translucent gold ring on focus.
-- **Source box:** navy block labelled "Official source" in gold mono, the link set in the display face.
-- **AI panel:** amber surface and border, with the disclaimer always visible above any generated text.
-- **Status badges:** status colour plus a text label; colour never carries meaning alone.
-
-## Content rules
-
-- Always link the official EUR-Lex or relevant institutional document.
-- Describe the monitor as bounded discovery based on configured topics and source windows, never as exhaustive or as legal advice.
-- Keep source metadata separate from AI reports, and label generated summaries as generated.
-- Do not invent cases, findings, statistics, testimonials, quotes, endorsements or provider capabilities.
-- Use plain language for readers without legal training while keeping the legal reference visible.
-
-## Don't
-
-- Do not bring back the tricolon hero, uppercase eyebrows, shield trust rows, icon-in-tinted-square card grids, self-quoted blockquotes or a generic closing CTA band.
-- Do not put the scope note or panel headings in a filled box with a gold left bar; that pattern was retired.
-- Do not use a side menu or repeat the home photograph on other pages.
-- Do not present AI interpretation as a court finding or hide its generated status.
-- Do not remove official links, bounded-coverage language or the research-support disclaimer.
+Do not add fake activity graphics, commercial testimonials, decorative legal imagery, claims of complete coverage or an AI-first sales call to action. The home photograph remains on home only.

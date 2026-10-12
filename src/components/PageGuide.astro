@@ -7,11 +7,9 @@ interface Props extends PageGuideContent {}
 const { label, what, coverage, related = [], relatedGroups = [] } = Astro.props;
 const cardGroups = relatedGroups.some((group) => group.cards);
 ---
-<section class="page-guide" aria-labelledby="page-guide-heading">
-  <header class="page-guide-head">
-    <h2 id="page-guide-heading">About this page</h2>
-    <p class="page-guide-kicker">{label}</p>
-  </header>
+<details class="page-guide">
+  <summary><span>About this page & coverage</span><span class="page-guide-label">{label}</span><Icon name="chevron-down" size={16} /></summary>
+  <div class="page-guide-content">
   <dl class="page-guide-fields">
     <div>
       <dt>What you’ll find</dt>
@@ -38,4 +36,5 @@ const cardGroups = relatedGroups.some((group) => group.cards);
       ) : <p><span>{group.label}:</span> {group.links.map((link, index) => <><a href={link.href}>{link.label}</a>{index < group.links.length - 1 && <span aria-hidden="true"> · </span>}</>)}</p>)}
     </div>
   ) : related.length > 0 && <p class="page-guide-related"><span>Related</span> {related.map((link, index) => <><a href={link.href}>{link.label}</a>{index < related.length - 1 && <span aria-hidden="true"> · </span>}</>)}</p>}
-</section>
+  </div>
+</details>

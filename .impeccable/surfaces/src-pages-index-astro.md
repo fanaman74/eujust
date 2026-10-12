@@ -7,20 +7,16 @@ related_targets: ["src/pages/cases/index.astro","src/layouts/Layout.astro","src/
 
 # Home page
 
-Scope: `/` (home). Visitor mode: Find, then trust. Related: `/cases` list and case rows inherit the same register in Read mode; monitoring and settings in Operate mode.
+Mode: find, then understand. Public and press visitors should understand the bounded collection, search or open a ruling, and reach its official source. Operator pages are separate destinations.
 
-Audience: general public and press arriving cold. Job: see in seconds what is tracked, search or open a recent ruling, and reach the official judgment. Proof: real counts from the database and real cases, each with its official link; no invented claims, quotes or statistics.
+Owner direction: Brainfish's theme, requested 12 October 2026. Reference inspected at desktop/mobile: home, product, blog and integrations. The shared system is recorded in DESIGN.md.
 
-Pinned by the owner: top menu bar (no side menu), the supplied EU flag photograph on the home page only, the five latest cases, a view-all action.
+Retained commitments: EU JUST name; top menu; approved EU flag photograph on home only; real figures; latest five cases; view-all action; factual coverage and AI distinctions.
 
-## Direction contract
+FIRST VIEWPORT: cream navigation, centred Fraunces headline, short product explanation, a prominent working legal search and database topic shortcuts. A wide framed research panel follows: the approved photograph pairs with real navigation through the court, rules and accountability pages. No imaginary ticket/workflow runs or sample judgments appear in the shipped UI.
 
-THESIS: A public legal register. The site reads like a well-edited official gazette with a newsroom's clarity: an editorial serif for what things are called, a monospace docket for references and dates, and plain Archivo for everything you act on.
+BELOW: real collection metadata, five latest rulings, a charcoal research index and three reading principles. The footer is light with an oversized wordmark and the standing disclaimer.
 
-REFUSES: the generic AI landing page: tricolon headline, uppercase gold eyebrow, shield-icon trust row, a grid of identical icon-in-tinted-square cards, a self-quoted blockquote, and a closing "Start with the evidence" CTA band.
+MOTION: the research frame reveals once through clip-path, with static output under reduced motion. Other transitions clarify controls and navigation.
 
-FIRST VIEWPORT: Paper masthead with the four research sections visible as links, the feed-check time and an Operations menu. Hero on paper: mono kicker naming the courts, a Newsreader headline with its second clause in gold italic, a two-sentence lede, a prominent search box that submits to `/cases?q=`, and topic shortcuts from the topics table. The supplied photograph sits right in a frame with a gold base rule. A ledger strip of real counts closes the fold.
-
-BELOW: Latest five rulings as docket rows; a navy band indexing the four sections with their real cadence and source; a three-part "How to read a record" (source, interpretation, coverage).
-
-MOTION: copy rises once, the photograph wipes in (`wire-in`), row titles underline-draw on hover, arrows shift. All collapse under reduced motion.
+IMPLEMENTATION: code-led adaptation of the observed reference; no generated illustration or speculative mock-up is needed.

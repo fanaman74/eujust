@@ -27,8 +27,8 @@ const ledger = [
 ].filter(Boolean) as { label: string; value: string }[];
 
 const sections = [
-  { href: '/cases', title: 'Court rulings', description: 'Court of Justice and General Court decisions on harassment, psychosocial risk and discrimination at work, searchable by party, case number or topic.', meta: 'Checked daily · EUR-Lex / Cellar' },
-  { href: '/rules', title: 'Rules & updates', description: 'What the European Ombudsman and Commission publish on dignity at work, alongside the staff rules and policies those institutions apply.', meta: `Daily feeds · ${standingCount} standing references` },
+  { href: '/cases', title: 'Court rulings', description: 'Court of Justice and General Court decisions on harassment, psychosocial risk and discrimination at work, searchable by party, case number or topic.', meta: 'Daily source checks · EUR-Lex / Cellar' },
+  { href: '/rules', title: 'Rules & updates', description: 'What the European Ombudsman and Commission publish on dignity at work, alongside the staff rules and policies those institutions apply.', meta: `Institution feeds · ${standingCount} standing references` },
   { href: '/decisions', title: 'Selected records', description: 'A short, hand-picked list of judgments, Ombudsman decisions and Commission reports on staff safeguards and OLAF.', meta: `${selectedDecisions.length} records · checked ${formatDate(selectedDecisionsCheckedOn, { day: 'numeric', month: 'short', year: 'numeric' })}` },
   { href: '/discharge', title: 'Budget discharge', description: 'How Parliament scrutinises the way EU institutions spent their budget, what it decided and where the replies are published.', meta: 'Editorial guide · FY2024 cycle' }
 ];
@@ -37,9 +37,8 @@ const sections = [
 <Layout title="EU court rulings on staff rights, traced to the source" description="EU JUST follows EU court rulings on harassment, psychosocial risk and discrimination at work, plus the institutional rules and oversight around them, each linked to its official source.">
   <section class="home-hero" aria-labelledby="home-title">
     <div class="home-hero-copy">
-      <p class="kicker">Court of Justice · General Court · EU institutions</p>
-      <h1 id="home-title">Workplace rulings from the EU courts, <em>traced to the official record.</em></h1>
-      <p class="home-lede">EU JUST follows decisions on harassment, psychosocial risk and discrimination at work, and the rules and oversight around them. Every entry links to the court or institution that published it.</p>
+      <h1 id="home-title">Workplace rights.<br /><span>Straight to the source.</span></h1>
+      <p class="home-lede">Follow European court rulings on harassment, discrimination and psychosocial risk at work. Find the record, understand the context, and go straight to the official source.</p>
       <form class="home-search" action="/cases" method="get" role="search" aria-label="Search court rulings">
         <label class="sr-only" for="home-q">Search court rulings</label>
         <input id="home-q" name="q" type="search" placeholder="Party, case number or keyword" autocomplete="off" />
@@ -52,9 +51,21 @@ const sections = [
         </p>
       )}
     </div>
-    <figure class="home-hero-figure">
-      <img src="/images/home-hero.png" alt="European Union flag hanging inside a glass and steel atrium." width="1011" height="673" fetchpriority="high" />
-    </figure>
+    <div class="research-window">
+      <div class="research-window-bar"><span class="window-brand">EU JUST / Research desk</span><span>Official sources, connected</span></div>
+      <div class="research-window-body">
+        <figure class="home-hero-figure">
+          <img src="/images/home-hero.png" alt="European Union flag hanging inside a glass and steel atrium." width="1011" height="673" fetchpriority="high" />
+        </figure>
+        <div class="source-path">
+          <h2>A clearer path<br />through the record.</h2>
+          <p>From the court's decision to the rules and oversight around it. Follow the source at every step.</p>
+          <a href="/cases"><span class="path-node"><Icon name="search" size={18} /></span><span><strong>Find the ruling</strong><small>Court of Justice & General Court</small></span><Icon name="arrow-right" size={18} /></a>
+          <a href="/rules"><span class="path-node"><Icon name="external" size={18} /></span><span><strong>Read the rules</strong><small>EU institutions & staff safeguards</small></span><Icon name="arrow-right" size={18} /></a>
+          <a href="/discharge"><span class="path-node"><Icon name="arrow-right" size={18} /></span><span><strong>Follow the accountability</strong><small>Parliament's budget discharge</small></span><Icon name="arrow-right" size={18} /></a>
+        </div>
+      </div>
+    </div>
   </section>
 
   {ledger.length > 0 && (
@@ -68,8 +79,7 @@ const sections = [
   <section class="wrap home-latest latest" id="latest" aria-labelledby="home-latest-title">
     <header class="section-head">
       <div>
-        <p class="kicker">Newest first, by judgment date</p>
-        <h2 id="home-latest-title">Latest rulings</h2>
+        <h2 id="home-latest-title">The latest from the courts.</h2><p>Newest first, by judgment date. Each record links to its official source.</p>
       </div>
       {!error && total > 0 && <a class="text-link" href="/cases">All {total} rulings <Icon name="arrow-right" size={18} /></a>}
     </header>
@@ -88,8 +98,7 @@ const sections = [
   <section class="home-index" aria-labelledby="home-index-title">
     <div class="wrap home-index-inner">
       <header class="home-index-head">
-        <p class="kicker">What the desk covers</p>
-        <h2 id="home-index-title">From the courtroom to the budget vote.</h2>
+        <h2 id="home-index-title">See the ruling.<br />Explore the bigger picture.</h2>
         <p>Rulings show how the law was applied. The rules show what institutions committed to. Discharge shows how Parliament holds them to account.</p>
       </header>
       <ul class="index-list">
@@ -110,115 +119,22 @@ const sections = [
   <section class="wrap home-method" aria-labelledby="home-method-title">
     <header class="section-head">
       <div>
-        <p class="kicker">Before you rely on anything here</p>
-        <h2 id="home-method-title">How to read a record</h2>
+        <h2 id="home-method-title">An informed reading starts here.</h2>
       </div>
     </header>
     <dl class="method-grid">
       <div>
-        <dt><span class="kicker">Source</span>The official text is the authority</dt>
+        <dt>The official text is the authority</dt>
         <dd>Case records link to EUR-Lex. Other items link to the institution that published them. Titles are shown as published.</dd>
       </div>
       <div>
-        <dt><span class="kicker">Interpretation</span>Summaries are labelled</dt>
+        <dt>Summaries are labelled</dt>
         <dd>AI summaries are optional, marked as generated and kept apart from the official record. They are a reading aid, never a court finding.</dd>
       </div>
       <div>
-        <dt><span class="kicker">Coverage</span>The collection has limits</dt>
+        <dt>The collection has limits</dt>
         <dd>Rulings are found by keyword searches over a bounded window, and topics are keyword matches rather than legal analysis. Relevant material may be missing.</dd>
       </div>
     </dl>
   </section>
 </Layout>
-
-<style>
-  .home-hero {
-    display: grid;
-    grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr);
-    gap: clamp(32px, 5vw, 72px);
-    align-items: stretch;
-    max-width: var(--max);
-    margin: 0 auto;
-    padding: clamp(40px, 6vw, 88px) var(--gutter) clamp(32px, 4vw, 56px);
-  }
-  .home-hero-copy { display: flex; flex-direction: column; justify-content: center; min-width: 0; animation: rise 700ms var(--ease-out) both; }
-  .home-hero h1 {
-    margin-top: var(--space-4);
-    max-width: 16ch;
-    font-size: clamp(2.6rem, 1.5rem + 4vw, 5rem);
-    font-weight: 450;
-    line-height: 1.02;
-    letter-spacing: -0.03em;
-  }
-  .home-hero h1 em { color: var(--wire-deep); font-style: italic; font-weight: 400; }
-  .home-lede { max-width: 54ch; margin-top: var(--space-5); color: var(--grey); font-size: clamp(1.0625rem, 1rem + 0.25vw, 1.1875rem); line-height: 1.55; }
-  .home-search { display: flex; gap: var(--space-2); max-width: 600px; margin-top: var(--space-6); padding: 6px; border: 1px solid var(--ink); border-radius: calc(var(--radius) + 3px); background: var(--paper-raised); box-shadow: 0 1px 0 var(--line), 0 18px 36px -24px rgba(14, 27, 48, 0.45); transition: box-shadow 180ms var(--ease-out); }
-  .home-search:focus-within { box-shadow: 0 0 0 3px color-mix(in srgb, var(--wire) 55%, transparent), 0 18px 36px -24px rgba(14, 27, 48, 0.45); }
-  .home-search input { flex: 1; min-width: 0; border: 0; background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%23575f6d' stroke-width='2' stroke-linecap='round'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='m20 20-3.5-3.5'/%3E%3C/svg%3E") no-repeat 10px center; padding-left: 38px; font-size: 1.0625rem; }
-  .home-search input:focus-visible { box-shadow: none; }
-  .home-topics { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2); margin-top: var(--space-4); }
-  .home-topics span { margin-right: var(--space-1); color: var(--grey); font-family: var(--mono); font-size: 0.75rem; }
-  .home-topics a { display: inline-flex; align-items: center; min-height: 34px; padding: 0 var(--space-3); border: 1px solid var(--line); border-radius: 999px; background: var(--paper-raised); font-size: 0.875rem; font-weight: 600; text-decoration: none; transition: border-color 160ms var(--ease-out), background-color 160ms var(--ease-out), color 160ms var(--ease-out); }
-  .home-topics a:hover { border-color: var(--ink); background: var(--ink); color: var(--on-ink); }
-
-  .home-hero-figure { position: relative; min-width: 0; min-height: 460px; margin: 0; overflow: hidden; border-radius: var(--radius); background: var(--ink); animation: wire-in 900ms var(--ease-out) 120ms both; }
-  .home-hero-figure img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 30% center; }
-  .home-hero-figure::after { content: ''; position: absolute; inset: auto 0 0 0; height: 6px; background: var(--wire); }
-
-  .ledger { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin: 0; border-top: 1.5px solid var(--ink); border-bottom: 1px solid var(--line); }
-  .ledger > div { display: grid; gap: 2px; padding: var(--space-4) var(--space-5) var(--space-4) 0; }
-  .ledger > div + div { padding-left: var(--space-5); border-left: 1px solid var(--line); }
-  .ledger dt { order: 2; color: var(--grey); font-size: 0.875rem; }
-  .ledger dd { order: 1; margin: 0; font-family: var(--display); font-size: clamp(1.5rem, 1.2rem + 1vw, 2.125rem); font-weight: 500; line-height: 1.1; font-variant-numeric: lining-nums tabular-nums; }
-
-  .home-latest { padding-top: clamp(56px, 7vw, 96px); padding-bottom: clamp(64px, 8vw, 112px); }
-  .home-latest .section-head h2, .home-method .section-head h2 { margin-top: var(--space-2); }
-
-  .home-index { background: var(--ink); color: var(--on-ink); }
-  .home-index-inner { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: clamp(32px, 6vw, 96px); padding-top: clamp(64px, 8vw, 112px); padding-bottom: clamp(64px, 8vw, 112px); }
-  .home-index-head { align-self: start; position: sticky; top: calc(var(--masthead) + var(--space-6)); }
-  .home-index-head .kicker { color: var(--wire); }
-  .home-index-head h2 { margin-top: var(--space-3); color: var(--on-ink); font-size: clamp(2rem, 1.4rem + 2.2vw, 3.25rem); line-height: 1.04; letter-spacing: -0.025em; }
-  .home-index-head p:last-child { max-width: 42ch; margin-top: var(--space-4); color: var(--on-ink-muted); }
-  .index-list { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--on-ink-line); }
-  .index-list a {
-    display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: var(--space-2) var(--space-5); align-items: center;
-    padding: var(--space-5) var(--space-2); border-bottom: 1px solid var(--on-ink-line); color: var(--on-ink); text-decoration: none;
-    transition: background-color 200ms var(--ease-out), padding 260ms var(--ease-out);
-  }
-  .index-title { font-family: var(--display); font-size: clamp(1.6rem, 1.3rem + 1vw, 2.25rem); line-height: 1.1; }
-  .index-desc { grid-column: 1; max-width: 58ch; color: var(--on-ink-muted); font-size: 0.9688rem; }
-  .index-meta { grid-column: 1; color: var(--wire); font-family: var(--mono); font-size: 0.75rem; }
-  .index-list .icon { grid-column: 2; grid-row: 1 / span 3; color: var(--on-ink-muted); transition: transform 220ms var(--ease-out), color 180ms var(--ease-out); }
-  .index-list a:hover, .index-list a:focus-visible { background: var(--ink-2); padding-left: var(--space-4); }
-  .index-list a:hover .icon, .index-list a:focus-visible .icon { color: var(--wire); transform: translateX(6px); }
-  .index-list a:focus-visible { outline-color: var(--wire); outline-offset: -3px; }
-
-  .home-method { padding-top: clamp(64px, 8vw, 112px); padding-bottom: clamp(64px, 8vw, 112px); }
-  .method-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-6); margin: 0; }
-  .method-grid > div { padding-top: var(--space-4); border-top: 1.5px solid var(--ink); }
-  .method-grid dt { display: grid; gap: var(--space-2); font-family: var(--display); font-size: 1.5rem; font-weight: 500; line-height: 1.15; }
-  .method-grid dt .kicker { color: var(--wire-deep); }
-  .method-grid dd { max-width: 42ch; margin: var(--space-3) 0 0; color: var(--grey); }
-
-  @media (max-width: 1000px) {
-    .home-hero { grid-template-columns: minmax(0, 1fr); }
-    .home-hero-figure { min-height: 0; aspect-ratio: 16 / 9; }
-    .ledger { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .ledger > div:nth-child(3) { padding-left: 0; border-left: 0; }
-    .ledger > div:nth-child(n + 3) { border-top: 1px solid var(--line); }
-    .home-index-inner { grid-template-columns: minmax(0, 1fr); }
-    .home-index-head { position: static; }
-    .method-grid { grid-template-columns: minmax(0, 1fr); gap: var(--space-5); }
-  }
-  @media (max-width: 600px) {
-    .home-hero { padding-top: var(--space-5); }
-    .home-hero-figure { order: -1; aspect-ratio: 3 / 2; }
-    .home-search { flex-direction: column; }
-    .home-search .button { width: 100%; }
-    .ledger > div, .ledger > div + div { padding: var(--space-3) var(--space-3) var(--space-3) 0; }
-    .ledger > div:nth-child(even) { padding-left: var(--space-3); }
-    .index-list a { padding-inline: 0; }
-    .index-list a:hover, .index-list a:focus-visible { padding-left: var(--space-2); }
-  }
-</style>

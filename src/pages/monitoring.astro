@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import PageGuide from '../components/PageGuide.astro';
+import OperationsNav from '../components/OperationsNav.astro';
 import Icon from '../components/Icon.astro';
 import { query } from '../lib/db';
 import { pageGuides } from '../data/page-guides';
@@ -31,11 +32,10 @@ const statuses: Record<string, { tone: string; icon: string; label: string }> = 
 };
 ---
 <Layout title="Monitoring collection checks" description="Operational history and scheduling for official-source collection checks, including partial and failed attempts.">
-  <div class="page narrow">
+  <div class="page narrow operations-page">
     <header class="page-head">
       <div>
-        <p class="kicker">Operations</p>
-        <h1>Monitoring collection checks</h1>
+        <h1>Source monitoring</h1>
         <p class="lede">The collection worker checks official sources and records every attempt, including partial failures.</p>
       </div>
       <div class="monitor-actions">
@@ -43,6 +43,7 @@ const statuses: Record<string, { tone: string; icon: string; label: string }> = 
         <button class="button" id="run-monitor" type="button">Run check now</button>
       </div>
     </header>
+    <OperationsNav />
     <PageGuide {...pageGuides.monitoring} />
     <p id="run-status" class="form-status" role="status" style="margin:calc(var(--space-4) * -1) 0 var(--space-4)"></p>
 

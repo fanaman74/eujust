@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import PageGuide from '../components/PageGuide.astro';
+import OperationsNav from '../components/OperationsNav.astro';
 import Icon from '../components/Icon.astro';
 import { listProviders } from '../lib/ai';
 import { pageGuides } from '../data/page-guides';
@@ -9,15 +10,15 @@ try { providers = await listProviders(); } catch (e) { error = e instanceof Erro
 const names: Record<string, string> = { openai: 'OpenAI', deepseek: 'DeepSeek', openrouter: 'OpenRouter', anthropic: 'Anthropic Claude' };
 ---
 <Layout title="AI settings for source summaries" description="Optional AI provider settings for source-grounded summaries, with encrypted key storage and connection controls.">
-  <div class="page narrow">
+  <div class="page narrow operations-page">
     <header class="page-head">
       <div>
-        <p class="kicker">Operations</p>
-        <h1>AI settings for source summaries</h1>
+        <h1>AI settings</h1>
         <p class="lede">Configure an optional provider for source-grounded summaries. Keys are encrypted on the server and never sent back to the browser.</p>
       </div>
     </header>
 
+    <OperationsNav />
     <PageGuide {...pageGuides.settings} />
 
     <section class="panel" aria-labelledby="h-saved">
