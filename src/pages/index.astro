@@ -4,6 +4,7 @@ import Icon from '../components/Icon.astro';
 import CourtCard from '../components/CourtCard.astro';
 import { query } from '../lib/db';
 import { researchTopics } from '../data/research-topics';
+import { getTopicFeed, type TopicFeedItem } from '../lib/topic-feed';
 
 let latest: any[] = [], topics: { slug: string; name_en: string }[] = [], total = 0, sourceCount = 0, lastCheck: string | null = null, error = '';
 try {
@@ -17,6 +18,8 @@ try {
 
 const formatDate = (value: string | Date, options: Intl.DateTimeFormatOptions = { day: 'numeric', month: 'short', year: 'numeric' }) => new Intl.DateTimeFormat('en-GB', { ...options, timeZone: 'Europe/Brussels' }).format(new Date(value));
 const latestJudgment = latest.find((item) => item.judgment_date)?.judgment_date ?? null;
+let feed: TopicFeedItem[] = [], feedError = false;
+try { feed = await getTopicFeed(3); } catch { feedError = true; }
 
 const ledger = [
   total > 0 && { label: 'Court rulings on record', value: String(total) },
@@ -24,7 +27,7 @@ const ledger = [
   lastCheck && { label: 'Court feed last checked', value: formatDate(lastCheck) },
   sourceCount > 0 && { label: 'Official feeds monitored', value: String(sourceCount) }
 ].filter(Boolean) as { label: string; value: string }[];
-if (error) { Astro.response.status = 503; Astro.response.headers.set('Retry-After', '60'); }
+if (error || feedError) { Astro.response.status = 503; Astro.response.headers.set('Retry-After', '60'); }
 
 ---
 
@@ -48,18 +51,26 @@ if (error) { Astro.response.status = 503; Astro.response.headers.set('Retry-Afte
     </div>
     <button class="hero-motion" type="button" aria-pressed="false">Pause background animation</button>
     <div class="research-window">
-      <div class="research-window-bar"><span class="window-brand">EU JUST / Research desk</span><span>Official sources, connected</span></div>
+      <div class="research-window-bar"><span class="window-brand">EU JUST / Topic feed</span><span>Official source records</span></div>
       <div class="research-window-body">
         <figure class="home-hero-figure">
           <img src="/images/home-hero.png" alt="European Union flag hanging inside a glass and steel atrium." width="1011" height="673" fetchpriority="high" />
         </figure>
-        <div class="source-path">
-          <h2>A clearer path<br />through the record.</h2>
-          <p>From the court's decision to the rules and oversight around it. Follow the source at every step.</p>
-          <a href="/cases"><span class="path-node"><Icon name="search" size={18} /></span><span><strong>Find the ruling</strong><small>Court of Justice & General Court</small></span><Icon name="arrow-right" size={18} /></a>
-          <a href="/rules"><span class="path-node"><Icon name="external" size={18} /></span><span><strong>Read the rules</strong><small>EU institutions & staff safeguards</small></span><Icon name="arrow-right" size={18} /></a>
-          <a href="/discharge"><span class="path-node"><Icon name="arrow-right" size={18} /></span><span><strong>Follow the accountability</strong><small>Parliament's budget discharge</small></span><Icon name="arrow-right" size={18} /></a>
-        </div>
+        <section class="topic-feed" aria-labelledby="topic-feed-title">
+          <h2 id="topic-feed-title">Latest topic updates.</h2>
+          <p class="topic-feed-note">Court rulings and institutional records. Newest source dates first; topics are keyword matches.</p>
+          {feedError ? <p class="topic-feed-state" role="alert">Updates cannot be loaded right now. Please try again later.</p> : !feed.length ? <p class="topic-feed-state">No topic updates collected yet. New source records will appear here after a monitoring check.</p> : (
+            <ol class="topic-feed-list">
+              {feed.map((item) => <li>
+                <div class="topic-feed-meta"><span>{item.dateLabel}</span>{item.date ? <time datetime={item.date}>{formatDate(item.date)}</time> : <span>Date not recorded</span>}</div>
+                <a class="topic-feed-title" href={item.href}>{item.title}<Icon name={item.href.startsWith('/') ? 'arrow-right' : 'external'} size={16} /></a>
+                <p class="topic-feed-source">{item.source}</p>
+                <p class="topic-feed-matches">{item.categories.join(' · ')}</p>
+              </li>)}
+            </ol>
+          )}
+          <div class="topic-feed-actions"><a href="/topics">Explore all topics <Icon name="arrow-right" size={15} /></a><a class="topic-feed-rss" href="/rss.xml"><Icon name="rss" size={16} />Subscribe via RSS</a></div>
+        </section>
       </div>
     </div>
   </section>

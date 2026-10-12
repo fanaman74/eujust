@@ -2,7 +2,7 @@
 version: 2
 slug: "src-pages-index-astro"
 primary_target: "src/pages/index.astro"
-related_targets: ["src/pages/cases/index.astro","src/layouts/Layout.astro","src/components/CourtCard.astro","src/scripts/latest-courts.ts","src/styles/global.css"]
+related_targets: ["src/pages/cases/index.astro","src/layouts/Layout.astro","src/components/CourtCard.astro","src/scripts/latest-courts.ts","src/styles/global.css","src/lib/topic-feed.ts","src/pages/rss.xml.ts"]
 ---
 
 # Home page
@@ -13,7 +13,7 @@ Owner direction: Brainfish's theme, requested 12 October 2026. Reference inspect
 
 Retained commitments: EU JUST name; top menu; approved EU flag photograph on home only; real figures; latest five cases; view-all action; factual coverage and AI distinctions.
 
-FIRST VIEWPORT: cream navigation, centred Fraunces headline, short product explanation, a prominent working legal search and database topic shortcuts. The owner's corrected direction is visibly moving, pale green in the existing lime family, with a subtle dot pattern. Keep text and controls legible; this is a home-specific expression, not a global palette change. A wide framed research panel follows: the approved photograph pairs with real navigation through the court, rules and accountability pages. No imaginary ticket/workflow runs or sample judgments appear in the shipped UI.
+FIRST VIEWPORT: cream navigation, centred Fraunces headline, short product explanation, a prominent working legal search and database topic shortcuts. The owner's corrected direction is visibly moving, pale green in the existing lime family, with a subtle dot pattern. Keep text and controls legible; this is a home-specific expression, not a global palette change. A wide framed topic-feed panel follows: the approved photograph pairs with three actual court/institution records, their source dates, source labels and keyword matches. Title links open the case record or institution’s official URL. Footer actions lead to topic guides and `/rss.xml`. No imaginary ticket/workflow runs or sample judgments appear in the shipped UI.
 
 BELOW: real collection metadata, then four owner-requested Brainfish add-on-style service cards above the latest courts. Cards link to `/cases`, `/rules`, `/decisions` and `/discharge`; each carries three accurate existing capabilities, purple line icon, green ticks and a real navigation action. The owner subsequently requested the same size as the dark court cards: shared 18px gaps, 22px/20px padding, 12px corners and 360px minimum rows. The owner’s latest correction explicitly requires four in a row: services use four full-width columns on desktop, two at 1000px and one at 600px. Court cards retain their three/two/one-column layout. Content may expand naturally rather than clip. A dark/lavender latest-courts section and three reading principles follow; the owner removed the duplicate charcoal research index. The footer is light with an oversized wordmark and the standing disclaimer.
 
@@ -30,3 +30,8 @@ VERIFICATION: current correction evidence is `/tmp/eujust-motion/report.json` an
 IMPLEMENTATION: code-led adaptation of the observed reference; no generated illustration or speculative mock-up is needed.
 
 REVIEW: ship. The card-size/scroll correction was inspected at desktop, screenshot width, tablet and mobile; no implementation defects remained. The earlier green-hero reduced-motion pause correction remains verified.
+
+
+TOPIC FEED: `getTopicFeed` is shared by home (three entries) and public RSS 2.0 (twenty). It combines enabled-topic court records and collected institution updates with nonempty matched terms, ordered by source date descending/nulls last, then discovery time and stable kind/id. Court party titles are parsed for display only. Document/judgment dates are labelled separately from RSS publication dates, which use first discovery. Stable GUIDs distinguish case/update IDs; XML escapes source text and removes XML-invalid controls/surrogates. Invalid/executable external links fall back to rules. Public RSS has a five-minute cache and head autodiscovery. An empty database serves a valid empty channel and honest panel state; failures return RSS 503/Retry-After/no-store and a generic panel alert. No keys, summaries or private operator data enter the feed.
+
+TOPIC-FEED VERIFICATION: 49 tests passed, Astro checked 69 files without diagnostics and production build passed. `/tmp/eujust-motion/feed-report.json` verifies mixed-source ordering, stable GUIDs, XML parsing and escaping, distinction between source/discovery dates, disabled-topic exclusion, RSS empty 200/error 503 and panel states. Four viewport checks at 1440/1100/760/390px confirmed three real-schema fixture rows, usable keyboard RSS link, no overflow or JavaScript errors. Corrected source-panel captures are `user-feed.png` and `mobile-feed.png`; initial crops were invalid after focus scrolling and were replaced. QA fixtures were explicitly labelled in an isolated local database, never production; the QA database was removed after validation.
