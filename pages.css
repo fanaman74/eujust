@@ -1041,6 +1041,11 @@ a.tag:hover { color: var(--paper); background: var(--ink); }
 .decision-card--pink .decision-card__summary { color: rgba(23, 20, 18, .68); }
 .decision-card--ink .decision-card__summary { color: rgba(244, 239, 227, .62); }
 .decision-card__tags { margin-top: .9rem; }
+/* Tags default to ink-on-paper; inside the dark card they must invert or vanish. */
+.decision-card--ink .tag {
+  color: rgba(244, 239, 227, .82);
+  border-color: rgba(244, 239, 227, .38);
+}
 .decision-card__foot {
   display: flex;
   align-items: center;
