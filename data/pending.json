@@ -1,12 +1,6 @@
 {
-  "generatedAt": "2026-10-23",
+  "generatedAt": "2026-10-24",
   "source": "EUR-Lex / Cellar SPARQL — OJ C notices of actions brought (CELEX …TN…)",
-  "scope": [
-    "Harassment at work",
-    "Staff regulations (EU)",
-    "Maladministration",
-    "European official"
-  ],
   "count": 185,
   "cases": [
     {
@@ -19,7 +13,6 @@
       "topics": [
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2026/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0600"
     },
     {
@@ -32,7 +25,6 @@
       "topics": [
         "Maladministration"
       ],
-      "eli": "http://data.europa.eu/eli/C/2026/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0593"
     },
     {
@@ -46,7 +38,6 @@
         "Staff regulations (EU)",
         "Maladministration"
       ],
-      "eli": "http://data.europa.eu/eli/C/2026/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0367"
     },
     {
@@ -60,7 +51,6 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2026/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0491"
     },
     {
@@ -73,7 +63,6 @@
       "topics": [
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2026/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0472"
     },
     {
@@ -86,7 +75,6 @@
       "topics": [
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2026/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0461"
     },
     {
@@ -99,7 +87,6 @@
       "topics": [
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2026/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0457"
     },
     {
@@ -113,7 +100,6 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2026/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0446"
     },
     {
@@ -128,7 +114,6 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2026/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0444"
     },
     {
@@ -142,7 +127,6 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2026/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0436"
     },
     {
@@ -156,7 +140,6 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2026/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0440"
     },
     {
@@ -169,7 +152,6 @@
       "topics": [
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2026/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0439"
     },
     {
@@ -182,7 +164,6 @@
       "topics": [
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2026/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0419"
     },
     {
@@ -196,7 +177,6 @@
         "Staff regulations (EU)",
         "Maladministration"
       ],
-      "eli": "http://data.europa.eu/eli/C/2026/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0414"
     },
     {
@@ -210,7 +190,6 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2026/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0403"
     },
     {
@@ -223,7 +202,6 @@
       "topics": [
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2026/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0383"
     },
     {
@@ -237,7 +215,6 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2026/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0377"
     },
     {
@@ -250,7 +227,6 @@
       "topics": [
         "European official"
       ],
-      "eli": "http://data.europa.eu/eli/C/2026/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0375"
     },
     {
@@ -264,7 +240,6 @@
         "Staff regulations (EU)",
         "Maladministration"
       ],
-      "eli": "http://data.europa.eu/eli/C/2026/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0379"
     },
     {
@@ -280,7 +255,6 @@
         "Staff regulations (EU)",
         "Maladministration"
       ],
-      "eli": "http://data.europa.eu/eli/C/2026/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0380"
     },
     {
@@ -294,7 +268,6 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2026/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0376"
     },
     {
@@ -307,7 +280,6 @@
       "topics": [
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2026/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0371"
     },
     {
@@ -321,7 +293,6 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2026/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0356"
     },
     {
@@ -334,7 +305,6 @@
       "topics": [
         "Maladministration"
       ],
-      "eli": "http://data.europa.eu/eli/C/2026/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0407"
     },
     {
@@ -347,7 +317,6 @@
       "topics": [
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2026/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0355"
     },
     {
@@ -360,7 +329,6 @@
       "topics": [
         "European official"
       ],
-      "eli": "http://data.europa.eu/eli/C/2026/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0342"
     },
     {
@@ -373,7 +341,6 @@
       "topics": [
         "Maladministration"
       ],
-      "eli": "http://data.europa.eu/eli/C/2026/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0336"
     },
     {
@@ -386,7 +353,6 @@
       "topics": [
         "European official"
       ],
-      "eli": "http://data.europa.eu/eli/C/2026/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0341"
     },
     {
@@ -401,7 +367,6 @@
         "Staff regulations (EU)",
         "Maladministration"
       ],
-      "eli": "http://data.europa.eu/eli/C/2026/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0326"
     },
     {
@@ -414,7 +379,6 @@
       "topics": [
         "Maladministration"
       ],
-      "eli": "http://data.europa.eu/eli/C/2026/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0349"
     },
     {
@@ -428,7 +392,6 @@
         "Harassment at work",
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2026/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0317"
     },
     {
@@ -441,7 +404,6 @@
       "topics": [
         "Maladministration"
       ],
-      "eli": "http://data.europa.eu/eli/C/2026/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0315"
     },
     {
@@ -454,7 +416,6 @@
       "topics": [
         "Harassment at work"
       ],
-      "eli": "http://data.europa.eu/eli/C/2026/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0312"
     },
     {
@@ -468,7 +429,6 @@
         "Staff regulations (EU)",
         "Maladministration"
       ],
-      "eli": "http://data.europa.eu/eli/C/2026/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0310"
     },
     {
@@ -482,7 +442,6 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2026/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0321"
     },
     {
@@ -495,7 +454,6 @@
       "topics": [
         "Maladministration"
       ],
-      "eli": "http://data.europa.eu/eli/C/2026/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0294"
     },
     {
@@ -508,22 +466,7 @@
       "topics": [
         "Maladministration"
       ],
-      "eli": "http://data.europa.eu/eli/C/2026/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0295"
-    },
-    {
-      "id": "62026TN0292",
-      "celex": "62026TN0292",
-      "caseNo": "T-292/26",
-      "court": "General Court",
-      "filedISO": "2026-05-12",
-      "ojISO": "2026-07-20",
-      "topics": [
-        "European official",
-        "Staff regulations (EU)"
-      ],
-      "eli": "http://data.europa.eu/eli/C/2026/",
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0292"
     },
     {
       "id": "62026TN0290",
@@ -537,8 +480,20 @@
         "Staff regulations (EU)",
         "Maladministration"
       ],
-      "eli": "http://data.europa.eu/eli/C/2026/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0290"
+    },
+    {
+      "id": "62026TN0292",
+      "celex": "62026TN0292",
+      "caseNo": "T-292/26",
+      "court": "General Court",
+      "filedISO": "2026-05-12",
+      "ojISO": "2026-07-20",
+      "topics": [
+        "European official",
+        "Staff regulations (EU)"
+      ],
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0292"
     },
     {
       "id": "62026TN0288",
@@ -551,7 +506,6 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2026/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0288"
     },
     {
@@ -566,7 +520,6 @@
         "Staff regulations (EU)",
         "Maladministration"
       ],
-      "eli": "http://data.europa.eu/eli/C/2026/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0286"
     },
     {
@@ -579,7 +532,6 @@
       "topics": [
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2026/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0285"
     },
     {
@@ -592,7 +544,6 @@
       "topics": [
         "Maladministration"
       ],
-      "eli": "http://data.europa.eu/eli/C/2026/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0269"
     },
     {
@@ -605,7 +556,6 @@
       "topics": [
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2026/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0268"
     },
     {
@@ -618,7 +568,6 @@
       "topics": [
         "Maladministration"
       ],
-      "eli": "http://data.europa.eu/eli/C/2026/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0258"
     },
     {
@@ -633,7 +582,6 @@
         "Staff regulations (EU)",
         "Maladministration"
       ],
-      "eli": "http://data.europa.eu/eli/C/2026/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0256"
     },
     {
@@ -648,7 +596,6 @@
         "Staff regulations (EU)",
         "Maladministration"
       ],
-      "eli": "http://data.europa.eu/eli/C/2026/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0254"
     },
     {
@@ -663,7 +610,6 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2026/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0251"
     },
     {
@@ -677,7 +623,6 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2026/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0249"
     },
     {
@@ -690,7 +635,6 @@
       "topics": [
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2026/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0247"
     },
     {
@@ -704,7 +648,6 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2026/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0041"
     },
     {
@@ -717,7 +660,6 @@
       "topics": [
         "European official"
       ],
-      "eli": "http://data.europa.eu/eli/C/2026/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0218"
     },
     {
@@ -730,7 +672,6 @@
       "topics": [
         "Maladministration"
       ],
-      "eli": "http://data.europa.eu/eli/C/2026/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0211"
     },
     {
@@ -743,7 +684,6 @@
       "topics": [
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2026/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0210"
     },
     {
@@ -756,7 +696,6 @@
       "topics": [
         "Maladministration"
       ],
-      "eli": "http://data.europa.eu/eli/C/2026/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0205"
     },
     {
@@ -769,7 +708,6 @@
       "topics": [
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2026/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0209"
     },
     {
@@ -784,7 +722,6 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2026/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0194"
     },
     {
@@ -797,7 +734,6 @@
       "topics": [
         "European official"
       ],
-      "eli": "http://data.europa.eu/eli/C/2026/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0192"
     },
     {
@@ -811,7 +747,6 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2026/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0188"
     },
     {
@@ -825,7 +760,6 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2026/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0190"
     },
     {
@@ -838,7 +772,6 @@
       "topics": [
         "Maladministration"
       ],
-      "eli": "http://data.europa.eu/eli/C/2026/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0186"
     },
     {
@@ -853,7 +786,6 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2026/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0183"
     },
     {
@@ -866,7 +798,6 @@
       "topics": [
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2026/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0164"
     },
     {
@@ -879,7 +810,6 @@
       "topics": [
         "Harassment at work"
       ],
-      "eli": "http://data.europa.eu/eli/C/2026/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0159"
     },
     {
@@ -892,7 +822,6 @@
       "topics": [
         "European official"
       ],
-      "eli": "http://data.europa.eu/eli/C/2026/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0151"
     },
     {
@@ -906,7 +835,6 @@
         "Harassment at work",
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2026/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0146"
     },
     {
@@ -920,7 +848,6 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2026/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0143"
     },
     {
@@ -934,7 +861,6 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2026/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0124"
     },
     {
@@ -949,7 +875,6 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2026/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0097"
     },
     {
@@ -962,7 +887,6 @@
       "topics": [
         "Maladministration"
       ],
-      "eli": "http://data.europa.eu/eli/C/2026/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0091"
     },
     {
@@ -976,7 +900,6 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2026/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0076"
     },
     {
@@ -989,7 +912,6 @@
       "topics": [
         "Maladministration"
       ],
-      "eli": "http://data.europa.eu/eli/C/2026/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0070"
     },
     {
@@ -1003,7 +925,6 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2026/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0060"
     },
     {
@@ -1018,7 +939,6 @@
         "Staff regulations (EU)",
         "Maladministration"
       ],
-      "eli": "http://data.europa.eu/eli/C/2026/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0050"
     },
     {
@@ -1033,7 +953,6 @@
         "Staff regulations (EU)",
         "Maladministration"
       ],
-      "eli": "http://data.europa.eu/eli/C/2026/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0051"
     },
     {
@@ -1048,7 +967,6 @@
         "Staff regulations (EU)",
         "Maladministration"
       ],
-      "eli": "http://data.europa.eu/eli/C/2026/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0045"
     },
     {
@@ -1063,7 +981,6 @@
         "Staff regulations (EU)",
         "Maladministration"
       ],
-      "eli": "http://data.europa.eu/eli/C/2026/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0046"
     },
     {
@@ -1076,7 +993,6 @@
       "topics": [
         "European official"
       ],
-      "eli": "http://data.europa.eu/eli/C/2026/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0033"
     },
     {
@@ -1090,7 +1006,6 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2026/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0035"
     },
     {
@@ -1103,7 +1018,6 @@
       "topics": [
         "European official"
       ],
-      "eli": "http://data.europa.eu/eli/C/2026/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0034"
     },
     {
@@ -1117,7 +1031,6 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2026/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0036"
     },
     {
@@ -1130,7 +1043,6 @@
       "topics": [
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2026/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0028"
     },
     {
@@ -1143,7 +1055,6 @@
       "topics": [
         "Maladministration"
       ],
-      "eli": "http://data.europa.eu/eli/C/2026/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0015"
     },
     {
@@ -1156,7 +1067,6 @@
       "topics": [
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2026/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0003"
     },
     {
@@ -1170,7 +1080,6 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2026/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0001"
     },
     {
@@ -1183,7 +1092,6 @@
       "topics": [
         "Harassment at work"
       ],
-      "eli": "http://data.europa.eu/eli/C/2026/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0909"
     },
     {
@@ -1197,7 +1105,6 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2026/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0905"
     },
     {
@@ -1210,7 +1117,6 @@
       "topics": [
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2026/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0913"
     },
     {
@@ -1223,7 +1129,6 @@
       "topics": [
         "Maladministration"
       ],
-      "eli": "http://data.europa.eu/eli/C/2026/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0893"
     },
     {
@@ -1236,7 +1141,6 @@
       "topics": [
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2026/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0868"
     },
     {
@@ -1249,7 +1153,6 @@
       "topics": [
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2026/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0866"
     },
     {
@@ -1264,7 +1167,6 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2026/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0854"
     },
     {
@@ -1277,7 +1179,6 @@
       "topics": [
         "Maladministration"
       ],
-      "eli": "http://data.europa.eu/eli/C/2026/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0847"
     },
     {
@@ -1290,7 +1191,6 @@
       "topics": [
         "Harassment at work"
       ],
-      "eli": "http://data.europa.eu/eli/C/2026/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0864"
     },
     {
@@ -1304,7 +1204,6 @@
         "Staff regulations (EU)",
         "Maladministration"
       ],
-      "eli": "http://data.europa.eu/eli/C/2026/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0798"
     },
     {
@@ -1319,7 +1218,6 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2026/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0793"
     },
     {
@@ -1335,7 +1233,6 @@
         "Staff regulations (EU)",
         "Maladministration"
       ],
-      "eli": "http://data.europa.eu/eli/C/2026/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0777"
     },
     {
@@ -1348,7 +1245,6 @@
       "topics": [
         "European official"
       ],
-      "eli": "http://data.europa.eu/eli/C/2026/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0778"
     },
     {
@@ -1361,7 +1257,6 @@
       "topics": [
         "Harassment at work"
       ],
-      "eli": "http://data.europa.eu/eli/C/2025/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0761"
     },
     {
@@ -1374,7 +1269,6 @@
       "topics": [
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2025/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0767"
     },
     {
@@ -1387,7 +1281,6 @@
       "topics": [
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2025/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0751"
     },
     {
@@ -1401,7 +1294,6 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2025/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0740"
     },
     {
@@ -1415,7 +1307,6 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2025/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0709"
     },
     {
@@ -1428,7 +1319,6 @@
       "topics": [
         "European official"
       ],
-      "eli": "http://data.europa.eu/eli/C/2026/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0737"
     },
     {
@@ -1441,7 +1331,6 @@
       "topics": [
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2026/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0706"
     },
     {
@@ -1456,7 +1345,6 @@
         "Staff regulations (EU)",
         "Maladministration"
       ],
-      "eli": "http://data.europa.eu/eli/C/2025/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0692"
     },
     {
@@ -1469,7 +1357,6 @@
       "topics": [
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2025/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0687"
     },
     {
@@ -1483,7 +1370,6 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2025/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0660"
     },
     {
@@ -1496,7 +1382,6 @@
       "topics": [
         "European official"
       ],
-      "eli": "http://data.europa.eu/eli/C/2025/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0664"
     },
     {
@@ -1510,7 +1395,6 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2025/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0647"
     },
     {
@@ -1524,7 +1408,6 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2025/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0646"
     },
     {
@@ -1538,7 +1421,6 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2025/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0624"
     },
     {
@@ -1552,7 +1434,6 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2025/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0616"
     },
     {
@@ -1565,7 +1446,6 @@
       "topics": [
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2025/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0611"
     },
     {
@@ -1578,7 +1458,6 @@
       "topics": [
         "European official"
       ],
-      "eli": "http://data.europa.eu/eli/C/2025/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0607"
     },
     {
@@ -1591,7 +1470,6 @@
       "topics": [
         "Maladministration"
       ],
-      "eli": "http://data.europa.eu/eli/C/2025/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0601"
     },
     {
@@ -1605,7 +1483,6 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2025/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0604"
     },
     {
@@ -1618,7 +1495,6 @@
       "topics": [
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2025/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0592"
     },
     {
@@ -1631,7 +1507,6 @@
       "topics": [
         "Maladministration"
       ],
-      "eli": "http://data.europa.eu/eli/C/2025/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0587"
     },
     {
@@ -1644,7 +1519,6 @@
       "topics": [
         "Maladministration"
       ],
-      "eli": "http://data.europa.eu/eli/C/2025/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0589"
     },
     {
@@ -1659,7 +1533,6 @@
         "Staff regulations (EU)",
         "Maladministration"
       ],
-      "eli": "http://data.europa.eu/eli/C/2025/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0585"
     },
     {
@@ -1672,7 +1545,6 @@
       "topics": [
         "Maladministration"
       ],
-      "eli": "http://data.europa.eu/eli/C/2025/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0583"
     },
     {
@@ -1686,7 +1558,6 @@
         "European official",
         "Maladministration"
       ],
-      "eli": "http://data.europa.eu/eli/C/2025/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0542"
     },
     {
@@ -1699,7 +1570,6 @@
       "topics": [
         "Maladministration"
       ],
-      "eli": "http://data.europa.eu/eli/C/2025/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0524"
     },
     {
@@ -1712,7 +1582,6 @@
       "topics": [
         "Maladministration"
       ],
-      "eli": "http://data.europa.eu/eli/C/2025/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0526"
     },
     {
@@ -1725,7 +1594,6 @@
       "topics": [
         "Maladministration"
       ],
-      "eli": "http://data.europa.eu/eli/C/2025/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0525"
     },
     {
@@ -1739,7 +1607,6 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2025/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0514"
     },
     {
@@ -1752,7 +1619,6 @@
       "topics": [
         "Maladministration"
       ],
-      "eli": "http://data.europa.eu/eli/C/2025/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0517"
     },
     {
@@ -1766,7 +1632,6 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2025/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0506"
     },
     {
@@ -1780,7 +1645,6 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2025/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0469"
     },
     {
@@ -1794,7 +1658,6 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2025/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0474"
     },
     {
@@ -1807,7 +1670,6 @@
       "topics": [
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2025/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0443"
     },
     {
@@ -1820,7 +1682,6 @@
       "topics": [
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2025/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0442"
     },
     {
@@ -1833,7 +1694,6 @@
       "topics": [
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2025/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0441"
     },
     {
@@ -1846,7 +1706,6 @@
       "topics": [
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2025/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0440"
     },
     {
@@ -1859,7 +1718,6 @@
       "topics": [
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2025/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0439"
     },
     {
@@ -1872,7 +1730,6 @@
       "topics": [
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2025/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0446"
     },
     {
@@ -1885,7 +1742,6 @@
       "topics": [
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2025/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0428"
     },
     {
@@ -1898,7 +1754,6 @@
       "topics": [
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2025/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0427"
     },
     {
@@ -1911,7 +1766,6 @@
       "topics": [
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2025/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0425"
     },
     {
@@ -1924,7 +1778,6 @@
       "topics": [
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2025/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0426"
     },
     {
@@ -1937,7 +1790,6 @@
       "topics": [
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2025/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0424"
     },
     {
@@ -1950,7 +1802,6 @@
       "topics": [
         "European official"
       ],
-      "eli": "http://data.europa.eu/eli/C/2025/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0415"
     },
     {
@@ -1963,7 +1814,6 @@
       "topics": [
         "Maladministration"
       ],
-      "eli": "http://data.europa.eu/eli/C/2025/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0416"
     },
     {
@@ -1976,7 +1826,6 @@
       "topics": [
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2025/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0408"
     },
     {
@@ -1990,7 +1839,6 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2025/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0399"
     },
     {
@@ -2004,7 +1852,6 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2025/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0385"
     },
     {
@@ -2018,7 +1865,6 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2025/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0370"
     },
     {
@@ -2031,7 +1877,6 @@
       "topics": [
         "Maladministration"
       ],
-      "eli": "http://data.europa.eu/eli/C/2025/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0344"
     },
     {
@@ -2045,7 +1890,6 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2025/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0353"
     },
     {
@@ -2058,7 +1902,6 @@
       "topics": [
         "Maladministration"
       ],
-      "eli": "http://data.europa.eu/eli/C/2025/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0316"
     },
     {
@@ -2071,7 +1914,6 @@
       "topics": [
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2025/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0315"
     },
     {
@@ -2086,7 +1928,6 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2025/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0312"
     },
     {
@@ -2100,7 +1941,6 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2025/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0306"
     },
     {
@@ -2114,7 +1954,6 @@
         "Harassment at work",
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2025/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0317"
     },
     {
@@ -2128,7 +1967,6 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2025/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0300"
     },
     {
@@ -2141,7 +1979,6 @@
       "topics": [
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2025/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0279"
     },
     {
@@ -2154,7 +1991,6 @@
       "topics": [
         "Maladministration"
       ],
-      "eli": "http://data.europa.eu/eli/C/2025/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0285"
     },
     {
@@ -2167,7 +2003,6 @@
       "topics": [
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2025/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0275"
     },
     {
@@ -2180,7 +2015,6 @@
       "topics": [
         "Maladministration"
       ],
-      "eli": "http://data.europa.eu/eli/C/2025/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0259"
     },
     {
@@ -2194,7 +2028,6 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2025/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0263"
     },
     {
@@ -2208,7 +2041,6 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2025/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0214"
     },
     {
@@ -2222,7 +2054,6 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2025/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0204"
     },
     {
@@ -2236,7 +2067,6 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2025/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0199"
     },
     {
@@ -2250,7 +2080,6 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2025/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0193"
     },
     {
@@ -2263,7 +2092,6 @@
       "topics": [
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2025/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0195"
     },
     {
@@ -2277,7 +2105,6 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2025/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0192"
     },
     {
@@ -2291,7 +2118,6 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2025/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0191"
     },
     {
@@ -2305,7 +2131,6 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2025/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0188"
     },
     {
@@ -2318,7 +2143,6 @@
       "topics": [
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2025/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0187"
     },
     {
@@ -2332,7 +2156,6 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2025/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0185"
     },
     {
@@ -2345,7 +2168,6 @@
       "topics": [
         "European official"
       ],
-      "eli": "http://data.europa.eu/eli/C/2025/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0175"
     },
     {
@@ -2359,7 +2181,6 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2025/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0155"
     },
     {
@@ -2372,7 +2193,6 @@
       "topics": [
         "European official"
       ],
-      "eli": "http://data.europa.eu/eli/C/2025/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0152"
     },
     {
@@ -2386,7 +2206,6 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2025/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0136"
     },
     {
@@ -2400,7 +2219,6 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2025/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0099"
     },
     {
@@ -2414,7 +2232,6 @@
         "Staff regulations (EU)",
         "Maladministration"
       ],
-      "eli": "http://data.europa.eu/eli/C/2025/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0079"
     },
     {
@@ -2428,7 +2245,6 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2025/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0084"
     },
     {
@@ -2442,7 +2258,6 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2025/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0051"
     },
     {
@@ -2455,7 +2270,6 @@
       "topics": [
         "Maladministration"
       ],
-      "eli": "http://data.europa.eu/eli/C/2025/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0053"
     },
     {
@@ -2469,7 +2283,6 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2025/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0030"
     },
     {
@@ -2483,7 +2296,6 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2025/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0022"
     },
     {
@@ -2497,7 +2309,6 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2025/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0013"
     },
     {
@@ -2512,7 +2323,6 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2025/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0006"
     },
     {
@@ -2526,7 +2336,6 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "eli": "http://data.europa.eu/eli/C/2025/",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0010"
     }
   ]

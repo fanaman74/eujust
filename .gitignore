@@ -12,3 +12,7 @@ dist/
 .impeccable/mocks/
 .impeccable/build/
 .impeccable/questions/
+
+# local run artefacts
+logs/
+

@@ -976,9 +976,80 @@ function dischargePage() {
    MONITORING
    ============================================================ */
 
+/* Monitoring page data: prefer the real daily-check log, fall back to the captured snapshot. */
+const monitoringLog = (() => {
+  try {
+    const file = "data/monitoring.json";
+    if (!fs.existsSync(file)) return null;
+    return JSON.parse(fs.readFileSync(file, "utf8"));
+  } catch {
+    return null;
+  }
+})();
+
+/* Rulings the daily check found by metadata but which have no described record yet. */
+const inbox = (() => {
+  try {
+    return JSON.parse(fs.readFileSync("data/inbox.json", "utf8"));
+  } catch {
+    return { items: [] };
+  }
+})();
+
+function monitoringView() {
+  const base = site.monitoring;
+  const runs = monitoringLog?.runs || [];
+  if (!runs.length) return { ...base, live: false };
+
+  const timezone = monitoringLog.schedule?.timezone || "Europe/Brussels";
+  const stamp = (iso) => {
+    const value = new Date(iso);
+    const date = new Intl.DateTimeFormat("en-GB", { timeZone: timezone, day: "numeric", month: "short", year: "numeric" }).format(value);
+    const time = new Intl.DateTimeFormat("en-GB", { timeZone: timezone, hour: "2-digit", minute: "2-digit", hour12: false }).format(value);
+    return `${date}, ${time}`;
+  };
+
+  const rows = [];
+  const latestBySource = new Map();
+  for (const run of runs) {
+    for (const source of run.sources || []) {
+      const row = {
+        date: stamp(run.startedAt),
+        source: source.name,
+        status: source.status,
+        discovered: source.discovered,
+        new: source.new,
+        failed: source.failed,
+        note: source.note || "",
+      };
+      rows.push(row);
+      if (!latestBySource.has(row.source)) latestBySource.set(row.source, row);
+    }
+  }
+
+  const latest = [...latestBySource.values()];
+  const totals = latest.reduce(
+    (acc, row) => ({ discovered: acc.discovered + row.discovered, new: acc.new + row.new, failed: acc.failed + row.failed }),
+    { discovered: 0, new: 0, failed: 0 }
+  );
+  const clean = runs.find((run) => (run.sources || []).every((source) => source.status !== "Failed"));
+
+  return {
+    ...base,
+    live: true,
+    schedule: monitoringLog.schedule || base.schedule,
+    lastChecked: stamp(runs[0].startedAt),
+    lastSuccess: clean ? stamp(clean.startedAt) : "Never",
+    sources: latest,
+    runs: rows,
+    totals,
+  };
+}
+
 function monitoringPage() {
   const root = "../";
-  const data = site.monitoring;
+  const data = monitoringView();
+  const partials = data.sources.filter((source) => source.status === "Partial").length;
   const stats = [
     { label: "Discovered", value: data.totals.discovered },
     { label: "New", value: data.totals.new },
@@ -1011,18 +1082,20 @@ function monitoringPage() {
     index: "05",
     kicker: "Operations",
     title: `Source <span class="marker">monitoring.</span>`,
-    lede: "The collection worker checks official sources and records every attempt, including partial failures. This static edition replays the latest captured run.",
+    lede: data.live
+      ? "A scheduled check reads the official sources and records every attempt, including partial failures. A run that fails is logged and exits nonzero."
+      : "The collection worker checks official sources and records every attempt, including partial failures. This static edition replays the latest captured run.",
     stats,
     bgword: "MONITOR",
     breadcrumb: [{ label: "Home", href: "index.html" }, { label: "Monitoring" }]
   })}
 
   <section class="wrap page-section monitoring-page" aria-labelledby="monitor-title">
-    <div class="section-top"><p class="section-index"><span>01</span> Control room</p><span class="section-top__note"><span class="live-dot"></span>Last capture 23 Oct 2026, 04:41</span></div>
+    <div class="section-top"><p class="section-index"><span>01</span> Control room</p><span class="section-top__note"><span class="live-dot"></span>${data.live ? "Last run" : "Last capture"} ${esc(data.lastChecked)}</span></div>
     <div class="monitor-console">
       <div class="monitor-console__top">
         <span>EU JUST / monitor</span>
-        <span class="monitor-console__status">${icon("pulse")} 4 feeds · 1 partial</span>
+        <span class="monitor-console__status">${icon("pulse")} ${data.sources.length} feeds${partials ? ` &middot; ${partials} partial` : " &middot; all clear"}</span>
         <button class="monitor-run" type="button" id="monitor-run">Run sample check ${icon("arrow")}</button>
       </div>
       <div class="monitor-console__body">
@@ -1030,7 +1103,7 @@ function monitoringPage() {
           ${stats.map((stat) => `<div class="monitor-stat"><span>${esc(stat.label)}</span><strong data-count="${stat.value}">${stat.value}</strong><small>latest per source</small></div>`).join("")}
         </div>
         <div class="monitor-sources">${sourceCards}</div>
-        <p class="monitor-note" id="monitor-note">${icon("terminal")} Static replay. No live worker is attached to this edition.</p>
+        <p class="monitor-note" id="monitor-note">${icon("terminal")} ${data.live ? `Scheduled check ${esc(data.schedule.time)} ${esc(data.schedule.timezone)} &middot; recorded by daily-check.mjs` : "Static replay. No live worker is attached to this edition."}</p>
       </div>
     </div>
 
@@ -1039,13 +1112,13 @@ function monitoringPage() {
         <div class="panel-heading"><p class="section-index"><span>02</span> Schedule</p><span class="panel-rule"></span></div>
         <h2>Daily <span class="marker">check.</span></h2>
         <dl class="schedule-list">
-          <div><dt>Time</dt><dd>06:30</dd></div>
-          <div><dt>Timezone</dt><dd>Europe/Brussels</dd></div>
-          <div><dt>Cadence</dt><dd>Daily while the worker runs</dd></div>
-          <div><dt>Last checked</dt><dd>23 Oct 2026, 04:40</dd></div>
-          <div><dt>Last successful run</dt><dd>Never</dd></div>
+          <div><dt>Time</dt><dd>${esc(data.schedule.time)}</dd></div>
+          <div><dt>Timezone</dt><dd>${esc(data.schedule.timezone)}</dd></div>
+          <div><dt>Cadence</dt><dd>${data.live ? "Daily, Windows Task Scheduler" : "Daily while the worker runs"}</dd></div>
+          <div><dt>Last checked</dt><dd>${esc(data.lastChecked)}</dd></div>
+          <div><dt>Last successful run</dt><dd>${esc(data.lastSuccess || "Never")}</dd></div>
         </dl>
-        <p class="small-note">The schedule only runs while the worker process is running. This static edition does not schedule checks.</p>
+        <p class="small-note">${data.live ? "Runs as a scheduled task: node daily-check.mjs at 06:30 Europe/Brussels. A failed source is recorded and the run exits nonzero; a missed day stays visible in the history below." : "The schedule only runs while the worker process is running. This static edition does not schedule checks."}</p>
       </section>
 
       <section class="paper-panel failure-panel">
@@ -1053,12 +1126,12 @@ function monitoringPage() {
         <h2>What <span class="marker">partial</span> means.</h2>
         <p>Partial means some source metadata or document work completed while another part failed. It is not a complete successful check.</p>
         <p class="failure-panel__count">${data.sources.find((source) => source.failed)?.failed || 0} recorded failures</p>
-        <p class="small-note">Document retrieval × 30 · HTTP 404 × 34 · HTTP 500 × 1</p>
+        ${data.live ? "" : `<p class="small-note">Document retrieval × 30 · HTTP 404 × 34 · HTTP 500 × 1</p>`}
       </section>
     </div>
 
     <section class="run-history" aria-labelledby="run-history-title">
-      <div class="section-top"><p class="section-index"><span>04</span> Run history</p><span class="section-top__note">20 most recent source checks</span></div>
+      <div class="section-top"><p class="section-index"><span>04</span> Run history</p><span class="section-top__note">${data.runs.length} recorded source checks</span></div>
       <div class="run-history__head">
         <h2 class="section-title" id="run-history-title">Every <span class="marker">attempt.</span></h2>
         <p>Checks are recorded even when they fail. Success, partial and failed are kept visible so the record can be audited.</p>
@@ -1071,6 +1144,21 @@ function monitoringPage() {
         </table>
       </div>
     </section>
+
+    ${(inbox.items || []).length ? `<section class="run-history" aria-labelledby="inbox-title">
+      <div class="section-top"><p class="section-index"><span>05</span> Awaiting a record</p><span class="section-top__note">${inbox.items.length} new at source</span></div>
+      <div class="run-history__head">
+        <h2 class="section-title" id="inbox-title">Found, not yet <span class="marker">described.</span></h2>
+        <p>A source check finds rulings from metadata alone. A case page still needs a title, a subject and topic tags, so these are linked for triage rather than added silently to the archive.</p>
+      </div>
+      <div class="table-frame">
+        <table>
+          <caption class="sr-only">Staff judgments and orders discovered but not yet described</caption>
+          <thead><tr><th scope="col">Date</th><th scope="col">Case</th><th scope="col">Kind</th><th scope="col">Court</th><th scope="col">Source</th></tr></thead>
+          <tbody>${inbox.items.map((item) => `<tr><td>${esc(item.dateISO)}</td><td>${esc(item.caseNo)}</td><td>${esc(item.kind)}</td><td>${esc(item.court)}</td><td><a class="text-link" href="${attr(item.url)}" target="_blank" rel="noreferrer">EUR-Lex ${icon("arrow-ne")}</a></td></tr>`).join("")}</tbody>
+        </table>
+      </div>
+    </section>` : ""}
   </section>`;
 
   return shell({

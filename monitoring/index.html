@@ -95,8 +95,8 @@
         <h1>Source <span class="marker">monitoring.</span></h1>
       </div>
       <div class="page-hero__aside">
-        <p class="page-hero__lede">The collection worker checks official sources and records every attempt, including partial failures. This static edition replays the latest captured run.</p>
-        <dl class="page-stats"><div><dt>Discovered</dt><dd>141</dd></div><div><dt>New</dt><dd>1</dd></div><div><dt>Failed</dt><dd>65</dd></div></dl>
+        <p class="page-hero__lede">A scheduled check reads the official sources and records every attempt, including partial failures. A run that fails is logged and exits nonzero.</p>
+        <dl class="page-stats"><div><dt>Discovered</dt><dd>190</dd></div><div><dt>New</dt><dd>4</dd></div><div><dt>Failed</dt><dd>0</dd></div></dl>
         
       </div>
     </div>
@@ -105,43 +105,31 @@
 </section>
 
   <section class="wrap page-section monitoring-page" aria-labelledby="monitor-title">
-    <div class="section-top"><p class="section-index"><span>01</span> Control room</p><span class="section-top__note"><span class="live-dot"></span>Last capture 23 Oct 2026, 04:41</span></div>
+    <div class="section-top"><p class="section-index"><span>01</span> Control room</p><span class="section-top__note"><span class="live-dot"></span>Last run 24 Oct 2026, 00:43</span></div>
     <div class="monitor-console">
       <div class="monitor-console__top">
         <span>EU JUST / monitor</span>
-        <span class="monitor-console__status"><svg class="icon " aria-hidden="true" focusable="false"><use href="#i-pulse"/></svg> 4 feeds · 1 partial</span>
+        <span class="monitor-console__status"><svg class="icon " aria-hidden="true" focusable="false"><use href="#i-pulse"/></svg> 2 feeds &middot; all clear</span>
         <button class="monitor-run" type="button" id="monitor-run">Run sample check <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></button>
       </div>
       <div class="monitor-console__body">
         <div class="monitor-stats">
-          <div class="monitor-stat"><span>Discovered</span><strong data-count="141">141</strong><small>latest per source</small></div><div class="monitor-stat"><span>New</span><strong data-count="1">1</strong><small>latest per source</small></div><div class="monitor-stat"><span>Failed</span><strong data-count="65">65</strong><small>latest per source</small></div>
+          <div class="monitor-stat"><span>Discovered</span><strong data-count="190">190</strong><small>latest per source</small></div><div class="monitor-stat"><span>New</span><strong data-count="4">4</strong><small>latest per source</small></div><div class="monitor-stat"><span>Failed</span><strong data-count="0">0</strong><small>latest per source</small></div>
         </div>
-        <div class="monitor-sources"><article class="source-health source-health--warn">
-      <div class="source-health__top"><span class="status-dot" aria-hidden="true"></span><span class="status-badge status-badge--partial">Partial</span></div>
-      <h3>EUR-Lex / Cellar SPARQL</h3>
-      <p>23 Oct 2026, 04:37</p>
-      <dl><div><dt>Discovered</dt><dd>84</dd></div><div><dt>New</dt><dd>1</dd></div><div><dt>Failed</dt><dd>65</dd></div></dl>
-      <p class="source-health__failure">65 recorded failures · Document retrieval × 30 · HTTP 404 × 34 · HTTP 500 × 1</p>
-    </article><article class="source-health ">
+        <div class="monitor-sources"><article class="source-health ">
       <div class="source-health__top"><span class="status-dot" aria-hidden="true"></span><span class="status-badge status-badge--success">Success</span></div>
-      <h3>European Ombudsman document search</h3>
-      <p>23 Oct 2026, 04:40</p>
-      <dl><div><dt>Discovered</dt><dd>36</dd></div><div><dt>New</dt><dd>0</dd></div><div><dt>Failed</dt><dd>0</dd></div></dl>
+      <h3>EUR-Lex / Cellar SPARQL — pending actions</h3>
+      <p>24 Oct 2026, 00:43</p>
+      <dl><div><dt>Discovered</dt><dd>185</dd></div><div><dt>New</dt><dd>0</dd></div><div><dt>Failed</dt><dd>0</dd></div></dl>
       
     </article><article class="source-health ">
       <div class="source-health__top"><span class="status-dot" aria-hidden="true"></span><span class="status-badge status-badge--success">Success</span></div>
-      <h3>Commission documents in EUR-Lex / Cellar</h3>
-      <p>23 Oct 2026, 04:41</p>
-      <dl><div><dt>Discovered</dt><dd>2</dd></div><div><dt>New</dt><dd>0</dd></div><div><dt>Failed</dt><dd>0</dd></div></dl>
-      
-    </article><article class="source-health ">
-      <div class="source-health__top"><span class="status-dot" aria-hidden="true"></span><span class="status-badge status-badge--success">Success</span></div>
-      <h3>Commission Press Corner</h3>
-      <p>23 Oct 2026, 04:41</p>
-      <dl><div><dt>Discovered</dt><dd>19</dd></div><div><dt>New</dt><dd>0</dd></div><div><dt>Failed</dt><dd>0</dd></div></dl>
+      <h3>EUR-Lex / Cellar SPARQL — staff judgments &amp; orders</h3>
+      <p>24 Oct 2026, 00:43</p>
+      <dl><div><dt>Discovered</dt><dd>5</dd></div><div><dt>New</dt><dd>4</dd></div><div><dt>Failed</dt><dd>0</dd></div></dl>
       
     </article></div>
-        <p class="monitor-note" id="monitor-note"><svg class="icon " aria-hidden="true" focusable="false"><use href="#i-terminal"/></svg> Static replay. No live worker is attached to this edition.</p>
+        <p class="monitor-note" id="monitor-note"><svg class="icon " aria-hidden="true" focusable="false"><use href="#i-terminal"/></svg> Scheduled check 06:30 Europe/Brussels &middot; recorded by daily-check.mjs</p>
       </div>
     </div>
 
@@ -152,24 +140,24 @@
         <dl class="schedule-list">
           <div><dt>Time</dt><dd>06:30</dd></div>
           <div><dt>Timezone</dt><dd>Europe/Brussels</dd></div>
-          <div><dt>Cadence</dt><dd>Daily while the worker runs</dd></div>
-          <div><dt>Last checked</dt><dd>23 Oct 2026, 04:40</dd></div>
-          <div><dt>Last successful run</dt><dd>Never</dd></div>
+          <div><dt>Cadence</dt><dd>Daily, Windows Task Scheduler</dd></div>
+          <div><dt>Last checked</dt><dd>24 Oct 2026, 00:43</dd></div>
+          <div><dt>Last successful run</dt><dd>24 Oct 2026, 00:43</dd></div>
         </dl>
-        <p class="small-note">The schedule only runs while the worker process is running. This static edition does not schedule checks.</p>
+        <p class="small-note">Runs as a scheduled task: node daily-check.mjs at 06:30 Europe/Brussels. A failed source is recorded and the run exits nonzero; a missed day stays visible in the history below.</p>
       </section>
 
       <section class="paper-panel failure-panel">
         <div class="panel-heading"><p class="section-index"><span>03</span> Failure note</p><span class="panel-rule"></span></div>
         <h2>What <span class="marker">partial</span> means.</h2>
         <p>Partial means some source metadata or document work completed while another part failed. It is not a complete successful check.</p>
-        <p class="failure-panel__count">65 recorded failures</p>
-        <p class="small-note">Document retrieval × 30 · HTTP 404 × 34 · HTTP 500 × 1</p>
+        <p class="failure-panel__count">0 recorded failures</p>
+        
       </section>
     </div>
 
     <section class="run-history" aria-labelledby="run-history-title">
-      <div class="section-top"><p class="section-index"><span>04</span> Run history</p><span class="section-top__note">20 most recent source checks</span></div>
+      <div class="section-top"><p class="section-index"><span>04</span> Run history</p><span class="section-top__note">6 recorded source checks</span></div>
       <div class="run-history__head">
         <h2 class="section-title" id="run-history-title">Every <span class="marker">attempt.</span></h2>
         <p>Checks are recorded even when they fail. Success, partial and failed are kept visible so the record can be audited.</p>
@@ -179,146 +167,63 @@
           <caption class="sr-only">The 20 most recent source checks</caption>
           <thead><tr><th scope="col">Started</th><th scope="col">Source</th><th scope="col">Status</th><th scope="col">Discovered</th><th scope="col">New</th><th scope="col">Failed</th></tr></thead>
           <tbody><tr>
-      <td>23 Oct 2026, 04:41</td>
-      <td>Commission Press Corner</td>
+      <td>24 Oct 2026, 00:43</td>
+      <td>EUR-Lex / Cellar SPARQL — pending actions</td>
       <td><span class="status-badge status-badge--success">Success</span></td>
-      <td>19</td>
+      <td>185</td>
       <td>0</td>
       <td>0</td>
     </tr><tr>
-      <td>23 Oct 2026, 04:41</td>
-      <td>Commission documents in EUR-Lex / Cellar</td>
+      <td>24 Oct 2026, 00:43</td>
+      <td>EUR-Lex / Cellar SPARQL — staff judgments &amp; orders</td>
       <td><span class="status-badge status-badge--success">Success</span></td>
-      <td>2</td>
-      <td>0</td>
+      <td>5</td>
+      <td>4</td>
       <td>0</td>
     </tr><tr>
-      <td>23 Oct 2026, 04:40</td>
-      <td>European Ombudsman document search</td>
+      <td>24 Oct 2026, 00:40</td>
+      <td>EUR-Lex / Cellar SPARQL — pending actions</td>
       <td><span class="status-badge status-badge--success">Success</span></td>
-      <td>36</td>
+      <td>185</td>
       <td>0</td>
       <td>0</td>
     </tr><tr>
-      <td>23 Oct 2026, 04:37</td>
-      <td>EUR-Lex / Cellar SPARQL</td>
-      <td><span class="status-badge status-badge--partial">Partial</span></td>
-      <td>84</td>
-      <td>1</td>
-      <td>65</td>
-    </tr><tr>
-      <td>21 Oct 2026, 04:41</td>
-      <td>Commission Press Corner</td>
+      <td>24 Oct 2026, 00:40</td>
+      <td>EUR-Lex / Cellar SPARQL — staff judgments &amp; orders</td>
       <td><span class="status-badge status-badge--success">Success</span></td>
-      <td>19</td>
-      <td>0</td>
+      <td>5</td>
+      <td>4</td>
       <td>0</td>
     </tr><tr>
-      <td>21 Oct 2026, 04:40</td>
-      <td>Commission documents in EUR-Lex / Cellar</td>
-      <td><span class="status-badge status-badge--failed">Failed</span></td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-    </tr><tr>
-      <td>21 Oct 2026, 04:40</td>
-      <td>European Ombudsman document search</td>
+      <td>24 Oct 2026, 00:40</td>
+      <td>EUR-Lex / Cellar SPARQL — pending actions</td>
       <td><span class="status-badge status-badge--success">Success</span></td>
-      <td>36</td>
+      <td>185</td>
       <td>0</td>
       <td>0</td>
     </tr><tr>
-      <td>21 Oct 2026, 04:36</td>
-      <td>EUR-Lex / Cellar SPARQL</td>
-      <td><span class="status-badge status-badge--partial">Partial</span></td>
-      <td>84</td>
-      <td>0</td>
-      <td>65</td>
-    </tr><tr>
-      <td>20 Oct 2026, 04:31</td>
-      <td>Commission Press Corner</td>
+      <td>24 Oct 2026, 00:40</td>
+      <td>EUR-Lex / Cellar SPARQL — staff judgments &amp; orders</td>
       <td><span class="status-badge status-badge--success">Success</span></td>
-      <td>19</td>
       <td>0</td>
       <td>0</td>
-    </tr><tr>
-      <td>20 Oct 2026, 04:31</td>
-      <td>Commission documents in EUR-Lex / Cellar</td>
-      <td><span class="status-badge status-badge--success">Success</span></td>
-      <td>2</td>
       <td>0</td>
-      <td>0</td>
-    </tr><tr>
-      <td>20 Oct 2026, 04:31</td>
-      <td>European Ombudsman document search</td>
-      <td><span class="status-badge status-badge--success">Success</span></td>
-      <td>36</td>
-      <td>0</td>
-      <td>0</td>
-    </tr><tr>
-      <td>20 Oct 2026, 04:30</td>
-      <td>EUR-Lex / Cellar SPARQL</td>
-      <td><span class="status-badge status-badge--failed">Failed</span></td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-    </tr><tr>
-      <td>19 Oct 2026, 04:35</td>
-      <td>Commission Press Corner</td>
-      <td><span class="status-badge status-badge--success">Success</span></td>
-      <td>19</td>
-      <td>0</td>
-      <td>0</td>
-    </tr><tr>
-      <td>19 Oct 2026, 04:35</td>
-      <td>Commission documents in EUR-Lex / Cellar</td>
-      <td><span class="status-badge status-badge--success">Success</span></td>
-      <td>2</td>
-      <td>0</td>
-      <td>0</td>
-    </tr><tr>
-      <td>19 Oct 2026, 04:35</td>
-      <td>European Ombudsman document search</td>
-      <td><span class="status-badge status-badge--success">Success</span></td>
-      <td>36</td>
-      <td>0</td>
-      <td>0</td>
-    </tr><tr>
-      <td>19 Oct 2026, 04:32</td>
-      <td>EUR-Lex / Cellar SPARQL</td>
-      <td><span class="status-badge status-badge--partial">Partial</span></td>
-      <td>84</td>
-      <td>0</td>
-      <td>65</td>
-    </tr><tr>
-      <td>18 Oct 2026, 04:34</td>
-      <td>Commission Press Corner</td>
-      <td><span class="status-badge status-badge--success">Success</span></td>
-      <td>19</td>
-      <td>0</td>
-      <td>0</td>
-    </tr><tr>
-      <td>18 Oct 2026, 04:34</td>
-      <td>Commission documents in EUR-Lex / Cellar</td>
-      <td><span class="status-badge status-badge--success">Success</span></td>
-      <td>2</td>
-      <td>0</td>
-      <td>0</td>
-    </tr><tr>
-      <td>18 Oct 2026, 04:34</td>
-      <td>European Ombudsman document search</td>
-      <td><span class="status-badge status-badge--success">Success</span></td>
-      <td>36</td>
-      <td>0</td>
-      <td>0</td>
-    </tr><tr>
-      <td>18 Oct 2026, 04:30</td>
-      <td>EUR-Lex / Cellar SPARQL</td>
-      <td><span class="status-badge status-badge--partial">Partial</span></td>
-      <td>84</td>
-      <td>0</td>
-      <td>65</td>
     </tr></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="run-history" aria-labelledby="inbox-title">
+      <div class="section-top"><p class="section-index"><span>05</span> Awaiting a record</p><span class="section-top__note">4 new at source</span></div>
+      <div class="run-history__head">
+        <h2 class="section-title" id="inbox-title">Found, not yet <span class="marker">described.</span></h2>
+        <p>A source check finds rulings from metadata alone. A case page still needs a title, a subject and topic tags, so these are linked for triage rather than added silently to the archive.</p>
+      </div>
+      <div class="table-frame">
+        <table>
+          <caption class="sr-only">Staff judgments and orders discovered but not yet described</caption>
+          <thead><tr><th scope="col">Date</th><th scope="col">Case</th><th scope="col">Kind</th><th scope="col">Court</th><th scope="col">Source</th></tr></thead>
+          <tbody><tr><td>2026-10-14</td><td>T-537/24</td><td>Judgment</td><td>General Court</td><td><a class="text-link" href="https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62024TJ0537" target="_blank" rel="noreferrer">EUR-Lex <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a></td></tr><tr><td>2026-10-14</td><td>T-506/25</td><td>Judgment</td><td>General Court</td><td><a class="text-link" href="https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TJ0506" target="_blank" rel="noreferrer">EUR-Lex <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a></td></tr><tr><td>2026-10-07</td><td>T-408/25</td><td>Judgment</td><td>General Court</td><td><a class="text-link" href="https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TJ0408" target="_blank" rel="noreferrer">EUR-Lex <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a></td></tr><tr><td>2026-09-25</td><td>T-436/26</td><td>Order</td><td>General Court</td><td><a class="text-link" href="https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TO0436(01)" target="_blank" rel="noreferrer">EUR-Lex <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a></td></tr></tbody>
         </table>
       </div>
     </section>
