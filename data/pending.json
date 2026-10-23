@@ -1,0 +1,2533 @@
+{
+  "generatedAt": "2026-10-23",
+  "source": "EUR-Lex / Cellar SPARQL — OJ C notices of actions brought (CELEX …TN…)",
+  "scope": [
+    "Harassment at work",
+    "Staff regulations (EU)",
+    "Maladministration",
+    "European official"
+  ],
+  "count": 185,
+  "cases": [
+    {
+      "id": "62026TN0600",
+      "celex": "62026TN0600",
+      "caseNo": "T-600/26",
+      "court": "General Court",
+      "filedISO": "2026-09-09",
+      "ojISO": "2026-10-19",
+      "topics": [
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2026/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0600"
+    },
+    {
+      "id": "62026TN0593",
+      "celex": "62026TN0593",
+      "caseNo": "T-593/26",
+      "court": "General Court",
+      "filedISO": "2026-09-07",
+      "ojISO": "2026-10-19",
+      "topics": [
+        "Maladministration"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2026/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0593"
+    },
+    {
+      "id": "62025TN0367",
+      "celex": "62025TN0367",
+      "caseNo": "T-367/25",
+      "court": "General Court",
+      "filedISO": "2026-08-05",
+      "ojISO": "2026-09-21",
+      "topics": [
+        "Staff regulations (EU)",
+        "Maladministration"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2026/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0367"
+    },
+    {
+      "id": "62026TN0491",
+      "celex": "62026TN0491",
+      "caseNo": "T-491/26",
+      "court": "General Court",
+      "filedISO": "2026-07-31",
+      "ojISO": "2026-10-05",
+      "topics": [
+        "European official",
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2026/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0491"
+    },
+    {
+      "id": "62026TN0472",
+      "celex": "62026TN0472",
+      "caseNo": "T-472/26",
+      "court": "General Court",
+      "filedISO": "2026-07-29",
+      "ojISO": "2026-10-19",
+      "topics": [
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2026/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0472"
+    },
+    {
+      "id": "62026TN0461",
+      "celex": "62026TN0461",
+      "caseNo": "T-461/26",
+      "court": "General Court",
+      "filedISO": "2026-07-22",
+      "ojISO": "2026-09-14",
+      "topics": [
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2026/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0461"
+    },
+    {
+      "id": "62026TN0457",
+      "celex": "62026TN0457",
+      "caseNo": "T-457/26",
+      "court": "General Court",
+      "filedISO": "2026-07-21",
+      "ojISO": "2026-08-31",
+      "topics": [
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2026/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0457"
+    },
+    {
+      "id": "62026TN0446",
+      "celex": "62026TN0446",
+      "caseNo": "T-446/26",
+      "court": "General Court",
+      "filedISO": "2026-07-17",
+      "ojISO": "2026-09-14",
+      "topics": [
+        "European official",
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2026/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0446"
+    },
+    {
+      "id": "62026TN0444",
+      "celex": "62026TN0444",
+      "caseNo": "T-444/26",
+      "court": "General Court",
+      "filedISO": "2026-07-16",
+      "ojISO": "2026-09-07",
+      "topics": [
+        "Harassment at work",
+        "European official",
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2026/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0444"
+    },
+    {
+      "id": "62026TN0436",
+      "celex": "62026TN0436",
+      "caseNo": "T-436/26",
+      "court": "General Court",
+      "filedISO": "2026-07-15",
+      "ojISO": "2026-09-07",
+      "topics": [
+        "European official",
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2026/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0436"
+    },
+    {
+      "id": "62026TN0440",
+      "celex": "62026TN0440",
+      "caseNo": "T-440/26",
+      "court": "General Court",
+      "filedISO": "2026-07-13",
+      "ojISO": "2026-08-24",
+      "topics": [
+        "European official",
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2026/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0440"
+    },
+    {
+      "id": "62026TN0439",
+      "celex": "62026TN0439",
+      "caseNo": "T-439/26",
+      "court": "General Court",
+      "filedISO": "2026-07-10",
+      "ojISO": "2026-09-07",
+      "topics": [
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2026/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0439"
+    },
+    {
+      "id": "62026TN0419",
+      "celex": "62026TN0419",
+      "caseNo": "T-419/26",
+      "court": "General Court",
+      "filedISO": "2026-07-03",
+      "ojISO": "2026-08-24",
+      "topics": [
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2026/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0419"
+    },
+    {
+      "id": "62026TN0414",
+      "celex": "62026TN0414",
+      "caseNo": "T-414/26",
+      "court": "General Court",
+      "filedISO": "2026-07-02",
+      "ojISO": "2026-08-17",
+      "topics": [
+        "Staff regulations (EU)",
+        "Maladministration"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2026/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0414"
+    },
+    {
+      "id": "62026TN0403",
+      "celex": "62026TN0403",
+      "caseNo": "T-403/26",
+      "court": "General Court",
+      "filedISO": "2026-07-01",
+      "ojISO": "2026-08-10",
+      "topics": [
+        "European official",
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2026/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0403"
+    },
+    {
+      "id": "62026TN0383",
+      "celex": "62026TN0383",
+      "caseNo": "T-383/26",
+      "court": "General Court",
+      "filedISO": "2026-06-19",
+      "ojISO": "2026-08-17",
+      "topics": [
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2026/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0383"
+    },
+    {
+      "id": "62026TN0377",
+      "celex": "62026TN0377",
+      "caseNo": "T-377/26",
+      "court": "General Court",
+      "filedISO": "2026-06-15",
+      "ojISO": "2026-08-24",
+      "topics": [
+        "European official",
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2026/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0377"
+    },
+    {
+      "id": "62026TN0375",
+      "celex": "62026TN0375",
+      "caseNo": "T-375/26",
+      "court": "General Court",
+      "filedISO": "2026-06-15",
+      "ojISO": "2026-08-03",
+      "topics": [
+        "European official"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2026/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0375"
+    },
+    {
+      "id": "62026TN0379",
+      "celex": "62026TN0379",
+      "caseNo": "T-379/26",
+      "court": "General Court",
+      "filedISO": "2026-06-15",
+      "ojISO": "2026-08-03",
+      "topics": [
+        "Staff regulations (EU)",
+        "Maladministration"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2026/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0379"
+    },
+    {
+      "id": "62026TN0380",
+      "celex": "62026TN0380",
+      "caseNo": "T-380/26",
+      "court": "General Court",
+      "filedISO": "2026-06-12",
+      "ojISO": "2026-08-24",
+      "topics": [
+        "Harassment at work",
+        "European official",
+        "Staff regulations (EU)",
+        "Maladministration"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2026/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0380"
+    },
+    {
+      "id": "62026TN0376",
+      "celex": "62026TN0376",
+      "caseNo": "T-376/26",
+      "court": "General Court",
+      "filedISO": "2026-06-12",
+      "ojISO": "2026-08-03",
+      "topics": [
+        "European official",
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2026/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0376"
+    },
+    {
+      "id": "62026TN0371",
+      "celex": "62026TN0371",
+      "caseNo": "T-371/26",
+      "court": "General Court",
+      "filedISO": "2026-06-11",
+      "ojISO": "2026-08-17",
+      "topics": [
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2026/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0371"
+    },
+    {
+      "id": "62026TN0356",
+      "celex": "62026TN0356",
+      "caseNo": "T-356/26",
+      "court": "General Court",
+      "filedISO": "2026-06-05",
+      "ojISO": "2026-08-03",
+      "topics": [
+        "European official",
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2026/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0356"
+    },
+    {
+      "id": "62026TN0407",
+      "celex": "62026TN0407",
+      "caseNo": "T-407/26",
+      "court": "General Court",
+      "filedISO": "2026-06-05",
+      "ojISO": "2026-08-24",
+      "topics": [
+        "Maladministration"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2026/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0407"
+    },
+    {
+      "id": "62026TN0355",
+      "celex": "62026TN0355",
+      "caseNo": "T-355/26",
+      "court": "General Court",
+      "filedISO": "2026-06-04",
+      "ojISO": "2026-07-20",
+      "topics": [
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2026/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0355"
+    },
+    {
+      "id": "62026TN0342",
+      "celex": "62026TN0342",
+      "caseNo": "T-342/26",
+      "court": "General Court",
+      "filedISO": "2026-05-29",
+      "ojISO": "2026-07-27",
+      "topics": [
+        "European official"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2026/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0342"
+    },
+    {
+      "id": "62026TN0336",
+      "celex": "62026TN0336",
+      "caseNo": "T-336/26",
+      "court": "General Court",
+      "filedISO": "2026-05-29",
+      "ojISO": "2026-07-20",
+      "topics": [
+        "Maladministration"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2026/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0336"
+    },
+    {
+      "id": "62026TN0341",
+      "celex": "62026TN0341",
+      "caseNo": "T-341/26",
+      "court": "General Court",
+      "filedISO": "2026-05-27",
+      "ojISO": "2026-07-27",
+      "topics": [
+        "European official"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2026/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0341"
+    },
+    {
+      "id": "62026TN0326",
+      "celex": "62026TN0326",
+      "caseNo": "T-326/26",
+      "court": "General Court",
+      "filedISO": "2026-05-27",
+      "ojISO": "2026-07-27",
+      "topics": [
+        "European official",
+        "Staff regulations (EU)",
+        "Maladministration"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2026/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0326"
+    },
+    {
+      "id": "62026TN0349",
+      "celex": "62026TN0349",
+      "caseNo": "T-349/26",
+      "court": "General Court",
+      "filedISO": "2026-05-27",
+      "ojISO": "2026-09-07",
+      "topics": [
+        "Maladministration"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2026/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0349"
+    },
+    {
+      "id": "62026TN0317",
+      "celex": "62026TN0317",
+      "caseNo": "T-317/26",
+      "court": "General Court",
+      "filedISO": "2026-05-25",
+      "ojISO": "2026-07-20",
+      "topics": [
+        "Harassment at work",
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2026/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0317"
+    },
+    {
+      "id": "62026TN0315",
+      "celex": "62026TN0315",
+      "caseNo": "T-315/26",
+      "court": "General Court",
+      "filedISO": "2026-05-25",
+      "ojISO": "2026-07-27",
+      "topics": [
+        "Maladministration"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2026/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0315"
+    },
+    {
+      "id": "62026TN0312",
+      "celex": "62026TN0312",
+      "caseNo": "T-312/26",
+      "court": "General Court",
+      "filedISO": "2026-05-22",
+      "ojISO": "2026-07-20",
+      "topics": [
+        "Harassment at work"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2026/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0312"
+    },
+    {
+      "id": "62026TN0310",
+      "celex": "62026TN0310",
+      "caseNo": "T-310/26",
+      "court": "General Court",
+      "filedISO": "2026-05-22",
+      "ojISO": "2026-07-13",
+      "topics": [
+        "Staff regulations (EU)",
+        "Maladministration"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2026/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0310"
+    },
+    {
+      "id": "62026TN0321",
+      "celex": "62026TN0321",
+      "caseNo": "T-321/26",
+      "court": "General Court",
+      "filedISO": "2026-05-21",
+      "ojISO": "2026-07-20",
+      "topics": [
+        "European official",
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2026/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0321"
+    },
+    {
+      "id": "62026TN0294",
+      "celex": "62026TN0294",
+      "caseNo": "T-294/26",
+      "court": "General Court",
+      "filedISO": "2026-05-18",
+      "ojISO": "2026-07-13",
+      "topics": [
+        "Maladministration"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2026/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0294"
+    },
+    {
+      "id": "62026TN0295",
+      "celex": "62026TN0295",
+      "caseNo": "T-295/26",
+      "court": "General Court",
+      "filedISO": "2026-05-15",
+      "ojISO": "2026-07-06",
+      "topics": [
+        "Maladministration"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2026/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0295"
+    },
+    {
+      "id": "62026TN0292",
+      "celex": "62026TN0292",
+      "caseNo": "T-292/26",
+      "court": "General Court",
+      "filedISO": "2026-05-12",
+      "ojISO": "2026-07-20",
+      "topics": [
+        "European official",
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2026/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0292"
+    },
+    {
+      "id": "62026TN0290",
+      "celex": "62026TN0290",
+      "caseNo": "T-290/26",
+      "court": "General Court",
+      "filedISO": "2026-05-12",
+      "ojISO": "2026-06-29",
+      "topics": [
+        "European official",
+        "Staff regulations (EU)",
+        "Maladministration"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2026/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0290"
+    },
+    {
+      "id": "62026TN0288",
+      "celex": "62026TN0288",
+      "caseNo": "T-288/26",
+      "court": "General Court",
+      "filedISO": "2026-05-05",
+      "ojISO": "2026-07-06",
+      "topics": [
+        "European official",
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2026/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0288"
+    },
+    {
+      "id": "62026TN0286",
+      "celex": "62026TN0286",
+      "caseNo": "T-286/26",
+      "court": "General Court",
+      "filedISO": "2026-04-30",
+      "ojISO": "2026-07-20",
+      "topics": [
+        "European official",
+        "Staff regulations (EU)",
+        "Maladministration"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2026/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0286"
+    },
+    {
+      "id": "62026TN0285",
+      "celex": "62026TN0285",
+      "caseNo": "T-285/26",
+      "court": "General Court",
+      "filedISO": "2026-04-30",
+      "ojISO": "2026-07-20",
+      "topics": [
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2026/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0285"
+    },
+    {
+      "id": "62026TN0269",
+      "celex": "62026TN0269",
+      "caseNo": "T-269/26",
+      "court": "General Court",
+      "filedISO": "2026-04-30",
+      "ojISO": "2026-07-13",
+      "topics": [
+        "Maladministration"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2026/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0269"
+    },
+    {
+      "id": "62026TN0268",
+      "celex": "62026TN0268",
+      "caseNo": "T-268/26",
+      "court": "General Court",
+      "filedISO": "2026-04-24",
+      "ojISO": "2026-06-29",
+      "topics": [
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2026/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0268"
+    },
+    {
+      "id": "62026TN0258",
+      "celex": "62026TN0258",
+      "caseNo": "T-258/26",
+      "court": "General Court",
+      "filedISO": "2026-04-24",
+      "ojISO": "2026-06-15",
+      "topics": [
+        "Maladministration"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2026/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0258"
+    },
+    {
+      "id": "62026TN0256",
+      "celex": "62026TN0256",
+      "caseNo": "T-256/26",
+      "court": "General Court",
+      "filedISO": "2026-04-23",
+      "ojISO": "2026-06-29",
+      "topics": [
+        "European official",
+        "Staff regulations (EU)",
+        "Maladministration"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2026/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0256"
+    },
+    {
+      "id": "62026TN0254",
+      "celex": "62026TN0254",
+      "caseNo": "T-254/26",
+      "court": "General Court",
+      "filedISO": "2026-04-23",
+      "ojISO": "2026-06-29",
+      "topics": [
+        "European official",
+        "Staff regulations (EU)",
+        "Maladministration"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2026/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0254"
+    },
+    {
+      "id": "62026TN0251",
+      "celex": "62026TN0251",
+      "caseNo": "T-251/26",
+      "court": "General Court",
+      "filedISO": "2026-04-22",
+      "ojISO": "2026-06-22",
+      "topics": [
+        "Harassment at work",
+        "European official",
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2026/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0251"
+    },
+    {
+      "id": "62026TN0249",
+      "celex": "62026TN0249",
+      "caseNo": "T-249/26",
+      "court": "General Court",
+      "filedISO": "2026-04-21",
+      "ojISO": "2026-06-29",
+      "topics": [
+        "European official",
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2026/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0249"
+    },
+    {
+      "id": "62026TN0247",
+      "celex": "62026TN0247",
+      "caseNo": "T-247/26",
+      "court": "General Court",
+      "filedISO": "2026-04-21",
+      "ojISO": "2026-08-10",
+      "topics": [
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2026/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0247"
+    },
+    {
+      "id": "62026TN0041",
+      "celex": "62026TN0041",
+      "caseNo": "T-41/26",
+      "court": "General Court",
+      "filedISO": "2026-04-20",
+      "ojISO": "2026-06-08",
+      "topics": [
+        "European official",
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2026/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0041"
+    },
+    {
+      "id": "62026TN0218",
+      "celex": "62026TN0218",
+      "caseNo": "T-218/26",
+      "court": "General Court",
+      "filedISO": "2026-04-01",
+      "ojISO": "2026-06-15",
+      "topics": [
+        "European official"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2026/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0218"
+    },
+    {
+      "id": "62026TN0211",
+      "celex": "62026TN0211",
+      "caseNo": "T-211/26",
+      "court": "General Court",
+      "filedISO": "2026-04-01",
+      "ojISO": "2026-05-26",
+      "topics": [
+        "Maladministration"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2026/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0211"
+    },
+    {
+      "id": "62026TN0210",
+      "celex": "62026TN0210",
+      "caseNo": "T-210/26",
+      "court": "General Court",
+      "filedISO": "2026-03-31",
+      "ojISO": "2026-06-08",
+      "topics": [
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2026/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0210"
+    },
+    {
+      "id": "62026TN0205",
+      "celex": "62026TN0205",
+      "caseNo": "T-205/26",
+      "court": "General Court",
+      "filedISO": "2026-03-30",
+      "ojISO": "2026-06-08",
+      "topics": [
+        "Maladministration"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2026/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0205"
+    },
+    {
+      "id": "62026TN0209",
+      "celex": "62026TN0209",
+      "caseNo": "T-209/26",
+      "court": "General Court",
+      "filedISO": "2026-03-27",
+      "ojISO": "2026-05-26",
+      "topics": [
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2026/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0209"
+    },
+    {
+      "id": "62026TN0194",
+      "celex": "62026TN0194",
+      "caseNo": "T-194/26",
+      "court": "General Court",
+      "filedISO": "2026-03-23",
+      "ojISO": "2026-05-26",
+      "topics": [
+        "Harassment at work",
+        "European official",
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2026/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0194"
+    },
+    {
+      "id": "62026TN0192",
+      "celex": "62026TN0192",
+      "caseNo": "T-192/26",
+      "court": "General Court",
+      "filedISO": "2026-03-23",
+      "ojISO": "2026-05-11",
+      "topics": [
+        "European official"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2026/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0192"
+    },
+    {
+      "id": "62026TN0188",
+      "celex": "62026TN0188",
+      "caseNo": "T-188/26",
+      "court": "General Court",
+      "filedISO": "2026-03-20",
+      "ojISO": "2026-05-11",
+      "topics": [
+        "European official",
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2026/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0188"
+    },
+    {
+      "id": "62026TN0190",
+      "celex": "62026TN0190",
+      "caseNo": "T-190/26",
+      "court": "General Court",
+      "filedISO": "2026-03-20",
+      "ojISO": "2026-05-11",
+      "topics": [
+        "European official",
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2026/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0190"
+    },
+    {
+      "id": "62026TN0186",
+      "celex": "62026TN0186",
+      "caseNo": "T-186/26",
+      "court": "General Court",
+      "filedISO": "2026-03-19",
+      "ojISO": "2026-06-08",
+      "topics": [
+        "Maladministration"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2026/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0186"
+    },
+    {
+      "id": "62026TN0183",
+      "celex": "62026TN0183",
+      "caseNo": "T-183/26",
+      "court": "General Court",
+      "filedISO": "2026-03-13",
+      "ojISO": "2026-05-11",
+      "topics": [
+        "Harassment at work",
+        "European official",
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2026/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0183"
+    },
+    {
+      "id": "62026TN0164",
+      "celex": "62026TN0164",
+      "caseNo": "T-164/26",
+      "court": "General Court",
+      "filedISO": "2026-03-06",
+      "ojISO": "2026-05-26",
+      "topics": [
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2026/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0164"
+    },
+    {
+      "id": "62026TN0159",
+      "celex": "62026TN0159",
+      "caseNo": "T-159/26",
+      "court": "General Court",
+      "filedISO": "2026-03-02",
+      "ojISO": "2026-05-11",
+      "topics": [
+        "Harassment at work"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2026/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0159"
+    },
+    {
+      "id": "62026TN0151",
+      "celex": "62026TN0151",
+      "caseNo": "T-151/26",
+      "court": "General Court",
+      "filedISO": "2026-03-01",
+      "ojISO": "2026-04-13",
+      "topics": [
+        "European official"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2026/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0151"
+    },
+    {
+      "id": "62026TN0146",
+      "celex": "62026TN0146",
+      "caseNo": "T-146/26",
+      "court": "General Court",
+      "filedISO": "2026-02-27",
+      "ojISO": "2026-04-27",
+      "topics": [
+        "Harassment at work",
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2026/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0146"
+    },
+    {
+      "id": "62026TN0143",
+      "celex": "62026TN0143",
+      "caseNo": "T-143/26",
+      "court": "General Court",
+      "filedISO": "2026-02-27",
+      "ojISO": "2026-05-11",
+      "topics": [
+        "European official",
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2026/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0143"
+    },
+    {
+      "id": "62026TN0124",
+      "celex": "62026TN0124",
+      "caseNo": "T-124/26",
+      "court": "General Court",
+      "filedISO": "2026-02-17",
+      "ojISO": "2026-05-11",
+      "topics": [
+        "European official",
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2026/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0124"
+    },
+    {
+      "id": "62026TN0097",
+      "celex": "62026TN0097",
+      "caseNo": "T-97/26",
+      "court": "General Court",
+      "filedISO": "2026-02-09",
+      "ojISO": "2026-04-27",
+      "topics": [
+        "Harassment at work",
+        "European official",
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2026/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0097"
+    },
+    {
+      "id": "62026TN0091",
+      "celex": "62026TN0091",
+      "caseNo": "T-91/26",
+      "court": "General Court",
+      "filedISO": "2026-02-09",
+      "ojISO": "2026-03-30",
+      "topics": [
+        "Maladministration"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2026/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0091"
+    },
+    {
+      "id": "62026TN0076",
+      "celex": "62026TN0076",
+      "caseNo": "T-76/26",
+      "court": "General Court",
+      "filedISO": "2026-02-04",
+      "ojISO": "2026-04-27",
+      "topics": [
+        "European official",
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2026/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0076"
+    },
+    {
+      "id": "62026TN0070",
+      "celex": "62026TN0070",
+      "caseNo": "T-70/26",
+      "court": "General Court",
+      "filedISO": "2026-02-03",
+      "ojISO": "2026-03-30",
+      "topics": [
+        "Maladministration"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2026/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0070"
+    },
+    {
+      "id": "62026TN0060",
+      "celex": "62026TN0060",
+      "caseNo": "T-60/26",
+      "court": "General Court",
+      "filedISO": "2026-01-29",
+      "ojISO": "2026-03-16",
+      "topics": [
+        "European official",
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2026/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0060"
+    },
+    {
+      "id": "62026TN0050",
+      "celex": "62026TN0050",
+      "caseNo": "T-50/26",
+      "court": "General Court",
+      "filedISO": "2026-01-23",
+      "ojISO": "2026-03-16",
+      "topics": [
+        "European official",
+        "Staff regulations (EU)",
+        "Maladministration"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2026/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0050"
+    },
+    {
+      "id": "62026TN0051",
+      "celex": "62026TN0051",
+      "caseNo": "T-51/26",
+      "court": "General Court",
+      "filedISO": "2026-01-23",
+      "ojISO": "2026-03-16",
+      "topics": [
+        "European official",
+        "Staff regulations (EU)",
+        "Maladministration"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2026/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0051"
+    },
+    {
+      "id": "62026TN0045",
+      "celex": "62026TN0045",
+      "caseNo": "T-45/26",
+      "court": "General Court",
+      "filedISO": "2026-01-22",
+      "ojISO": "2026-03-16",
+      "topics": [
+        "European official",
+        "Staff regulations (EU)",
+        "Maladministration"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2026/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0045"
+    },
+    {
+      "id": "62026TN0046",
+      "celex": "62026TN0046",
+      "caseNo": "T-46/26",
+      "court": "General Court",
+      "filedISO": "2026-01-22",
+      "ojISO": "2026-03-16",
+      "topics": [
+        "European official",
+        "Staff regulations (EU)",
+        "Maladministration"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2026/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0046"
+    },
+    {
+      "id": "62026TN0033",
+      "celex": "62026TN0033",
+      "caseNo": "T-33/26",
+      "court": "General Court",
+      "filedISO": "2026-01-19",
+      "ojISO": "2026-03-09",
+      "topics": [
+        "European official"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2026/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0033"
+    },
+    {
+      "id": "62026TN0035",
+      "celex": "62026TN0035",
+      "caseNo": "T-35/26",
+      "court": "General Court",
+      "filedISO": "2026-01-19",
+      "ojISO": "2026-03-16",
+      "topics": [
+        "European official",
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2026/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0035"
+    },
+    {
+      "id": "62026TN0034",
+      "celex": "62026TN0034",
+      "caseNo": "T-34/26",
+      "court": "General Court",
+      "filedISO": "2026-01-16",
+      "ojISO": "2026-03-23",
+      "topics": [
+        "European official"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2026/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0034"
+    },
+    {
+      "id": "62026TN0036",
+      "celex": "62026TN0036",
+      "caseNo": "T-36/26",
+      "court": "General Court",
+      "filedISO": "2026-01-16",
+      "ojISO": "2026-04-07",
+      "topics": [
+        "European official",
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2026/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0036"
+    },
+    {
+      "id": "62026TN0028",
+      "celex": "62026TN0028",
+      "caseNo": "T-28/26",
+      "court": "General Court",
+      "filedISO": "2026-01-15",
+      "ojISO": "2026-03-16",
+      "topics": [
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2026/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0028"
+    },
+    {
+      "id": "62026TN0015",
+      "celex": "62026TN0015",
+      "caseNo": "T-15/26",
+      "court": "General Court",
+      "filedISO": "2026-01-09",
+      "ojISO": "2026-03-30",
+      "topics": [
+        "Maladministration"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2026/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0015"
+    },
+    {
+      "id": "62026TN0003",
+      "celex": "62026TN0003",
+      "caseNo": "T-3/26",
+      "court": "General Court",
+      "filedISO": "2026-01-06",
+      "ojISO": "2026-02-23",
+      "topics": [
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2026/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0003"
+    },
+    {
+      "id": "62026TN0001",
+      "celex": "62026TN0001",
+      "caseNo": "T-1/26",
+      "court": "General Court",
+      "filedISO": "2026-01-02",
+      "ojISO": "2026-03-09",
+      "topics": [
+        "European official",
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2026/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0001"
+    },
+    {
+      "id": "62025TN0909",
+      "celex": "62025TN0909",
+      "caseNo": "T-909/25",
+      "court": "General Court",
+      "filedISO": "2025-12-30",
+      "ojISO": "2026-03-16",
+      "topics": [
+        "Harassment at work"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2026/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0909"
+    },
+    {
+      "id": "62025TN0905",
+      "celex": "62025TN0905",
+      "caseNo": "T-905/25",
+      "court": "General Court",
+      "filedISO": "2025-12-30",
+      "ojISO": "2026-03-02",
+      "topics": [
+        "European official",
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2026/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0905"
+    },
+    {
+      "id": "62025TN0913",
+      "celex": "62025TN0913",
+      "caseNo": "T-913/25",
+      "court": "General Court",
+      "filedISO": "2025-12-29",
+      "ojISO": "2026-03-09",
+      "topics": [
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2026/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0913"
+    },
+    {
+      "id": "62025TN0893",
+      "celex": "62025TN0893",
+      "caseNo": "T-893/25",
+      "court": "General Court",
+      "filedISO": "2025-12-23",
+      "ojISO": "2026-02-16",
+      "topics": [
+        "Maladministration"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2026/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0893"
+    },
+    {
+      "id": "62025TN0868",
+      "celex": "62025TN0868",
+      "caseNo": "T-868/25",
+      "court": "General Court",
+      "filedISO": "2025-12-18",
+      "ojISO": "2026-02-09",
+      "topics": [
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2026/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0868"
+    },
+    {
+      "id": "62025TN0866",
+      "celex": "62025TN0866",
+      "caseNo": "T-866/25",
+      "court": "General Court",
+      "filedISO": "2025-12-17",
+      "ojISO": "2026-02-16",
+      "topics": [
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2026/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0866"
+    },
+    {
+      "id": "62025TN0854",
+      "celex": "62025TN0854",
+      "caseNo": "T-854/25",
+      "court": "General Court",
+      "filedISO": "2025-12-12",
+      "ojISO": "2026-02-09",
+      "topics": [
+        "Harassment at work",
+        "European official",
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2026/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0854"
+    },
+    {
+      "id": "62025TN0847",
+      "celex": "62025TN0847",
+      "caseNo": "T-847/25",
+      "court": "General Court",
+      "filedISO": "2025-12-10",
+      "ojISO": "2026-02-02",
+      "topics": [
+        "Maladministration"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2026/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0847"
+    },
+    {
+      "id": "62025TN0864",
+      "celex": "62025TN0864",
+      "caseNo": "T-864/25",
+      "court": "General Court",
+      "filedISO": "2025-12-09",
+      "ojISO": "2026-03-30",
+      "topics": [
+        "Harassment at work"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2026/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0864"
+    },
+    {
+      "id": "62025TN0798",
+      "celex": "62025TN0798",
+      "caseNo": "T-798/25",
+      "court": "General Court",
+      "filedISO": "2025-11-24",
+      "ojISO": "2026-01-12",
+      "topics": [
+        "Staff regulations (EU)",
+        "Maladministration"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2026/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0798"
+    },
+    {
+      "id": "62025TN0793",
+      "celex": "62025TN0793",
+      "caseNo": "T-793/25",
+      "court": "General Court",
+      "filedISO": "2025-11-19",
+      "ojISO": "2026-02-09",
+      "topics": [
+        "Harassment at work",
+        "European official",
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2026/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0793"
+    },
+    {
+      "id": "62025TN0777",
+      "celex": "62025TN0777",
+      "caseNo": "T-777/25",
+      "court": "General Court",
+      "filedISO": "2025-11-10",
+      "ojISO": "2026-01-26",
+      "topics": [
+        "Harassment at work",
+        "European official",
+        "Staff regulations (EU)",
+        "Maladministration"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2026/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0777"
+    },
+    {
+      "id": "62025TN0778",
+      "celex": "62025TN0778",
+      "caseNo": "T-778/25",
+      "court": "General Court",
+      "filedISO": "2025-11-10",
+      "ojISO": "2026-02-09",
+      "topics": [
+        "European official"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2026/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0778"
+    },
+    {
+      "id": "62025TN0761",
+      "celex": "62025TN0761",
+      "caseNo": "T-761/25",
+      "court": "General Court",
+      "filedISO": "2025-11-03",
+      "ojISO": "2025-12-15",
+      "topics": [
+        "Harassment at work"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2025/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0761"
+    },
+    {
+      "id": "62025TN0767",
+      "celex": "62025TN0767",
+      "caseNo": "T-767/25",
+      "court": "General Court",
+      "filedISO": "2025-11-03",
+      "ojISO": "2025-12-22",
+      "topics": [
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2025/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0767"
+    },
+    {
+      "id": "62025TN0751",
+      "celex": "62025TN0751",
+      "caseNo": "T-751/25",
+      "court": "General Court",
+      "filedISO": "2025-10-28",
+      "ojISO": "2025-12-22",
+      "topics": [
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2025/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0751"
+    },
+    {
+      "id": "62025TN0740",
+      "celex": "62025TN0740",
+      "caseNo": "T-740/25",
+      "court": "General Court",
+      "filedISO": "2025-10-24",
+      "ojISO": "2025-12-15",
+      "topics": [
+        "European official",
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2025/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0740"
+    },
+    {
+      "id": "62025TN0709",
+      "celex": "62025TN0709",
+      "caseNo": "T-709/25",
+      "court": "General Court",
+      "filedISO": "2025-10-17",
+      "ojISO": "2025-12-01",
+      "topics": [
+        "European official",
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2025/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0709"
+    },
+    {
+      "id": "62025TN0737",
+      "celex": "62025TN0737",
+      "caseNo": "T-737/25",
+      "court": "General Court",
+      "filedISO": "2025-10-17",
+      "ojISO": "2026-01-05",
+      "topics": [
+        "European official"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2026/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0737"
+    },
+    {
+      "id": "62025TN0706",
+      "celex": "62025TN0706",
+      "caseNo": "T-706/25",
+      "court": "General Court",
+      "filedISO": "2025-10-13",
+      "ojISO": "2026-01-05",
+      "topics": [
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2026/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0706"
+    },
+    {
+      "id": "62025TN0692",
+      "celex": "62025TN0692",
+      "caseNo": "T-692/25",
+      "court": "General Court",
+      "filedISO": "2025-10-09",
+      "ojISO": "2025-11-24",
+      "topics": [
+        "European official",
+        "Staff regulations (EU)",
+        "Maladministration"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2025/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0692"
+    },
+    {
+      "id": "62025TN0687",
+      "celex": "62025TN0687",
+      "caseNo": "T-687/25",
+      "court": "General Court",
+      "filedISO": "2025-10-03",
+      "ojISO": "2025-12-22",
+      "topics": [
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2025/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0687"
+    },
+    {
+      "id": "62025TN0660",
+      "celex": "62025TN0660",
+      "caseNo": "T-660/25",
+      "court": "General Court",
+      "filedISO": "2025-09-26",
+      "ojISO": "2025-11-17",
+      "topics": [
+        "European official",
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2025/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0660"
+    },
+    {
+      "id": "62025TN0664",
+      "celex": "62025TN0664",
+      "caseNo": "T-664/25",
+      "court": "General Court",
+      "filedISO": "2025-09-25",
+      "ojISO": "2025-12-01",
+      "topics": [
+        "European official"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2025/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0664"
+    },
+    {
+      "id": "62025TN0647",
+      "celex": "62025TN0647",
+      "caseNo": "T-647/25",
+      "court": "General Court",
+      "filedISO": "2025-09-22",
+      "ojISO": "2025-11-03",
+      "topics": [
+        "European official",
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2025/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0647"
+    },
+    {
+      "id": "62025TN0646",
+      "celex": "62025TN0646",
+      "caseNo": "T-646/25",
+      "court": "General Court",
+      "filedISO": "2025-09-22",
+      "ojISO": "2025-11-03",
+      "topics": [
+        "European official",
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2025/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0646"
+    },
+    {
+      "id": "62025TN0624",
+      "celex": "62025TN0624",
+      "caseNo": "T-624/25",
+      "court": "General Court",
+      "filedISO": "2025-09-15",
+      "ojISO": "2025-10-27",
+      "topics": [
+        "European official",
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2025/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0624"
+    },
+    {
+      "id": "62025TN0616",
+      "celex": "62025TN0616",
+      "caseNo": "T-616/25",
+      "court": "General Court",
+      "filedISO": "2025-09-10",
+      "ojISO": "2025-11-17",
+      "topics": [
+        "European official",
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2025/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0616"
+    },
+    {
+      "id": "62025TN0611",
+      "celex": "62025TN0611",
+      "caseNo": "T-611/25",
+      "court": "General Court",
+      "filedISO": "2025-09-09",
+      "ojISO": "2025-11-10",
+      "topics": [
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2025/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0611"
+    },
+    {
+      "id": "62025TN0607",
+      "celex": "62025TN0607",
+      "caseNo": "T-607/25",
+      "court": "General Court",
+      "filedISO": "2025-09-03",
+      "ojISO": "2025-11-10",
+      "topics": [
+        "European official"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2025/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0607"
+    },
+    {
+      "id": "62025TN0601",
+      "celex": "62025TN0601",
+      "caseNo": "T-601/25",
+      "court": "General Court",
+      "filedISO": "2025-09-02",
+      "ojISO": "2025-10-27",
+      "topics": [
+        "Maladministration"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2025/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0601"
+    },
+    {
+      "id": "62025TN0604",
+      "celex": "62025TN0604",
+      "caseNo": "T-604/25",
+      "court": "General Court",
+      "filedISO": "2025-09-01",
+      "ojISO": "2025-11-03",
+      "topics": [
+        "European official",
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2025/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0604"
+    },
+    {
+      "id": "62025TN0592",
+      "celex": "62025TN0592",
+      "caseNo": "T-592/25",
+      "court": "General Court",
+      "filedISO": "2025-08-27",
+      "ojISO": "2025-10-20",
+      "topics": [
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2025/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0592"
+    },
+    {
+      "id": "62025TN0587",
+      "celex": "62025TN0587",
+      "caseNo": "T-587/25",
+      "court": "General Court",
+      "filedISO": "2025-08-23",
+      "ojISO": "2025-10-13",
+      "topics": [
+        "Maladministration"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2025/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0587"
+    },
+    {
+      "id": "62025TN0589",
+      "celex": "62025TN0589",
+      "caseNo": "T-589/25",
+      "court": "General Court",
+      "filedISO": "2025-08-23",
+      "ojISO": "2025-11-10",
+      "topics": [
+        "Maladministration"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2025/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0589"
+    },
+    {
+      "id": "62025TN0585",
+      "celex": "62025TN0585",
+      "caseNo": "T-585/25",
+      "court": "General Court",
+      "filedISO": "2025-08-22",
+      "ojISO": "2025-10-13",
+      "topics": [
+        "European official",
+        "Staff regulations (EU)",
+        "Maladministration"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2025/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0585"
+    },
+    {
+      "id": "62025TN0583",
+      "celex": "62025TN0583",
+      "caseNo": "T-583/25",
+      "court": "General Court",
+      "filedISO": "2025-08-19",
+      "ojISO": "2025-10-13",
+      "topics": [
+        "Maladministration"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2025/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0583"
+    },
+    {
+      "id": "62025TN0542",
+      "celex": "62025TN0542",
+      "caseNo": "T-542/25",
+      "court": "General Court",
+      "filedISO": "2025-08-01",
+      "ojISO": "2025-10-06",
+      "topics": [
+        "European official",
+        "Maladministration"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2025/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0542"
+    },
+    {
+      "id": "62025TN0524",
+      "celex": "62025TN0524",
+      "caseNo": "T-524/25",
+      "court": "General Court",
+      "filedISO": "2025-07-31",
+      "ojISO": "2025-09-15",
+      "topics": [
+        "Maladministration"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2025/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0524"
+    },
+    {
+      "id": "62025TN0526",
+      "celex": "62025TN0526",
+      "caseNo": "T-526/25",
+      "court": "General Court",
+      "filedISO": "2025-07-31",
+      "ojISO": "2025-09-15",
+      "topics": [
+        "Maladministration"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2025/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0526"
+    },
+    {
+      "id": "62025TN0525",
+      "celex": "62025TN0525",
+      "caseNo": "T-525/25",
+      "court": "General Court",
+      "filedISO": "2025-07-31",
+      "ojISO": "2025-09-15",
+      "topics": [
+        "Maladministration"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2025/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0525"
+    },
+    {
+      "id": "62025TN0514",
+      "celex": "62025TN0514",
+      "caseNo": "T-514/25",
+      "court": "General Court",
+      "filedISO": "2025-07-28",
+      "ojISO": "2025-10-13",
+      "topics": [
+        "European official",
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2025/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0514"
+    },
+    {
+      "id": "62025TN0517",
+      "celex": "62025TN0517",
+      "caseNo": "T-517/25",
+      "court": "General Court",
+      "filedISO": "2025-07-28",
+      "ojISO": "2025-09-15",
+      "topics": [
+        "Maladministration"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2025/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0517"
+    },
+    {
+      "id": "62025TN0506",
+      "celex": "62025TN0506",
+      "caseNo": "T-506/25",
+      "court": "General Court",
+      "filedISO": "2025-07-25",
+      "ojISO": "2025-09-08",
+      "topics": [
+        "European official",
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2025/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0506"
+    },
+    {
+      "id": "62025TN0469",
+      "celex": "62025TN0469",
+      "caseNo": "T-469/25",
+      "court": "General Court",
+      "filedISO": "2025-07-16",
+      "ojISO": "2025-08-25",
+      "topics": [
+        "European official",
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2025/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0469"
+    },
+    {
+      "id": "62025TN0474",
+      "celex": "62025TN0474",
+      "caseNo": "T-474/25",
+      "court": "General Court",
+      "filedISO": "2025-07-15",
+      "ojISO": "2025-09-08",
+      "topics": [
+        "European official",
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2025/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0474"
+    },
+    {
+      "id": "62025TN0443",
+      "celex": "62025TN0443",
+      "caseNo": "T-443/25",
+      "court": "General Court",
+      "filedISO": "2025-07-07",
+      "ojISO": "2025-08-25",
+      "topics": [
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2025/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0443"
+    },
+    {
+      "id": "62025TN0442",
+      "celex": "62025TN0442",
+      "caseNo": "T-442/25",
+      "court": "General Court",
+      "filedISO": "2025-07-07",
+      "ojISO": "2025-08-25",
+      "topics": [
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2025/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0442"
+    },
+    {
+      "id": "62025TN0441",
+      "celex": "62025TN0441",
+      "caseNo": "T-441/25",
+      "court": "General Court",
+      "filedISO": "2025-07-06",
+      "ojISO": "2025-08-25",
+      "topics": [
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2025/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0441"
+    },
+    {
+      "id": "62025TN0440",
+      "celex": "62025TN0440",
+      "caseNo": "T-440/25",
+      "court": "General Court",
+      "filedISO": "2025-07-06",
+      "ojISO": "2025-08-25",
+      "topics": [
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2025/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0440"
+    },
+    {
+      "id": "62025TN0439",
+      "celex": "62025TN0439",
+      "caseNo": "T-439/25",
+      "court": "General Court",
+      "filedISO": "2025-07-04",
+      "ojISO": "2025-08-25",
+      "topics": [
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2025/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0439"
+    },
+    {
+      "id": "62025TN0446",
+      "celex": "62025TN0446",
+      "caseNo": "T-446/25",
+      "court": "General Court",
+      "filedISO": "2025-07-03",
+      "ojISO": "2025-08-25",
+      "topics": [
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2025/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0446"
+    },
+    {
+      "id": "62025TN0428",
+      "celex": "62025TN0428",
+      "caseNo": "T-428/25",
+      "court": "General Court",
+      "filedISO": "2025-07-03",
+      "ojISO": "2025-08-25",
+      "topics": [
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2025/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0428"
+    },
+    {
+      "id": "62025TN0427",
+      "celex": "62025TN0427",
+      "caseNo": "T-427/25",
+      "court": "General Court",
+      "filedISO": "2025-07-03",
+      "ojISO": "2025-08-25",
+      "topics": [
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2025/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0427"
+    },
+    {
+      "id": "62025TN0425",
+      "celex": "62025TN0425",
+      "caseNo": "T-425/25",
+      "court": "General Court",
+      "filedISO": "2025-07-01",
+      "ojISO": "2025-08-25",
+      "topics": [
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2025/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0425"
+    },
+    {
+      "id": "62025TN0426",
+      "celex": "62025TN0426",
+      "caseNo": "T-426/25",
+      "court": "General Court",
+      "filedISO": "2025-07-01",
+      "ojISO": "2025-08-25",
+      "topics": [
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2025/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0426"
+    },
+    {
+      "id": "62025TN0424",
+      "celex": "62025TN0424",
+      "caseNo": "T-424/25",
+      "court": "General Court",
+      "filedISO": "2025-07-01",
+      "ojISO": "2025-08-25",
+      "topics": [
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2025/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0424"
+    },
+    {
+      "id": "62025TN0415",
+      "celex": "62025TN0415",
+      "caseNo": "T-415/25",
+      "court": "General Court",
+      "filedISO": "2025-06-30",
+      "ojISO": "2025-10-13",
+      "topics": [
+        "European official"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2025/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0415"
+    },
+    {
+      "id": "62025TN0416",
+      "celex": "62025TN0416",
+      "caseNo": "T-416/25",
+      "court": "General Court",
+      "filedISO": "2025-06-26",
+      "ojISO": "2025-08-18",
+      "topics": [
+        "Maladministration"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2025/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0416"
+    },
+    {
+      "id": "62025TN0408",
+      "celex": "62025TN0408",
+      "caseNo": "T-408/25",
+      "court": "General Court",
+      "filedISO": "2025-06-25",
+      "ojISO": "2025-10-13",
+      "topics": [
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2025/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0408"
+    },
+    {
+      "id": "62025TN0399",
+      "celex": "62025TN0399",
+      "caseNo": "T-399/25",
+      "court": "General Court",
+      "filedISO": "2025-06-20",
+      "ojISO": "2025-08-25",
+      "topics": [
+        "European official",
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2025/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0399"
+    },
+    {
+      "id": "62025TN0385",
+      "celex": "62025TN0385",
+      "caseNo": "T-385/25",
+      "court": "General Court",
+      "filedISO": "2025-06-13",
+      "ojISO": "2025-07-28",
+      "topics": [
+        "European official",
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2025/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0385"
+    },
+    {
+      "id": "62025TN0370",
+      "celex": "62025TN0370",
+      "caseNo": "T-370/25",
+      "court": "General Court",
+      "filedISO": "2025-06-03",
+      "ojISO": "2025-07-21",
+      "topics": [
+        "European official",
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2025/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0370"
+    },
+    {
+      "id": "62025TN0344",
+      "celex": "62025TN0344",
+      "caseNo": "T-344/25",
+      "court": "General Court",
+      "filedISO": "2025-06-01",
+      "ojISO": "2025-08-11",
+      "topics": [
+        "Maladministration"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2025/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0344"
+    },
+    {
+      "id": "62025TN0353",
+      "celex": "62025TN0353",
+      "caseNo": "T-353/25",
+      "court": "General Court",
+      "filedISO": "2025-05-30",
+      "ojISO": "2025-07-21",
+      "topics": [
+        "European official",
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2025/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0353"
+    },
+    {
+      "id": "62025TN0316",
+      "celex": "62025TN0316",
+      "caseNo": "T-316/25",
+      "court": "General Court",
+      "filedISO": "2025-05-20",
+      "ojISO": "2025-07-14",
+      "topics": [
+        "Maladministration"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2025/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0316"
+    },
+    {
+      "id": "62025TN0315",
+      "celex": "62025TN0315",
+      "caseNo": "T-315/25",
+      "court": "General Court",
+      "filedISO": "2025-05-16",
+      "ojISO": "2025-07-07",
+      "topics": [
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2025/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0315"
+    },
+    {
+      "id": "62025TN0312",
+      "celex": "62025TN0312",
+      "caseNo": "T-312/25",
+      "court": "General Court",
+      "filedISO": "2025-05-15",
+      "ojISO": "2025-08-04",
+      "topics": [
+        "Harassment at work",
+        "European official",
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2025/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0312"
+    },
+    {
+      "id": "62025TN0306",
+      "celex": "62025TN0306",
+      "caseNo": "T-306/25",
+      "court": "General Court",
+      "filedISO": "2025-05-14",
+      "ojISO": "2025-07-21",
+      "topics": [
+        "European official",
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2025/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0306"
+    },
+    {
+      "id": "62025TN0317",
+      "celex": "62025TN0317",
+      "caseNo": "T-317/25",
+      "court": "General Court",
+      "filedISO": "2025-05-08",
+      "ojISO": "2025-08-04",
+      "topics": [
+        "Harassment at work",
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2025/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0317"
+    },
+    {
+      "id": "62025TN0300",
+      "celex": "62025TN0300",
+      "caseNo": "T-300/25",
+      "court": "General Court",
+      "filedISO": "2025-05-06",
+      "ojISO": "2025-07-07",
+      "topics": [
+        "European official",
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2025/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0300"
+    },
+    {
+      "id": "62025TN0279",
+      "celex": "62025TN0279",
+      "caseNo": "T-279/25",
+      "court": "General Court",
+      "filedISO": "2025-04-30",
+      "ojISO": "2025-07-14",
+      "topics": [
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2025/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0279"
+    },
+    {
+      "id": "62025TN0285",
+      "celex": "62025TN0285",
+      "caseNo": "T-285/25",
+      "court": "General Court",
+      "filedISO": "2025-04-24",
+      "ojISO": "2025-08-04",
+      "topics": [
+        "Maladministration"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2025/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0285"
+    },
+    {
+      "id": "62025TN0275",
+      "celex": "62025TN0275",
+      "caseNo": "T-275/25",
+      "court": "General Court",
+      "filedISO": "2025-04-23",
+      "ojISO": "2025-07-07",
+      "topics": [
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2025/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0275"
+    },
+    {
+      "id": "62025TN0259",
+      "celex": "62025TN0259",
+      "caseNo": "T-259/25",
+      "court": "General Court",
+      "filedISO": "2025-04-22",
+      "ojISO": "2025-06-10",
+      "topics": [
+        "Maladministration"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2025/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0259"
+    },
+    {
+      "id": "62025TN0263",
+      "celex": "62025TN0263",
+      "caseNo": "T-263/25",
+      "court": "General Court",
+      "filedISO": "2025-04-18",
+      "ojISO": "2025-06-24",
+      "topics": [
+        "European official",
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2025/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0263"
+    },
+    {
+      "id": "62025TN0214",
+      "celex": "62025TN0214",
+      "caseNo": "T-214/25",
+      "court": "General Court",
+      "filedISO": "2025-03-27",
+      "ojISO": "2025-05-19",
+      "topics": [
+        "European official",
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2025/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0214"
+    },
+    {
+      "id": "62025TN0204",
+      "celex": "62025TN0204",
+      "caseNo": "T-204/25",
+      "court": "General Court",
+      "filedISO": "2025-03-27",
+      "ojISO": "2025-06-30",
+      "topics": [
+        "European official",
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2025/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0204"
+    },
+    {
+      "id": "62025TN0199",
+      "celex": "62025TN0199",
+      "caseNo": "T-199/25",
+      "court": "General Court",
+      "filedISO": "2025-03-25",
+      "ojISO": "2025-06-24",
+      "topics": [
+        "European official",
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2025/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0199"
+    },
+    {
+      "id": "62025TN0193",
+      "celex": "62025TN0193",
+      "caseNo": "T-193/25",
+      "court": "General Court",
+      "filedISO": "2025-03-20",
+      "ojISO": "2025-05-12",
+      "topics": [
+        "European official",
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2025/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0193"
+    },
+    {
+      "id": "62025TN0195",
+      "celex": "62025TN0195",
+      "caseNo": "T-195/25",
+      "court": "General Court",
+      "filedISO": "2025-03-20",
+      "ojISO": "2025-05-19",
+      "topics": [
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2025/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0195"
+    },
+    {
+      "id": "62025TN0192",
+      "celex": "62025TN0192",
+      "caseNo": "T-192/25",
+      "court": "General Court",
+      "filedISO": "2025-03-19",
+      "ojISO": "2025-06-10",
+      "topics": [
+        "European official",
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2025/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0192"
+    },
+    {
+      "id": "62025TN0191",
+      "celex": "62025TN0191",
+      "caseNo": "T-191/25",
+      "court": "General Court",
+      "filedISO": "2025-03-19",
+      "ojISO": "2025-06-10",
+      "topics": [
+        "European official",
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2025/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0191"
+    },
+    {
+      "id": "62025TN0188",
+      "celex": "62025TN0188",
+      "caseNo": "T-188/25",
+      "court": "General Court",
+      "filedISO": "2025-03-18",
+      "ojISO": "2025-05-12",
+      "topics": [
+        "European official",
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2025/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0188"
+    },
+    {
+      "id": "62025TN0187",
+      "celex": "62025TN0187",
+      "caseNo": "T-187/25",
+      "court": "General Court",
+      "filedISO": "2025-03-18",
+      "ojISO": "2025-05-12",
+      "topics": [
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2025/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0187"
+    },
+    {
+      "id": "62025TN0185",
+      "celex": "62025TN0185",
+      "caseNo": "T-185/25",
+      "court": "General Court",
+      "filedISO": "2025-03-17",
+      "ojISO": "2025-05-19",
+      "topics": [
+        "European official",
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2025/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0185"
+    },
+    {
+      "id": "62025TN0175",
+      "celex": "62025TN0175",
+      "caseNo": "T-175/25",
+      "court": "General Court",
+      "filedISO": "2025-03-11",
+      "ojISO": "2025-04-22",
+      "topics": [
+        "European official"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2025/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0175"
+    },
+    {
+      "id": "62025TN0155",
+      "celex": "62025TN0155",
+      "caseNo": "T-155/25",
+      "court": "General Court",
+      "filedISO": "2025-03-08",
+      "ojISO": "2025-04-28",
+      "topics": [
+        "European official",
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2025/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0155"
+    },
+    {
+      "id": "62025TN0152",
+      "celex": "62025TN0152",
+      "caseNo": "T-152/25",
+      "court": "General Court",
+      "filedISO": "2025-03-07",
+      "ojISO": "2025-04-22",
+      "topics": [
+        "European official"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2025/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0152"
+    },
+    {
+      "id": "62025TN0136",
+      "celex": "62025TN0136",
+      "caseNo": "T-136/25",
+      "court": "General Court",
+      "filedISO": "2025-02-25",
+      "ojISO": "2025-04-22",
+      "topics": [
+        "European official",
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2025/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0136"
+    },
+    {
+      "id": "62025TN0099",
+      "celex": "62025TN0099",
+      "caseNo": "T-99/25",
+      "court": "General Court",
+      "filedISO": "2025-02-10",
+      "ojISO": "2025-04-28",
+      "topics": [
+        "European official",
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2025/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0099"
+    },
+    {
+      "id": "62025TN0079",
+      "celex": "62025TN0079",
+      "caseNo": "T-79/25",
+      "court": "General Court",
+      "filedISO": "2025-02-04",
+      "ojISO": "2025-04-07",
+      "topics": [
+        "Staff regulations (EU)",
+        "Maladministration"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2025/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0079"
+    },
+    {
+      "id": "62025TN0084",
+      "celex": "62025TN0084",
+      "caseNo": "T-84/25",
+      "court": "General Court",
+      "filedISO": "2025-02-03",
+      "ojISO": "2025-04-07",
+      "topics": [
+        "European official",
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2025/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0084"
+    },
+    {
+      "id": "62025TN0051",
+      "celex": "62025TN0051",
+      "caseNo": "T-51/25",
+      "court": "General Court",
+      "filedISO": "2025-01-24",
+      "ojISO": "2025-03-10",
+      "topics": [
+        "European official",
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2025/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0051"
+    },
+    {
+      "id": "62025TN0053",
+      "celex": "62025TN0053",
+      "caseNo": "T-53/25",
+      "court": "General Court",
+      "filedISO": "2025-01-24",
+      "ojISO": "2025-03-31",
+      "topics": [
+        "Maladministration"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2025/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0053"
+    },
+    {
+      "id": "62025TN0030",
+      "celex": "62025TN0030",
+      "caseNo": "T-30/25",
+      "court": "General Court",
+      "filedISO": "2025-01-17",
+      "ojISO": "2025-03-17",
+      "topics": [
+        "European official",
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2025/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0030"
+    },
+    {
+      "id": "62025TN0022",
+      "celex": "62025TN0022",
+      "caseNo": "T-22/25",
+      "court": "General Court",
+      "filedISO": "2025-01-16",
+      "ojISO": "2025-03-10",
+      "topics": [
+        "European official",
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2025/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0022"
+    },
+    {
+      "id": "62025TN0013",
+      "celex": "62025TN0013",
+      "caseNo": "T-13/25",
+      "court": "General Court",
+      "filedISO": "2025-01-10",
+      "ojISO": "2025-02-24",
+      "topics": [
+        "European official",
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2025/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0013"
+    },
+    {
+      "id": "62025TN0006",
+      "celex": "62025TN0006",
+      "caseNo": "T-6/25",
+      "court": "General Court",
+      "filedISO": "2025-01-02",
+      "ojISO": "2025-03-03",
+      "topics": [
+        "Harassment at work",
+        "European official",
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2025/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0006"
+    },
+    {
+      "id": "62025TN0010",
+      "celex": "62025TN0010",
+      "caseNo": "T-10/25",
+      "court": "General Court",
+      "filedISO": "2025-01-02",
+      "ojISO": "2025-02-17",
+      "topics": [
+        "European official",
+        "Staff regulations (EU)"
+      ],
+      "eli": "http://data.europa.eu/eli/C/2025/",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0010"
+    }
+  ]
+}

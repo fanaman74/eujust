@@ -1837,3 +1837,87 @@ tbody tr:last-child td { border-bottom: 0; }
   animation: monitor-spin .7s linear infinite;
 }
 @keyframes monitor-spin { to { transform: rotate(360deg); } }
+
+/* ---------- pending actions: OJ C "case brought" notices ---------- */
+
+.pending-cases { margin-top: clamp(2.6rem, 5vw, 4.2rem); }
+.pending-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr);
+  gap: clamp(1rem, 3vw, 2.3rem);
+  align-items: start;
+  margin-bottom: 1.3rem;
+}
+.pending-head .section-title { margin-bottom: .65rem; }
+.pending-head p { color: var(--muted); }
+.pending-source {
+  margin-top: .85rem;
+  font-family: var(--mono);
+  font-size: 6.6px;
+  line-height: 1.6;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+}
+.mono { font-family: var(--mono); }
+
+.pending-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: var(--line);
+  border-bottom: 1px dashed rgba(23, 20, 18, .3);
+  max-height: 31rem;
+  overflow-y: auto;
+  background: var(--paper-hi);
+}
+.pending-row {
+  display: grid;
+  grid-template-columns: 8rem minmax(0, 1fr) 1.1rem;
+  gap: 1rem;
+  align-items: center;
+  padding: .6rem .6rem .6rem .7rem;
+  border-bottom: 1px dashed rgba(23, 20, 18, .22);
+  color: var(--ink);
+  text-decoration: none;
+}
+.pending-list li:last-child .pending-row { border-bottom: 0; }
+.pending-row:hover { background: #fff9ed; }
+.pending-row--focus { box-shadow: inset 3px 0 0 var(--pink); }
+.pending-row__no {
+  font-family: var(--mono);
+  font-size: .8rem;
+  font-weight: 600;
+  letter-spacing: .02em;
+}
+.pending-row--focus .pending-row__no { color: var(--pink-deep); }
+.pending-row__meta {
+  display: block;
+  font-family: var(--mono);
+  font-size: 6.6px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.pending-row__topics { display: flex; flex-wrap: wrap; gap: .28rem; margin-top: .32rem; }
+.pending-row__topic {
+  padding: .18em .38em .14em;
+  border: 1px solid rgba(23, 20, 18, .32);
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 6.2px;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+}
+.pending-row--focus .pending-row__topic {
+  border-color: rgba(224, 0, 89, .45);
+  color: var(--pink-deep);
+}
+.pending-row__go { display: flex; justify-content: flex-end; color: var(--muted); }
+.pending-row:hover .pending-row__go { color: var(--pink-deep); }
+
+@media (max-width: 860px) {
+  .pending-head { grid-template-columns: 1fr; }
+  .pending-row { grid-template-columns: 6.4rem minmax(0, 1fr); }
+  .pending-row__go { display: none; }
+  .pending-list { max-height: 26rem; }
+}

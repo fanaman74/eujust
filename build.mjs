@@ -276,6 +276,56 @@ function sourceLink(href, label = "Official source", { root = "", className = ""
    CASES INDEX
    ============================================================ */
 
+/* Pending actions: OJ C "case brought" notices, harvested separately from Cellar. */
+const pending = (() => {
+  const file = "data/pending.json";
+  if (!fs.existsSync(file)) return { count: 0, cases: [], generatedAt: "" };
+  return JSON.parse(fs.readFileSync(file, "utf8"));
+})();
+
+const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+const shortDate = (iso = "") => {
+  const [y, m, d] = String(iso).split("-");
+  return d ? `${Number(d)} ${MONTHS[Number(m) - 1]} ${y}` : iso;
+};
+
+function pendingSection(root) {
+  const rows = pending.cases || [];
+  if (!rows.length) return "";
+  const focus = (entry) => entry.topics?.includes("Harassment at work");
+  const harassmentCount = rows.filter(focus).length;
+  const ordered = [...rows].sort(
+    (a, b) => Number(focus(b)) - Number(focus(a)) || String(b.filedISO).localeCompare(String(a.filedISO))
+  );
+
+  const items = ordered
+    .map(
+      (entry) => `<li><a class="pending-row${focus(entry) ? " pending-row--focus" : ""}" href="${attr(entry.url)}" target="_blank" rel="noreferrer">
+        <span class="pending-row__no">${esc(entry.caseNo)}</span>
+        <span class="pending-row__body">
+          <span class="pending-row__meta">${esc(entry.court)}${entry.filedISO ? ` &middot; filed ${esc(shortDate(entry.filedISO))}` : ""}${entry.ojISO ? ` &middot; OJ ${esc(shortDate(entry.ojISO))}` : ""}</span>
+          <span class="pending-row__topics">${(entry.topics || []).map((topic) => `<span class="pending-row__topic">${esc(topic)}</span>`).join("")}</span>
+        </span>
+        <span class="pending-row__go" aria-hidden="true">${icon("arrow-ne")}</span>
+      </a></li>`
+    )
+    .join("");
+
+  return `
+  <section class="wrap page-section pending-cases" id="pending" aria-labelledby="pending-title">
+    <div class="section-top">
+      <p class="section-index"><span>03</span> In the pipeline</p>
+      <p class="section-top__note">${rows.length} actions &middot; ${harassmentCount} on harassment</p>
+    </div>
+    <div class="pending-head">
+      <h2 class="section-title" id="pending-title">Pending before the <span class="marker">Court.</span></h2>
+      <p>Applications lodged but not yet decided. A case entering this list means the argument has been made, not that it has been won: the pleas are allegations, and no findings exist until the Court rules.</p>
+      <p class="pending-source">Source: Official Journal C notices of actions brought (CELEX <span class="mono">&hellip;TN&hellip;</span>), harvested from EUR-Lex Cellar on ${esc(pending.generatedAt || "—")}. Newest first, harassment matters grouped ahead.</p>
+    </div>
+    <ol class="pending-list" role="list">${items}</ol>
+  </section>`;
+}
+
 function caseCard(entry, root) {
   const primaryTopic = entry.tags[0] || "Unmatched";
   const searchBlob = [entry.title, entry.caseNo, entry.court, entry.subject, ...entry.tags].join(" ");
@@ -401,7 +451,8 @@ function casesPage() {
       <p><strong>Coverage note.</strong> Rulings are found by keyword searches over a bounded window. A topic match is not a legal finding, and the collection is not exhaustive. The linked official document is always the authority.</p>
       <a class="text-link" href="${root}settings/index.html">Read the method ${icon("arrow")}</a>
     </div>
-  </section>`;
+  </section>
+  ${pendingSection(root)}`;
 
   return shell({
     root,
