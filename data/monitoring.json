@@ -1,11 +1,86 @@
 {
-  "updatedAt": "2026-10-23T22:43:15.249Z",
+  "updatedAt": "2026-10-23T22:49:53.618Z",
   "schedule": {
     "time": "06:30",
     "timezone": "Europe/Brussels",
     "cadence": "Daily"
   },
   "runs": [
+    {
+      "startedAt": "2026-10-23T22:49:53.618Z",
+      "day": "2026-10-24",
+      "durationMs": 815,
+      "sources": [
+        {
+          "key": "eurlex-tn",
+          "name": "EUR-Lex / Cellar SPARQL — pending actions",
+          "status": "Success",
+          "discovered": 185,
+          "new": 0,
+          "failed": 0,
+          "note": "185 actions in scope, none new"
+        },
+        {
+          "key": "eurlex-tj",
+          "name": "EUR-Lex / Cellar SPARQL — staff judgments & orders",
+          "status": "Success",
+          "discovered": 5,
+          "new": 4,
+          "failed": 0,
+          "note": "new: T-537/24, T-506/25, T-408/25, T-436/26"
+        }
+      ]
+    },
+    {
+      "startedAt": "2026-10-23T22:49:52.572Z",
+      "day": "2026-10-24",
+      "durationMs": 889,
+      "sources": [
+        {
+          "key": "eurlex-tn",
+          "name": "EUR-Lex / Cellar SPARQL — pending actions",
+          "status": "Success",
+          "discovered": 185,
+          "new": 0,
+          "failed": 0,
+          "note": "185 actions in scope, none new"
+        },
+        {
+          "key": "eurlex-tj",
+          "name": "EUR-Lex / Cellar SPARQL — staff judgments & orders",
+          "status": "Success",
+          "discovered": 5,
+          "new": 4,
+          "failed": 0,
+          "note": "new: T-537/24, T-506/25, T-408/25, T-436/26"
+        }
+      ]
+    },
+    {
+      "startedAt": "2026-10-23T22:49:41.341Z",
+      "day": "2026-10-24",
+      "durationMs": 1077,
+      "sources": [
+        {
+          "key": "eurlex-tn",
+          "name": "EUR-Lex / Cellar SPARQL — pending actions",
+          "status": "Success",
+          "discovered": 185,
+          "new": 0,
+          "failed": 0,
+          "note": "185 actions in scope, none new"
+        },
+        {
+          "key": "eurlex-tj",
+          "name": "EUR-Lex / Cellar SPARQL — staff judgments & orders",
+          "status": "Success",
+          "discovered": 5,
+          "new": 4,
+          "failed": 0,
+          "note": "new: T-537/24, T-506/25, T-408/25, T-436/26"
+        }
+      ]
+    },
     {
       "startedAt": "2026-10-23T22:43:15.249Z",
       "day": "2026-10-24",

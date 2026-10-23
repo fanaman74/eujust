@@ -70,7 +70,7 @@ try {
     discovered: cases.length,
     new: fresh.length,
     failed: 0,
-    note: fresh.length ? `new: ${refs(fresh)}` : "",
+    note: fresh.length ? `new: ${refs(fresh)}` : `${cases.length} actions in scope, none new`,
   });
   console.log(`pending actions: ${cases.length} in scope, ${fresh.length} new`);
 } catch (error) {
@@ -108,7 +108,7 @@ try {
     discovered: items.length,
     new: fresh.length,
     failed: 0,
-    note: fresh.length ? `awaiting a described record: ${refs(fresh)}` : "",
+    note: fresh.length ? `new: ${refs(fresh)}` : `${items.length} in window since ${windowStart}, none new`,
   });
   console.log(`rulings since ${windowStart}: ${items.length} found, ${fresh.length} not in the archive`);
 } catch (error) {
@@ -142,12 +142,15 @@ console.log(`run recorded: ${sources.length - failed}/${sources.length} sources 
 
 /* ---------- rebuild ---------- */
 
+// Set exitCode rather than calling process.exit(): exiting while fetch handles are
+// still closing trips a libuv assertion on Windows and would report a failed task.
+let code = 0;
 if (!process.argv.includes("--no-build")) {
   const build = spawnSync(process.execPath, ["build.mjs"], { stdio: "inherit" });
   if (build.status !== 0) {
     console.error("build failed");
-    process.exit(1);
+    code = 1;
   }
 }
 
-process.exit(failed ? 1 : 0);
+process.exitCode = failed ? 1 : code;

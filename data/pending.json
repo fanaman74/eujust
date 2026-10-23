@@ -205,6 +205,18 @@
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0383"
     },
     {
+      "id": "62026TN0375",
+      "celex": "62026TN0375",
+      "caseNo": "T-375/26",
+      "court": "General Court",
+      "filedISO": "2026-06-15",
+      "ojISO": "2026-08-03",
+      "topics": [
+        "European official"
+      ],
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0375"
+    },
+    {
       "id": "62026TN0377",
       "celex": "62026TN0377",
       "caseNo": "T-377/26",
@@ -216,18 +228,6 @@
         "Staff regulations (EU)"
       ],
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0377"
-    },
-    {
-      "id": "62026TN0375",
-      "celex": "62026TN0375",
-      "caseNo": "T-375/26",
-      "court": "General Court",
-      "filedISO": "2026-06-15",
-      "ojISO": "2026-08-03",
-      "topics": [
-        "European official"
-      ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0375"
     },
     {
       "id": "62026TN0379",

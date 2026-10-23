@@ -1074,6 +1074,7 @@ function monitoringPage() {
       <td>${run.discovered}</td>
       <td>${run.new}</td>
       <td>${run.failed}</td>
+      <td class="run-note">${esc(run.note || "—")}</td>
     </tr>`)
     .join("");
 
@@ -1139,7 +1140,7 @@ function monitoringPage() {
       <div class="table-frame">
         <table>
           <caption class="sr-only">The 20 most recent source checks</caption>
-          <thead><tr><th scope="col">Started</th><th scope="col">Source</th><th scope="col">Status</th><th scope="col">Discovered</th><th scope="col">New</th><th scope="col">Failed</th></tr></thead>
+          <thead><tr><th scope="col">Started</th><th scope="col">Source</th><th scope="col">Status</th><th scope="col">Discovered</th><th scope="col">New</th><th scope="col">Failed</th><th scope="col">Detail</th></tr></thead>
           <tbody>${rows}</tbody>
         </table>
       </div>
