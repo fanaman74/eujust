@@ -485,7 +485,18 @@ a.tag:hover { color: var(--paper); background: var(--ink); }
 }
 .case-index-card--accent .case-index-card__court { color: rgba(23, 20, 18, .62); }
 .case-index-card .tag-list { margin-top: .8rem; }
-.case-index-card--accent .tag { border-color: rgba(23, 20, 18, .55); }
+/* On pink surfaces the hollow chip disappears into the background; fill it black. */
+.decision-card--pink .tag,
+.case-index-card--accent .tag {
+  color: var(--paper);
+  background: var(--ink);
+  border-color: var(--ink);
+}
+.decision-card--pink a.tag:hover,
+.case-index-card--accent a.tag:hover {
+  color: var(--ink);
+  background: var(--paper-hi);
+}
 .case-index-card__foot {
   display: flex;
   align-items: center;
