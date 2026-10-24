@@ -4,6 +4,8 @@ import path from "node:path";
 
 const root = process.cwd();
 const port = Number(process.env.PORT || 4173);
+// Railway (and any container host) needs 0.0.0.0; local runs keep loopback unless HOST is set.
+const host = process.env.HOST || (process.env.PORT ? "0.0.0.0" : "127.0.0.1");
 const types = {
   ".html": "text/html; charset=utf-8",
   ".css": "text/css; charset=utf-8",
@@ -17,8 +19,8 @@ const types = {
 };
 
 http.createServer((req, res) => {
-  let urlPath = decodeURIComponent((req.url || "/").split("?")[0]);
-  if (urlPath === "/") urlPath = "/index.html";
+  const requested = decodeURIComponent((req.url || "/").split("?")[0]);
+  let urlPath = requested === "/" ? "/index.html" : requested;
   let filePath = path.join(root, path.normalize(urlPath).replace(/^(\.\.[/\\])+/, ""));
   if (!filePath.startsWith(root)) {
     res.writeHead(403);
@@ -26,7 +28,16 @@ http.createServer((req, res) => {
     return;
   }
   try {
-    if (fs.statSync(filePath).isDirectory()) filePath = path.join(filePath, "index.html");
+    if (fs.statSync(filePath).isDirectory()) {
+      // Redirect to the trailing-slash form so relative links inside the page resolve
+      // against the directory, not its parent (matters for /cases vs /cases/).
+      if (!requested.endsWith("/")) {
+        res.writeHead(301, { Location: `${requested}/${req.url.includes("?") ? req.url.slice(requested.length) : ""}` });
+        res.end();
+        return;
+      }
+      filePath = path.join(filePath, "index.html");
+    }
   } catch {}
   fs.readFile(filePath, (err, data) => {
     if (err) {
@@ -46,6 +57,6 @@ http.createServer((req, res) => {
     });
     res.end(data);
   });
-}).listen(port, "127.0.0.1", () => {
-  console.log(`EU JUST preview: http://127.0.0.1:${port}`);
+}).listen(port, host, () => {
+  console.log(`EU JUST preview: http://${host}:${port}`);
 });

@@ -5,13 +5,17 @@
   "type": "module",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
-    "start": "node ./dist/server/entry.mjs",
+    "build": "node build.mjs",
+    "start": "node serve.js",
+    "build:astro": "astro build",
+    "start:astro": "node ./dist/server/entry.mjs",
     "check": "astro check",
     "test": "node --import tsx/esm --test test/**/*.test.ts",
     "db:migrate": "node scripts/migrate.mjs",
     "monitor": "tsx scripts/monitor.ts",
-    "worker": "tsx scripts/worker.ts"
+    "worker": "tsx scripts/worker.ts",
+    "harvest": "node harvest-pending.mjs",
+    "daily-check": "node daily-check.mjs"
   },
   "dependencies": {
     "@astrojs/node": "^11.1.6",
