@@ -43,6 +43,10 @@ const writeJson = (file, value) => {
   fs.mkdirSync("data", { recursive: true });
   fs.writeFileSync(file, JSON.stringify(value, null, 2));
 };
+const describeError = (error) => {
+  const cause = error?.cause?.code || error?.cause?.errno || "";
+  return `${error.message}${cause ? ` (${cause})` : ""}`.slice(0, 200);
+};
 const refs = (items, limit = 4) =>
   items.slice(0, limit).map((item) => item.caseNo).join(", ") + (items.length > limit ? ` +${items.length - limit}` : "");
 
@@ -81,7 +85,7 @@ try {
     discovered: 0,
     new: 0,
     failed: 1,
-    note: error.message.slice(0, 200),
+    note: describeError(error),
   });
   console.error(`pending actions failed: ${error.message}`);
 }
@@ -119,7 +123,7 @@ try {
     discovered: 0,
     new: 0,
     failed: 1,
-    note: error.message.slice(0, 200),
+    note: describeError(error),
   });
   console.error(`rulings sweep failed: ${error.message}`);
 }
