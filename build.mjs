@@ -148,6 +148,7 @@ function footer(root) {
       <ul>
         <li><a href="${root}monitoring/index.html">Monitoring</a></li>
         <li><a href="${root}settings/index.html">AI settings</a></li>
+        <li><button class="text-link text-link--light cookie-preferences-link" type="button" data-cc="show-preferencesModal">Cookie preferences</button></li>
       </ul>
       <h2 class="colophon__nav-second" id="footer-sources">Official sources</h2>
       <ul aria-labelledby="footer-sources">
@@ -195,6 +196,7 @@ function shell({ root, title, description, active, body, bodyClass = "", page = 
   <link rel="preload" href="${root}assets/fonts/archivo-black-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="${root}assets/fonts/archivo-var-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="${root}assets/fonts/fonts.css">
+  <link rel="stylesheet" href="${root}assets/vendor/cookieconsent.css">
   <link rel="stylesheet" href="${root}styles.css">
   <link rel="stylesheet" href="${root}pages.css">
   <script>document.documentElement.classList.add('js');</script>
@@ -216,6 +218,8 @@ function shell({ root, title, description, active, body, bodyClass = "", page = 
     ${body}
   </main>
   ${footer(root)}
+  <script src="${root}assets/vendor/cookieconsent.umd.js"></script>
+  <script src="${root}cookie-consent.js"></script>
   <script src="${root}assets/vendor/gsap.min.js"></script>
   <script src="${root}assets/vendor/ScrollTrigger.min.js"></script>
   <script src="${root}pages.js"></script>
@@ -292,44 +296,6 @@ const shortDate = (iso = "") => {
   const [y, m, d] = String(iso).split("-");
   return d ? `${Number(d)} ${MONTHS[Number(m) - 1]} ${y}` : iso;
 };
-
-function pendingSection(root) {
-  const rows = pending.cases || [];
-  if (!rows.length) return "";
-  const focus = (entry) => entry.topics?.includes("Harassment at work");
-  const harassmentCount = rows.filter(focus).length;
-  const ordered = [...rows].sort(
-    (a, b) => Number(focus(b)) - Number(focus(a)) || String(b.filedISO).localeCompare(String(a.filedISO))
-  );
-
-  const items = ordered
-    .map(
-      (entry) => `<li><a class="pending-row${focus(entry) ? " pending-row--focus" : ""}" href="${attr(entry.url)}" target="_blank" rel="noreferrer">
-        <span class="pending-row__no">${esc(entry.caseNo)}</span>
-        <span class="pending-row__body">
-          <span class="pending-row__meta">${esc(entry.court)}${entry.filedISO ? ` &middot; filed ${esc(shortDate(entry.filedISO))}` : ""}${entry.ojISO ? ` &middot; OJ ${esc(shortDate(entry.ojISO))}` : ""}</span>
-          <span class="pending-row__topics">${(entry.topics || []).map((topic) => `<span class="pending-row__topic">${esc(topic)}</span>`).join("")}</span>
-        </span>
-        <span class="pending-row__go" aria-hidden="true">${icon("arrow-ne")}</span>
-      </a></li>`
-    )
-    .join("");
-
-  return `
-  <section class="wrap page-section pending-cases" id="pending" aria-labelledby="pending-title">
-    <div class="section-top">
-      <p class="section-index"><span>03</span> In the pipeline</p>
-      <p class="section-top__note">${rows.length} actions &middot; ${harassmentCount} on harassment</p>
-    </div>
-    <div class="pending-head">
-      <h2 class="section-title" id="pending-title">Pending before the <span class="marker">Court.</span></h2>
-      <p>Applications lodged but not yet decided. A case entering this list means the argument has been made, not that it has been won: the pleas are allegations, and no findings exist until the Court rules.</p>
-      <a class="text-link" href="${root}pending/index.html">Search all ${rows.length} pending cases ${icon("arrow")}</a>
-      <p class="pending-source">Source: Official Journal C notices of actions brought (CELEX <span class="mono">&hellip;TN&hellip;</span>), harvested from EUR-Lex Cellar on ${esc(pending.generatedAt || "—")}. Newest first, harassment matters grouped ahead.</p>
-    </div>
-    <ol class="pending-list" role="list">${items}</ol>
-  </section>`;
-}
 
 function pendingPage() {
   const root = "../";
@@ -535,7 +501,7 @@ function casesPage() {
       <a class="text-link" href="${root}settings/index.html">Read the method ${icon("arrow")}</a>
     </div>
   </section>
-  ${pendingSection(root)}`;
+  `;
 
   return shell({
     root,
@@ -1354,25 +1320,25 @@ function settingsPage() {
     title: `AI <span class="marker">settings.</span>`,
     lede: site.settings.intro,
     stats: [
-      { label: "Status", value: "Local preview" },
+      { label: "Status", value: "Direct check" },
       { label: "Providers", value: "4" },
-      { label: "Keys sent", value: "None" }
+      { label: "Keys stored", value: "None" }
     ],
     bgword: "SETTINGS",
     breadcrumb: [{ label: "Home", href: "index.html" }, { label: "AI settings" }]
   })}
 
   <section class="wrap page-section settings-page" aria-labelledby="settings-title">
-    <div class="section-top"><p class="section-index"><span>01</span> Provider connection</p><span class="section-top__note">No network calls</span></div>
+    <div class="section-top"><p class="section-index"><span>01</span> Provider connection</p><span class="section-top__note">One-time connection check</span></div>
     <div class="settings-layout">
       <div class="settings-main">
         <div class="settings-head">
           <h2 class="section-title" id="settings-title">Connect your <span class="marker">AI.</span></h2>
-          <p>Optional. Bring your own provider and API key to generate source-grounded summaries. This static edition demonstrates the interface only.</p>
+          <p>Check a provider using a one-time API key. The key goes directly from your browser to that provider and is cleared after the check.</p>
         </div>
 
         <form class="provider-form" id="provider-form" novalidate>
-          <div class="provider-form__top"><span>${icon("key")} Provider connection</span><span>Local demo</span></div>
+          <div class="provider-form__top"><span>${icon("key")} Provider connection</span><span>Key never saved</span></div>
           <div class="provider-form__grid">
             <label class="field" for="provider">
               <span>AI provider</span>
@@ -1380,30 +1346,34 @@ function settingsPage() {
             </label>
             <label class="field" for="api-key">
               <span>API key</span>
-              <span class="field__control field__control--password">${icon("key")}<input id="api-key" name="api-key" type="password" placeholder="Demo only — do not paste a real key" autocomplete="off"><button type="button" class="reveal-key" id="reveal-key" aria-label="Show API key">${icon("eye")}</button></span>
+              <span class="field__control field__control--password">${icon("key")}<input id="api-key" type="password" placeholder="Paste a key for a one-time check" autocomplete="new-password" spellcheck="false"><button type="button" class="reveal-key" id="reveal-key" aria-label="Show API key">${icon("eye")}</button></span>
             </label>
             <label class="field" for="model">
               <span>Model identifier</span>
               <input id="model" name="model" type="text" placeholder="e.g. gpt-4o-mini" autocomplete="off">
             </label>
             <label class="field" for="endpoint">
-              <span>API endpoint <em>optional</em></span>
-              <input id="endpoint" name="endpoint" type="url" placeholder="https://api.example.com/v1" autocomplete="off">
+              <span>API endpoint</span>
+              <input id="endpoint" name="endpoint" type="url" autocomplete="url" spellcheck="false">
+            </label>
+            <label class="field" id="available-models-field" for="available-models" hidden>
+              <span>Available OpenRouter models</span>
+              <select id="available-models"><option value="">Choose a model</option></select>
             </label>
           </div>
           <p class="provider-form__notice">${icon("warning")} ${esc(site.settings.notice)}</p>
           <div class="provider-form__actions">
             <button class="btn btn--ink" type="button" id="test-connection">Test connection ${icon("pulse")}</button>
-            <button class="btn" type="submit">Save provider ${icon("check")}</button>
+            <button class="btn" type="button" id="clear-provider-key">Clear key ${icon("close")}</button>
             <span class="form-status" id="provider-status" role="status"></span>
           </div>
         </form>
 
         <div class="saved-providers">
-          <div class="section-top"><p class="section-index"><span>02</span> Saved providers</p><span class="section-top__note">0 configured</span></div>
+          <div class="section-top"><p class="section-index"><span>02</span> Credential handling</p><span class="section-top__note">Not stored</span></div>
           <div class="empty-provider">
             <span class="empty-provider__mark">${icon("key")}</span>
-            <div><h2>No provider configured.</h2><p>Every ruling stays readable without AI. The collection does not require a summary layer.</p></div>
+            <div><h2>One check at a time.</h2><p>EUJUST does not receive or retain your API key. Paste it again for another check; provider settings and credentials are not saved.</p></div>
           </div>
         </div>
       </div>
@@ -1413,10 +1383,10 @@ function settingsPage() {
           <p class="section-index"><span>A</span> Read me</p>
           <h2>What this <span class="marker">doesn’t</span> do.</h2>
           <ul class="plain-list">
-            <li>No key is sent to a server.</li>
-            <li>No provider is contacted.</li>
-            <li>No summary is generated.</li>
-            <li>No credential is stored.</li>
+            <li>Your browser sends the key directly to the selected provider for the check.</li>
+            <li>EUJUST does not receive or store the key.</li>
+            <li>The key input is cleared when the request finishes.</li>
+            <li>OpenRouter model IDs are loaded from its models endpoint.</li>
           </ul>
         </section>
         <section class="paper-panel paper-panel--pink">

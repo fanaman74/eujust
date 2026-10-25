@@ -268,7 +268,6 @@
     initParallax();
     initReveals();
     initCounters();
-    initScanLine();
     initLatestScroll();
     initTilt();
     initMagnets();
@@ -359,14 +358,6 @@
       duration: .85,
       ease: "power3.out",
       scrollTrigger: { trigger: ".ledger", start: "top 86%", once: true }
-    });
-
-    gsap.from(".feed-board", {
-      y: 42,
-      opacity: 0,
-      duration: .85,
-      ease: "power3.out",
-      scrollTrigger: { trigger: ".feed-board", start: "top 86%", once: true }
     });
 
     gsap.utils.toArray(".way-card").forEach((card, index) => {
@@ -466,51 +457,6 @@
           });
         }
       });
-    });
-  }
-
-  function initScanLine() {
-    const board = document.querySelector(".feed-board");
-    const scan = document.querySelector(".feed-scan");
-    const list = document.querySelector(".feed-list");
-    const bar = document.querySelector(".feed-board__bar");
-    if (!board || !scan || !list || !bar) return;
-
-    const scanTween = gsap.timeline({
-      paused: true,
-      repeat: -1,
-      repeatDelay: .55,
-      defaults: { ease: "none" }
-    });
-
-    scanTween
-      .set(scan, { y: () => bar.offsetHeight + 1, opacity: 0 })
-      .to(scan, { opacity: .85, duration: .4 })
-      .to(scan, {
-        y: () => bar.offsetHeight + list.offsetHeight - 4,
-        duration: 7.2,
-        ease: "none"
-      })
-      .to(scan, { opacity: 0, duration: .3 });
-
-    ScrollTrigger.create({
-      trigger: board,
-      start: "top bottom",
-      end: "bottom top",
-      onEnter: () => scanTween.play(),
-      onEnterBack: () => scanTween.play(),
-      onLeave: () => scanTween.pause(),
-      onLeaveBack: () => scanTween.pause()
-    });
-
-    board.addEventListener("pointerenter", () => scanTween.pause());
-    board.addEventListener("pointerleave", () => scanTween.play());
-    board.addEventListener("focusin", () => scanTween.pause());
-    board.addEventListener("focusout", () => scanTween.play());
-
-    window.addEventListener("resize", () => {
-      scanTween.invalidate();
-      scanTween.restart();
     });
   }
 

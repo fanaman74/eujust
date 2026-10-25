@@ -651,18 +651,44 @@
     const test = document.getElementById("test-connection");
     const provider = document.getElementById("provider");
     const model = document.getElementById("model");
-    if (!status) return;
+    const endpoint = document.getElementById("endpoint");
+    const modelList = document.getElementById("available-models");
+    const modelListField = document.getElementById("available-models-field");
+    const clearKey = document.getElementById("clear-provider-key");
+    if (!status || !key || !provider || !endpoint) return;
 
-    const messages = {
-      "OpenAI / ChatGPT": "gpt-4o-mini",
-      "DeepSeek": "deepseek-chat",
-      "OpenRouter": "openrouter/auto",
-      "Anthropic Claude": "claude-sonnet-4"
+    const providers = {
+      "OpenAI / ChatGPT": { endpoint: "https://api.openai.com/v1", model: "gpt-4o-mini", keyHeader: "Authorization", keyPrefix: "Bearer " },
+      "DeepSeek": { endpoint: "https://api.deepseek.com", model: "deepseek-chat", keyHeader: "Authorization", keyPrefix: "Bearer " },
+      "OpenRouter": { endpoint: "https://openrouter.ai/api/v1", model: "openrouter/auto", keyHeader: "Authorization", keyPrefix: "Bearer " },
+      "Anthropic Claude": { endpoint: "https://api.anthropic.com/v1", model: "claude-sonnet-4", keyHeader: "x-api-key", keyPrefix: "" }
     };
+    let autoEndpoint = "";
 
-    provider?.addEventListener("change", () => {
-      if (model && !model.value) model.placeholder = messages[provider.value] || "Model identifier";
-    });
+    function clearModelList() {
+      if (!modelList || !modelListField) return;
+      modelList.replaceChildren(new Option("Choose a model", ""));
+      modelListField.hidden = true;
+    }
+
+    function updateProviderDefaults({ forceEndpoint = false } = {}) {
+      const config = providers[provider.value];
+      if (!config) return;
+      if (forceEndpoint || !endpoint.value.trim() || endpoint.value.trim() === autoEndpoint) {
+        endpoint.value = config.endpoint;
+        autoEndpoint = config.endpoint;
+      }
+      if (model) {
+        model.placeholder = config.model;
+        model.value = "";
+      }
+      clearModelList();
+      status.textContent = "";
+    }
+
+    updateProviderDefaults({ forceEndpoint: true });
+
+    provider.addEventListener("change", () => updateProviderDefaults());
 
     reveal?.addEventListener("click", () => {
       if (!key) return;
@@ -674,20 +700,123 @@
         : `<svg class="icon" aria-hidden="true"><use href="#i-eye"/></svg>`;
     });
 
-    form.addEventListener("submit", (event) => {
-      event.preventDefault();
-      status.textContent = "Demo only — nothing was saved or sent.";
+    modelList?.addEventListener("change", () => {
+      if (model && modelList.value) model.value = modelList.value;
     });
 
-    test?.addEventListener("click", () => {
-      if (!key?.value.trim()) {
-        status.textContent = "Add a demo value to test the field, or leave it blank.";
-        key?.focus();
+    endpoint.addEventListener("input", () => {
+      if (endpoint.value.trim() !== autoEndpoint) autoEndpoint = "";
+    });
+
+    form.addEventListener("submit", (event) => event.preventDefault());
+
+    clearKey?.addEventListener("click", () => {
+      key.value = "";
+      key.type = "password";
+      clearModelList();
+      status.textContent = "Key cleared. Provider settings are not saved.";
+      reveal?.setAttribute("aria-label", "Show API key");
+      if (reveal) reveal.innerHTML = `<svg class="icon" aria-hidden="true"><use href="#i-eye"/></svg>`;
+    });
+
+    test?.addEventListener("click", async () => {
+      const config = providers[provider.value];
+      const suppliedKey = key.value.trim();
+      if (!suppliedKey) {
+        status.textContent = "Paste your provider key to test the connection.";
+        key.focus();
         return;
       }
-      status.textContent = "Demo only — no provider was contacted.";
-      if (motion) {
-        gsap.fromTo(status, { y: 3, opacity: .4 }, { y: 0, opacity: 1, duration: .3 });
+
+      let target;
+      try {
+        target = new URL(endpoint.value.trim());
+        if (target.protocol !== "https:" || target.username || target.password || target.search || target.hash) {
+          throw new Error("Use a secure HTTPS endpoint without embedded credentials.");
+        }
+      } catch (error) {
+        status.textContent = error instanceof TypeError
+          ? "Enter a valid HTTPS API endpoint."
+          : error.message;
+        endpoint.focus();
+        return;
+      }
+
+      if (!config) {
+        status.textContent = "Select a supported provider first.";
+        return;
+      }
+
+      if (target.host !== new URL(config.endpoint).host && !window.confirm(`This sends your API key directly to ${target.host}. Continue only if you trust this custom endpoint.`)) {
+        status.textContent = "Connection check cancelled. Your key was not sent.";
+        return;
+      }
+      const endpointPath = target.pathname.endsWith("/") ? target.pathname.slice(0, -1) : target.pathname;
+      target.pathname = `${endpointPath}/models`;
+      const requestUrl = target.toString();
+      const headers = { Accept: "application/json", [config.keyHeader]: `${config.keyPrefix}${suppliedKey}` };
+      if (provider.value === "Anthropic Claude") {
+        headers["anthropic-version"] = "2023-06-01";
+        headers["anthropic-dangerous-direct-browser-access"] = "true";
+      }
+      test.disabled = true;
+      status.textContent = "Testing the provider connection…";
+      clearModelList();
+      try {
+        const controller = new AbortController();
+        const timeout = window.setTimeout(() => controller.abort(), 15000);
+        let response;
+        try {
+          response = await fetch(requestUrl, {
+            method: "GET",
+            headers,
+            cache: "no-store",
+            credentials: "omit",
+            redirect: "error",
+            referrerPolicy: "no-referrer",
+            signal: controller.signal
+          });
+        } finally {
+          window.clearTimeout(timeout);
+        }
+        if (!response.ok) {
+          const messages = {
+            401: "The provider rejected the key. Check it and try again.",
+            403: "The provider denied access. Check the key permissions.",
+            429: "The provider rate limited this request. Try again shortly."
+          };
+          throw new Error(messages[response.status] || `Provider returned HTTP ${response.status}.`);
+        }
+        const payload = await response.json();
+        if (provider.value === "OpenRouter") {
+          const available = Array.isArray(payload.data) ? payload.data : [];
+          if (!available.length) throw new Error("Connected, but OpenRouter returned no models.");
+          if (modelList && modelListField) {
+            const options = available
+              .filter((item) => typeof item.id === "string")
+              .sort((a, b) => String(a.name || a.id).localeCompare(String(b.name || b.id)))
+              .map((item) => new Option(`${item.name || item.id} (${item.id})`, item.id));
+            modelList.replaceChildren(new Option("Choose a model", ""), ...options);
+            modelListField.hidden = false;
+          }
+          status.textContent = `Connection successful. ${available.length} OpenRouter models available. Key cleared.`;
+        } else {
+          status.textContent = "Connection successful. Key cleared.";
+        }
+      } catch (error) {
+        status.textContent = error.name === "AbortError"
+          ? "The request timed out. Check the endpoint and try again. Key cleared."
+          : error instanceof TypeError
+            ? "Could not reach the provider. Check the endpoint or browser CORS access. Key cleared."
+            : `${error.message} Key cleared.`;
+      } finally {
+        headers[config.keyHeader] = "";
+        key.value = "";
+        key.type = "password";
+        reveal?.setAttribute("aria-label", "Show API key");
+        if (reveal) reveal.innerHTML = `<svg class="icon" aria-hidden="true"><use href="#i-eye"/></svg>`;
+        test.disabled = false;
+        if (motion) gsap.fromTo(status, { y: 3, opacity: .4 }, { y: 0, opacity: 1, duration: .3 });
       }
     });
   }

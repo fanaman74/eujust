@@ -10,6 +10,7 @@
   <link rel="preload" href="../assets/fonts/archivo-black-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="../assets/fonts/archivo-var-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="../assets/fonts/fonts.css">
+  <link rel="stylesheet" href="../assets/vendor/cookieconsent.css">
   <link rel="stylesheet" href="../styles.css">
   <link rel="stylesheet" href="../pages.css">
   <script>document.documentElement.classList.add('js');</script>
@@ -96,8 +97,8 @@
         <h1>AI <span class="marker">settings.</span></h1>
       </div>
       <div class="page-hero__aside">
-        <p class="page-hero__lede">Choose an optional provider for source-grounded summaries. This static edition is a local interface preview.</p>
-        <dl class="page-stats"><div><dt>Status</dt><dd>Local preview</dd></div><div><dt>Providers</dt><dd>4</dd></div><div><dt>Keys sent</dt><dd>None</dd></div></dl>
+        <p class="page-hero__lede">Test a provider connection with a one-time key. The key is sent directly to that provider for the check, then cleared from this page.</p>
+        <dl class="page-stats"><div><dt>Status</dt><dd>Direct check</dd></div><div><dt>Providers</dt><dd>4</dd></div><div><dt>Keys stored</dt><dd>None</dd></div></dl>
         
       </div>
     </div>
@@ -106,16 +107,16 @@
 </section>
 
   <section class="wrap page-section settings-page" aria-labelledby="settings-title">
-    <div class="section-top"><p class="section-index"><span>01</span> Provider connection</p><span class="section-top__note">No network calls</span></div>
+    <div class="section-top"><p class="section-index"><span>01</span> Provider connection</p><span class="section-top__note">One-time connection check</span></div>
     <div class="settings-layout">
       <div class="settings-main">
         <div class="settings-head">
           <h2 class="section-title" id="settings-title">Connect your <span class="marker">AI.</span></h2>
-          <p>Optional. Bring your own provider and API key to generate source-grounded summaries. This static edition demonstrates the interface only.</p>
+          <p>Check a provider using a one-time API key. The key goes directly from your browser to that provider and is cleared after the check.</p>
         </div>
 
         <form class="provider-form" id="provider-form" novalidate>
-          <div class="provider-form__top"><span><svg class="icon " aria-hidden="true" focusable="false"><use href="#i-key"/></svg> Provider connection</span><span>Local demo</span></div>
+          <div class="provider-form__top"><span><svg class="icon " aria-hidden="true" focusable="false"><use href="#i-key"/></svg> Provider connection</span><span>Key never saved</span></div>
           <div class="provider-form__grid">
             <label class="field" for="provider">
               <span>AI provider</span>
@@ -123,30 +124,34 @@
             </label>
             <label class="field" for="api-key">
               <span>API key</span>
-              <span class="field__control field__control--password"><svg class="icon " aria-hidden="true" focusable="false"><use href="#i-key"/></svg><input id="api-key" name="api-key" type="password" placeholder="Demo only — do not paste a real key" autocomplete="off"><button type="button" class="reveal-key" id="reveal-key" aria-label="Show API key"><svg class="icon " aria-hidden="true" focusable="false"><use href="#i-eye"/></svg></button></span>
+              <span class="field__control field__control--password"><svg class="icon " aria-hidden="true" focusable="false"><use href="#i-key"/></svg><input id="api-key" type="password" placeholder="Paste a key for a one-time check" autocomplete="new-password" spellcheck="false"><button type="button" class="reveal-key" id="reveal-key" aria-label="Show API key"><svg class="icon " aria-hidden="true" focusable="false"><use href="#i-eye"/></svg></button></span>
             </label>
             <label class="field" for="model">
               <span>Model identifier</span>
               <input id="model" name="model" type="text" placeholder="e.g. gpt-4o-mini" autocomplete="off">
             </label>
             <label class="field" for="endpoint">
-              <span>API endpoint <em>optional</em></span>
-              <input id="endpoint" name="endpoint" type="url" placeholder="https://api.example.com/v1" autocomplete="off">
+              <span>API endpoint</span>
+              <input id="endpoint" name="endpoint" type="url" autocomplete="url" spellcheck="false">
+            </label>
+            <label class="field" id="available-models-field" for="available-models" hidden>
+              <span>Available OpenRouter models</span>
+              <select id="available-models"><option value="">Choose a model</option></select>
             </label>
           </div>
-          <p class="provider-form__notice"><svg class="icon " aria-hidden="true" focusable="false"><use href="#i-warning"/></svg> No key is transmitted, stored, or sent anywhere. The form exists to demonstrate the interaction.</p>
+          <p class="provider-form__notice"><svg class="icon " aria-hidden="true" focusable="false"><use href="#i-warning"/></svg> Your key is sent directly to the selected provider only for this connection check. It is not sent to EUJUST, saved, or logged by this page, and is cleared when the check finishes.</p>
           <div class="provider-form__actions">
             <button class="btn btn--ink" type="button" id="test-connection">Test connection <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-pulse"/></svg></button>
-            <button class="btn" type="submit">Save provider <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-check"/></svg></button>
+            <button class="btn" type="button" id="clear-provider-key">Clear key <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-close"/></svg></button>
             <span class="form-status" id="provider-status" role="status"></span>
           </div>
         </form>
 
         <div class="saved-providers">
-          <div class="section-top"><p class="section-index"><span>02</span> Saved providers</p><span class="section-top__note">0 configured</span></div>
+          <div class="section-top"><p class="section-index"><span>02</span> Credential handling</p><span class="section-top__note">Not stored</span></div>
           <div class="empty-provider">
             <span class="empty-provider__mark"><svg class="icon " aria-hidden="true" focusable="false"><use href="#i-key"/></svg></span>
-            <div><h2>No provider configured.</h2><p>Every ruling stays readable without AI. The collection does not require a summary layer.</p></div>
+            <div><h2>One check at a time.</h2><p>EUJUST does not receive or retain your API key. Paste it again for another check; provider settings and credentials are not saved.</p></div>
           </div>
         </div>
       </div>
@@ -156,10 +161,10 @@
           <p class="section-index"><span>A</span> Read me</p>
           <h2>What this <span class="marker">doesn’t</span> do.</h2>
           <ul class="plain-list">
-            <li>No key is sent to a server.</li>
-            <li>No provider is contacted.</li>
-            <li>No summary is generated.</li>
-            <li>No credential is stored.</li>
+            <li>Your browser sends the key directly to the selected provider for the check.</li>
+            <li>EUJUST does not receive or store the key.</li>
+            <li>The key input is cleared when the request finishes.</li>
+            <li>OpenRouter model IDs are loaded from its models endpoint.</li>
           </ul>
         </section>
         <section class="paper-panel paper-panel--pink">
@@ -198,6 +203,7 @@
       <ul>
         <li><a href="../monitoring/index.html">Monitoring</a></li>
         <li><a href="../settings/index.html">AI settings</a></li>
+        <li><button class="text-link text-link--light cookie-preferences-link" type="button" data-cc="show-preferencesModal">Cookie preferences</button></li>
       </ul>
       <h2 class="colophon__nav-second" id="footer-sources">Official sources</h2>
       <ul aria-labelledby="footer-sources">
@@ -221,6 +227,8 @@
     <p>Closer to the source. / 2026</p>
   </div>
 </footer>
+  <script src="../assets/vendor/cookieconsent.umd.js"></script>
+  <script src="../cookie-consent.js"></script>
   <script src="../assets/vendor/gsap.min.js"></script>
   <script src="../assets/vendor/ScrollTrigger.min.js"></script>
   <script src="../pages.js"></script>

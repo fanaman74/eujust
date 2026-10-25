@@ -3560,8 +3560,8 @@
     }
   },
   "settings": {
-    "intro": "Choose an optional provider for source-grounded summaries. This static edition is a local interface preview.",
-    "notice": "No key is transmitted, stored, or sent anywhere. The form exists to demonstrate the interaction.",
+    "intro": "Test a provider connection with a one-time key. The key is sent directly to that provider for the check, then cleared from this page.",
+    "notice": "Your key is sent directly to the selected provider only for this connection check. It is not sent to EUJUST, saved, or logged by this page, and is cleared when the check finishes.",
     "providers": [
       "OpenAI / ChatGPT",
       "DeepSeek",
