@@ -136,6 +136,7 @@ function footer(root) {
       <ul>
         <li><a href="${root}topics/index.html">Research topics</a></li>
         <li><a href="${root}cases/index.html">Court rulings</a></li>
+        <li><a href="${root}case-insights/index.html">Court charts</a></li>
         <li><a href="${root}pending/index.html">Pending cases</a></li>
         <li><a href="${root}rules/index.html">Rules &amp; updates</a></li>
         <li><a href="${root}decisions/index.html">Selected records</a></li>
@@ -409,7 +410,7 @@ function pendingPage() {
 
 function caseCard(entry, root) {
   const primaryTopic = entry.tags[0] || "Unmatched";
-  const searchBlob = [entry.title, entry.caseNo, entry.court, entry.subject, ...entry.tags].join(" ");
+  const searchBlob = [entry.title, entry.caseNo, entry.court, entry.subject, entry.dateISO, entry.dateLabel, ...entry.tags].join(" ");
   const date = new Date(entry.dateISO).getTime();
   return `<article class="case-index-card${entry.order % 9 === 1 ? " case-index-card--accent" : ""}" data-case data-id="${entry.id}" data-topic="${attr(entry.topicSlugs.join(" "))}" data-court="${attr(entry.court)}" data-date="${attr(entry.dateISO)}" data-name="${attr(entry.title)}" data-search="${attr(searchBlob)}">
     <div class="case-index-card__top">
@@ -448,7 +449,8 @@ function casesPage() {
     lede: "Decisions of the Court of Justice and the General Court on harassment, discrimination and psychosocial risk at work. Search the record, then open the judgment itself.",
     stats,
     bgword: "CASE LAW",
-    breadcrumb: [{ label: "Home", href: "index.html" }, { label: "Court rulings" }]
+    breadcrumb: [{ label: "Home", href: "index.html" }, { label: "Court rulings" }],
+    aside: `<a class="text-link" href="${root}case-insights/index.html">View charts for the collection ${icon("arrow")}</a>`
   })}
 
   <section class="wrap page-section cases-index" aria-labelledby="cases-list-title">
@@ -541,6 +543,88 @@ function casesPage() {
     description: "Search Court of Justice and General Court rulings on harassment, discrimination and psychosocial risks.",
     active: "cases",
     page: "cases",
+    body
+  });
+}
+
+function caseInsightsPage() {
+  const root = "../";
+  const years = new Map();
+  const courts = new Map();
+  for (const entry of cases) {
+    const year = entry.dateISO.slice(0, 4);
+    years.set(year, (years.get(year) || 0) + 1);
+    courts.set(entry.court, (courts.get(entry.court) || 0) + 1);
+  }
+  const yearRows = [...years.entries()].sort(([a], [b]) => a.localeCompare(b));
+  const courtRows = [...courts.entries()].sort((a, b) => b[1] - a[1]);
+  const topicRows = topics.map((topic) => [topic, topic.cases.length]).sort((a, b) => b[1] - a[1]);
+  const peak = Math.max(1, ...yearRows.map(([, count]) => count));
+  const byYear = yearRows.map(([year, count]) => `<li class="chart-row">
+    <a class="chart-row__label" href="${root}cases/index.html?q=${encodeURIComponent(year)}">${esc(year)}</a>
+    <span class="chart-row__track" aria-hidden="true"><span style="--bar-width:${(count / peak * 100).toFixed(1)}%"></span></span>
+    <strong class="chart-row__value">${count}</strong>
+  </li>`).join("");
+  const byCourt = courtRows.map(([court, count]) => `<li class="chart-row">
+    <a class="chart-row__label" href="${root}cases/index.html?court=${encodeURIComponent(court)}">${esc(court)}</a>
+    <span class="chart-row__track" aria-hidden="true"><span style="--bar-width:${(count / cases.length * 100).toFixed(1)}%"></span></span>
+    <strong class="chart-row__value">${count}</strong>
+  </li>`).join("");
+  const byTopic = topicRows.map(([topic, count]) => `<li class="chart-row">
+    <a class="chart-row__label" href="${root}topics/${attr(topic.slug)}/index.html">${esc(topic.name)}</a>
+    <span class="chart-row__track" aria-hidden="true"><span style="--bar-width:${(count / cases.length * 100).toFixed(1)}%"></span></span>
+    <strong class="chart-row__value">${count}</strong>
+  </li>`).join("");
+  const yearRange = yearRows.length ? `${yearRows[0][0]}–${yearRows[yearRows.length - 1][0]}` : "No dates recorded";
+  const body = `${pageHero({
+    root,
+    index: "06",
+    kicker: "The collection, measured",
+    title: `Court <span class="marker">charts.</span>`,
+    lede: "A visual summary of the collected court rulings by judgment year, court and matched topic. Select a chart label to open the relevant records or topic guide.",
+    stats: [
+      { label: "Rulings on record", value: String(cases.length) },
+      { label: "Judgment years", value: String(yearRows.length) },
+      { label: "Courts represented", value: String(courtRows.length) }
+    ],
+    bgword: "THE DOCKET",
+    breadcrumb: [{ label: "Home", href: "index.html" }, { label: "Court rulings", href: "cases/index.html" }, { label: "Charts" }]
+  })}
+  <section class="wrap page-section case-insights" aria-labelledby="case-insights-title">
+    <div class="section-top">
+      <p class="section-index"><span>01</span> Collected rulings</p>
+      <a class="text-link text-link--small" href="${root}cases/index.html">Search all ${cases.length} rulings ${icon("arrow-ne")}</a>
+    </div>
+    <div class="case-insights__head">
+      <h2 class="section-title" id="case-insights-title">What the <span class="marker">record shows.</span></h2>
+      <p>These charts cover ${cases.length} collected rulings with judgment dates from ${esc(yearRange)}. They describe this bounded, keyword-searched collection, not all EU case law.</p>
+    </div>
+    <div class="case-chart-grid">
+      <figure class="case-chart case-chart--wide" aria-labelledby="chart-years-title">
+        <figcaption><h3 id="chart-years-title">Rulings by judgment year</h3><p>Each ruling is counted once, by its recorded judgment date.</p></figcaption>
+        <ol class="chart-rows chart-rows--years" aria-label="Ruling counts by judgment year">${byYear}</ol>
+      </figure>
+      <figure class="case-chart" aria-labelledby="chart-courts-title">
+        <figcaption><h3 id="chart-courts-title">Rulings by court</h3><p>Choose a court to filter the archive.</p></figcaption>
+        <ol class="chart-rows" aria-label="Ruling counts by court">${byCourt}</ol>
+      </figure>
+      <figure class="case-chart" aria-labelledby="chart-topics-title">
+        <figcaption><h3 id="chart-topics-title">Matched topics</h3><p>A ruling can match more than one topic, so these counts overlap.</p></figcaption>
+        <ol class="chart-rows" aria-label="Ruling counts by matched topic">${byTopic}</ol>
+      </figure>
+    </div>
+    <aside class="coverage-note">
+      <span class="coverage-note__icon">${icon("warning")}</span>
+      <p><strong>Coverage note.</strong> Cases come from bounded searches of official sources; topic labels are keyword matches, not legal analysis. The linked official judgment remains the authority.</p>
+      <a class="text-link" href="${root}cases/index.html">Browse the archive ${icon("arrow")}</a>
+    </aside>
+  </section>`;
+  return shell({
+    root,
+    title: "EU court rulings — collection charts",
+    description: "Charts of the collected EU court rulings by judgment year, court and matched topic.",
+    active: "cases",
+    page: "case-insights",
     body
   });
 }
@@ -1365,6 +1449,7 @@ function writePage(file, html) {
 }
 
 writePage("cases/index.html", casesPage());
+writePage("case-insights/index.html", caseInsightsPage());
 writePage("pending/index.html", pendingPage());
 for (const entry of cases) writePage(`cases/${entry.id}/index.html`, casePage(entry));
 writePage("topics/index.html", topicsPage());
@@ -1378,6 +1463,7 @@ writePage("settings/index.html", settingsPage());
 const sitemapUrls = [
   "",
   "cases/",
+  "case-insights/",
   "pending/",
   "rules/",
   "decisions/",
@@ -1396,6 +1482,6 @@ fs.writeFileSync(
     .join("")}</urlset>`
 );
 
-console.log("Built pages:", 9 + topics.length + cases.length);
+console.log("Built pages:", 10 + topics.length + cases.length);
 console.log("Case pages:", cases.length);
 console.log("Topic pages:", topics.length);
