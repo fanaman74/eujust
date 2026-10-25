@@ -338,18 +338,24 @@ function pendingPage() {
   const focus = (entry) => entry.topics?.includes("Harassment at work");
   const harassmentCount = rows.filter(focus).length;
   const ordered = [...rows].sort((a, b) => Number(focus(b)) - Number(focus(a)) || String(b.filedISO || "").localeCompare(String(a.filedISO || "")));
-  const items = ordered.map((entry) => {
+  const items = ordered.map((entry, index) => {
     const entryTopics = entry.topics || [];
     const search = [entry.caseNo, entry.court, ...entryTopics].join(" ");
-    return `<li data-pending-case data-topics="${attr(entryTopics.join("|"))}" data-court="${attr(entry.court || "")}" data-search="${attr(search)}">
-      <a class="pending-row${focus(entry) ? " pending-row--focus" : ""}" href="${attr(entry.url)}" target="_blank" rel="noreferrer">
-        <span class="pending-row__no">${esc(entry.caseNo)}</span>
-        <span class="pending-row__body">
-          <span class="pending-row__meta">${esc(entry.court)}${entry.filedISO ? ` &middot; filed ${esc(shortDate(entry.filedISO))}` : ""}${entry.ojISO ? ` &middot; OJ ${esc(shortDate(entry.ojISO))}` : ""}</span>
-          <span class="pending-row__topics">${entryTopics.map((topic) => `<span class="pending-row__topic">${esc(topic)}</span>`).join("")}</span>
-        </span>
-        <span class="pending-row__go" aria-hidden="true">${icon("arrow-ne")}</span>
-      </a>
+    const cardClass = `case-index-card${index % 9 === 0 ? " case-index-card--accent" : ""}`;
+    return `<li class="${cardClass}" data-pending-case data-topics="${attr(entryTopics.join("|"))}" data-court="${attr(entry.court || "")}" data-search="${attr(search)}">
+      <div class="case-index-card__top">
+        <span class="case-index-card__no">Pending application</span>
+        ${entry.ojISO ? `<time datetime="${attr(entry.ojISO)}">OJ ${esc(shortDate(entry.ojISO))}</time>` : `<span>OJ date not recorded</span>`}
+      </div>
+      <p class="case-index-card__topic">${esc(entryTopics[0] || "Court application")}</p>
+      <h2><a href="${attr(entry.url)}" target="_blank" rel="noreferrer">${esc(entry.caseNo)}</a></h2>
+      <p class="case-index-card__subject">Application awaiting judgment. The pleas are allegations; no findings have been made.</p>
+      <p class="case-index-card__court">${esc(entry.court || "Court not recorded")}</p>
+      ${tagList(entryTopics, root)}
+      <div class="case-index-card__foot">
+        <span>${entry.filedISO ? `Filed ${esc(shortDate(entry.filedISO))}` : "Filing date not recorded"}</span>
+        <a class="case-index-card__open" href="${attr(entry.url)}" target="_blank" rel="noreferrer">Official notice ${icon("arrow-ne")}</a>
+      </div>
     </li>`;
   }).join("");
   const body = `${pageHero({
@@ -385,7 +391,7 @@ function pendingPage() {
       </div>
     </form>
     <p class="results-line" id="pending-result" role="status" aria-live="polite">Showing all ${rows.length} pending applications.</p>
-    ${rows.length ? `<ol class="pending-list pending-list--all" id="pending-list" role="list">${items}</ol>` : `<div class="case-empty"><h2>No pending cases are listed.</h2><p>New applications appear after the next EUR-Lex source check.</p></div>`}
+    ${rows.length ? `<ol class="case-grid pending-card-grid" id="pending-list" aria-label="Pending court applications">${items}</ol>` : `<div class="case-empty"><h2>No pending cases are listed.</h2><p>New applications appear after the next EUR-Lex source check.</p></div>`}
     <p class="pending-source pending-page__source">Source: Official Journal C notices of actions brought (CELEX …TN…), harvested from EUR-Lex Cellar on ${esc(pending.generatedAt || "—")}. The linked notice is the official source.</p>
     <a class="text-link" href="${root}cases/index.html">Browse decided court rulings ${icon("arrow")}</a>
   </section>`;

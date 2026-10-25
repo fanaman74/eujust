@@ -1875,8 +1875,8 @@ tbody tr:last-child td { border-bottom: 0; }
 .pending-page__head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: .5rem 2rem; align-items: start; margin-bottom: 1.3rem; }
 .pending-page__head .section-title { margin: 0; }
 .pending-page__head p { color: var(--muted); }
-.pending-page .pending-list--all { max-height: none; overflow: visible; }
-.pending-page .pending-list--all > li[hidden] { display: none; }
+.pending-page .pending-card-grid { margin: 0; padding: 0; list-style: none; }
+.pending-page .pending-card-grid > li[hidden] { display: none; }
 .pending-page__source { margin: 1.2rem 0; }
 .pending-page-link { display: inline-flex; margin-top: .5rem; }
 .pending-cases .pending-source { grid-column: 1 / -1; }
