@@ -49,9 +49,10 @@ const sprite = `<svg class="svg-sprite" aria-hidden="true" focusable="false">
 
 const navItems = [
   { key: "cases", label: "Court rulings", href: "cases/index.html", index: "01" },
-  { key: "rules", label: "Rules & updates", href: "rules/index.html", index: "02" },
-  { key: "decisions", label: "Selected records", href: "decisions/index.html", index: "03" },
-  { key: "discharge", label: "Budget discharge", href: "discharge/index.html", index: "04" }
+  { key: "pending", label: "Pending cases", href: "pending/index.html", index: "02" },
+  { key: "rules", label: "Rules & updates", href: "rules/index.html", index: "03" },
+  { key: "decisions", label: "Selected records", href: "decisions/index.html", index: "04" },
+  { key: "discharge", label: "Budget discharge", href: "discharge/index.html", index: "05" }
 ];
 
 function brand(root) {
@@ -108,12 +109,13 @@ function header(root, active) {
   <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile" aria-hidden="true">
     <p class="mobile-menu__label">Research file</p>
     <a href="${root}cases/index.html"><span>01</span>Court rulings<small>Daily feed from EUR-Lex</small></a>
-    <a href="${root}rules/index.html"><span>02</span>Rules &amp; updates<small>Ombudsman, Commission, staff rules</small></a>
-    <a href="${root}decisions/index.html"><span>03</span>Selected records<small>Editorial selection</small></a>
-    <a href="${root}discharge/index.html"><span>04</span>Budget discharge<small>Parliament’s scrutiny cycle</small></a>
+    <a href="${root}pending/index.html"><span>02</span>Pending cases<small>Applications awaiting judgment</small></a>
+    <a href="${root}rules/index.html"><span>03</span>Rules &amp; updates<small>Ombudsman, Commission, staff rules</small></a>
+    <a href="${root}decisions/index.html"><span>04</span>Selected records<small>Editorial selection</small></a>
+    <a href="${root}discharge/index.html"><span>05</span>Budget discharge<small>Parliament’s scrutiny cycle</small></a>
     <p class="mobile-menu__label">Operations</p>
-    <a href="${root}monitoring/index.html"><span>05</span>Monitoring<small>Source checks and schedule</small></a>
-    <a href="${root}settings/index.html"><span>06</span>AI settings<small>Summary providers</small></a>
+    <a href="${root}monitoring/index.html"><span>06</span>Monitoring<small>Source checks and schedule</small></a>
+    <a href="${root}settings/index.html"><span>07</span>AI settings<small>Summary providers</small></a>
     <a class="mobile-menu__cta" href="${root}cases/index.html">Find a ruling ${icon("arrow")}</a>
   </nav>
 </header>`;
@@ -134,6 +136,7 @@ function footer(root) {
       <ul>
         <li><a href="${root}topics/index.html">Research topics</a></li>
         <li><a href="${root}cases/index.html">Court rulings</a></li>
+        <li><a href="${root}pending/index.html">Pending cases</a></li>
         <li><a href="${root}rules/index.html">Rules &amp; updates</a></li>
         <li><a href="${root}decisions/index.html">Selected records</a></li>
         <li><a href="${root}discharge/index.html">Budget discharge</a></li>
@@ -320,10 +323,80 @@ function pendingSection(root) {
     <div class="pending-head">
       <h2 class="section-title" id="pending-title">Pending before the <span class="marker">Court.</span></h2>
       <p>Applications lodged but not yet decided. A case entering this list means the argument has been made, not that it has been won: the pleas are allegations, and no findings exist until the Court rules.</p>
+      <a class="text-link" href="${root}pending/index.html">Search all ${rows.length} pending cases ${icon("arrow")}</a>
       <p class="pending-source">Source: Official Journal C notices of actions brought (CELEX <span class="mono">&hellip;TN&hellip;</span>), harvested from EUR-Lex Cellar on ${esc(pending.generatedAt || "—")}. Newest first, harassment matters grouped ahead.</p>
     </div>
     <ol class="pending-list" role="list">${items}</ol>
   </section>`;
+}
+
+function pendingPage() {
+  const root = "../";
+  const rows = pending.cases || [];
+  const topicsInPending = [...new Set(rows.flatMap((entry) => entry.topics || []))].sort((a, b) => a.localeCompare(b));
+  const courts = [...new Set(rows.map((entry) => entry.court).filter(Boolean))].sort((a, b) => a.localeCompare(b));
+  const focus = (entry) => entry.topics?.includes("Harassment at work");
+  const harassmentCount = rows.filter(focus).length;
+  const ordered = [...rows].sort((a, b) => Number(focus(b)) - Number(focus(a)) || String(b.filedISO || "").localeCompare(String(a.filedISO || "")));
+  const items = ordered.map((entry) => {
+    const entryTopics = entry.topics || [];
+    const search = [entry.caseNo, entry.court, ...entryTopics].join(" ");
+    return `<li data-pending-case data-topics="${attr(entryTopics.join("|"))}" data-court="${attr(entry.court || "")}" data-search="${attr(search)}">
+      <a class="pending-row${focus(entry) ? " pending-row--focus" : ""}" href="${attr(entry.url)}" target="_blank" rel="noreferrer">
+        <span class="pending-row__no">${esc(entry.caseNo)}</span>
+        <span class="pending-row__body">
+          <span class="pending-row__meta">${esc(entry.court)}${entry.filedISO ? ` &middot; filed ${esc(shortDate(entry.filedISO))}` : ""}${entry.ojISO ? ` &middot; OJ ${esc(shortDate(entry.ojISO))}` : ""}</span>
+          <span class="pending-row__topics">${entryTopics.map((topic) => `<span class="pending-row__topic">${esc(topic)}</span>`).join("")}</span>
+        </span>
+        <span class="pending-row__go" aria-hidden="true">${icon("arrow-ne")}</span>
+      </a>
+    </li>`;
+  }).join("");
+  const body = `${pageHero({
+    root,
+    index: "02",
+    kicker: "Applications awaiting judgment",
+    title: `Pending <span class="marker">cases.</span>`,
+    lede: "Applications lodged at the EU Courts that have not yet reached a judgment. These entries record that a case has been brought; the pleas are allegations, and no findings exist until the Court rules.",
+    stats: [
+      { label: "Pending applications", value: String(rows.length) },
+      { label: "On workplace harassment", value: String(harassmentCount) },
+      { label: "Source updated", value: esc(pending.generatedAt || "—") }
+    ],
+    bgword: "PENDING",
+    breadcrumb: [{ label: "Home", href: "index.html" }, { label: "Court rulings", href: "cases/index.html" }, { label: "Pending cases" }]
+  })}
+  <section class="wrap page-section pending-page" aria-labelledby="pending-page-title">
+    <div class="section-top">
+      <p class="section-index"><span>01</span> Search pending cases</p>
+      <p class="section-top__note"><span id="pending-count">${rows.length}</span> applications</p>
+    </div>
+    <div class="pending-page__head">
+      <h2 class="section-title" id="pending-page-title">The cases still <span class="marker">in progress.</span></h2>
+      <p>Search by case number, court or topic. Harassment matters are highlighted; entries are ordered newest first within that group.</p>
+    </div>
+    <form class="case-filter pending-filter" id="pending-filter" role="search" aria-label="Search and filter pending cases">
+      <div class="case-filter__bar"><span>${icon("filter")} Filter pending cases</span><span>${rows.length} applications / EUR-Lex</span></div>
+      <div class="case-filter__grid">
+        <label class="field field--search" for="pending-q"><span>Search</span><span class="field__control">${icon("search")}<input id="pending-q" type="search" placeholder="Case number, court or topic" autocomplete="off"></span></label>
+        <label class="field" for="pending-topic"><span>Topic</span><select id="pending-topic"><option value="">All topics</option>${topicsInPending.map((topic) => `<option value="${attr(topic)}">${esc(topic)}</option>`).join("")}</select></label>
+        <label class="field" for="pending-court"><span>Court</span><select id="pending-court"><option value="">All courts</option>${courts.map((court) => `<option value="${attr(court)}">${esc(court)}</option>`).join("")}</select></label>
+        <div class="case-filter__actions"><button class="btn btn--ink" type="submit">Search cases ${icon("arrow")}</button><button class="case-filter__reset" id="pending-reset" type="reset">Reset</button></div>
+      </div>
+    </form>
+    <p class="results-line" id="pending-result" role="status" aria-live="polite">Showing all ${rows.length} pending applications.</p>
+    ${rows.length ? `<ol class="pending-list pending-list--all" id="pending-list" role="list">${items}</ol>` : `<div class="case-empty"><h2>No pending cases are listed.</h2><p>New applications appear after the next EUR-Lex source check.</p></div>`}
+    <p class="pending-source pending-page__source">Source: Official Journal C notices of actions brought (CELEX …TN…), harvested from EUR-Lex Cellar on ${esc(pending.generatedAt || "—")}. The linked notice is the official source.</p>
+    <a class="text-link" href="${root}cases/index.html">Browse decided court rulings ${icon("arrow")}</a>
+  </section>`;
+  return shell({
+    root,
+    title: "Pending EU court cases on workplace rights — EU JUST",
+    description: "Search pending EU Court of Justice and General Court applications on workplace rights, based on Official Journal notices from EUR-Lex.",
+    active: "pending",
+    page: "pending",
+    body
+  });
 }
 
 function caseCard(entry, root) {
@@ -1284,6 +1357,7 @@ function writePage(file, html) {
 }
 
 writePage("cases/index.html", casesPage());
+writePage("pending/index.html", pendingPage());
 for (const entry of cases) writePage(`cases/${entry.id}/index.html`, casePage(entry));
 writePage("topics/index.html", topicsPage());
 for (const topic of topics) writePage(`topics/${topic.slug}/index.html`, topicPage(topic));
@@ -1296,6 +1370,7 @@ writePage("settings/index.html", settingsPage());
 const sitemapUrls = [
   "",
   "cases/",
+  "pending/",
   "rules/",
   "decisions/",
   "discharge/",
@@ -1313,6 +1388,6 @@ fs.writeFileSync(
     .join("")}</urlset>`
 );
 
-console.log("Built pages:", 8 + topics.length + cases.length);
+console.log("Built pages:", 9 + topics.length + cases.length);
 console.log("Case pages:", cases.length);
 console.log("Topic pages:", topics.length);

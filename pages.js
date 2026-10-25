@@ -473,6 +473,68 @@
     }
   }
 
+  /* ---------- pending cases index ---------- */
+
+  function initPendingCases() {
+    const form = document.getElementById("pending-filter");
+    const list = document.getElementById("pending-list");
+    if (!form || !list) return;
+    const qInput = document.getElementById("pending-q");
+    const topicSelect = document.getElementById("pending-topic");
+    const courtSelect = document.getElementById("pending-court");
+    const result = document.getElementById("pending-result");
+    const count = document.getElementById("pending-count");
+    const reset = document.getElementById("pending-reset");
+    const entries = [...list.querySelectorAll("[data-pending-case]")];
+    let timer = 0;
+
+    const apply = ({ updateHistory = true } = {}) => {
+      const q = (qInput?.value || "").trim().toLowerCase();
+      const topic = topicSelect?.value || "";
+      const court = courtSelect?.value || "";
+      const terms = q.split(/\s+/).filter(Boolean);
+      let visible = 0;
+      entries.forEach((entry) => {
+        const search = entry.dataset.search?.toLowerCase() || "";
+        const entryTopics = (entry.dataset.topics || "").split("|");
+        const matches = (!terms.length || terms.every((term) => search.includes(term)))
+          && (!topic || entryTopics.includes(topic))
+          && (!court || entry.dataset.court === court);
+        entry.hidden = !matches;
+        if (matches) visible += 1;
+      });
+      if (count) count.textContent = String(visible);
+      if (result) result.textContent = visible
+        ? `Showing ${visible} of ${entries.length} pending application${entries.length === 1 ? "" : "s"}${visible === entries.length ? "" : " (filtered)"}.`
+        : "No pending cases match those filters.";
+      if (updateHistory && history.replaceState) {
+        const params = new URLSearchParams();
+        if (q) params.set("q", q);
+        if (topic) params.set("topic", topic);
+        if (court) params.set("court", court);
+        const query = params.toString();
+        history.replaceState(null, "", `${location.pathname}${query ? `?${query}` : ""}`);
+      }
+    };
+
+    const params = new URLSearchParams(location.search);
+    if (qInput && params.has("q")) qInput.value = params.get("q") || "";
+    if (topicSelect && params.has("topic")) topicSelect.value = params.get("topic") || "";
+    if (courtSelect && params.has("court")) courtSelect.value = params.get("court") || "";
+    form.addEventListener("submit", (event) => { event.preventDefault(); apply(); });
+    qInput?.addEventListener("input", () => {
+      window.clearTimeout(timer);
+      timer = window.setTimeout(() => apply(), 160);
+    });
+    [topicSelect, courtSelect].forEach((input) => input?.addEventListener("change", () => apply()));
+    reset?.addEventListener("click", (event) => {
+      event.preventDefault();
+      form.reset();
+      apply();
+    });
+    apply({ updateHistory: false });
+  }
+
   /* ---------- rules tabs ---------- */
 
   function initRules() {
@@ -639,6 +701,7 @@
   initTilt();
   initCursor();
   initCases();
+  initPendingCases();
   initRules();
   initDischarge();
   initMonitoring();
