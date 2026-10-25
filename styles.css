@@ -786,7 +786,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .hero {
   position: relative;
   min-height: calc(100svh - var(--header-h));
-  padding: clamp(2.8rem, 5.5vw, 5.4rem) 0 clamp(4rem, 7vw, 6.5rem);
+  padding: clamp(2.8rem, 5.5vw, 5.4rem) 0 clamp(2.6rem, 4.2vw, 4rem);
   overflow: hidden;
   border-bottom: var(--line);
 }
@@ -1152,7 +1152,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 }
 
 .overview {
-  padding-top: clamp(3.8rem, 7vw, 7rem);
+  padding-top: clamp(2rem, 3.2vw, 3rem);
   padding-bottom: clamp(4.5rem, 8vw, 8rem);
 }
 

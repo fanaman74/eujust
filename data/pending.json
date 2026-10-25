@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-24",
+  "generatedAt": "2026-10-25",
   "source": "EUR-Lex / Cellar SPARQL — OJ C notices of actions brought (CELEX …TN…)",
   "count": 185,
   "cases": [
@@ -469,19 +469,6 @@
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0295"
     },
     {
-      "id": "62026TN0292",
-      "celex": "62026TN0292",
-      "caseNo": "T-292/26",
-      "court": "General Court",
-      "filedISO": "2026-05-12",
-      "ojISO": "2026-07-20",
-      "topics": [
-        "European official",
-        "Staff regulations (EU)"
-      ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0292"
-    },
-    {
       "id": "62026TN0290",
       "celex": "62026TN0290",
       "caseNo": "T-290/26",
@@ -494,6 +481,19 @@
         "Maladministration"
       ],
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0290"
+    },
+    {
+      "id": "62026TN0292",
+      "celex": "62026TN0292",
+      "caseNo": "T-292/26",
+      "court": "General Court",
+      "filedISO": "2026-05-12",
+      "ojISO": "2026-07-20",
+      "topics": [
+        "European official",
+        "Staff regulations (EU)"
+      ],
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0292"
     },
     {
       "id": "62026TN0288",
