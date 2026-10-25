@@ -483,6 +483,21 @@ a.tag:hover { color: var(--paper); background: var(--ink); }
   line-height: 1.4;
   text-transform: uppercase;
 }
+.case-index-card__representative {
+  margin-top: .55rem;
+  color: var(--ink);
+  font-size: .76rem;
+  line-height: 1.4;
+}
+.case-index-card__representative strong {
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 6.8px;
+  font-weight: 400;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+.case-index-card--accent .case-index-card__representative strong { color: rgba(23, 20, 18, .62); }
 .case-index-card--accent .case-index-card__court { color: rgba(23, 20, 18, .62); }
 .case-index-card .tag-list { margin-top: .8rem; }
 /* On pink surfaces the hollow chip disappears into the background; fill it black. */

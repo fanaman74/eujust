@@ -340,7 +340,7 @@ function pendingPage() {
   const ordered = [...rows].sort((a, b) => Number(focus(b)) - Number(focus(a)) || String(b.filedISO || "").localeCompare(String(a.filedISO || "")));
   const items = ordered.map((entry, index) => {
     const entryTopics = entry.topics || [];
-    const search = [entry.caseNo, entry.court, ...entryTopics].join(" ");
+    const search = [entry.caseNo, entry.court, entry.defendant || "", entry.lawyers || "", ...entryTopics].join(" ");
     const cardClass = `case-index-card${index % 9 === 0 ? " case-index-card--accent" : ""}`;
     return `<li class="${cardClass}" data-pending-case data-topics="${attr(entryTopics.join("|"))}" data-court="${attr(entry.court || "")}" data-search="${attr(search)}">
       <div class="case-index-card__top">
@@ -351,6 +351,8 @@ function pendingPage() {
       <h2><a href="${attr(entry.url)}" target="_blank" rel="noreferrer">${esc(entry.caseNo)}</a></h2>
       <p class="case-index-card__subject">Application awaiting judgment. The pleas are allegations; no findings have been made.</p>
       <p class="case-index-card__court">${esc(entry.court || "Court not recorded")}</p>
+      ${entry.defendant ? `<p class="case-index-card__representative"><strong>Defendant:</strong> ${esc(entry.defendant)}</p>` : ""}
+      ${entry.lawyers ? `<p class="case-index-card__representative"><strong>Lawyer${entry.lawyers.includes(" and ") || entry.lawyers.includes(",") ? "s" : ""}:</strong> ${esc(entry.lawyers)}</p>` : ""}
       ${tagList(entryTopics, root)}
       <div class="case-index-card__foot">
         <span>${entry.filedISO ? `Filed ${esc(shortDate(entry.filedISO))}` : "Filing date not recorded"}</span>

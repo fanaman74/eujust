@@ -14,7 +14,7 @@
 
 import fs from "node:fs";
 import { spawnSync } from "node:child_process";
-import { fetchPending, fetchRulings } from "./sources.mjs";
+import { fetchPending, fetchPendingDetails, fetchRulings } from "./sources.mjs";
 
 const SCHEDULE = { time: "06:30", timezone: "Europe/Brussels", cadence: "Daily" };
 const LOG_FILE = "data/monitoring.json";
@@ -57,8 +57,24 @@ const sources = [];
 try {
   const previous = readJson(PENDING_FILE, { cases: [] });
   const known = new Set((previous.cases || []).map((entry) => entry.id));
-  const { cases } = await fetchPending();
-  const fresh = cases.filter((entry) => !known.has(entry.id));
+  const { cases: fetchedCases } = await fetchPending();
+  const fresh = fetchedCases.filter((entry) => !known.has(entry.id));
+  for (const entry of fresh.slice(0, 12)) {
+    try {
+      const details = await fetchPendingDetails(entry);
+      if (details.lawyers) entry.lawyers = details.lawyers;
+      if (details.defendant) entry.defendant = details.defendant;
+    } catch (error) {
+      console.warn(`lawyer details unavailable for ${entry.caseNo}: ${error.message.slice(0, 100)}`);
+    }
+  }
+  const oldById = new Map((previous.cases || []).map((entry) => [entry.id, entry]));
+  const cases = fetchedCases.map((entry) => {
+    const previousEntry = oldById.get(entry.id);
+    const lawyers = entry.lawyers || previousEntry?.lawyers;
+    const defendant = entry.defendant || previousEntry?.defendant;
+    return lawyers || defendant ? { ...entry, ...(lawyers ? { lawyers } : {}), ...(defendant ? { defendant } : {}) } : entry;
+  });
 
   writeJson(PENDING_FILE, {
     generatedAt: day,

@@ -13,7 +13,7 @@
       "topics": [
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0600"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0600"
     },
     {
       "id": "62026TN0593",
@@ -25,7 +25,7 @@
       "topics": [
         "Maladministration"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0593"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0593"
     },
     {
       "id": "62025TN0367",
@@ -38,7 +38,9 @@
         "Staff regulations (EU)",
         "Maladministration"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0367"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0367",
+      "lawyers": "R. Hable",
+      "defendant": "European Commission"
     },
     {
       "id": "62026TN0491",
@@ -51,7 +53,9 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0491"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0491",
+      "lawyers": "L. Levi and C. Laurent",
+      "defendant": "European Parliament"
     },
     {
       "id": "62026TN0472",
@@ -63,7 +67,7 @@
       "topics": [
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0472"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0472"
     },
     {
       "id": "62026TN0461",
@@ -75,7 +79,9 @@
       "topics": [
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0461"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0461",
+      "lawyers": "L. Levi",
+      "defendant": "European Commission"
     },
     {
       "id": "62026TN0457",
@@ -87,7 +93,9 @@
       "topics": [
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0457"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0457",
+      "lawyers": "D. Rovetta and V. Villante",
+      "defendant": "European Commission"
     },
     {
       "id": "62026TN0446",
@@ -100,7 +108,9 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0446"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0446",
+      "lawyers": "A. Champetier, C. Laurent and S. Rodrigues",
+      "defendant": "European Commission"
     },
     {
       "id": "62026TN0444",
@@ -114,7 +124,9 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0444"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0444",
+      "lawyers": "O. Mader",
+      "defendant": "European Economic and Social Committee"
     },
     {
       "id": "62026TN0436",
@@ -127,7 +139,9 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0436"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0436",
+      "lawyers": "A. Champetier, C. Laurent and S. Rodrigues",
+      "defendant": "European Parliament"
     },
     {
       "id": "62026TN0440",
@@ -140,7 +154,9 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0440"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0440",
+      "lawyers": "M. Velardo and F. Saint-Pierre",
+      "defendant": "European Public Prosecutor’s Office (EPPO)"
     },
     {
       "id": "62026TN0439",
@@ -152,7 +168,9 @@
       "topics": [
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0439"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0439",
+      "lawyers": "S. Rodrigues and A. Champetier",
+      "defendant": "European Union Intellectual Property Office"
     },
     {
       "id": "62026TN0419",
@@ -164,7 +182,9 @@
       "topics": [
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0419"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0419",
+      "lawyers": "S. Rodrigues and A. Champetier",
+      "defendant": "European Commission"
     },
     {
       "id": "62026TN0414",
@@ -177,7 +197,9 @@
         "Staff regulations (EU)",
         "Maladministration"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0414"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0414",
+      "lawyers": "N. de Montigny",
+      "defendant": "European Union Aviation Safety Agency"
     },
     {
       "id": "62026TN0403",
@@ -190,7 +212,9 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0403"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0403",
+      "lawyers": "N. de Montigny",
+      "defendant": "European Commission"
     },
     {
       "id": "62026TN0383",
@@ -202,7 +226,9 @@
       "topics": [
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0383"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0383",
+      "lawyers": "L. Levi and A. Champetier",
+      "defendant": "European Union Agency for Asylum"
     },
     {
       "id": "62026TN0377",
@@ -215,7 +241,9 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0377"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0377",
+      "lawyers": "L. Levi",
+      "defendant": "European Commission"
     },
     {
       "id": "62026TN0375",
@@ -227,7 +255,9 @@
       "topics": [
         "European official"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0375"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0375",
+      "lawyers": "A. Champetier and S. Rodrigues",
+      "defendant": "Court of Justice of the European Union"
     },
     {
       "id": "62026TN0379",
@@ -240,7 +270,9 @@
         "Staff regulations (EU)",
         "Maladministration"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0379"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0379",
+      "lawyers": "S. Pappas, A. Pappas and L. Jakobs",
+      "defendant": "European Commission"
     },
     {
       "id": "62026TN0380",
@@ -255,7 +287,9 @@
         "Staff regulations (EU)",
         "Maladministration"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0380"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0380",
+      "lawyers": "Y. Melin and I. Fressynet",
+      "defendant": "European Ombudsman"
     },
     {
       "id": "62026TN0376",
@@ -268,7 +302,9 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0376"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0376",
+      "lawyers": "L. Levi",
+      "defendant": "European Parliament"
     },
     {
       "id": "62026TN0371",
@@ -280,7 +316,9 @@
       "topics": [
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0371"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0371",
+      "lawyers": "S. Pappas and A. Pappas",
+      "defendant": "European Central Bank"
     },
     {
       "id": "62026TN0356",
@@ -293,7 +331,9 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0356"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0356",
+      "lawyers": "H. Eberlein",
+      "defendant": "European Commission"
     },
     {
       "id": "62026TN0407",
@@ -305,7 +345,8 @@
       "topics": [
         "Maladministration"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0407"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0407",
+      "defendant": "Nemzeti Adó- és Vámhivatal Fellebbviteli Igazgatósága"
     },
     {
       "id": "62026TN0355",
@@ -317,7 +358,9 @@
       "topics": [
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0355"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0355",
+      "lawyers": "L. Levi",
+      "defendant": "European Commission"
     },
     {
       "id": "62026TN0342",
@@ -329,7 +372,9 @@
       "topics": [
         "European official"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0342"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0342",
+      "lawyers": "L. Levi",
+      "defendant": "European Investment Bank"
     },
     {
       "id": "62026TN0336",
@@ -341,7 +386,9 @@
       "topics": [
         "Maladministration"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0336"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0336",
+      "lawyers": "F. Ancion, N. Flandin and S. Rodrigues",
+      "defendant": "European Commission"
     },
     {
       "id": "62026TN0341",
@@ -353,7 +400,9 @@
       "topics": [
         "European official"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0341"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0341",
+      "lawyers": "L. Levi",
+      "defendant": "European Investment Bank"
     },
     {
       "id": "62026TN0326",
@@ -367,7 +416,9 @@
         "Staff regulations (EU)",
         "Maladministration"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0326"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0326",
+      "lawyers": "S. Rodrigues and A. Champetier",
+      "defendant": "European Parliament"
     },
     {
       "id": "62026TN0349",
@@ -379,7 +430,9 @@
       "topics": [
         "Maladministration"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0349"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0349",
+      "lawyers": "A. Bueno Martinez",
+      "defendant": "European Commission"
     },
     {
       "id": "62026TN0317",
@@ -392,7 +445,9 @@
         "Harassment at work",
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0317"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0317",
+      "lawyers": "A. Tomkowiak",
+      "defendant": "European Commission"
     },
     {
       "id": "62026TN0315",
@@ -404,7 +459,9 @@
       "topics": [
         "Maladministration"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0315"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0315",
+      "lawyers": "D. Rovetta, M. Campa, M. Moretto and V. Villante",
+      "defendant": "Council of the European Union"
     },
     {
       "id": "62026TN0312",
@@ -416,7 +473,9 @@
       "topics": [
         "Harassment at work"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0312"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0312",
+      "lawyers": "L. Levi",
+      "defendant": "European Commission"
     },
     {
       "id": "62026TN0310",
@@ -429,7 +488,9 @@
         "Staff regulations (EU)",
         "Maladministration"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0310"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0310",
+      "lawyers": "T. Chiuariu and T. Şoldănescu",
+      "defendant": "European Border and Coast Guard Agency (Frontex)"
     },
     {
       "id": "62026TN0321",
@@ -442,7 +503,9 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0321"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0321",
+      "lawyers": "T. Chiuariu and T. Şoldănescu",
+      "defendant": "European Border and Coast Guard Agency (Frontex)"
     },
     {
       "id": "62026TN0294",
@@ -454,7 +517,9 @@
       "topics": [
         "Maladministration"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0294"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0294",
+      "lawyers": "T. Darkowski",
+      "defendant": "European Parliament"
     },
     {
       "id": "62026TN0295",
@@ -466,7 +531,9 @@
       "topics": [
         "Maladministration"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0295"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0295",
+      "lawyers": "L. Merodio Marcos and L. Bosser",
+      "defendant": "European Parliament"
     },
     {
       "id": "62026TN0290",
@@ -480,7 +547,9 @@
         "Staff regulations (EU)",
         "Maladministration"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0290"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0290",
+      "lawyers": "T. Bontinck and P. Baudoux",
+      "defendant": "European Union Institute for Security Studies (EUISS)"
     },
     {
       "id": "62026TN0292",
@@ -493,7 +562,9 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0292"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0292",
+      "lawyers": "L. Levi",
+      "defendant": "European Commission"
     },
     {
       "id": "62026TN0288",
@@ -506,7 +577,9 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0288"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0288",
+      "lawyers": "S. Pappas and A. Pappas",
+      "defendant": "European Border and Coast Guard Agency (Frontex)"
     },
     {
       "id": "62026TN0286",
@@ -520,7 +593,9 @@
         "Staff regulations (EU)",
         "Maladministration"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0286"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0286",
+      "lawyers": "S. Pappas, A. Pappas et L. Jakobs",
+      "defendant": "European Parliament"
     },
     {
       "id": "62026TN0285",
@@ -532,7 +607,9 @@
       "topics": [
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0285"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0285",
+      "lawyers": "S. Pappas, A. Pappas and L. Jakobs",
+      "defendant": "European Parliament"
     },
     {
       "id": "62026TN0269",
@@ -544,7 +621,9 @@
       "topics": [
         "Maladministration"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0269"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0269",
+      "lawyers": "G. Coppo and E. Rogiest",
+      "defendant": "European Commission"
     },
     {
       "id": "62026TN0268",
@@ -556,7 +635,9 @@
       "topics": [
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0268"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0268",
+      "lawyers": "A. Champetier and S. Rodrigues",
+      "defendant": "European Union Agency for the Operational Management of Large-Scale IT Systems in the Area of Freedom, Security and Justice"
     },
     {
       "id": "62026TN0258",
@@ -568,7 +649,8 @@
       "topics": [
         "Maladministration"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0258"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0258",
+      "defendant": "Office for Harmonisation in the Internal Market (Trade Mark"
     },
     {
       "id": "62026TN0256",
@@ -582,7 +664,9 @@
         "Staff regulations (EU)",
         "Maladministration"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0256"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0256",
+      "lawyers": "S. Orlandi",
+      "defendant": "European Central Bank"
     },
     {
       "id": "62026TN0254",
@@ -596,7 +680,9 @@
         "Staff regulations (EU)",
         "Maladministration"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0254"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0254",
+      "lawyers": "S. Orlandi",
+      "defendant": "European Central Bank"
     },
     {
       "id": "62026TN0251",
@@ -610,7 +696,9 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0251"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0251",
+      "lawyers": "A. Benitez Ostos",
+      "defendant": "European Border and Coast Guard Agency"
     },
     {
       "id": "62026TN0249",
@@ -623,7 +711,9 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0249"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0249",
+      "lawyers": "N. de Montigny",
+      "defendant": "European External Action Service"
     },
     {
       "id": "62026TN0247",
@@ -635,7 +725,9 @@
       "topics": [
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0247"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0247",
+      "lawyers": "V. Novikevičius",
+      "defendant": "European Parliament"
     },
     {
       "id": "62026TN0041",
@@ -648,7 +740,9 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0041"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0041",
+      "lawyers": "D. Birkenmaier",
+      "defendant": "European Commission"
     },
     {
       "id": "62026TN0218",
@@ -660,7 +754,9 @@
       "topics": [
         "European official"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0218"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0218",
+      "lawyers": "S. Pappas and A. Pappas",
+      "defendant": "European Centre for the Development of Vocational Training"
     },
     {
       "id": "62026TN0211",
@@ -672,7 +768,9 @@
       "topics": [
         "Maladministration"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0211"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0211",
+      "lawyers": "J. Jiménez-Laiglesia Oñate, A. Giraud, S. Troch and A. Escrigas Cañameras",
+      "defendant": "European Commission"
     },
     {
       "id": "62026TN0210",
@@ -684,7 +782,9 @@
       "topics": [
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0210"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0210",
+      "lawyers": "L. Levi",
+      "defendant": "European Investment Bank"
     },
     {
       "id": "62026TN0205",
@@ -696,7 +796,9 @@
       "topics": [
         "Maladministration"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0205"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0205",
+      "lawyers": "M. Sánchez Rydelski",
+      "defendant": "European Commission"
     },
     {
       "id": "62026TN0209",
@@ -708,7 +810,9 @@
       "topics": [
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0209"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0209",
+      "lawyers": "N. Flandin",
+      "defendant": "European Union Agency for Cybersecurity"
     },
     {
       "id": "62026TN0194",
@@ -722,7 +826,9 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0194"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0194",
+      "lawyers": "N. de Montigny",
+      "defendant": "European External Action Service"
     },
     {
       "id": "62026TN0192",
@@ -734,7 +840,9 @@
       "topics": [
         "European official"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0192"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0192",
+      "lawyers": "L. Levi",
+      "defendant": "European Parliament"
     },
     {
       "id": "62026TN0188",
@@ -747,7 +855,9 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0188"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0188",
+      "lawyers": "T. Bontinck and C. André",
+      "defendant": "European External Action Service"
     },
     {
       "id": "62026TN0190",
@@ -760,7 +870,9 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0190"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0190",
+      "lawyers": "T. Bontinck and C. André",
+      "defendant": "European External Action Service, Institutions"
     },
     {
       "id": "62026TN0186",
@@ -772,7 +884,9 @@
       "topics": [
         "Maladministration"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0186"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0186",
+      "lawyers": "B. Kloostra",
+      "defendant": "Council of the European Union"
     },
     {
       "id": "62026TN0183",
@@ -786,7 +900,9 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0183"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0183",
+      "lawyers": "N. Flandin",
+      "defendant": "European External Action Service"
     },
     {
       "id": "62026TN0164",
@@ -798,7 +914,9 @@
       "topics": [
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0164"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0164",
+      "lawyers": "D. Rovetta and V. Villante",
+      "defendant": "European Commission"
     },
     {
       "id": "62026TN0159",
@@ -810,7 +928,9 @@
       "topics": [
         "Harassment at work"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0159"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0159",
+      "lawyers": "B. Maréchal",
+      "defendant": "European Commission"
     },
     {
       "id": "62026TN0151",
@@ -822,7 +942,9 @@
       "topics": [
         "European official"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0151"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0151",
+      "lawyers": "L. Levi",
+      "defendant": "European Investment Bank"
     },
     {
       "id": "62026TN0146",
@@ -835,7 +957,9 @@
         "Harassment at work",
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0146"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0146",
+      "lawyers": "L. Heisten",
+      "defendant": "European Defence Agency"
     },
     {
       "id": "62026TN0143",
@@ -848,7 +972,9 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0143"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0143",
+      "lawyers": "M. Vamvakas",
+      "defendant": "European Commission"
     },
     {
       "id": "62026TN0124",
@@ -861,7 +987,9 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0124"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0124",
+      "lawyers": "J. Navas Marqués",
+      "defendant": "European Commission"
     },
     {
       "id": "62026TN0097",
@@ -875,7 +1003,9 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0097"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0097",
+      "lawyers": "N. Flandin",
+      "defendant": "European External Action Service"
     },
     {
       "id": "62026TN0091",
@@ -887,7 +1017,9 @@
       "topics": [
         "Maladministration"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0091"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0091",
+      "lawyers": "F. Wagner, I. Ioannidis and R. Spanó",
+      "defendant": "European Commission"
     },
     {
       "id": "62026TN0076",
@@ -900,7 +1032,7 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0076"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0076"
     },
     {
       "id": "62026TN0070",
@@ -912,7 +1044,9 @@
       "topics": [
         "Maladministration"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0070"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0070",
+      "lawyers": "N. Flandin",
+      "defendant": "European External Action Service"
     },
     {
       "id": "62026TN0060",
@@ -925,7 +1059,9 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0060"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0060",
+      "lawyers": "L. Levi and A. Champetier",
+      "defendant": "European Commission"
     },
     {
       "id": "62026TN0050",
@@ -939,7 +1075,9 @@
         "Staff regulations (EU)",
         "Maladministration"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0050"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0050",
+      "lawyers": "N. Flandin",
+      "defendant": "European Commission"
     },
     {
       "id": "62026TN0051",
@@ -953,7 +1091,9 @@
         "Staff regulations (EU)",
         "Maladministration"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0051"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0051",
+      "lawyers": "N. Flandin",
+      "defendant": "European Commission"
     },
     {
       "id": "62026TN0045",
@@ -967,7 +1107,9 @@
         "Staff regulations (EU)",
         "Maladministration"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0045"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0045",
+      "lawyers": "S. Orlandi",
+      "defendant": "European Central Bank"
     },
     {
       "id": "62026TN0046",
@@ -981,7 +1123,9 @@
         "Staff regulations (EU)",
         "Maladministration"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0046"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0046",
+      "lawyers": "S. Orlandi",
+      "defendant": "European Central Bank"
     },
     {
       "id": "62026TN0033",
@@ -993,7 +1137,9 @@
       "topics": [
         "European official"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0033"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0033",
+      "lawyers": "L. Levi",
+      "defendant": "European Investment Bank"
     },
     {
       "id": "62026TN0035",
@@ -1006,7 +1152,9 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0035"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0035",
+      "lawyers": "S. Pappas and A. Pappas",
+      "defendant": "European Commission"
     },
     {
       "id": "62026TN0034",
@@ -1018,7 +1166,9 @@
       "topics": [
         "European official"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0034"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0034",
+      "lawyers": "S. Pappas and A. Pappas",
+      "defendant": "European Commission"
     },
     {
       "id": "62026TN0036",
@@ -1031,7 +1181,9 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0036"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0036",
+      "lawyers": "L. Levi and A. Champetier",
+      "defendant": "European Commission"
     },
     {
       "id": "62026TN0028",
@@ -1043,7 +1195,9 @@
       "topics": [
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0028"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0028",
+      "lawyers": "S. Pappas and A. Pappas",
+      "defendant": "European Commission"
     },
     {
       "id": "62026TN0015",
@@ -1055,7 +1209,9 @@
       "topics": [
         "Maladministration"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0015"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0015",
+      "lawyers": "P. Adamidis",
+      "defendant": "European Parliament"
     },
     {
       "id": "62026TN0003",
@@ -1067,7 +1223,9 @@
       "topics": [
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0003"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0003",
+      "lawyers": "S. Pappas and A. Pappas",
+      "defendant": "European Central Bank"
     },
     {
       "id": "62026TN0001",
@@ -1080,7 +1238,9 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TN0001"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0001",
+      "lawyers": "A and B",
+      "defendant": "European Public Prosecutor’s Office"
     },
     {
       "id": "62025TN0909",
@@ -1092,7 +1252,9 @@
       "topics": [
         "Harassment at work"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0909"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0909",
+      "lawyers": "N. de Montigny",
+      "defendant": "European External Action Service"
     },
     {
       "id": "62025TN0905",
@@ -1105,7 +1267,9 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0905"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0905",
+      "lawyers": "S. Orlandi",
+      "defendant": "European Commission"
     },
     {
       "id": "62025TN0913",
@@ -1117,7 +1281,9 @@
       "topics": [
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0913"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0913",
+      "lawyers": "L. Levi",
+      "defendant": "European Investment Bank"
     },
     {
       "id": "62025TN0893",
@@ -1129,7 +1295,9 @@
       "topics": [
         "Maladministration"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0893"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0893",
+      "lawyers": "A. Bahrami and N. Korogiannakis",
+      "defendant": "European Investment Bank"
     },
     {
       "id": "62025TN0868",
@@ -1141,7 +1309,9 @@
       "topics": [
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0868"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0868",
+      "lawyers": "N. de Montigny",
+      "defendant": "European Border and Coast Guard Agency"
     },
     {
       "id": "62025TN0866",
@@ -1153,7 +1323,9 @@
       "topics": [
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0866"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0866",
+      "lawyers": "L. Levi and A. Champetier",
+      "defendant": "European Union Satellite Centre"
     },
     {
       "id": "62025TN0854",
@@ -1167,7 +1339,9 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0854"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0854",
+      "lawyers": "J. Navas Marqués",
+      "defendant": "The European Border and Coast Guard Agency (Frontex)"
     },
     {
       "id": "62025TN0847",
@@ -1179,7 +1353,9 @@
       "topics": [
         "Maladministration"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0847"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0847",
+      "lawyers": "B. Servais and V. Crochet",
+      "defendant": "European Commission"
     },
     {
       "id": "62025TN0864",
@@ -1191,7 +1367,9 @@
       "topics": [
         "Harassment at work"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0864"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0864",
+      "lawyers": "N. de Montigny",
+      "defendant": "Institutions"
     },
     {
       "id": "62025TN0798",
@@ -1204,7 +1382,9 @@
         "Staff regulations (EU)",
         "Maladministration"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0798"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0798",
+      "lawyers": "S. Pappas and A. Pappas",
+      "defendant": "European Central Bank"
     },
     {
       "id": "62025TN0793",
@@ -1218,7 +1398,9 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0793"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0793",
+      "lawyers": "N. de Montigny",
+      "defendant": "European Union Agency for Criminal Justice Cooperation"
     },
     {
       "id": "62025TN0777",
@@ -1233,7 +1415,9 @@
         "Staff regulations (EU)",
         "Maladministration"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0777"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0777",
+      "lawyers": "N. de Montigny",
+      "defendant": "Entreprise commune ‘Semi-conducteurs’"
     },
     {
       "id": "62025TN0778",
@@ -1245,7 +1429,9 @@
       "topics": [
         "European official"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0778"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0778",
+      "lawyers": "N. Korogiannakis",
+      "defendant": "European Commission"
     },
     {
       "id": "62025TN0761",
@@ -1257,7 +1443,9 @@
       "topics": [
         "Harassment at work"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0761"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0761",
+      "lawyers": "B. Maréchal",
+      "defendant": "European Investment Bank"
     },
     {
       "id": "62025TN0767",
@@ -1269,7 +1457,9 @@
       "topics": [
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0767"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0767",
+      "lawyers": "S. Pappas and A. Pappas",
+      "defendant": "European Commission"
     },
     {
       "id": "62025TN0751",
@@ -1281,7 +1471,9 @@
       "topics": [
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0751"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0751",
+      "lawyers": "L. Levi and P. Baudoux",
+      "defendant": "European Parliament"
     },
     {
       "id": "62025TN0740",
@@ -1294,7 +1486,9 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0740"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0740",
+      "lawyers": "L. Levi",
+      "defendant": "European Institute for Gender Equality"
     },
     {
       "id": "62025TN0709",
@@ -1307,7 +1501,9 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0709"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0709",
+      "lawyers": "L. Levi and A. Champetier",
+      "defendant": "European Central Bank"
     },
     {
       "id": "62025TN0737",
@@ -1319,7 +1515,9 @@
       "topics": [
         "European official"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0737"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0737",
+      "lawyers": "C. Däuble and T. Herbrich",
+      "defendant": "European Parliament"
     },
     {
       "id": "62025TN0706",
@@ -1331,7 +1529,9 @@
       "topics": [
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0706"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0706",
+      "lawyers": "S. Pappas and A. Pappas",
+      "defendant": "European Central Bank"
     },
     {
       "id": "62025TN0692",
@@ -1345,7 +1545,7 @@
         "Staff regulations (EU)",
         "Maladministration"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0692"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0692"
     },
     {
       "id": "62025TN0687",
@@ -1357,7 +1557,9 @@
       "topics": [
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0687"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0687",
+      "lawyers": "O. Mader",
+      "defendant": "Council of the European Union"
     },
     {
       "id": "62025TN0660",
@@ -1370,7 +1572,9 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0660"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0660",
+      "lawyers": "S. Orlandi",
+      "defendant": "European Union Agency for Law Enforcement Cooperation (Europol)"
     },
     {
       "id": "62025TN0664",
@@ -1382,7 +1586,9 @@
       "topics": [
         "European official"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0664"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0664",
+      "lawyers": "S. Orlandi",
+      "defendant": "European Central Bank"
     },
     {
       "id": "62025TN0647",
@@ -1395,7 +1601,9 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0647"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0647",
+      "lawyers": "D. Rovetta and V. Villante",
+      "defendant": "European Commission"
     },
     {
       "id": "62025TN0646",
@@ -1408,7 +1616,9 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0646"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0646",
+      "lawyers": "D. Rovetta and V. Villante",
+      "defendant": "European Commission"
     },
     {
       "id": "62025TN0624",
@@ -1421,7 +1631,9 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0624"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0624",
+      "lawyers": "L. Levi and P. Baudoux",
+      "defendant": "European Investment Bank"
     },
     {
       "id": "62025TN0616",
@@ -1434,7 +1646,9 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0616"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0616",
+      "lawyers": "N. de Montigny",
+      "defendant": "European External Action Service"
     },
     {
       "id": "62025TN0611",
@@ -1446,7 +1660,9 @@
       "topics": [
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0611"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0611",
+      "lawyers": "S. Makoumbou",
+      "defendant": "European Commission"
     },
     {
       "id": "62025TN0607",
@@ -1458,7 +1674,9 @@
       "topics": [
         "European official"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0607"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0607",
+      "lawyers": "F. Sciaudone, D. Fesler and G. Lovaste",
+      "defendant": "European Commission"
     },
     {
       "id": "62025TN0601",
@@ -1470,7 +1688,9 @@
       "topics": [
         "Maladministration"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0601"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0601",
+      "lawyers": "N. de Montigny",
+      "defendant": "European Border and Coast Guard Agency"
     },
     {
       "id": "62025TN0604",
@@ -1483,7 +1703,7 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0604"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0604"
     },
     {
       "id": "62025TN0592",
@@ -1495,7 +1715,9 @@
       "topics": [
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0592"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0592",
+      "lawyers": "L. Levi",
+      "defendant": "European Investment Bank"
     },
     {
       "id": "62025TN0587",
@@ -1507,7 +1729,9 @@
       "topics": [
         "Maladministration"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0587"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0587",
+      "lawyers": "A. Bahrami and N. Korogiannakis",
+      "defendant": "Council of the European Union"
     },
     {
       "id": "62025TN0589",
@@ -1519,7 +1743,9 @@
       "topics": [
         "Maladministration"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0589"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0589",
+      "lawyers": "B. Maréchal",
+      "defendant": "European Investment Bank"
     },
     {
       "id": "62025TN0585",
@@ -1533,7 +1759,9 @@
         "Staff regulations (EU)",
         "Maladministration"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0585"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0585",
+      "lawyers": "L. Levi and N. Flandin",
+      "defendant": "European Union Agency for Cybersecurity"
     },
     {
       "id": "62025TN0583",
@@ -1545,7 +1773,9 @@
       "topics": [
         "Maladministration"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0583"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0583",
+      "lawyers": "T. Bontinck, M. Brésart, J. Goffin and F. Patuelli",
+      "defendant": "Council of the European Union"
     },
     {
       "id": "62025TN0542",
@@ -1558,7 +1788,9 @@
         "European official",
         "Maladministration"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0542"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0542",
+      "lawyers": "S. Rodrigues and A. Champetier",
+      "defendant": "European Commission"
     },
     {
       "id": "62025TN0524",
@@ -1570,7 +1802,9 @@
       "topics": [
         "Maladministration"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0524"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0524",
+      "lawyers": "R. Martens, P. Darras",
+      "defendant": "European Central Bank"
     },
     {
       "id": "62025TN0526",
@@ -1582,7 +1816,9 @@
       "topics": [
         "Maladministration"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0526"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0526",
+      "lawyers": "R. Martens, P. Darras",
+      "defendant": "European Central Bank"
     },
     {
       "id": "62025TN0525",
@@ -1594,7 +1830,9 @@
       "topics": [
         "Maladministration"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0525"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0525",
+      "lawyers": "R. Martens and P. Darras",
+      "defendant": "European Central Bank"
     },
     {
       "id": "62025TN0514",
@@ -1607,7 +1845,9 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0514"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0514",
+      "lawyers": "N. Korogiannakis",
+      "defendant": "European Commission"
     },
     {
       "id": "62025TN0517",
@@ -1619,7 +1859,9 @@
       "topics": [
         "Maladministration"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0517"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0517",
+      "lawyers": "S. Pappas and A. Pappas",
+      "defendant": "European Commission"
     },
     {
       "id": "62025TN0506",
@@ -1632,7 +1874,9 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0506"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0506",
+      "lawyers": "S. Rodrigues and A. Champetier",
+      "defendant": "European Commission"
     },
     {
       "id": "62025TN0469",
@@ -1645,7 +1889,9 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0469"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0469",
+      "lawyers": "A. Samartzis",
+      "defendant": "European Border and Coast Guard Agency"
     },
     {
       "id": "62025TN0474",
@@ -1658,7 +1904,9 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0474"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0474",
+      "lawyers": "E. Lazar",
+      "defendant": "European Commission"
     },
     {
       "id": "62025TN0443",
@@ -1670,7 +1918,9 @@
       "topics": [
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0443"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0443",
+      "lawyers": "M. Velardo",
+      "defendant": "European Union Agency for Law Enforcement Cooperation (Europol)"
     },
     {
       "id": "62025TN0442",
@@ -1682,7 +1932,9 @@
       "topics": [
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0442"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0442",
+      "lawyers": "M. Velardo",
+      "defendant": "European Union Agency for Law Enforcement Cooperation (Europol)"
     },
     {
       "id": "62025TN0441",
@@ -1694,7 +1946,9 @@
       "topics": [
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0441"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0441",
+      "lawyers": "M. Velardo",
+      "defendant": "European Union Agency for Law Enforcement Cooperation (Europol)"
     },
     {
       "id": "62025TN0440",
@@ -1706,7 +1960,9 @@
       "topics": [
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0440"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0440",
+      "lawyers": "M. Velardo",
+      "defendant": "European Union Agency for Law Enforcement Cooperation (Europol)"
     },
     {
       "id": "62025TN0439",
@@ -1718,7 +1974,9 @@
       "topics": [
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0439"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0439",
+      "lawyers": "M. Velardo",
+      "defendant": "European Union Agency for Law Enforcement Cooperation (Europol)"
     },
     {
       "id": "62025TN0446",
@@ -1730,7 +1988,9 @@
       "topics": [
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0446"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0446",
+      "lawyers": "M. Velardo",
+      "defendant": "European Union Agency for Law Enforcement Cooperation (Europol)"
     },
     {
       "id": "62025TN0428",
@@ -1742,7 +2002,9 @@
       "topics": [
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0428"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0428",
+      "lawyers": "M. Velardo",
+      "defendant": "European Union Agency for Law Enforcement Cooperation (Europol)"
     },
     {
       "id": "62025TN0427",
@@ -1754,7 +2016,9 @@
       "topics": [
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0427"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0427",
+      "lawyers": "M. Velardo",
+      "defendant": "European Union Agency for Law Enforcement Cooperation (Europol)"
     },
     {
       "id": "62025TN0425",
@@ -1766,7 +2030,9 @@
       "topics": [
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0425"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0425",
+      "lawyers": "M. Velardo",
+      "defendant": "European Union Agency for Law Enforcement Cooperation (Europol)"
     },
     {
       "id": "62025TN0426",
@@ -1778,7 +2044,9 @@
       "topics": [
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0426"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0426",
+      "lawyers": "M. Velardo",
+      "defendant": "European Union Agency for Law Enforcement Cooperation (Europol)"
     },
     {
       "id": "62025TN0424",
@@ -1790,7 +2058,9 @@
       "topics": [
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0424"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0424",
+      "lawyers": "H. Kubik",
+      "defendant": "European Parliament"
     },
     {
       "id": "62025TN0415",
@@ -1802,7 +2072,9 @@
       "topics": [
         "European official"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0415"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0415",
+      "lawyers": "A. Champetier and S. Rodrigues",
+      "defendant": "European Commission"
     },
     {
       "id": "62025TN0416",
@@ -1814,7 +2086,9 @@
       "topics": [
         "Maladministration"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0416"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0416",
+      "lawyers": "H. Kubik",
+      "defendant": "European Parliament"
     },
     {
       "id": "62025TN0408",
@@ -1826,7 +2100,9 @@
       "topics": [
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0408"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0408",
+      "lawyers": "L. Levi and P. Baudoux",
+      "defendant": "European Parliament"
     },
     {
       "id": "62025TN0399",
@@ -1839,7 +2115,9 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0399"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0399",
+      "lawyers": "A. Cardinale",
+      "defendant": "European Commission"
     },
     {
       "id": "62025TN0385",
@@ -1852,7 +2130,9 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0385"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0385",
+      "lawyers": "A. Champetier and S. Rodrigues",
+      "defendant": "European Parliament"
     },
     {
       "id": "62025TN0370",
@@ -1865,7 +2145,9 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0370"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0370",
+      "lawyers": "S. Orlandi",
+      "defendant": "European Commission"
     },
     {
       "id": "62025TN0344",
@@ -1877,7 +2159,9 @@
       "topics": [
         "Maladministration"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0344"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0344",
+      "lawyers": "N. Korogiannakis",
+      "defendant": "European Central BankForm of order soughtThe applicants claim that the Court should:— annul the Decision of the ECB of 2 May 2025 rejecting the applicant’s tender in the procurement procedure ‘Digital Euro – App & SDK (PRO-009488)’"
     },
     {
       "id": "62025TN0353",
@@ -1890,7 +2174,9 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0353"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0353",
+      "lawyers": "L. Levi",
+      "defendant": "European Ombudsman"
     },
     {
       "id": "62025TN0316",
@@ -1902,7 +2188,9 @@
       "topics": [
         "Maladministration"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0316"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0316",
+      "lawyers": "K. Wójcik",
+      "defendant": "European Border and Coast Guard Agency"
     },
     {
       "id": "62025TN0315",
@@ -1914,7 +2202,9 @@
       "topics": [
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0315"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0315",
+      "lawyers": "D. Rovetta and V. Villante",
+      "defendant": "European Commission"
     },
     {
       "id": "62025TN0312",
@@ -1928,7 +2218,9 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0312"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0312",
+      "lawyers": "N. Flandin",
+      "defendant": "European Commission"
     },
     {
       "id": "62025TN0306",
@@ -1941,7 +2233,9 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0306"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0306",
+      "lawyers": "A. Guillerme, T. Bontinck and F. Patuelli",
+      "defendant": "European External Action Service"
     },
     {
       "id": "62025TN0317",
@@ -1954,7 +2248,9 @@
         "Harassment at work",
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0317"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0317",
+      "lawyers": "G. Trantas",
+      "defendant": "European Union Agency for Law Enforcement Cooperation"
     },
     {
       "id": "62025TN0300",
@@ -1967,7 +2263,9 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0300"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0300",
+      "lawyers": "S. Pappas and D.-A. Pappa",
+      "defendant": "European External Action Service"
     },
     {
       "id": "62025TN0279",
@@ -1979,7 +2277,9 @@
       "topics": [
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0279"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0279",
+      "lawyers": "H. Tagaras",
+      "defendant": "European Commission"
     },
     {
       "id": "62025TN0285",
@@ -1991,7 +2291,9 @@
       "topics": [
         "Maladministration"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0285"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0285",
+      "lawyers": "P. Adamidis",
+      "defendant": "European Parliament"
     },
     {
       "id": "62025TN0275",
@@ -2003,7 +2305,7 @@
       "topics": [
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0275"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0275"
     },
     {
       "id": "62025TN0259",
@@ -2015,7 +2317,8 @@
       "topics": [
         "Maladministration"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0259"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0259",
+      "defendant": "Council of the European Union"
     },
     {
       "id": "62025TN0263",
@@ -2028,7 +2331,9 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0263"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0263",
+      "lawyers": "F. Bello, F. D. Onofrio and M. Lopopolo",
+      "defendant": "European Border and Coast Guard Agency"
     },
     {
       "id": "62025TN0214",
@@ -2041,7 +2346,9 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0214"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0214",
+      "lawyers": "S. Rodrigues and A. Champetier",
+      "defendant": "Council of the European Union"
     },
     {
       "id": "62025TN0204",
@@ -2054,7 +2361,9 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0204"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0204",
+      "lawyers": "J. Michielsen",
+      "defendant": "European Defence Agency (EDA)"
     },
     {
       "id": "62025TN0199",
@@ -2067,7 +2376,9 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0199"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0199",
+      "lawyers": "L. Levi and A. Champetier",
+      "defendant": "European Investment Bank"
     },
     {
       "id": "62025TN0193",
@@ -2080,7 +2391,8 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0193"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0193",
+      "defendant": "European Commission"
     },
     {
       "id": "62025TN0195",
@@ -2092,7 +2404,9 @@
       "topics": [
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0195"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0195",
+      "lawyers": "L. Levi",
+      "defendant": "European Commission"
     },
     {
       "id": "62025TN0192",
@@ -2105,7 +2419,9 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0192"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0192",
+      "lawyers": "J. Martins",
+      "defendant": "European Parliament"
     },
     {
       "id": "62025TN0191",
@@ -2118,7 +2434,9 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0191"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0191",
+      "lawyers": "J. Martins",
+      "defendant": "European Parliament"
     },
     {
       "id": "62025TN0188",
@@ -2131,7 +2449,9 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0188"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0188",
+      "lawyers": "M. Casado García-Hirschfeld",
+      "defendant": "European Parliament"
     },
     {
       "id": "62025TN0187",
@@ -2143,7 +2463,9 @@
       "topics": [
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0187"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0187",
+      "lawyers": "N. de Montigny",
+      "defendant": "European Centre for Disease Prevention and Control"
     },
     {
       "id": "62025TN0185",
@@ -2156,7 +2478,9 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0185"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0185",
+      "lawyers": "L. Levi and A. Champetier",
+      "defendant": "European Investment Bank"
     },
     {
       "id": "62025TN0175",
@@ -2168,7 +2492,8 @@
       "topics": [
         "European official"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0175"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0175",
+      "lawyers": "L. Levi and M. Itani"
     },
     {
       "id": "62025TN0155",
@@ -2181,7 +2506,9 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0155"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0155",
+      "lawyers": "L. Levi",
+      "defendant": "European Investment Bank"
     },
     {
       "id": "62025TN0152",
@@ -2193,7 +2520,9 @@
       "topics": [
         "European official"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0152"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0152",
+      "lawyers": "L. Levi and M. Itani",
+      "defendant": "European Commission"
     },
     {
       "id": "62025TN0136",
@@ -2206,7 +2535,9 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0136"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0136",
+      "lawyers": "L. Levi and M. Itani",
+      "defendant": "European Court of Auditors"
     },
     {
       "id": "62025TN0099",
@@ -2219,7 +2550,8 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0099"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0099",
+      "defendant": "European Court of Auditors"
     },
     {
       "id": "62025TN0079",
@@ -2232,7 +2564,9 @@
         "Staff regulations (EU)",
         "Maladministration"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0079"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0079",
+      "lawyers": "S. Makoumbou",
+      "defendant": "Court of Justice of the European Union"
     },
     {
       "id": "62025TN0084",
@@ -2245,7 +2579,9 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0084"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0084",
+      "lawyers": "L. Levi and P. Baudoux",
+      "defendant": "European Commission"
     },
     {
       "id": "62025TN0051",
@@ -2258,7 +2594,9 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0051"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0051",
+      "lawyers": "M. Aboudi",
+      "defendant": "European Commission"
     },
     {
       "id": "62025TN0053",
@@ -2270,7 +2608,9 @@
       "topics": [
         "Maladministration"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0053"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0053",
+      "lawyers": "F. Logue, Solicitor, and J. Hackl",
+      "defendant": "European Securities and Markets Authority"
     },
     {
       "id": "62025TN0030",
@@ -2283,7 +2623,9 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0030"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0030",
+      "lawyers": "S. Rodrigues and A. Champetier",
+      "defendant": "European Parliament"
     },
     {
       "id": "62025TN0022",
@@ -2296,7 +2638,9 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0022"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0022",
+      "lawyers": "N. Flandin",
+      "defendant": "European Securities and Markets Authority"
     },
     {
       "id": "62025TN0013",
@@ -2309,7 +2653,9 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0013"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0013",
+      "lawyers": "L. Levi",
+      "defendant": "Court of Justice of the European Union"
     },
     {
       "id": "62025TN0006",
@@ -2323,7 +2669,9 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0006"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0006",
+      "lawyers": "L. Levi",
+      "defendant": "Court of Justice of the European Union"
     },
     {
       "id": "62025TN0010",
@@ -2336,7 +2684,9 @@
         "European official",
         "Staff regulations (EU)"
       ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TN0010"
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0010",
+      "lawyers": "D. Grisay",
+      "defendant": "European Commission"
     }
   ]
 }

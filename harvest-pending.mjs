@@ -9,7 +9,18 @@
 import fs from "node:fs";
 import { fetchPending, CONCEPTS } from "./sources.mjs";
 
-const { cases } = await fetchPending();
+let previous = { cases: [] };
+try { previous = JSON.parse(fs.readFileSync("data/pending.json", "utf8")); } catch { /* first harvest */ }
+const oldById = new Map((previous.cases || []).map((entry) => [entry.id, entry]));
+const { cases: fetchedCases } = await fetchPending();
+const cases = fetchedCases.map((record) => {
+  const old = oldById.get(record.id);
+  return old ? {
+    ...record,
+    ...(old.lawyers ? { lawyers: old.lawyers } : {}),
+    ...(old.defendant ? { defendant: old.defendant } : {}),
+  } : record;
+});
 console.log(`${cases.length} pending actions in scope`);
 
 // Optional enrichment: the OJ notice text carries the parties and the pleas.
@@ -26,6 +37,16 @@ if (process.argv.includes("--enrich")) {
       if (title) record.title = title.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
       const parties = record.title?.match(/–\s*(.+?)\s+v\s+(.+)$/);
       if (parties) { record.applicant = parties[1].trim(); record.defendant = parties[2].trim(); }
+      const lawyers = text.match(/Applicant:[^\n]*?\(represented by:\s*([^\n)]+)\)/i)?.[1]
+        ?.replace(/,\s*(?:lawyers?|solicitors?)\.?\s*$/i, "")
+        ?.trim();
+      if (lawyers) record.lawyers = lawyers;
+      const defendant = text.match(/Defendant:\s*([^\n]+)/i)?.[1]
+        ?.replace(/\s*\(represented by:[\s\S]*$/i, "")
+        ?.replace(/\s*[.;]\s*$/, "")
+        ?.replace(/\s+/g, " ")
+        ?.trim();
+      if (defendant) record.defendant = defendant;
       const ojRef = text.match(/OJ C, (C\/\d{4}\/\d+), (\d{2}\.\d{2}\.\d{4})/);
       if (ojRef) { record.ojRef = ojRef[1]; record.ojDateLabel = ojRef[2]; }
       const pleas = text.match(/Pleas in law and main arguments([\s\S]{0,900})/)?.[1];

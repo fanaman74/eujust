@@ -63,7 +63,7 @@ ORDER BY DESC(?filed)`;
         filedISO: row.filed.value,
         ojISO: row.ojdate?.value || "",
         topics: new Set(),
-        url: `https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:${celex}`,
+        url: `https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:${celex}`,
       });
     }
     const label = CONCEPTS[row.concept.value];
@@ -75,6 +75,25 @@ ORDER BY DESC(?filed)`;
     .sort((a, b) => b.filedISO.localeCompare(a.filedISO));
 
   return { cases, rowCount: rows.length };
+}
+
+export async function fetchPendingDetails(record) {
+  const url = `https://r.jina.ai/https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:${encodeURIComponent(record.celex)}`;
+  const response = await fetch(url, {
+    headers: { "User-Agent": "eu-just-harvester/1.0" },
+    signal: AbortSignal.timeout(12_000),
+  });
+  if (!response.ok) throw new Error(`Notice text ${response.status} for ${record.caseNo}`);
+  const text = await response.text();
+  const lawyerMatch = text.match(/Applicant:[^\n]*?\(represented by:\s*([^\n)]+)\)/i);
+  const defendantMatch = text.match(/Defendant:\s*([^\n]+)/i);
+  const lawyers = lawyerMatch?.[1].replace(/,\s*(?:lawyers?|solicitors?)\.?\s*$/i, "").trim();
+  const defendant = defendantMatch?.[1]
+    .replace(/\s*\(represented by:[\s\S]*$/i, "")
+    .replace(/\s*[.;]\s*$/, "")
+    .replace(/\s+/g, " ")
+    .trim();
+  return { lawyers: lawyers || null, defendant: defendant || null };
 }
 
 /* ---------- judgments and orders: TJ / TO on staff cases ---------- */
