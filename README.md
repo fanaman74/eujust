@@ -4,6 +4,10 @@ EU JUST is a source-first legal monitoring desk for European employment and work
 
 ## Run locally
 
+The public static version uses `npm run build` followed by `npm start`. The build assembles only intended pages and assets into `.static-site/`; the server serves that directory and never falls back to the repository root. Run the build before starting the static server. The Astro commands below support the separate database-backed research/operator implementation.
+
+The privacy policy is maintained in `src/content/privacy-policy.html`, shared with the Astro `/privacy` route. The static build creates `/privacy/index.html`, its stylesheet and footer links. See `docs/privacy-policy-notes.md` for remaining organisational confirmations and `docs/privacy-review.md` for the earlier live-site review.
+
 Requirements: Node 24+, npm 11+, and PostgreSQL 14+.
 
 ```powershell
@@ -28,17 +32,9 @@ Ombudsman searches cover the current and previous calendar year and follow the A
 
 The EUR-Lex query requests up to 100 recent English expression records per run, filters CELEX identifiers to genuine judgment/order patterns (`CJ`, `TJ`, `FJ`, `CO`, `TO`, `FO`), and uses a bounded English title vocabulary for the source request. The monitor then applies the enabled English topic terms stored in PostgreSQL for final inclusion and case-topic tagging. This is a bounded discovery window, not exhaustive coverage. The SPARQL `work_date_document` value is stored as judgment date. Publication date remains null until a source supplies publication metadata; it is never inferred from the judgment date. English is labelled `English source version` because the expression language is not proof of the original language. Document enrichment tries Cellar content negotiation, then the official EUR-Lex English HTML manifestation. It requires numbered paragraph content, a court heading and conservative English text checks. HTML shells and challenge pages are rejected. The general EUR-Lex TXT page is not used for enrichment because an English interface can display a non-English judgment body. English document text may remain unavailable even when metadata imports.
 
-## AI providers
+## AI settings retired
 
-Open **Operations → AI settings** (`/settings`), choose OpenAI / ChatGPT, Anthropic Claude, DeepSeek or OpenRouter, enter the provider's API key, and select **Test connection**. Choose a reported model from **Available models** (or enter its identifier), then **Save provider**. A ChatGPT or Claude subscription is separate from API access; obtain an API key from the provider's developer console. When editing a saved provider, leave the key blank to retain its encrypted key. Saved rows offer Edit, Test connection, Enable/Disable and Remove.
-
-In production, expand **Operator access** and enter the deployment's `ADMIN_TOKEN` before testing or saving, unless an authenticated trusted proxy supplies `x-admin-token`. The token stays only in the open page; production actions still require same-origin and admin checks. Keys are encrypted server-side with AES-256-GCM using `CREDENTIAL_ENCRYPTION_KEY`; responses expose `hasKey`, never the key. Leave the advanced endpoint blank for the official default; endpoints must use the provider's exact allowlisted HTTPS host.
-
-An OpenRouter test validates the key, loads models, and separately requests its public `/providers` directory without sending the API key to that request. **Find a provider** searches that directory; provider names are informational, not model choices or routing controls. Choose a model from the model list; OpenRouter continues to handle routing, with provider availability varying by model. If the directory fails, a warning appears while the successful connection and models remain usable; test again to retry. No provider is required for source browsing.
-
-To use your existing ChatGPT or Claude account, open a case's **Use your ChatGPT or Claude subscription** disclosure, select **Copy research prompt**, open the linked app and paste into a new chat. No API key is needed; the answer stays in that app and creates no EU JUST report. The public `GET /api/cases/[id]/prompt` returns reading instructions with public official metadata and available official source text only, never credentials or generated reports. Source text is capped at 120,000 characters and known truncation is flagged. If text is missing, add the full judgment before analysis. Clipboard failure reveals selectable text for manual copying; a failed load can be retried. Subscription and API billing remain separate.
-
-Summary generation requires retrieved source text. The prompt treats that text as untrusted data, asks for a fixed JSON shape, accepts paragraph citations only when `[paragraph N]` markers exist in the retrieved XHTML, and marks truncated documents incomplete. Original source documents and AI reports use separate tables and are shown separately in case detail pages. Never treat generated interpretation as a court finding.
+The website no longer exposes an AI-settings page, API-key forms or provider-configuration controls. The former provider API routes return HTTP 410 without reading or forwarding credentials. Existing stored provider records and generated reports are not deleted by this interface removal; any data removal must be handled separately. Source browsing and official links remain independent of AI.
 
 ## Hosted database (Neon)
 
@@ -64,7 +60,7 @@ The tests cover credential round-tripping and redaction, malformed and valid sou
 
 ## Current scope
 
-Phase 1 covers EUR-Lex / Cellar, topic keyword matching in English with editable multilingual topic fields through the Topics API, dashboard search/filter/pagination, official source links, provider settings, monitoring history, configurable schedule preferences, source-grounded summary scaffolding, institution rules and updates, and a European Parliament budgetary discharge guide with official decision and follow-up links. National sources, HUDOC, OCR, semantic search, PDF export, saved searches, email notifications, and full multilingual expression retrieval remain planned extensions. Cases remain useful when AI is disabled because metadata and official links are independent of reports.
+Phase 1 covers EUR-Lex / Cellar, topic keyword matching in English with editable multilingual topic fields through the Topics API, dashboard search/filter/pagination, official source links, monitoring history, configurable schedule preferences, source-grounded summary scaffolding, institution rules and updates, and a European Parliament budgetary discharge guide with official decision and follow-up links. National sources, HUDOC, OCR, semantic search, PDF export, saved searches, email notifications, and full multilingual expression retrieval remain planned extensions. Cases remain useful when AI is disabled because metadata and official links are independent of reports.
 
 In production, keep the app behind a private reverse proxy or identity layer. The Monitoring page can send an operator token entered into its in-memory field; the usual deployment path is for a trusted proxy to inject `x-admin-token` after authenticating an operator. The app fails closed when `NODE_ENV=production` and that header is absent. Run the web server and `npm run worker` as separately supervised processes (for example, systemd, NSSM, or a container supervisor); the worker is not started by a browser request. `HOST`, `PORT`, `MONITOR_TIMEZONE`, `MONITOR_HOUR`, and `MONITOR_MINUTE` are environment defaults; persisted schedule preferences override the monitor time after migration.
 

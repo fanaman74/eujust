@@ -82,21 +82,20 @@ test('provider fetch failures redact the saved credential too', async () => {
   });
 });
 
-test('provider test route preserves same-origin and production admin gates', async () => {
-  const { POST } = await import('../src/pages/api/providers/[provider]/test.ts');
-  const originalNodeEnv = process.env.NODE_ENV;
-  const originalAdminToken = process.env.ADMIN_TOKEN;
-  try {
-    process.env.NODE_ENV = 'development';
-    const crossOrigin = await POST({ request: new Request('https://app.test/api/providers/openai/test', { method: 'POST', headers: { origin: 'https://other.test' } }), params: { provider: 'openai' } } as any);
-    assert.equal(crossOrigin.status, 400);
-    process.env.NODE_ENV = 'production';
-    delete process.env.ADMIN_TOKEN;
-    const missingAdmin = await POST({ request: new Request('https://app.test/api/providers/openai/test', { method: 'POST', headers: { origin: 'https://app.test' } }), params: { provider: 'openai' } } as any);
-    assert.equal(missingAdmin.status, 400);
-  } finally {
-    if (originalNodeEnv === undefined) delete process.env.NODE_ENV; else process.env.NODE_ENV = originalNodeEnv;
-    if (originalAdminToken === undefined) delete process.env.ADMIN_TOKEN; else process.env.ADMIN_TOKEN = originalAdminToken;
+test('retired provider settings cannot accept credentials or contact a provider', async () => {
+  const routes = await Promise.all([
+    import('../src/pages/api/providers.ts'),
+    import('../src/pages/api/providers/[provider]/index.ts'),
+    import('../src/pages/api/providers/[provider]/test.ts'),
+    import('../src/pages/api/providers/[provider]/models.ts')
+  ]);
+  for (const route of routes) {
+    for (const method of ['GET', 'POST', 'DELETE']) {
+      const request = new Request('https://app.test/api/providers/openai', { method, ...(method === 'POST' ? { body: JSON.stringify({ apiKey: 'do-not-store-or-forward' }) } : {}) });
+      const response = await route.ALL({ request, params: { provider: 'openai' } } as any);
+      assert.equal(response.status, 410);
+      assert.deepEqual(await response.json(), { error: 'AI provider settings have been removed.' });
+    }
   }
 });
 

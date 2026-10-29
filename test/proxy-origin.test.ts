@@ -3,20 +3,20 @@ import assert from 'node:assert/strict';
 import { createRequest } from 'astro/app/node';
 import config from '../astro.config.mjs';
 import { assertSameOrigin } from '../src/lib/security.ts';
-import { POST } from '../src/pages/api/providers/[provider]/test.ts';
+import { POST } from '../src/pages/api/schedule.ts';
 
 const site = new URL(config.site!);
 function proxiedRequest(origin: string, forwardedHost = site.host, protocol = 'https') {
   // The edge terminates TLS; Node receives HTTP and an internal host.
   const incoming = {
-    method: 'POST', url: '/api/providers/openrouter/test', body: '{}',
+    method: 'POST', url: '/api/schedule', body: '{}',
     headers: { host: 'railway.internal:8080', origin, 'content-type': 'application/json', 'x-forwarded-host': forwardedHost, 'x-forwarded-proto': protocol },
     socket: { remoteAddress: '127.0.0.1', on() {}, off() {} }
   };
   return createRequest(incoming as any, { allowedDomains: config.security!.allowedDomains });
 }
 
-test('HTTPS proxy reconstructs the configured public origin before provider checks', async () => {
+test('HTTPS proxy reconstructs the configured public origin before operator checks', async () => {
   const request = proxiedRequest(site.origin);
   assert.equal(new URL(request.url).origin, site.origin);
   assert.doesNotThrow(() => assertSameOrigin(request));
@@ -47,6 +47,6 @@ test('proxy fix still rejects foreign origins, lookalike domains, ports and inse
 });
 
 test('direct local requests keep the same-origin development behavior', () => {
-  assert.doesNotThrow(() => assertSameOrigin(new Request('http://localhost:4321/api/providers/openrouter/test', { headers: { origin: 'http://localhost:4321' } })));
-  assert.throws(() => assertSameOrigin(new Request('http://localhost:4321/api/providers/openrouter/test', { headers: { origin: site.origin } })), /Cross-origin request rejected/);
+  assert.doesNotThrow(() => assertSameOrigin(new Request('http://localhost:4321/api/schedule', { headers: { origin: 'http://localhost:4321' } })));
+  assert.throws(() => assertSameOrigin(new Request('http://localhost:4321/api/schedule', { headers: { origin: site.origin } })), /Cross-origin request rejected/);
 });

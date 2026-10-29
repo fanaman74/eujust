@@ -28,7 +28,6 @@ const researchLinks = [
 ];
 const operationalLinks = [
   { href: '/monitoring', label: 'Monitoring', note: 'Source checks and schedule', active: path.startsWith('/monitoring') },
-  { href: '/settings', label: 'AI settings', note: 'Summary providers', active: path.startsWith('/settings') }
 ];
 const officialSources = [
   { href: 'https://eur-lex.europa.eu/', label: 'EUR-Lex' },
@@ -40,7 +39,7 @@ let lastCheck: string | null = null;
 try { lastCheck = (await query<{ last_checked_at: string | null }>("SELECT last_checked_at FROM sources WHERE key='eurlex-sparql'")).rows[0]?.last_checked_at ?? null; } catch { /* the bar simply omits the check time when the database is unreachable */ }
 const checked = lastCheck ? new Intl.DateTimeFormat('en-GB', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'Europe/Brussels' }).format(new Date(lastCheck)) : null;
 const operationsCurrent = operationalLinks.some((link) => link.active);
-const surface = path === '/' ? 'home' : path === '/monitoring' || path === '/settings' ? 'operations' : /^\/cases\/.+/.test(path) ? 'record' : 'research';
+const surface = path === '/' ? 'home' : path === '/monitoring' ? 'operations' : /^\/cases\/.+/.test(path) ? 'record' : 'research';
 ---
 <!doctype html>
 <html lang="en">
@@ -117,7 +116,7 @@ const surface = path === '/' ? 'home' : path === '/monitoring' || path === '/set
         </nav>
         <nav aria-labelledby="footer-operations">
           <h2 id="footer-operations">Operations</h2>
-          <ul>{operationalLinks.map((link) => <li><a href={link.href}>{link.label}</a></li>)}</ul>
+          <ul>{operationalLinks.map((link) => <li><a href={link.href}>{link.label}</a></li>)}<li><a href="/privacy">Privacy policy</a></li></ul>
         </nav>
         <nav aria-labelledby="footer-sources">
           <h2 id="footer-sources">Official sources</h2>

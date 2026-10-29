@@ -1,5 +1,7 @@
 ﻿node_modules/
 dist/
+.static-site/
+.static-site-build-*/
 .astro/
 .env
 .env.*

@@ -266,18 +266,6 @@ const monitoring = (() => {
   };
 })();
 
-/* ---------------- settings ---------------- */
-
-const settings = (() => {
-  const { document } = parseHTML(read("_page-settings.html"));
-  const providers = [...document.querySelectorAll("#p-provider option")].map((option) => clean(option.textContent));
-  return {
-    intro: "Choose an optional provider for source-grounded summaries. This static edition is a local interface preview.",
-    notice: "No key is transmitted, stored, or sent anywhere. The form exists to demonstrate the interaction.",
-    providers
-  };
-})();
-
 /* ---------------- assemble ---------------- */
 
 const site = {
@@ -295,8 +283,7 @@ const site = {
   rules,
   decisions,
   discharge,
-  monitoring,
-  settings
+  monitoring
 };
 
 fs.mkdirSync("data", { recursive: true });

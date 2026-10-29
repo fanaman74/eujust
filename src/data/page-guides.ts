@@ -25,7 +25,6 @@ export const pageGuides: Record<string, PageGuide> = {
     coverage: 'The record reflects what the collection has imported. Generating an AI summary requires retrieved source text; any generated text is interpretation, not a court finding. The linked official document remains the authority.',
     related: [
       { href: '/cases', label: 'All court rulings' },
-      { href: '/settings', label: 'AI settings' }
     ]
   },
   rules: {
@@ -64,16 +63,6 @@ export const pageGuides: Record<string, PageGuide> = {
     related: [
       { href: '/rules', label: 'Rules & updates' },
       { href: '/cases', label: 'Court rulings' },
-      { href: '/settings', label: 'AI settings' }
     ]
   },
-  settings: {
-    label: 'Site operations',
-    what: 'Shared configuration for optional AI summary providers, including encrypted keys, model identifiers, connection tests and enable or disable controls.',
-    coverage: 'AI summaries are a reading aid for collected case records; official documents remain readable without a provider. Provider settings affect summary generation, not the official metadata or source links.',
-    related: [
-      { href: '/cases', label: 'Court rulings' },
-      { href: '/monitoring', label: 'Monitoring' }
-    ]
-  }
 };

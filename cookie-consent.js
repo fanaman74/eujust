@@ -3,7 +3,8 @@
 
   window.CookieConsent.run({
     mode: "opt-in",
-    revision: 1,
+    autoShow: false,
+    revision: 2,
     cookie: {
       name: "eujust_cookie_consent",
       expiresAfterDays: 180,
@@ -25,8 +26,7 @@
       }
     },
     categories: {
-      necessary: { enabled: true, readOnly: true },
-      analytics: {}
+      necessary: { enabled: true, readOnly: true }
     },
     language: {
       default: "en",
@@ -34,31 +34,23 @@
         en: {
           consentModal: {
             title: "Cookie preferences",
-            description: "EUJUST uses an essential cookie to remember this choice. Optional analytics are off unless you enable them. No analytics tools are currently active.",
-            acceptAllBtn: "Accept all",
-            acceptNecessaryBtn: "Reject optional",
+            description: 'EU JUST uses a preference cookie for 180 days to remember your choice. No optional analytics or marketing cookies are used. <a href="/privacy/#cookies">Read our privacy policy</a>.',
+            acceptAllBtn: "Continue",
             showPreferencesBtn: "Manage preferences"
           },
           preferencesModal: {
             title: "Cookie preferences",
-            acceptAllBtn: "Accept all",
-            acceptNecessaryBtn: "Reject optional",
             savePreferencesBtn: "Save preferences",
             closeIconLabel: "Close preferences",
             sections: [
               {
                 title: "Your choice",
-                description: "Change your choice at any time using Cookie preferences in the footer."
+                description: 'No optional analytics or marketing cookies are used. You can delete the preference cookie in your browser. <a href="/privacy/#cookies">Privacy policy and cookie information</a>.'
               },
               {
                 title: "Essential",
-                description: "Stores your consent choice so the preference control can remember it.",
+                description: "eujust_cookie_consent remembers the preference you save here for 180 days. It supports this control and is not used for analytics or advertising.",
                 linkedCategory: "necessary"
-              },
-              {
-                title: "Analytics",
-                description: "Optional measurement cookies. No analytics scripts currently run on EUJUST.",
-                linkedCategory: "analytics"
               }
             ]
           }

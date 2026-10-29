@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+import { assembleStaticSite } from './scripts/static-output.mjs';
 
 const site = JSON.parse(fs.readFileSync("data/site.json", "utf8"));
 const cases = site.cases;
@@ -83,7 +84,7 @@ function header(root, active) {
     })
     .join("");
 
-  const opsActive = active === "monitoring" || active === "settings";
+  const opsActive = active === "monitoring";
 
   return `<header class="masthead">
   <div class="masthead__inner wrap">
@@ -95,7 +96,6 @@ function header(root, active) {
         <summary>Operations ${icon("chevron")}</summary>
         <div class="ops-menu__panel">
           <a href="${root}monitoring/index.html"${active === "monitoring" ? ' aria-current="page"' : ""}><span>Monitoring</span><small>Source checks and schedule</small></a>
-          <a href="${root}settings/index.html"${active === "settings" ? ' aria-current="page"' : ""}><span>AI settings</span><small>Summary providers</small></a>
         </div>
       </details>
       <a class="btn btn--small magnet" href="${root}cases/index.html">Find a ruling ${icon("search")}</a>
@@ -115,7 +115,6 @@ function header(root, active) {
     <a href="${root}discharge/index.html"><span>05</span>Budget discharge<small>Parliament’s scrutiny cycle</small></a>
     <p class="mobile-menu__label">Operations</p>
     <a href="${root}monitoring/index.html"><span>06</span>Monitoring<small>Source checks and schedule</small></a>
-    <a href="${root}settings/index.html"><span>07</span>AI settings<small>Summary providers</small></a>
     <a class="mobile-menu__cta" href="${root}cases/index.html">Find a ruling ${icon("arrow")}</a>
   </nav>
 </header>`;
@@ -147,7 +146,7 @@ function footer(root) {
       <h2 id="footer-operations">Operations</h2>
       <ul>
         <li><a href="${root}monitoring/index.html">Monitoring</a></li>
-        <li><a href="${root}settings/index.html">AI settings</a></li>
+        <li><a href="${root}privacy/index.html">Privacy policy</a></li>
         <li><button class="text-link text-link--light cookie-preferences-link" type="button" data-cc="show-preferencesModal">Cookie preferences</button></li>
       </ul>
       <h2 class="colophon__nav-second" id="footer-sources">Official sources</h2>
@@ -192,7 +191,7 @@ function shell({ root, title, description, active, body, bodyClass = "", page = 
   <meta name="theme-color" content="#ece6d8">
   <title>${esc(title)}</title>
   <meta name="description" content="${attr(description)}">
-  <link rel="icon" href="${root}assets/favicon.svg" type="image/svg+xml">
+${page === "privacy" ? `  <link rel="stylesheet" href="${root}privacy.css">\n` : ""}  <link rel="icon" href="${root}assets/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="${root}assets/fonts/archivo-black-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="${root}assets/fonts/archivo-var-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="${root}assets/fonts/fonts.css">
@@ -498,7 +497,7 @@ function casesPage() {
     <div class="coverage-note">
       <span class="coverage-note__icon">${icon("warning")}</span>
       <p><strong>Coverage note.</strong> Rulings are found by keyword searches over a bounded window. A topic match is not a legal finding, and the collection is not exhaustive. The linked official document is always the authority.</p>
-      <a class="text-link" href="${root}settings/index.html">Read the method ${icon("arrow")}</a>
+      <a class="text-link" href="${root}monitoring/index.html">Read the method ${icon("arrow")}</a>
     </div>
   </section>
   `;
@@ -1304,118 +1303,16 @@ function monitoringPage() {
 }
 
 /* ============================================================
-   SETTINGS
-   ============================================================ */
-
-function settingsPage() {
-  const root = "../";
-  const providers = site.settings.providers
-    .map((provider) => `<option>${esc(provider)}</option>`)
-    .join("");
-
-  const body = `${pageHero({
-    root,
-    index: "06",
-    kicker: "Operations",
-    title: `AI <span class="marker">settings.</span>`,
-    lede: site.settings.intro,
-    stats: [
-      { label: "Status", value: "Direct check" },
-      { label: "Providers", value: "4" },
-      { label: "Keys stored", value: "None" }
-    ],
-    bgword: "SETTINGS",
-    breadcrumb: [{ label: "Home", href: "index.html" }, { label: "AI settings" }]
-  })}
-
-  <section class="wrap page-section settings-page" aria-labelledby="settings-title">
-    <div class="section-top"><p class="section-index"><span>01</span> Provider connection</p><span class="section-top__note">One-time connection check</span></div>
-    <div class="settings-layout">
-      <div class="settings-main">
-        <div class="settings-head">
-          <h2 class="section-title" id="settings-title">Connect your <span class="marker">AI.</span></h2>
-          <p>Check a provider using a one-time API key. The key goes directly from your browser to that provider and is cleared after the check.</p>
-        </div>
-
-        <form class="provider-form" id="provider-form" novalidate>
-          <div class="provider-form__top"><span>${icon("key")} Provider connection</span><span>Key never saved</span></div>
-          <div class="provider-form__grid">
-            <label class="field" for="provider">
-              <span>AI provider</span>
-              <select id="provider" name="provider">${providers}</select>
-            </label>
-            <label class="field" for="api-key">
-              <span>API key</span>
-              <span class="field__control field__control--password">${icon("key")}<input id="api-key" type="password" placeholder="Paste a key for a one-time check" autocomplete="new-password" spellcheck="false"><button type="button" class="reveal-key" id="reveal-key" aria-label="Show API key">${icon("eye")}</button></span>
-            </label>
-            <label class="field" for="model">
-              <span>Model identifier</span>
-              <input id="model" name="model" type="text" placeholder="e.g. gpt-4o-mini" autocomplete="off">
-            </label>
-            <label class="field" for="endpoint">
-              <span>API endpoint</span>
-              <input id="endpoint" name="endpoint" type="url" autocomplete="url" spellcheck="false">
-            </label>
-            <label class="field" id="available-models-field" for="available-models" hidden>
-              <span>Available OpenRouter models</span>
-              <select id="available-models"><option value="">Choose a model</option></select>
-            </label>
-          </div>
-          <p class="provider-form__notice">${icon("warning")} ${esc(site.settings.notice)}</p>
-          <div class="provider-form__actions">
-            <button class="btn btn--ink" type="button" id="test-connection">Test connection ${icon("pulse")}</button>
-            <button class="btn" type="button" id="clear-provider-key">Clear key ${icon("close")}</button>
-            <span class="form-status" id="provider-status" role="status"></span>
-          </div>
-        </form>
-
-        <div class="saved-providers">
-          <div class="section-top"><p class="section-index"><span>02</span> Credential handling</p><span class="section-top__note">Not stored</span></div>
-          <div class="empty-provider">
-            <span class="empty-provider__mark">${icon("key")}</span>
-            <div><h2>One check at a time.</h2><p>EUJUST does not receive or retain your API key. Paste it again for another check; provider settings and credentials are not saved.</p></div>
-          </div>
-        </div>
-      </div>
-
-      <aside class="settings-aside">
-        <section class="paper-panel">
-          <p class="section-index"><span>A</span> Read me</p>
-          <h2>What this <span class="marker">doesn’t</span> do.</h2>
-          <ul class="plain-list">
-            <li>Your browser sends the key directly to the selected provider for the check.</li>
-            <li>EUJUST does not receive or store the key.</li>
-            <li>The key input is cleared when the request finishes.</li>
-            <li>OpenRouter model IDs are loaded from its models endpoint.</li>
-          </ul>
-        </section>
-        <section class="paper-panel paper-panel--pink">
-          <p class="section-index"><span>B</span> Ground rule</p>
-          <h2>AI is a reading aid.</h2>
-          <p>Generated interpretation is never a court finding. If a summary is ever added, it must be labelled and kept apart from the official record.</p>
-          <a class="text-link" href="${root}monitoring/index.html">See the source checks ${icon("arrow")}</a>
-        </section>
-      </aside>
-    </div>
-  </section>`;
-
-  return shell({
-    root,
-    title: "AI settings for source summaries — EU JUST",
-    description: "A local preview of optional AI provider settings for source-grounded summaries.",
-    active: "settings",
-    page: "settings",
-    body
-  });
-}
-
-/* ============================================================
    OUTPUT
    ============================================================ */
 
+/** @type {string[]} */
+const publishedPages = [];
+/** @param {string} file @param {string} html */
 function writePage(file, html) {
   fs.mkdirSync(path.dirname(file), { recursive: true });
   fs.writeFileSync(file, html);
+  publishedPages.push(file);
 }
 
 writePage("cases/index.html", casesPage());
@@ -1428,7 +1325,12 @@ writePage("rules/index.html", rulesPage());
 writePage("decisions/index.html", decisionsPage());
 writePage("discharge/index.html", dischargePage());
 writePage("monitoring/index.html", monitoringPage());
-writePage("settings/index.html", settingsPage());
+writePage("privacy/index.html", shell({
+  root: "../", title: "Privacy policy — EU JUST", active: "privacy", page: "privacy",
+  description: "How msoit handles personal data on EU JUST, including public records, cookies, hosting and external services.",
+  body: fs.readFileSync("src/content/privacy-policy.html", "utf8")
+}));
+fs.copyFileSync("src/styles/privacy.css", "privacy.css");
 
 const sitemapUrls = [
   "",
@@ -1440,7 +1342,7 @@ const sitemapUrls = [
   "discharge/",
   "topics/",
   "monitoring/",
-  "settings/",
+  "privacy/",
   ...topics.map((topic) => `topics/${topic.slug}/`),
   ...cases.map((entry) => `cases/${entry.id}/`)
 ];
@@ -1452,6 +1354,7 @@ fs.writeFileSync(
     .join("")}</urlset>`
 );
 
-console.log("Built pages:", 10 + topics.length + cases.length);
+console.log("Built pages:", publishedPages.length + 1);
 console.log("Case pages:", cases.length);
 console.log("Topic pages:", topics.length);
+assembleStaticSite(process.cwd(), publishedPages);

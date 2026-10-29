@@ -3558,15 +3558,5 @@
       "new": 1,
       "failed": 65
     }
-  },
-  "settings": {
-    "intro": "Test a provider connection with a one-time key. The key is sent directly to that provider for the check, then cleared from this page.",
-    "notice": "Your key is sent directly to the selected provider only for this connection check. It is not sent to EUJUST, saved, or logged by this page, and is cleared when the check finishes.",
-    "providers": [
-      "OpenAI / ChatGPT",
-      "DeepSeek",
-      "OpenRouter",
-      "Anthropic Claude"
-    ]
   }
 }

@@ -1,0 +1,8 @@
+---
+import Layout from '../layouts/Layout.astro';
+import privacyPolicy from '../content/privacy-policy.html?raw';
+import '../styles/privacy.css';
+---
+<Layout title="Privacy policy" description="How msoit handles personal data on EU JUST, including public legal records, cookies, hosting and external services." canonicalPath="/privacy">
+  <Fragment set:html={privacyPolicy} />
+</Layout>
