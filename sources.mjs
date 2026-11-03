@@ -21,6 +21,7 @@ const COURT = { GCEU: "General Court", CJEU: "Court of Justice", CST: "Civil Ser
 export async function sparql(query) {
   const res = await fetch(`${SPARQL}?query=${encodeURIComponent(query)}&format=application%2Fsparql-results%2Bjson`, {
     headers: { "User-Agent": "eu-just-harvester/1.0", Accept: "application/sparql-results+json" },
+    signal: AbortSignal.timeout(60_000),
   });
   const body = await res.text();
   if (!res.ok) throw new Error(`SPARQL ${res.status}: ${body.slice(0, 240)}`);

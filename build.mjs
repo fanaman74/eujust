@@ -8,6 +8,17 @@ const topics = site.topics;
 const topicBySlug = Object.fromEntries(topics.map((topic) => [topic.slug, topic]));
 const caseById = Object.fromEntries(cases.map((entry) => [entry.id, entry]));
 
+// Freshness and counts come from the data, never from typed-in copy.
+const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+const lastRunLog = (() => {
+  try { return JSON.parse(fs.readFileSync("data/monitoring.json", "utf8")); } catch { return { runs: [] }; }
+})();
+const feedCheckedISO = lastRunLog.runs?.[0]?.day || site.generatedAt;
+const feedCheckedDate = new Date(feedCheckedISO + "T00:00:00Z");
+const feedCheckedShort = `${String(feedCheckedDate.getUTCDate()).padStart(2, "0")}.${String(feedCheckedDate.getUTCMonth() + 1).padStart(2, "0")}.${String(feedCheckedDate.getUTCFullYear()).slice(2)}`;
+const feedCheckedLabel = `${feedCheckedDate.getUTCDate()} ${MONTHS[feedCheckedDate.getUTCMonth()]} ${feedCheckedDate.getUTCFullYear()}`;
+const caseCount = cases.length;
+
 const esc = (value = "") =>
   String(value)
     .replace(/&/g, "&amp;")
@@ -66,9 +77,9 @@ function brand(root) {
 function ticker() {
   const items = [
     "Official source or it didn’t happen",
-    "85 court rulings on record",
+    `${caseCount} court rulings on record`,
     "4 official feeds monitored",
-    "Court feed checked 23 Oct 2026",
+    `Court feed checked ${feedCheckedLabel}`,
     "Research support — not legal advice",
     "Keyword-matched / bounded window"
   ];
@@ -91,7 +102,7 @@ function header(root, active) {
     ${brand(root)}
     <nav class="primary-nav" aria-label="Primary">${nav}</nav>
     <div class="masthead__tools">
-      <p class="masthead__check"><span class="live-dot"></span>Feed checked <time datetime="2026-10-23">23.10.26</time></p>
+      <p class="masthead__check"><span class="live-dot"></span>Feed checked <time datetime="${feedCheckedISO}">${feedCheckedShort}</time></p>
       <details class="ops-menu${opsActive ? " is-active" : ""}">
         <summary>Operations ${icon("chevron")}</summary>
         <div class="ops-menu__panel">
@@ -158,9 +169,9 @@ function footer(root) {
     </nav>
     <div class="colophon__meta">
       <p class="colophon__label">File status</p>
-      <p class="colophon__status"><span class="live-dot"></span>Feed checked 23 Oct 2026</p>
+      <p class="colophon__status"><span class="live-dot"></span>Feed checked ${feedCheckedLabel}</p>
       <p class="colophon__label">Coverage</p>
-      <p>85 collected rulings<br>4 official feeds<br>5 latest records</p>
+      <p>${caseCount} collected rulings<br>4 official feeds<br>5 latest records</p>
       <p class="colophon__label">Disclaimer</p>
       <p>The linked official document is always the authority. AI summaries, where present, are labelled as generated.</p>
     </div>
@@ -290,7 +301,6 @@ const pending = (() => {
   return JSON.parse(fs.readFileSync(file, "utf8"));
 })();
 
-const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 const shortDate = (iso = "") => {
   const [y, m, d] = String(iso).split("-");
   return d ? `${Number(d)} ${MONTHS[Number(m) - 1]} ${y}` : iso;
@@ -388,7 +398,7 @@ function caseCard(entry, root) {
     <p class="case-index-card__court">${esc(entry.court)}</p>
     ${tagList(entry.tags, root)}
     <div class="case-index-card__foot">
-      <span>File ${String(entry.order).padStart(2, "0")} / 85</span>
+      <span>File ${String(entry.order).padStart(2, "0")} / ${caseCount}</span>
       <span class="case-index-card__open">Open record ${icon("arrow")}</span>
     </div>
   </article>`;
@@ -433,7 +443,7 @@ function casesPage() {
       <form class="case-filter" id="case-filter" role="search" aria-label="Search and filter rulings">
         <div class="case-filter__bar">
           <span>${icon("filter")} Filter the docket</span>
-          <span>85 records / 4 feeds / 1 archive</span>
+          <span>${caseCount} records / 4 feeds / 1 archive</span>
         </div>
         <div class="case-filter__grid">
           <label class="field field--search" for="case-q">
@@ -470,12 +480,12 @@ function casesPage() {
       </form>
 
       <div class="topic-quick" aria-label="Quick topic filters">
-        <button type="button" class="topic-chip is-active" data-topic-filter="">All topics <span>85</span></button>
+        <button type="button" class="topic-chip is-active" data-topic-filter="">All topics <span>${caseCount}</span></button>
         ${topicCounts.map((topic) => `<button type="button" class="topic-chip" data-topic-filter="${attr(topic.slug)}">${esc(topic.name)} <span>${topic.count}</span></button>`).join("")}
       </div>
 
       <div class="results-line">
-        <p id="case-result" role="status" aria-live="polite">85 rulings in the archive.</p>
+        <p id="case-result" role="status" aria-live="polite">${caseCount} rulings in the archive.</p>
         <p><span class="live-dot"></span>Keyword-matched coverage</p>
       </div>
 
@@ -484,13 +494,13 @@ function casesPage() {
       <div class="case-empty" id="case-empty" hidden>
         <span class="case-empty__mark">${icon("search")}</span>
         <h2>No file matches that search.</h2>
-        <p>Try a party name, a case number such as <strong>T-199/25</strong>, or clear the filters to see all 85 records.</p>
+        <p>Try a party name, a case number such as <strong>T-199/25</strong>, or clear the filters to see all ${caseCount} records.</p>
         <button class="btn" type="button" id="case-empty-reset">Clear filters ${icon("close")}</button>
       </div>
 
       <div class="load-row">
         <button class="btn btn--pink" type="button" id="case-load-more">Load more records ${icon("arrow")}</button>
-        <p id="case-loaded-note">Showing 18 of 85.</p>
+        <p id="case-loaded-note">Showing 18 of ${caseCount}.</p>
       </div>
     </div>
 
@@ -615,7 +625,7 @@ function casePage(entry) {
     ])}
     <div class="case-detail-hero__grid">
       <div class="case-detail-hero__copy">
-        <p class="section-index"><span>${String(entry.order).padStart(2, "0")}</span> Case record / 85</p>
+        <p class="section-index"><span>${String(entry.order).padStart(2, "0")}</span> Case record / ${caseCount}</p>
         <p class="case-detail-hero__no">${esc(entry.caseNo)}</p>
         <h1>${esc(entry.title)}</h1>
         <p class="lede">${esc(entry.subject)}</p>
@@ -652,7 +662,7 @@ function casePage(entry) {
           <div>
             <span class="source-box__label">Official source</span>
             <strong>${esc(entry.celex ? `EUR-Lex document ${entry.celex}` : "Open the publishing authority")}</strong>
-            <span class="source-box__meta">Text retrieved 23 October 2026 · The linked document is the authority.</span>
+            <span class="source-box__meta">Text retrieved ${feedCheckedLabel} · The linked document is the authority.</span>
           </div>
           ${sourceLink(entry.source, "Open source", { root, className: "source-box__action" })}
         </div>
@@ -716,7 +726,7 @@ function casePage(entry) {
         <h2>Move through <span class="marker">the docket.</span></h2>
         ${newer ? `<a class="file-nav" href="${root}cases/${newer.id}/index.html"><span>Newer</span><strong>${esc(newer.caseNo)} · ${esc(newer.title)}</strong>${icon("arrow")}</a>` : ""}
         ${older ? `<a class="file-nav" href="${root}cases/${older.id}/index.html"><span>Older</span><strong>${esc(older.caseNo)} · ${esc(older.title)}</strong>${icon("arrow")}</a>` : ""}
-        <a class="text-link" href="${root}cases/index.html">All 85 rulings ${icon("arrow")}</a>
+        <a class="text-link" href="${root}cases/index.html">All ${caseCount} rulings ${icon("arrow")}</a>
       </section>
     </aside>
   </div>
@@ -740,7 +750,7 @@ function topicsPage() {
   const root = "../";
   const stats = [
     { label: "Research topics", value: topics.length },
-    { label: "Linked rulings", value: 85 },
+    { label: "Linked rulings", value: caseCount },
     { label: "Keyword matches", value: "Not legal analysis" }
   ];
 
@@ -900,7 +910,7 @@ function rulesPage() {
   const stats = [
     { label: "Source records", value: total },
     { label: "Source drawers", value: site.rules.length },
-    { label: "Last checked", value: "23 Oct 2026" }
+    { label: "Last checked", value: feedCheckedLabel }
   ];
 
   const body = `${pageHero({
@@ -1227,7 +1237,6 @@ function monitoringPage() {
       <div class="monitor-console__top">
         <span>EU JUST / monitor</span>
         <span class="monitor-console__status">${icon("pulse")} ${data.sources.length} feeds${partials ? ` &middot; ${partials} partial` : " &middot; all clear"}</span>
-        <button class="monitor-run" type="button" id="monitor-run">Run sample check ${icon("arrow")}</button>
       </div>
       <div class="monitor-console__body">
         <div class="monitor-stats">
@@ -1327,10 +1336,9 @@ writePage("discharge/index.html", dischargePage());
 writePage("monitoring/index.html", monitoringPage());
 writePage("privacy/index.html", shell({
   root: "../", title: "Privacy policy — EU JUST", active: "privacy", page: "privacy",
-  description: "How msoit handles personal data on EU JUST, including public records, cookies, hosting and external services.",
-  body: fs.readFileSync("src/content/privacy-policy.html", "utf8")
+  description: "How EU JUST handles personal data on EU JUST, including public records, cookies, hosting and external services.",
+  body: fs.readFileSync("content/privacy-policy.html", "utf8")
 }));
-fs.copyFileSync("src/styles/privacy.css", "privacy.css");
 
 const sitemapUrls = [
   "",

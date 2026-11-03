@@ -14,7 +14,7 @@ The official document remains the authority. AI interpretation is optional and s
 
 ## Palette and type
 
-Tokens live in `src/styles/global.css`.
+Tokens live in `styles.css`.
 
 - Cream canvas `#fcfff7`; white reading/form surfaces; pale green operational background `#f5f7ef`.
 - Charcoal `#262626`; deeper charcoal `#111114` for the home research-index band and discharge source material.
