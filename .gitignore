@@ -2,13 +2,9 @@
 dist/
 .static-site/
 .static-site-build-*/
-.astro/
 .env
-.env.*
-!.env.example
 .local/
 *.log
-.neon
 .impeccable/decision/
 .impeccable/review/
 .impeccable/mocks/

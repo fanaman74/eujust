@@ -1,7 +1,6 @@
 // Daily source check for the static edition.
 //
-// This replaces the Astro app's worker (scripts/worker.ts) without the database:
-// one pass, no poll loop, no advisory lock - Windows Task Scheduler starts it at
+// Runs without a database: one pass, no poll loop, no advisory lock - Windows Task Scheduler starts it at
 // 06:30 Europe/Brussels and a missed day shows up in the log instead of being
 // silently caught up.
 //
@@ -76,6 +75,10 @@ try {
     return lawyers || defendant ? { ...entry, ...(lawyers ? { lawyers } : {}), ...(defendant ? { defendant } : {}) } : entry;
   });
 
+  // An empty or sharply smaller result is more likely a source fault than a real drop: keep the last good file.
+  if ((previous.cases || []).length >= 4 && cases.length < Math.ceil(previous.cases.length / 2)) {
+    throw new Error(`pending list shrank from ${previous.cases.length} to ${cases.length}; kept previous file`);
+  }
   writeJson(PENDING_FILE, {
     generatedAt: day,
     source: "EUR-Lex / Cellar SPARQL — OJ C notices of actions brought (CELEX …TN…)",

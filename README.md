@@ -1,71 +1,51 @@
 # EU JUST
 
-EU JUST is a source-first legal monitoring desk for European employment and workplace law. Phase 1 connects to the official EUR-Lex / Cellar SPARQL endpoint, imports genuine CJEU and General Court records, retrieves the official English source document, and stores source metadata separately from optional AI reports. The public interface uses a warm paper and deep navy visual system with a restrained gold signal, while official-source links and clear AI labels keep the product grounded in the record.
+EU JUST is a source-first research site for European workplace law: Court of Justice and General Court rulings on harassment, discrimination and staff cases, pending actions, institutional rules and budget discharge records. Every record links to its official EUR-Lex, Ombudsman or Commission source. The official document is always the authority.
+
+## Layout
+
+- `build.mjs` generates every public page as static HTML into the repository root, then assembles `.static-site/` for serving.
+- `serve.js` serves `.static-site/` (GET and HEAD only, no fallback to the repository).
+- `data/*.json` holds the collected records and the run log. `daily-check.mjs` refreshes them.
+- `sources.mjs` holds the EUR-Lex / Cellar SPARQL queries shared by the daily check and `harvest-pending.mjs`.
+- `styles.css`, `pages.css`, `privacy.css`, `main.js`, `pages.js`, `cookie-consent.js` are the front-end. Vendored libraries are in `assets/vendor/`, fonts in `assets/fonts/`.
+- `content/privacy-policy.html` is the privacy policy source, rendered to `/privacy/`.
+- `docs/` holds review notes, the privacy and search-visibility notes, and the redesign plan.
+- `video/` is a separate Remotion project for the homepage map animation.
 
 ## Run locally
 
-The public static version uses `npm run build` followed by `npm start`. The build assembles only intended pages and assets into `.static-site/`; the server serves that directory and never falls back to the repository root. Run the build before starting the static server. The Astro commands below support the separate database-backed research/operator implementation.
+Requirements: Node 22 or newer (Node 24 is the target in Railway's configuration).
 
-The privacy policy is maintained in `src/content/privacy-policy.html`, shared with the Astro `/privacy` route. The static build creates `/privacy/index.html`, its stylesheet and footer links. See `docs/privacy-policy-notes.md` for remaining organisational confirmations and `docs/privacy-review.md` for the earlier live-site review.
-
-Requirements: Node 24+, npm 11+, and PostgreSQL 14+.
-
-```powershell
-Copy-Item .env.example .env
-# Set DATABASE_URL and a 32-byte CREDENTIAL_ENCRYPTION_KEY in .env
+```sh
 npm install
-npm run db:migrate
-npm run dev
+npm run build      # regenerate pages and .static-site/
+npm start          # serve on 127.0.0.1:4173 (set HOST and PORT to change)
 ```
 
-The default local binding is `127.0.0.1:4321`. In production set `NODE_ENV=production` and a long `ADMIN_TOKEN`; browser write routes then require the same-origin request plus `x-admin-token`. This phase is intended for a local or private deployment and does not provide an internet-facing identity system.
+## Daily source check
 
-## Monitoring
+`npm run daily-check` queries the Publications Office Cellar SPARQL endpoint for OJ C "case brought" notices and for new staff judgments and orders. It rewrites `data/pending.json` and `data/inbox.json`, appends the run to `data/monitoring.json`, then rebuilds. A pending list that shrinks by more than half is refused and the previous file is kept. `run-daily-check.cmd` and `register-daily-task.ps1` schedule it on Windows at 06:30 Europe/Brussels.
 
-Run a source check manually from the Monitoring page or with `npm run monitor`. Keep `npm run worker` running as a separate process for the daily schedule. The worker reads `schedule_preferences` from PostgreSQL in `Europe/Brussels` by default, catches up after downtime once per local day, and obtains a PostgreSQL advisory lock so manual and scheduled runs cannot overlap. Every source attempt is written to `monitoring_runs`; failures and partial document retrievals remain visible with sanitized source context, and the dashboard can expand saved CELEX-level failure details and official links. Failed or partial dashboard runs can be retried without replacing the original history row: a partial EUR-Lex run retries the saved failed documents, while a retry without historical failure details performs a source check; institution retries check only the selected source. Source locks reject overlapping retries with a conflict response. Retry actions return immediately and poll the run history; a running row may remain until the supervised web process finishes it. If a process stops mid-run, the next successful reservation of that source marks the orphaned row as an interrupted failure so it can be retried.
+Because the check runs on a local machine, new records reach the live site only when the regenerated `data/` files are committed and pushed.
 
-The Monitoring page accepts an optional operator token in memory for deployments whose proxy requires `x-admin-token`; it is not stored or placed in the URL. Production authentication and same-origin checks remain enforced by the application and its trusted proxy.
+`npm run harvest` refreshes the pending-case list. `node harvest-pending.mjs --enrich` also pulls parties and pleas from each notice text.
 
-EUR-Lex and institution checks are independent: a failed court-source check does not skip the institution feeds. The one-shot `npm run monitor` command exits nonzero on a fatal source failure after attempting both groups. The deployed Railway monitor uses a daily cron at 04:30 UTC with this command; database schedule preferences apply to `npm run worker`, not the Railway cron.
+## Deployment
 
-Ombudsman searches cover the current and previous calendar year and follow the API's reported pagination. Commission Press searches follow its reported pagination too. Both connectors reject incomplete or repeated pages and cap each search at 100 pages. If pagination metadata is unavailable, coverage is limited to the first page. Commission Cellar discovery retains its two-year, 100-result window. Relevance is still determined by title keywords and the explicit OLAF report inclusion rule, rather than full-text classification.
+Railway runs `npm run build` and then `npm start` (see `railway.json`). Nothing else is needed at runtime: no database, no secrets.
 
-The EUR-Lex query requests up to 100 recent English expression records per run, filters CELEX identifiers to genuine judgment/order patterns (`CJ`, `TJ`, `FJ`, `CO`, `TO`, `FO`), and uses a bounded English title vocabulary for the source request. The monitor then applies the enabled English topic terms stored in PostgreSQL for final inclusion and case-topic tagging. This is a bounded discovery window, not exhaustive coverage. The SPARQL `work_date_document` value is stored as judgment date. Publication date remains null until a source supplies publication metadata; it is never inferred from the judgment date. English is labelled `English source version` because the expression language is not proof of the original language. Document enrichment tries Cellar content negotiation, then the official EUR-Lex English HTML manifestation. It requires numbered paragraph content, a court heading and conservative English text checks. HTML shells and challenge pages are rejected. The general EUR-Lex TXT page is not used for enrichment because an English interface can display a non-English judgment body. English document text may remain unavailable even when metadata imports.
+## Tests and checks
 
-## AI settings retired
-
-The website no longer exposes an AI-settings page, API-key forms or provider-configuration controls. The former provider API routes return HTTP 410 without reading or forwarding credentials. Existing stored provider records and generated reports are not deleted by this interface removal; any data removal must be handled separately. Source browsing and official links remain independent of AI.
-
-## Hosted database (Neon)
-
-The deployed app uses a Neon Postgres database. `neon link` writes `DATABASE_URL` (pooled) and `DATABASE_URL_UNPOOLED` (direct) into `.env`. `scripts/db-to-neon.ps1` copies a local database, named by `LOCAL_DATABASE_URL` in `.env`, into Neon; it needs the PostgreSQL client tools.
-
-```powershell
-./scripts/db-to-neon.ps1            # backup, restore, verify row counts
-./scripts/db-to-neon.ps1 -DumpOnly  # backup only, written to .local/backups
-```
-
-The script refuses a non-empty target unless `-Force` is given and fails if any table's row count differs afterwards. The app connects with `DATABASE_URL_UNPOOLED` when it is set and falls back to `DATABASE_URL`; use the direct Neon string, because monitoring takes a session-level advisory lock that a transaction pooler does not preserve. The Railway web service needs that connection string as `DATABASE_URL`, plus `HOST=0.0.0.0` and `CREDENTIAL_ENCRYPTION_KEY`.
-
-## Checks
-
-```powershell
+```sh
 npm test
-npm run check
-npm run build
-npm audit --omit=dev --audit-level=high
+npm audit --omit=dev
 ```
 
-The tests cover credential round-tripping and redaction, malformed and valid source payload parsing, and schedule catch-up semantics. A real AI generation call requires a user-supplied key; it has not been claimed as tested without one.
+The tests cover the static server's path and method rules and the static publication manifest.
 
-## Current scope
+## Search visibility and privacy
 
-Phase 1 covers EUR-Lex / Cellar, topic keyword matching in English with editable multilingual topic fields through the Topics API, dashboard search/filter/pagination, official source links, monitoring history, configurable schedule preferences, source-grounded summary scaffolding, institution rules and updates, and a European Parliament budgetary discharge guide with official decision and follow-up links. National sources, HUDOC, OCR, semantic search, PDF export, saved searches, email notifications, and full multilingual expression retrieval remain planned extensions. Cases remain useful when AI is disabled because metadata and official links are independent of reports.
+The canonical address is `https://www.eujust.online`. See [docs/search-visibility.md](docs/search-visibility.md) for sitemap and verification notes, and [docs/privacy-policy-notes.md](docs/privacy-policy-notes.md) for the open organisational items behind the privacy policy.
 
-In production, keep the app behind a private reverse proxy or identity layer. The Monitoring page can send an operator token entered into its in-memory field; the usual deployment path is for a trusted proxy to inject `x-admin-token` after authenticating an operator. The app fails closed when `NODE_ENV=production` and that header is absent. Run the web server and `npm run worker` as separately supervised processes (for example, systemd, NSSM, or a container supervisor); the worker is not started by a browser request. `HOST`, `PORT`, `MONITOR_TIMEZONE`, `MONITOR_HOUR`, and `MONITOR_MINUTE` are environment defaults; persisted schedule preferences override the monitor time after migration.
-
-## Search visibility
-
-The canonical public address is `https://www.eujust.online`. Public pages include canonical URLs, sharing metadata and structured data; `/sitemap.xml` automatically lists landing pages and collected cases. The topic guides at `/topics` provide searchable entry points to the collection. Operators, internal search results, previews and error pages are excluded from indexing.
-
-Use `NODE_ENV=production` on the published web service. Astro trusts forwarded HTTPS headers only for the exact configured site hostname (and the existing EU JUST apex redirect), so browser actions retain the public HTTPS origin behind Railway’s proxy. The optional `SITE_URL` override must be an HTTPS origin. See [Search visibility](docs/search-visibility.md) for deployment checks and Google Search Console/Bing verification and sitemap submission.
+EU JUST is research support only, not legal advice.
