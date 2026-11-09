@@ -162,7 +162,7 @@ function footer(root) {
       <p class="colophon__label">Coverage</p>
       <p>85 collected rulings<br>4 official feeds<br>5 latest records</p>
       <p class="colophon__label">Disclaimer</p>
-      <p>The linked official document is always the authority. AI summaries, where present, are labelled as generated.</p>
+      <p>The linked official document is always the authority.</p>
     </div>
   </div>
   <div class="colophon__lockup" aria-hidden="true"><span>EU</span><span>JUST</span></div>
@@ -658,15 +658,8 @@ function casePage(entry) {
         </div>
       </section>
 
-      <section class="paper-panel paper-panel--ai" aria-labelledby="summary-title">
-        <div class="panel-heading"><p class="section-index"><span>02</span> Reading aid</p><span class="panel-rule"></span></div>
-        <div class="ai-heading"><h2 id="summary-title">AI summary</h2><span class="badge">Not generated</span></div>
-        <p class="ai-note">${icon("warning")} Generated interpretation is not a court finding. This static edition does not generate or store summaries.</p>
-        <p class="case-abstract">No summary is attached to this record in the recreation. Read the official source above before drawing a conclusion.</p>
-      </section>
-
       <section class="paper-panel" aria-labelledby="topics-title">
-        <div class="panel-heading"><p class="section-index"><span>03</span> Context</p><span class="panel-rule"></span></div>
+        <div class="panel-heading"><p class="section-index"><span>02</span> Context</p><span class="panel-rule"></span></div>
         <h2 id="topics-title">Matched <span class="marker">topics.</span></h2>
         <p class="case-abstract">Topics are assigned by keyword match, not legal analysis. A match does not establish that the court found harassment, discrimination or a psychosocial risk.</p>
         ${tagList(entry.tags, root, { linked: true, className: "tag-list--large" })}
@@ -677,7 +670,7 @@ function casePage(entry) {
       </section>
 
       <section class="paper-panel" aria-labelledby="trail-title">
-        <div class="panel-heading"><p class="section-index"><span>04</span> Provenance</p><span class="panel-rule"></span></div>
+        <div class="panel-heading"><p class="section-index"><span>03</span> Provenance</p><span class="panel-rule"></span></div>
         <h2 id="trail-title">Follow the <span class="marker">trail.</span></h2>
         <ol class="provenance">
           <li><span>01</span><div><strong>Official document</strong><p>The publishing authority publishes the judgment or decision. This is the authority.</p></div></li>

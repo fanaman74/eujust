@@ -25,7 +25,7 @@ test('HTTPS proxy reconstructs the configured public origin before operator chec
   try {
     process.env.NODE_ENV = 'production';
     delete process.env.ADMIN_TOKEN;
-    const response = await POST({ request, params: { provider: 'openrouter' } } as any);
+    const response = await POST({ request, params: {} } as any);
     assert.equal(response.status, 400);
     assert.deepEqual(await response.json(), { error: 'Admin authentication required' });
   } finally {

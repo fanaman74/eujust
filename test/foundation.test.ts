@@ -1,17 +1,12 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { encryptSecret, decryptSecret, redactError } from '../src/lib/security.ts';
+import { redactError } from '../src/lib/security.ts';
 import { fetchEurLexCases, fetchEurLexDocument } from '../src/lib/source/eurlex.ts';
 import { shouldRunSchedule } from '../src/lib/schedule.ts';
-import { parseReport, buildChatRequest } from '../src/lib/ai.ts';
 import { commissionCellarQuery, fetchCommissionDocuments, fetchCommissionPress, fetchOmbudsmanUpdates } from '../src/lib/source/institutions.ts';
 import { selectedDecisions } from '../src/data/rules.ts';
 
-test('encrypted credentials round-trip and errors redact full secrets', () => {
-  process.env.CREDENTIAL_ENCRYPTION_KEY = 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=';
-  const encrypted = encryptSecret('sk-live-secret-value');
-  assert.equal(decryptSecret(encrypted), 'sk-live-secret-value');
-  assert.ok(!encrypted.includes('sk-live-secret-value'));
+test('errors redact full secrets', () => {
   assert.ok(!redactError(new Error('authorization: Bearer sk-live-secret-value')).includes('sk-live-secret-value'));
 });
 
@@ -172,19 +167,3 @@ test('schedule catches up once per local day after configured time', () => {
   assert.equal(shouldRunSchedule({ day: '2026-10-02', hour: 6, minute: 0 }, { hour: 6, minute: 30 }, null), false);
 });
 
-test('AI report parser rejects invalid shape, marks invented citations incomplete, and provider payloads use safe roles/tokens', () => {
-  const valid = JSON.stringify({ summary: 'supported', establishedFacts: ['fact'], legalQuestions: ['question'], outcome: 'outcome', relevance: 'relevance', citations: ['[paragraph 1]'], incomplete: false });
-  assert.deepEqual(parseReport(valid, 'Source [paragraph 1]'), { summary: 'supported', establishedFacts: ['fact'], legalQuestions: ['question'], outcome: 'outcome', relevance: 'relevance', citations: ['[paragraph 1]'], incomplete: false });
-  const invented = parseReport(valid, 'Source without that marker');
-  assert.equal(invented.incomplete, true);
-  assert.deepEqual(invented.citations, []);
-  assert.throws(() => parseReport(JSON.stringify({ summary: 'bad' }), 'Source'));
-  const openai = buildChatRequest('openai', 'https://api.openai.com/v1', 'secret', 'o4-mini', 'prompt');
-  assert.match(openai.init.body as string, /max_completion_tokens/);
-  assert.match(openai.init.body as string, /"role":"system"/);
-  const deepseek = buildChatRequest('deepseek', 'https://api.deepseek.com/v1', 'secret', 'deepseek-chat', 'prompt');
-  assert.match(deepseek.init.body as string, /max_tokens/);
-  const anthropic = buildChatRequest('anthropic', 'https://api.anthropic.com/v1', 'secret', 'claude', 'prompt');
-  assert.match(anthropic.init.body as string, /"system"/);
-  assert.equal((anthropic.init.headers as Record<string, string>)['anthropic-version'], '2023-06-01');
-});

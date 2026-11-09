@@ -13,8 +13,6 @@
     "wire": "#e9b03b",
     "wire-deep": "#8a5a00",
     "on-ink-muted": "#b9c3d2",
-    "ai-fg": "#7a4a00",
-    "ai-surface": "#fdf1d3",
     "success-fg": "#0b6b34",
     "success-surface": "#e3f2e6",
     "warning-fg": "#7a4a00",
@@ -23,8 +21,7 @@
     "danger-surface": "#fbe9ec",
     "ink-2": "#1d2d47",
     "paper-raised": "#fffdf7",
-    "on-ink": "#f6f3eb",
-    "ai-line": "#e8cf8f"
+    "on-ink": "#f6f3eb"
   },
   "typography": {
     "display": {
@@ -120,7 +117,7 @@
       "textColor": "{colors.ink}",
       "borderColor": "{colors.line}",
       "height": "68px",
-      "behavior": "Sticky translucent paper masthead. The four research sections are visible links; Monitoring and AI settings sit in a small Operations menu. Menus close on outside click and Escape."
+      "behavior": "Sticky translucent paper masthead. The four research sections are visible links; Monitoring sits in a small Operations menu. Menus close on outside click and Escape."
     },
     "button": {
       "backgroundColor": "{colors.ink}",
@@ -159,7 +156,6 @@
       "behavior": "Official source link and retrieval note are kept together."
     },
     "status": {
-      "ai": "{colors.ai-fg} on {colors.ai-surface}",
       "success": "{colors.success-fg} on {colors.success-surface}",
       "warning": "{colors.warning-fg} on {colors.warning-surface}",
       "danger": "{colors.danger-fg} on {colors.danger-surface}",
@@ -179,14 +175,14 @@
     "overview": "EU JUST presents bounded, source-first European legal research on a calm paper surface. Deep navy carries structure and trust; gold and blue provide restrained signals; serif display headings add editorial character while Archivo keeps controls and metadata practical. The supplied EU flag photograph belongs to the home hero only.",
     "productTruths": [
       "Official EUR-Lex and institutional documents outrank every product summary.",
-      "AI summaries are optional, clearly labelled and separate from source records.",
+      "The site does not use AI or generate summaries.",
       "Monitoring is bounded by configured topics, source windows and pagination; coverage is not exhaustive.",
       "The site is research support and does not provide legal advice."
     ],
     "rules": [
       {
         "name": "Source before summary",
-        "body": "Keep the official document link, case metadata and retrieval status easy to find before any generated interpretation.",
+        "body": "Keep the official document link, case metadata and retrieval status easy to find.",
         "section": "content"
       },
       {
@@ -212,8 +208,8 @@
       "Retain keyboard operation, visible focus and reduced-motion behavior."
     ],
     "donts": [
-      "Do not present AI interpretation as a court finding.",
-      "Do not invent records, statistics, testimonials or provider capabilities.",
+      "Do not add AI-generated interpretation.",
+      "Do not invent records, statistics, testimonials or capabilities.",
       "Do not resurrect the earlier black-and-red palette or an obsolete brand identity.",
       "Do not use decorative gradients, glass effects or repeated hero imagery."
     ]

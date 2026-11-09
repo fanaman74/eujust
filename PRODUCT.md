@@ -10,7 +10,7 @@ web
 
 The general public and press: people without legal training who want to follow EU court rulings on workplace rights. They arrive cold, need to understand in seconds what is tracked, and need a reason to trust it. (Confirmed by the owner, 2 October 2026.)
 
-The owner also operates the site: running source checks, setting the daily schedule, and configuring AI providers.
+The owner also operates the site: running source checks and setting the daily schedule.
 
 ## Product Purpose
 
@@ -18,7 +18,7 @@ EU JUST monitors the official EUR-Lex / Cellar source for Court of Justice and G
 
 ## Positioning
 
-Source-first. Every case links to the official EUR-Lex document, and AI-generated interpretation is stored and shown separately from the source record, labelled as generated, never as a court finding.
+Source-first. Every case links to the official EUR-Lex document. The site does not use AI and does not generate summaries or interpretations of rulings.
 
 ## Operating Context
 
@@ -34,10 +34,8 @@ Source-first. Every case links to the official EUR-Lex document, and AI-generate
 - Home Feed: five recent court/institution records with source dates and actual keyword matches, shown in a three-row window that advances upward every five seconds, with accessible icon-only Pause/Play and Next controls and reading/reduced-motion protection; RSS 2.0 at `/rss.xml` serves up to twenty records. RSS publication dates reflect first collection, separately from judgment/document dates.
 - Public topic guides for workplace harassment, employment discrimination and psychosocial risks, linked to recent matched records and the full archive.
 - Canonical domain: https://www.eujust.online; public records and guides are discoverable through XML sitemaps, while operator/search/preview/error pages are excluded from indexing.
-- Case detail: official source, metadata, optional AI summary with verified paragraph citations.
-- Case reading handoff: copy public official metadata and available source text into the user's ChatGPT or Claude account; external answers stay there, with no API key or stored EU JUST report.
+- Case detail: official source, metadata and matched topics.
 - Monitoring page: manual source check, daily schedule, run history.
-- Provider settings: OpenAI / ChatGPT, Anthropic Claude, DeepSeek and OpenRouter; test API access, choose a reported model or enter an identifier, and save keys encrypted server-side. OpenRouter's searchable public provider directory is distinct from its model catalogue; routing remains with OpenRouter.
 - In production, write actions require an admin token header and currently fail closed; there is no login.
 - Stack: Astro (server output, Node adapter), plain CSS, self-hosted fonts, PostgreSQL.
 - Undecided: how operator pages are protected on the public site.
@@ -51,16 +49,16 @@ Source-first. Every case links to the official EUR-Lex document, and AI-generate
 ## Evidence on Hand
 
 - 84 real cases with official titles, case numbers, courts, dates and source links.
-- No AI summaries have been generated yet; none may be invented.
+- The site has no AI features; no summaries may be invented.
 - No testimonials, user counts, or press mentions exist; none may be fabricated.
 - The owner removed the EU flag photograph from the Feed. The animated hero map uses public-domain Natural Earth geometry.
 
 ## Product Principles
 
-1. The official source outranks everything, including the product's own summaries.
-2. Say what the data is and is not: bounded discovery, keyword topics, generated interpretation.
+1. The official source outranks everything, including the product's own descriptions.
+2. Say what the data is and is not: bounded discovery and keyword topics.
 3. Plain language for people without legal training; the legal reference stays visible for those who need it.
-4. Useful without AI: metadata and source links never depend on a provider.
+4. No AI: the site does not generate summaries or interpretations.
 
 ## Accessibility & Inclusion
 

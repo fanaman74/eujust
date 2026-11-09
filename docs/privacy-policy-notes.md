@@ -1,8 +1,8 @@
 # Privacy-policy implementation notes
 
-Added 29 October 2026. The shared policy source is `src/content/privacy-policy.html`; the static build creates `/privacy/index.html`, and Astro exposes `/privacy`. Both site footers link to it. AI settings and API-key entry have since been removed. The static sitemap includes the page. Cookie information identifies the 180-day preference cookie; no inactive analytics choice or automatic consent prompt is offered.
+Added 29 October 2026. The shared policy source is `src/content/privacy-policy.html`; the static build creates `/privacy/index.html`, and Astro exposes `/privacy`. Both site footers link to it. All AI features (settings, API-key entry, summary generation and the research-prompt handoff) have since been removed. The static sitemap includes the page. Cookie information identifies the 180-day preference cookie; no inactive analytics choice or automatic consent prompt is offered.
 
-The policy uses the owner's supplied identity (msoit, Belgium, hello@msoit.eu), confirmed Amsterdam deployment and owner-confirmed Railway Hobby plan. It distinguishes the seven-day log-history window from underlying erasure and describes external services without offering provider configuration. Retired provider endpoints return 410 and do not read or forward submitted keys.
+The policy uses the owner's supplied identity (msoit, Belgium, hello@msoit.eu), confirmed Amsterdam deployment and owner-confirmed Railway Hobby plan. It distinguishes the seven-day log-history window from underlying erasure and states that the site does not use AI services. The former provider and summary endpoints have been deleted.
 
 Before treating the page as a completed compliance programme, msoit should:
 
@@ -10,9 +10,9 @@ Before treating the page as a completed compliance programme, msoit should:
 - Confirm execution of Railway's DPA, actual subprocessor/access locations and applicable transfer safeguards. The public text links provider terms without claiming the agreement has been executed or that all processing remains in the EEA.
 - Obtain Railway's actual underlying log-retention commitment. The documentation explicitly says plan upgrades can restore older logs.
 - Review and document the proposed legitimate-interests bases, particularly necessity and balancing for searchable court-record republication. Determine Art. 14 notification handling; no blanket exception is asserted in the policy.
-- Assess any identifiable special-category information before further reuse or AI disclosure. The policy does not invent an Art. 9 condition.
+- Assess any identifiable special-category information before further reuse. The policy does not invent an Art. 9 condition.
 - Assign the privacy inbox and implement the stated rights-response, correction and retention practices. The published text creates expectations that operational handling must meet.
-- Review actual AI-provider terms before enabling server-side source-text sharing and maintain a separate assessment of reports and backups.
+- Decide whether to delete AI provider configurations and generated reports that an earlier operator database may still hold, including backups.
 
 The page is a privacy disclosure, not evidence that the above contracts, assessments and procedures have been completed. No production deployment is implied by creating the source files.
 

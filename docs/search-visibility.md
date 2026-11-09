@@ -10,7 +10,7 @@ Canonical public address: **https://www.eujust.online**.
 - Website/publisher/page JSON-LD describes EU JUST and its content. Case records add identifiers, official-source citations and actual recorded publication/update dates. A missing publication date is never substituted with a judgment date. Case and topic pages have breadcrumb data that matches visible navigation.
 - Open Graph and Twitter card metadata, a branded 1200 × 630 share image and an SVG favicon support consistent search/sharing presentation.
 - `/robots.txt` announces `/sitemap.xml` and permits crawling the public site. Sitemap responses have no `noindex` header, so Google can fetch and revisit them. The sitemap index links nine public landing pages and case-record batches of up to 1,000 URLs. Case `lastmod` values come from `cases.updated_at`; no artificial build-date freshness signals are added.
-- Monitoring and AI settings return `noindex` in both HTML and response headers. They remain crawlable so engines can see that exclusion. API paths are disallowed in robots and return indexing-exclusion headers. These are search controls, not authentication controls.
+- Monitoring returns `noindex` in both HTML and response headers. They remain crawlable so engines can see that exclusion. API paths are disallowed in robots and return indexing-exclusion headers. These are search controls, not authentication controls.
 - Development/preview hosts are `noindex` and receive blocking robots rules. Production indexing requires `NODE_ENV=production` and the canonical host. Requests reaching the app on `eujust.online` permanently redirect to `www.eujust.online` with their path/query preserved.
 - Missing cases/topics and empty out-of-range archive/sitemap pages return 404. Database failures return retryable 503 responses instead of indexable error pages. XML sitemaps recover automatically when the database recovers.
 
@@ -37,7 +37,7 @@ Robots should allow `/` and advertise the canonical sitemap. The home page's rob
 2. In **Sitemaps**, submit `https://www.eujust.online/sitemap.xml`. Its child sitemaps refresh from the database, so future imported records do not require another code deployment.
 3. Use **URL inspection** to check the home page, each topic guide and a representative existing case. Confirm the canonical address, that indexing is allowed, and that the live page can be fetched. Request indexing for the principal new pages.
 4. Add the site in [Bing Webmaster Tools](https://www.bing.com/webmasters), or import the verified Search Console property, then submit the same sitemap.
-5. Review indexing and search-query reports as crawls arrive. Use the actual queries to improve the guides and editorial explanations while retaining official source links, accurate scope and clear AI labels.
+5. Review indexing and search-query reports as crawls arrive. Use the actual queries to improve the guides and editorial explanations while retaining official source links, and accurate scope.
 
 Search Console/Bing account verification and sitemap submission are owner actions; repository changes alone do not perform them. Avoid blocking public research behind operator authentication, adding keyword lists without useful content, or describing bounded keyword discovery as exhaustive legal coverage.
 

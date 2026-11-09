@@ -14,7 +14,6 @@ const topics: string[] = item.topics ?? [];
   <div class="dispatch-body">
     <h3><a href={`/cases/${item.id}`}>{parsed.heading}</a></h3>
     {parsed.keywords.length > 0 ? <p class="dispatch-subject">{parsed.keywords.join(' · ')}</p> : parsed.formation && <p class="dispatch-subject">{parsed.formation}</p>}
-    {item.summary && <p class="dispatch-summary"><span class="badge ai">AI summary</span> {item.summary}</p>}
     {topics.length > 0 && <ul class="tags" aria-label="Topics">{topics.map((tag) => <li class="tag">{tag}</li>)}</ul>}
   </div>
   <p class="dispatch-ref"><strong>{item.case_number ?? item.celex}</strong><span>{item.court ?? 'Court not recorded'}</span><Icon name="arrow-right" size={20} /></p>

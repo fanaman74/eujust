@@ -11,7 +11,7 @@ import { dateIso } from '../../lib/sitemap';
 const id = Number(Astro.params.id);
 let item: any = null, error = '';
 if (/^\d+$/.test(Astro.params.id ?? '') && Number.isSafeInteger(id) && id > 0) {
-  try { const result = await query(`SELECT c.*,co.name court,co.jurisdiction, json_agg(DISTINCT jsonb_build_object('name',t.name_en,'matchType',ct.match_type)) FILTER (WHERE t.id IS NOT NULL) topics, json_agg(DISTINCT jsonb_build_object('url',d.official_url,'reference',d.source_reference,'retrievedAt',d.retrieved_at,'hasText',d.text_content IS NOT NULL)) docs, (SELECT report_json FROM reports r WHERE r.case_id=c.id AND r.status='complete' ORDER BY r.created_at DESC LIMIT 1) latest_report FROM cases c LEFT JOIN courts co ON co.id=c.court_id LEFT JOIN case_topics ct ON ct.case_id=c.id LEFT JOIN topics t ON t.id=ct.topic_id LEFT JOIN documents d ON d.case_id=c.id WHERE c.id=$1 GROUP BY c.id,co.name,co.jurisdiction`, [id]); item = result.rows[0]; } catch (e) { error = e instanceof Error ? e.message : 'Database unavailable'; }
+  try { const result = await query(`SELECT c.*,co.name court,co.jurisdiction, json_agg(DISTINCT jsonb_build_object('name',t.name_en,'matchType',ct.match_type)) FILTER (WHERE t.id IS NOT NULL) topics, json_agg(DISTINCT jsonb_build_object('url',d.official_url,'reference',d.source_reference,'retrievedAt',d.retrieved_at,'hasText',d.text_content IS NOT NULL)) docs FROM cases c LEFT JOIN courts co ON co.id=c.court_id LEFT JOIN case_topics ct ON ct.case_id=c.id LEFT JOIN topics t ON t.id=ct.topic_id LEFT JOIN documents d ON d.case_id=c.id WHERE c.id=$1 GROUP BY c.id,co.name,co.jurisdiction`, [id]); item = result.rows[0]; } catch (e) { error = e instanceof Error ? e.message : 'Database unavailable'; }
 }
 if (error) { Astro.response.status = 503; Astro.response.headers.set('Retry-After', '60'); }
 else if (!item) Astro.response.status = 404;
@@ -24,8 +24,6 @@ const docs: any[] = (item?.docs ?? []).filter((doc: any) => doc.url).sort((a: an
   return new Date(b.retrievedAt).getTime() - new Date(a.retrievedAt).getTime();
 });
 const topics: any[] = (item?.topics ?? []).filter((t: any) => t.name);
-const report = item?.latest_report ?? null;
-const hasText = docs.some((doc) => doc.hasText);
 const reference = item?.case_number ?? item?.celex;
 const seoTitle = item ? excerpt(`${reference}: ${parsed!.heading}`, 100) : 'Case record unavailable';
 const seoDescription = item ? excerpt(`${reference}, ${item.court ?? 'EU court'}. ${parsed!.keywords.length ? `${parsed!.keywords.slice(0, 3).join('; ')}. ` : ''}${item.judgment_date ? `Judgment of ${date(item.judgment_date)}. ` : ''}Official case metadata and source links.`) : 'The requested case record is unavailable. Browse the collected EU court rulings instead.';
@@ -75,39 +73,6 @@ const mainEntity = item ? {
                 </ul>
               )}
             </section>
-
-            <section class="panel ai" aria-labelledby="h-ai">
-              <div class="panel-head"><h2 id="h-ai">AI summary</h2>{report ? <span class="badge ai">AI-generated</span> : <span class="badge">Not generated</span>}</div>
-              <p class="ai-disclaimer"><Icon name="info" size={16} /><span>Generated interpretation, not a court finding. Verify every point against the official source above.{report?.incomplete && <strong> This summary is marked incomplete: the source was truncated or a citation could not be verified.</strong>}</span></p>
-              <div class="prose">
-                <p>{item.summary ?? 'No summary has been generated for this case yet.'}</p>
-                {report && (
-                  <>
-                    {report.establishedFacts?.length > 0 && <><h3>What the source establishes</h3><ul>{report.establishedFacts.map((fact: string) => <li>{fact}</li>)}</ul></>}
-                    {report.legalQuestions?.length > 0 && <><h3>Legal questions</h3><ul>{report.legalQuestions.map((question: string) => <li>{question}</li>)}</ul></>}
-                    {report.outcome && <><h3>Outcome</h3><p>{report.outcome}</p></>}
-                    {report.relevance && <><h3>Relevance</h3><p>{report.relevance}</p></>}
-                    <p class="muted small">Verified paragraph citations: {report.citations?.join(', ') || 'none'}. A citation is kept only when its paragraph marker exists in the retrieved document.</p>
-                  </>
-                )}
-              </div>
-              <form id="summary-form" action={`/api/cases/${item.id}/summary`} method="post" class="form-actions">
-                <button class="button" type="submit" disabled={!hasText}>{item.summary ? 'Regenerate summary' : 'Generate summary'}</button>
-                <span id="summary-status" class="form-status" role="status">{!hasText && 'Unavailable: no source text has been retrieved for this case.'}</span>
-              </form>
-              <details class="subscription-reading">
-                <summary>Use your ChatGPT or Claude subscription</summary>
-                <p>Copy a research prompt, then open your AI app and paste it into a new chat. You use your own account there; the answer stays in that app.</p>
-                <p class="hint">{hasText ? 'The prompt includes retrieved official source text and marks any known gaps.' : 'The prompt includes this record and its source links. Add the full judgment in your AI app before asking for analysis.'}</p>
-                <div class="form-actions">
-                  <button class="button secondary" id="copy-research-prompt" type="button" data-url={`/api/cases/${item.id}/prompt`}>Copy research prompt</button>
-                  <a href="https://chatgpt.com/" target="_blank" rel="noreferrer">Open ChatGPT <Icon name="external" size={14} /><span class="sr-only"> (opens in a new tab)</span></a>
-                  <a href="https://claude.ai/new" target="_blank" rel="noreferrer">Open Claude <Icon name="external" size={14} /><span class="sr-only"> (opens in a new tab)</span></a>
-                </div>
-                <p id="prompt-status" class="form-status" role="status"></p>
-                <details id="prompt-preview" hidden><summary>Research prompt to copy</summary><label class="sr-only" for="research-prompt">Research prompt</label><textarea id="research-prompt" rows="8" readonly></textarea></details>
-              </details>
-            </section>
           </div>
 
           <aside class="detail-aside" aria-label="Case details">
@@ -136,22 +101,3 @@ const mainEntity = item ? {
     )}
   </div>
 </Layout>
-<script>
-  import '../../scripts/research-prompt';
-  const form = document.querySelector<HTMLFormElement>('#summary-form');
-  const status = document.querySelector<HTMLElement>('#summary-status');
-  form?.addEventListener('submit', async (event) => {
-    event.preventDefault();
-    const button = form.querySelector('button')!;
-    const label = button.textContent;
-    button.disabled = true; button.textContent = 'Generating…';
-    status!.dataset.state = ''; status!.textContent = 'Reading the retrieved source. This can take up to a minute.';
-    try {
-      const response = await fetch(form.action, { method: 'POST' });
-      if (response.ok) { location.reload(); return; }
-      const body = await response.json().catch(() => ({}));
-      status!.dataset.state = 'error'; status!.textContent = `Summary failed: ${body.error ?? 'unknown error'}`;
-    } catch { status!.dataset.state = 'error'; status!.textContent = 'Network error. Check the connection and try again.'; }
-    button.disabled = false; button.textContent = label;
-  });
-</script>
