@@ -20,7 +20,6 @@ export function createStaticServer(root = publicRoot) {
   return http.createServer(async (req, res) => {
     res.setHeader('X-Content-Type-Options', 'nosniff');
     res.setHeader('Referrer-Policy', 'no-referrer');
-    res.setHeader('Cache-Control', 'no-store');
     /** @param {number} status @param {string} message */
     const reply = (status, message) => {
       res.writeHead(status, { 'Content-Type': 'text/plain; charset=utf-8' });
@@ -55,7 +54,8 @@ export function createStaticServer(root = publicRoot) {
         reply(404, 'Not found'); return;
       }
       const data = await readFile(filePath);
-      res.writeHead(200, { 'Content-Type': types[path.extname(filePath)], 'Content-Length': data.length });
+      const isPage = path.extname(filePath) === '.html';
+      res.writeHead(200, { 'Content-Type': types[path.extname(filePath)], 'Content-Length': data.length, 'Cache-Control': isPage ? 'no-cache' : 'public, max-age=3600' });
       res.end(req.method === 'HEAD' ? undefined : data);
     } catch { reply(404, 'Not found'); }
   });

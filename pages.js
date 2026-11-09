@@ -610,33 +610,6 @@
     });
   }
 
-  /* ---------- monitoring ---------- */
-
-  function initMonitoring() {
-    const button = document.getElementById("monitor-run");
-    const note = document.getElementById("monitor-note");
-    if (!button || !note) return;
-
-    button.addEventListener("click", () => {
-      if (button.classList.contains("is-running")) return;
-      const original = button.innerHTML;
-      button.classList.add("is-running");
-      button.innerHTML = `Scanning ${'<span class="monitor-spinner" aria-hidden="true"></span>'}`;
-      note.textContent = "Running a sample check against the captured record…";
-      note.classList.add("is-busy");
-      if (motion) {
-        gsap.fromTo(note, { opacity: .4 }, { opacity: 1, duration: .5, repeat: 2, yoyo: true });
-      }
-      window.setTimeout(() => {
-        button.classList.remove("is-running");
-        button.innerHTML = original;
-        note.classList.remove("is-busy");
-        note.textContent = "Sample complete — no live worker attached. The captured run is unchanged.";
-        if (motion) gsap.fromTo(note, { y: 4, opacity: .4 }, { y: 0, opacity: 1, duration: .35 });
-      }, 1400);
-    });
-  }
-
   /* ---------- boot ---------- */
 
   initEntryMotion();
@@ -649,7 +622,6 @@
   initPendingCases();
   initRules();
   initDischarge();
-  initMonitoring();
 
   if (motion) {
     ScrollTrigger.refresh();
