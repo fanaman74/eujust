@@ -1762,6 +1762,20 @@ tbody tr:last-child td { border-bottom: 0; }
 .pending-page-link { display: inline-flex; margin-top: .5rem; }
 .pending-cases .pending-source { grid-column: 1 / -1; }
 .pending-cases .text-link { grid-column: 1; }
+.date-chips { display: grid; gap: .55rem; margin-top: 1.2rem; }
+.date-chips__row { display: flex; flex-wrap: wrap; align-items: center; gap: .45rem; }
+.date-chips__label {
+  min-width: 4.2rem;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 7.5px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.date-chips .topic-chip:disabled { opacity: .35; cursor: not-allowed; }
+.date-chips .topic-chip:disabled:hover { color: var(--ink); background: var(--paper); border-color: rgba(23, 20, 18, .45); }
+.date-chips .topic-chip:disabled:hover span { color: var(--paper); background: var(--ink); }
+.date-chips__note { margin: 0; color: var(--muted); font-size: .8rem; }
 .pending-filter .case-filter__grid { grid-template-columns: minmax(220px, 1.4fr) repeat(2, minmax(120px, .7fr)) auto; }
 
 /* ---------- court collection charts ---------- */

@@ -483,23 +483,47 @@
     const count = document.getElementById("pending-count");
     const reset = document.getElementById("pending-reset");
     const entries = [...list.querySelectorAll("[data-pending-case]")];
+    const yearChips = [...document.querySelectorAll("[data-year-filter]")];
+    const monthChips = [...document.querySelectorAll("[data-month-filter]")];
+    const dateState = { year: "", month: "" };
     let timer = 0;
+
+    const syncChips = (chips, key, value) => chips.forEach((chip) => {
+      const active = (chip.dataset[key] || "") === value;
+      chip.classList.toggle("is-active", active);
+      chip.setAttribute("aria-pressed", String(active));
+    });
 
     const apply = ({ updateHistory = true } = {}) => {
       const q = (qInput?.value || "").trim().toLowerCase();
       const topic = topicSelect?.value || "";
       const court = courtSelect?.value || "";
+      const { year, month } = dateState;
       const terms = q.split(/\s+/).filter(Boolean);
+      const monthCounts = {};
       let visible = 0;
       entries.forEach((entry) => {
         const search = entry.dataset.search?.toLowerCase() || "";
         const entryTopics = (entry.dataset.topics || "").split("|");
-        const matches = (!terms.length || terms.every((term) => search.includes(term)))
+        const base = (!terms.length || terms.every((term) => search.includes(term)))
           && (!topic || entryTopics.includes(topic))
-          && (!court || entry.dataset.court === court);
+          && (!court || entry.dataset.court === court)
+          && (!year || entry.dataset.year === year);
+        if (base) monthCounts[entry.dataset.month || ""] = (monthCounts[entry.dataset.month || ""] || 0) + 1;
+        const matches = base && (!month || entry.dataset.month === month);
         entry.hidden = !matches;
         if (matches) visible += 1;
       });
+      // Month counts follow the other filters so empty months can't be picked.
+      monthChips.forEach((chip) => {
+        const value = chip.dataset.monthFilter || "";
+        const n = value ? monthCounts[value] || 0 : Object.values(monthCounts).reduce((a, b) => a + b, 0);
+        const badge = chip.querySelector("span");
+        if (badge) badge.textContent = String(n);
+        chip.disabled = Boolean(value) && !n && value !== month;
+      });
+      syncChips(yearChips, "yearFilter", year);
+      syncChips(monthChips, "monthFilter", month);
       if (count) count.textContent = String(visible);
       if (result) result.textContent = visible
         ? `Showing ${visible} of ${entries.length} pending application${entries.length === 1 ? "" : "s"}${visible === entries.length ? "" : " (filtered)"}.`
@@ -509,6 +533,8 @@
         if (q) params.set("q", q);
         if (topic) params.set("topic", topic);
         if (court) params.set("court", court);
+        if (year) params.set("year", year);
+        if (month) params.set("month", month);
         const query = params.toString();
         history.replaceState(null, "", `${location.pathname}${query ? `?${query}` : ""}`);
       }
@@ -518,6 +544,16 @@
     if (qInput && params.has("q")) qInput.value = params.get("q") || "";
     if (topicSelect && params.has("topic")) topicSelect.value = params.get("topic") || "";
     if (courtSelect && params.has("court")) courtSelect.value = params.get("court") || "";
+    if (yearChips.some((chip) => chip.dataset.yearFilter === params.get("year"))) dateState.year = params.get("year");
+    if (monthChips.some((chip) => chip.dataset.monthFilter === params.get("month"))) dateState.month = params.get("month");
+    yearChips.forEach((chip) => chip.addEventListener("click", () => {
+      dateState.year = chip.dataset.yearFilter || "";
+      apply();
+    }));
+    monthChips.forEach((chip) => chip.addEventListener("click", () => {
+      dateState.month = chip.dataset.monthFilter || "";
+      apply();
+    }));
     form.addEventListener("submit", (event) => { event.preventDefault(); apply(); });
     qInput?.addEventListener("input", () => {
       window.clearTimeout(timer);
@@ -527,6 +563,8 @@
     reset?.addEventListener("click", (event) => {
       event.preventDefault();
       form.reset();
+      dateState.year = "";
+      dateState.month = "";
       apply();
     });
     apply({ updateHistory: false });

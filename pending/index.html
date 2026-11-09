@@ -121,8 +121,21 @@
         <div class="case-filter__actions"><button class="btn btn--ink" type="submit">Search cases <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></button><button class="case-filter__reset" id="pending-reset" type="reset">Reset</button></div>
       </div>
     </form>
+    <div class="date-chips" id="pending-date-chips">
+      <div class="date-chips__row" role="group" aria-label="Filter by year">
+        <span class="date-chips__label">Year</span>
+        <button type="button" class="topic-chip is-active" data-year-filter="" aria-pressed="true">All years <span>185</span></button>
+        <button type="button" class="topic-chip" data-year-filter="2026" aria-pressed="false">2026 <span>85</span></button><button type="button" class="topic-chip" data-year-filter="2025" aria-pressed="false">2025 <span>100</span></button>
+      </div>
+      <div class="date-chips__row" role="group" aria-label="Filter by month">
+        <span class="date-chips__label">Month</span>
+        <button type="button" class="topic-chip is-active" data-month-filter="" aria-pressed="true">All months <span>185</span></button>
+        <button type="button" class="topic-chip" data-month-filter="01" aria-pressed="false">Jan <span>20</span></button><button type="button" class="topic-chip" data-month-filter="02" aria-pressed="false">Feb <span>11</span></button><button type="button" class="topic-chip" data-month-filter="03" aria-pressed="false">Mar <span>25</span></button><button type="button" class="topic-chip" data-month-filter="04" aria-pressed="false">Apr <span>18</span></button><button type="button" class="topic-chip" data-month-filter="05" aria-pressed="false">May <span>22</span></button><button type="button" class="topic-chip" data-month-filter="06" aria-pressed="false">Jun <span>17</span></button><button type="button" class="topic-chip" data-month-filter="07" aria-pressed="false">Jul <span>31</span></button><button type="button" class="topic-chip" data-month-filter="08" aria-pressed="false">Aug <span>7</span></button><button type="button" class="topic-chip" data-month-filter="09" aria-pressed="false">Sep <span>12</span></button><button type="button" class="topic-chip" data-month-filter="10" aria-pressed="false">Oct <span>7</span></button><button type="button" class="topic-chip" data-month-filter="11" aria-pressed="false">Nov <span>6</span></button><button type="button" class="topic-chip" data-month-filter="12" aria-pressed="false">Dec <span>9</span></button>
+      </div>
+      <p class="date-chips__note">Dates are the filing date, or the Official Journal date where no filing date is recorded.</p>
+    </div>
     <p class="results-line" id="pending-result" role="status" aria-live="polite">Showing all 185 pending applications.</p>
-    <ol class="case-grid pending-card-grid" id="pending-list" aria-label="Pending court applications"><li class="case-index-card case-index-card--accent" data-pending-case data-topics="Harassment at work|European official|Staff regulations (EU)" data-court="General Court" data-search="T-444/26 General Court European Economic and Social Committee O. Mader Harassment at work European official Staff regulations (EU)">
+    <ol class="case-grid pending-card-grid" id="pending-list" aria-label="Pending court applications"><li class="case-index-card case-index-card--accent" data-pending-case data-topics="Harassment at work|European official|Staff regulations (EU)" data-court="General Court" data-year="2026" data-month="07" data-search="T-444/26 General Court European Economic and Social Committee O. Mader Harassment at work European official Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2026-09-07">OJ 7 Sep 2026</time>
@@ -138,7 +151,7 @@
         <span>Filed 16 Jul 2026</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0444" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="Harassment at work|European official|Staff regulations (EU)|Maladministration" data-court="General Court" data-search="T-380/26 General Court European Ombudsman Y. Melin and I. Fressynet Harassment at work European official Staff regulations (EU) Maladministration">
+    </li><li class="case-index-card" data-pending-case data-topics="Harassment at work|European official|Staff regulations (EU)|Maladministration" data-court="General Court" data-year="2026" data-month="06" data-search="T-380/26 General Court European Ombudsman Y. Melin and I. Fressynet Harassment at work European official Staff regulations (EU) Maladministration">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2026-08-24">OJ 24 Aug 2026</time>
@@ -154,7 +167,7 @@
         <span>Filed 12 Jun 2026</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0380" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="Harassment at work|Staff regulations (EU)" data-court="General Court" data-search="T-317/26 General Court European Commission A. Tomkowiak Harassment at work Staff regulations (EU)">
+    </li><li class="case-index-card" data-pending-case data-topics="Harassment at work|Staff regulations (EU)" data-court="General Court" data-year="2026" data-month="05" data-search="T-317/26 General Court European Commission A. Tomkowiak Harassment at work Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2026-07-20">OJ 20 Jul 2026</time>
@@ -170,7 +183,7 @@
         <span>Filed 25 May 2026</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0317" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="Harassment at work" data-court="General Court" data-search="T-312/26 General Court European Commission L. Levi Harassment at work">
+    </li><li class="case-index-card" data-pending-case data-topics="Harassment at work" data-court="General Court" data-year="2026" data-month="05" data-search="T-312/26 General Court European Commission L. Levi Harassment at work">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2026-07-20">OJ 20 Jul 2026</time>
@@ -186,7 +199,7 @@
         <span>Filed 22 May 2026</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0312" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="Harassment at work|European official|Staff regulations (EU)" data-court="General Court" data-search="T-251/26 General Court European Border and Coast Guard Agency A. Benitez Ostos Harassment at work European official Staff regulations (EU)">
+    </li><li class="case-index-card" data-pending-case data-topics="Harassment at work|European official|Staff regulations (EU)" data-court="General Court" data-year="2026" data-month="04" data-search="T-251/26 General Court European Border and Coast Guard Agency A. Benitez Ostos Harassment at work European official Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2026-06-22">OJ 22 Jun 2026</time>
@@ -202,7 +215,7 @@
         <span>Filed 22 Apr 2026</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0251" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="Harassment at work|European official|Staff regulations (EU)" data-court="General Court" data-search="T-194/26 General Court European External Action Service N. de Montigny Harassment at work European official Staff regulations (EU)">
+    </li><li class="case-index-card" data-pending-case data-topics="Harassment at work|European official|Staff regulations (EU)" data-court="General Court" data-year="2026" data-month="03" data-search="T-194/26 General Court European External Action Service N. de Montigny Harassment at work European official Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2026-05-26">OJ 26 May 2026</time>
@@ -218,7 +231,7 @@
         <span>Filed 23 Mar 2026</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0194" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="Harassment at work|European official|Staff regulations (EU)" data-court="General Court" data-search="T-183/26 General Court European External Action Service N. Flandin Harassment at work European official Staff regulations (EU)">
+    </li><li class="case-index-card" data-pending-case data-topics="Harassment at work|European official|Staff regulations (EU)" data-court="General Court" data-year="2026" data-month="03" data-search="T-183/26 General Court European External Action Service N. Flandin Harassment at work European official Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2026-05-11">OJ 11 May 2026</time>
@@ -234,7 +247,7 @@
         <span>Filed 13 Mar 2026</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0183" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="Harassment at work" data-court="General Court" data-search="T-159/26 General Court European Commission B. Maréchal Harassment at work">
+    </li><li class="case-index-card" data-pending-case data-topics="Harassment at work" data-court="General Court" data-year="2026" data-month="03" data-search="T-159/26 General Court European Commission B. Maréchal Harassment at work">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2026-05-11">OJ 11 May 2026</time>
@@ -250,7 +263,7 @@
         <span>Filed 2 Mar 2026</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0159" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="Harassment at work|Staff regulations (EU)" data-court="General Court" data-search="T-146/26 General Court European Defence Agency L. Heisten Harassment at work Staff regulations (EU)">
+    </li><li class="case-index-card" data-pending-case data-topics="Harassment at work|Staff regulations (EU)" data-court="General Court" data-year="2026" data-month="02" data-search="T-146/26 General Court European Defence Agency L. Heisten Harassment at work Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2026-04-27">OJ 27 Apr 2026</time>
@@ -266,7 +279,7 @@
         <span>Filed 27 Feb 2026</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0146" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card case-index-card--accent" data-pending-case data-topics="Harassment at work|European official|Staff regulations (EU)" data-court="General Court" data-search="T-97/26 General Court European External Action Service N. Flandin Harassment at work European official Staff regulations (EU)">
+    </li><li class="case-index-card case-index-card--accent" data-pending-case data-topics="Harassment at work|European official|Staff regulations (EU)" data-court="General Court" data-year="2026" data-month="02" data-search="T-97/26 General Court European External Action Service N. Flandin Harassment at work European official Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2026-04-27">OJ 27 Apr 2026</time>
@@ -282,7 +295,7 @@
         <span>Filed 9 Feb 2026</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0097" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="Harassment at work" data-court="General Court" data-search="T-909/25 General Court European External Action Service N. de Montigny Harassment at work">
+    </li><li class="case-index-card" data-pending-case data-topics="Harassment at work" data-court="General Court" data-year="2025" data-month="12" data-search="T-909/25 General Court European External Action Service N. de Montigny Harassment at work">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2026-03-16">OJ 16 Mar 2026</time>
@@ -298,7 +311,7 @@
         <span>Filed 30 Dec 2025</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0909" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="Harassment at work|European official|Staff regulations (EU)" data-court="General Court" data-search="T-854/25 General Court The European Border and Coast Guard Agency (Frontex) J. Navas Marqués Harassment at work European official Staff regulations (EU)">
+    </li><li class="case-index-card" data-pending-case data-topics="Harassment at work|European official|Staff regulations (EU)" data-court="General Court" data-year="2025" data-month="12" data-search="T-854/25 General Court The European Border and Coast Guard Agency (Frontex) J. Navas Marqués Harassment at work European official Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2026-02-09">OJ 9 Feb 2026</time>
@@ -314,7 +327,7 @@
         <span>Filed 12 Dec 2025</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0854" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="Harassment at work" data-court="General Court" data-search="T-864/25 General Court Institutions N. de Montigny Harassment at work">
+    </li><li class="case-index-card" data-pending-case data-topics="Harassment at work" data-court="General Court" data-year="2025" data-month="12" data-search="T-864/25 General Court Institutions N. de Montigny Harassment at work">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2026-03-30">OJ 30 Mar 2026</time>
@@ -330,7 +343,7 @@
         <span>Filed 9 Dec 2025</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0864" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="Harassment at work|European official|Staff regulations (EU)" data-court="General Court" data-search="T-793/25 General Court European Union Agency for Criminal Justice Cooperation N. de Montigny Harassment at work European official Staff regulations (EU)">
+    </li><li class="case-index-card" data-pending-case data-topics="Harassment at work|European official|Staff regulations (EU)" data-court="General Court" data-year="2025" data-month="11" data-search="T-793/25 General Court European Union Agency for Criminal Justice Cooperation N. de Montigny Harassment at work European official Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2026-02-09">OJ 9 Feb 2026</time>
@@ -346,7 +359,7 @@
         <span>Filed 19 Nov 2025</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0793" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="Harassment at work|European official|Staff regulations (EU)|Maladministration" data-court="General Court" data-search="T-777/25 General Court Entreprise commune ‘Semi-conducteurs’ N. de Montigny Harassment at work European official Staff regulations (EU) Maladministration">
+    </li><li class="case-index-card" data-pending-case data-topics="Harassment at work|European official|Staff regulations (EU)|Maladministration" data-court="General Court" data-year="2025" data-month="11" data-search="T-777/25 General Court Entreprise commune ‘Semi-conducteurs’ N. de Montigny Harassment at work European official Staff regulations (EU) Maladministration">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2026-01-26">OJ 26 Jan 2026</time>
@@ -362,7 +375,7 @@
         <span>Filed 10 Nov 2025</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0777" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="Harassment at work" data-court="General Court" data-search="T-761/25 General Court European Investment Bank B. Maréchal Harassment at work">
+    </li><li class="case-index-card" data-pending-case data-topics="Harassment at work" data-court="General Court" data-year="2025" data-month="11" data-search="T-761/25 General Court European Investment Bank B. Maréchal Harassment at work">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2025-12-15">OJ 15 Dec 2025</time>
@@ -378,7 +391,7 @@
         <span>Filed 3 Nov 2025</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0761" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="Harassment at work|European official|Staff regulations (EU)" data-court="General Court" data-search="T-312/25 General Court European Commission N. Flandin Harassment at work European official Staff regulations (EU)">
+    </li><li class="case-index-card" data-pending-case data-topics="Harassment at work|European official|Staff regulations (EU)" data-court="General Court" data-year="2025" data-month="05" data-search="T-312/25 General Court European Commission N. Flandin Harassment at work European official Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2025-08-04">OJ 4 Aug 2025</time>
@@ -394,7 +407,7 @@
         <span>Filed 15 May 2025</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0312" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="Harassment at work|Staff regulations (EU)" data-court="General Court" data-search="T-317/25 General Court European Union Agency for Law Enforcement Cooperation G. Trantas Harassment at work Staff regulations (EU)">
+    </li><li class="case-index-card" data-pending-case data-topics="Harassment at work|Staff regulations (EU)" data-court="General Court" data-year="2025" data-month="05" data-search="T-317/25 General Court European Union Agency for Law Enforcement Cooperation G. Trantas Harassment at work Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2025-08-04">OJ 4 Aug 2025</time>
@@ -410,7 +423,7 @@
         <span>Filed 8 May 2025</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0317" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card case-index-card--accent" data-pending-case data-topics="Harassment at work|European official|Staff regulations (EU)" data-court="General Court" data-search="T-6/25 General Court Court of Justice of the European Union L. Levi Harassment at work European official Staff regulations (EU)">
+    </li><li class="case-index-card case-index-card--accent" data-pending-case data-topics="Harassment at work|European official|Staff regulations (EU)" data-court="General Court" data-year="2025" data-month="01" data-search="T-6/25 General Court Court of Justice of the European Union L. Levi Harassment at work European official Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2025-03-03">OJ 3 Mar 2025</time>
@@ -426,7 +439,7 @@
         <span>Filed 2 Jan 2025</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0006" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="Staff regulations (EU)" data-court="General Court" data-search="T-600/26 General Court   Staff regulations (EU)">
+    </li><li class="case-index-card" data-pending-case data-topics="Staff regulations (EU)" data-court="General Court" data-year="2026" data-month="09" data-search="T-600/26 General Court   Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2026-10-19">OJ 19 Oct 2026</time>
@@ -442,7 +455,7 @@
         <span>Filed 9 Sep 2026</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0600" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="Maladministration" data-court="General Court" data-search="T-593/26 General Court   Maladministration">
+    </li><li class="case-index-card" data-pending-case data-topics="Maladministration" data-court="General Court" data-year="2026" data-month="09" data-search="T-593/26 General Court   Maladministration">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2026-10-19">OJ 19 Oct 2026</time>
@@ -458,7 +471,7 @@
         <span>Filed 7 Sep 2026</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0593" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="Staff regulations (EU)|Maladministration" data-court="General Court" data-search="T-367/25 General Court European Commission R. Hable Staff regulations (EU) Maladministration">
+    </li><li class="case-index-card" data-pending-case data-topics="Staff regulations (EU)|Maladministration" data-court="General Court" data-year="2026" data-month="08" data-search="T-367/25 General Court European Commission R. Hable Staff regulations (EU) Maladministration">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2026-09-21">OJ 21 Sep 2026</time>
@@ -474,7 +487,7 @@
         <span>Filed 5 Aug 2026</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0367" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-search="T-491/26 General Court European Parliament L. Levi and C. Laurent European official Staff regulations (EU)">
+    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-year="2026" data-month="07" data-search="T-491/26 General Court European Parliament L. Levi and C. Laurent European official Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2026-10-05">OJ 5 Oct 2026</time>
@@ -490,7 +503,7 @@
         <span>Filed 31 Jul 2026</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0491" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="Staff regulations (EU)" data-court="General Court" data-search="T-472/26 General Court   Staff regulations (EU)">
+    </li><li class="case-index-card" data-pending-case data-topics="Staff regulations (EU)" data-court="General Court" data-year="2026" data-month="07" data-search="T-472/26 General Court   Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2026-10-19">OJ 19 Oct 2026</time>
@@ -506,7 +519,7 @@
         <span>Filed 29 Jul 2026</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0472" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="Staff regulations (EU)" data-court="General Court" data-search="T-461/26 General Court European Commission L. Levi Staff regulations (EU)">
+    </li><li class="case-index-card" data-pending-case data-topics="Staff regulations (EU)" data-court="General Court" data-year="2026" data-month="07" data-search="T-461/26 General Court European Commission L. Levi Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2026-09-14">OJ 14 Sep 2026</time>
@@ -522,7 +535,7 @@
         <span>Filed 22 Jul 2026</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0461" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="Staff regulations (EU)" data-court="General Court" data-search="T-457/26 General Court European Commission D. Rovetta and V. Villante Staff regulations (EU)">
+    </li><li class="case-index-card" data-pending-case data-topics="Staff regulations (EU)" data-court="General Court" data-year="2026" data-month="07" data-search="T-457/26 General Court European Commission D. Rovetta and V. Villante Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2026-08-31">OJ 31 Aug 2026</time>
@@ -538,7 +551,7 @@
         <span>Filed 21 Jul 2026</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0457" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-search="T-446/26 General Court European Commission A. Champetier, C. Laurent and S. Rodrigues European official Staff regulations (EU)">
+    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-year="2026" data-month="07" data-search="T-446/26 General Court European Commission A. Champetier, C. Laurent and S. Rodrigues European official Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2026-09-14">OJ 14 Sep 2026</time>
@@ -554,7 +567,7 @@
         <span>Filed 17 Jul 2026</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0446" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card case-index-card--accent" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-search="T-436/26 General Court European Parliament A. Champetier, C. Laurent and S. Rodrigues European official Staff regulations (EU)">
+    </li><li class="case-index-card case-index-card--accent" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-year="2026" data-month="07" data-search="T-436/26 General Court European Parliament A. Champetier, C. Laurent and S. Rodrigues European official Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2026-09-07">OJ 7 Sep 2026</time>
@@ -570,7 +583,7 @@
         <span>Filed 15 Jul 2026</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0436" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-search="T-440/26 General Court European Public Prosecutor’s Office (EPPO) M. Velardo and F. Saint-Pierre European official Staff regulations (EU)">
+    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-year="2026" data-month="07" data-search="T-440/26 General Court European Public Prosecutor’s Office (EPPO) M. Velardo and F. Saint-Pierre European official Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2026-08-24">OJ 24 Aug 2026</time>
@@ -586,7 +599,7 @@
         <span>Filed 13 Jul 2026</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0440" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="Staff regulations (EU)" data-court="General Court" data-search="T-439/26 General Court European Union Intellectual Property Office S. Rodrigues and A. Champetier Staff regulations (EU)">
+    </li><li class="case-index-card" data-pending-case data-topics="Staff regulations (EU)" data-court="General Court" data-year="2026" data-month="07" data-search="T-439/26 General Court European Union Intellectual Property Office S. Rodrigues and A. Champetier Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2026-09-07">OJ 7 Sep 2026</time>
@@ -602,7 +615,7 @@
         <span>Filed 10 Jul 2026</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0439" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="Staff regulations (EU)" data-court="General Court" data-search="T-419/26 General Court European Commission S. Rodrigues and A. Champetier Staff regulations (EU)">
+    </li><li class="case-index-card" data-pending-case data-topics="Staff regulations (EU)" data-court="General Court" data-year="2026" data-month="07" data-search="T-419/26 General Court European Commission S. Rodrigues and A. Champetier Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2026-08-24">OJ 24 Aug 2026</time>
@@ -618,7 +631,7 @@
         <span>Filed 3 Jul 2026</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0419" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="Staff regulations (EU)|Maladministration" data-court="General Court" data-search="T-414/26 General Court European Union Aviation Safety Agency N. de Montigny Staff regulations (EU) Maladministration">
+    </li><li class="case-index-card" data-pending-case data-topics="Staff regulations (EU)|Maladministration" data-court="General Court" data-year="2026" data-month="07" data-search="T-414/26 General Court European Union Aviation Safety Agency N. de Montigny Staff regulations (EU) Maladministration">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2026-08-17">OJ 17 Aug 2026</time>
@@ -634,7 +647,7 @@
         <span>Filed 2 Jul 2026</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0414" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-search="T-403/26 General Court European Commission N. de Montigny European official Staff regulations (EU)">
+    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-year="2026" data-month="07" data-search="T-403/26 General Court European Commission N. de Montigny European official Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2026-08-10">OJ 10 Aug 2026</time>
@@ -650,7 +663,7 @@
         <span>Filed 1 Jul 2026</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0403" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="Staff regulations (EU)" data-court="General Court" data-search="T-383/26 General Court European Union Agency for Asylum L. Levi and A. Champetier Staff regulations (EU)">
+    </li><li class="case-index-card" data-pending-case data-topics="Staff regulations (EU)" data-court="General Court" data-year="2026" data-month="06" data-search="T-383/26 General Court European Union Agency for Asylum L. Levi and A. Champetier Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2026-08-17">OJ 17 Aug 2026</time>
@@ -666,7 +679,7 @@
         <span>Filed 19 Jun 2026</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0383" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-search="T-377/26 General Court European Commission L. Levi European official Staff regulations (EU)">
+    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-year="2026" data-month="06" data-search="T-377/26 General Court European Commission L. Levi European official Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2026-08-24">OJ 24 Aug 2026</time>
@@ -682,7 +695,7 @@
         <span>Filed 15 Jun 2026</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0377" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="European official" data-court="General Court" data-search="T-375/26 General Court Court of Justice of the European Union A. Champetier and S. Rodrigues European official">
+    </li><li class="case-index-card" data-pending-case data-topics="European official" data-court="General Court" data-year="2026" data-month="06" data-search="T-375/26 General Court Court of Justice of the European Union A. Champetier and S. Rodrigues European official">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2026-08-03">OJ 3 Aug 2026</time>
@@ -698,7 +711,7 @@
         <span>Filed 15 Jun 2026</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0375" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card case-index-card--accent" data-pending-case data-topics="Staff regulations (EU)|Maladministration" data-court="General Court" data-search="T-379/26 General Court European Commission S. Pappas, A. Pappas and L. Jakobs Staff regulations (EU) Maladministration">
+    </li><li class="case-index-card case-index-card--accent" data-pending-case data-topics="Staff regulations (EU)|Maladministration" data-court="General Court" data-year="2026" data-month="06" data-search="T-379/26 General Court European Commission S. Pappas, A. Pappas and L. Jakobs Staff regulations (EU) Maladministration">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2026-08-03">OJ 3 Aug 2026</time>
@@ -714,7 +727,7 @@
         <span>Filed 15 Jun 2026</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0379" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-search="T-376/26 General Court European Parliament L. Levi European official Staff regulations (EU)">
+    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-year="2026" data-month="06" data-search="T-376/26 General Court European Parliament L. Levi European official Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2026-08-03">OJ 3 Aug 2026</time>
@@ -730,7 +743,7 @@
         <span>Filed 12 Jun 2026</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0376" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="Staff regulations (EU)" data-court="General Court" data-search="T-371/26 General Court European Central Bank S. Pappas and A. Pappas Staff regulations (EU)">
+    </li><li class="case-index-card" data-pending-case data-topics="Staff regulations (EU)" data-court="General Court" data-year="2026" data-month="06" data-search="T-371/26 General Court European Central Bank S. Pappas and A. Pappas Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2026-08-17">OJ 17 Aug 2026</time>
@@ -746,7 +759,7 @@
         <span>Filed 11 Jun 2026</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0371" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-search="T-356/26 General Court European Commission H. Eberlein European official Staff regulations (EU)">
+    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-year="2026" data-month="06" data-search="T-356/26 General Court European Commission H. Eberlein European official Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2026-08-03">OJ 3 Aug 2026</time>
@@ -762,7 +775,7 @@
         <span>Filed 5 Jun 2026</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0356" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="Maladministration" data-court="General Court" data-search="T-407/26 General Court Nemzeti Adó- és Vámhivatal Fellebbviteli Igazgatósága  Maladministration">
+    </li><li class="case-index-card" data-pending-case data-topics="Maladministration" data-court="General Court" data-year="2026" data-month="06" data-search="T-407/26 General Court Nemzeti Adó- és Vámhivatal Fellebbviteli Igazgatósága  Maladministration">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2026-08-24">OJ 24 Aug 2026</time>
@@ -778,7 +791,7 @@
         <span>Filed 5 Jun 2026</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0407" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="Staff regulations (EU)" data-court="General Court" data-search="T-355/26 General Court European Commission L. Levi Staff regulations (EU)">
+    </li><li class="case-index-card" data-pending-case data-topics="Staff regulations (EU)" data-court="General Court" data-year="2026" data-month="06" data-search="T-355/26 General Court European Commission L. Levi Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2026-07-20">OJ 20 Jul 2026</time>
@@ -794,7 +807,7 @@
         <span>Filed 4 Jun 2026</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0355" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="European official" data-court="General Court" data-search="T-342/26 General Court European Investment Bank L. Levi European official">
+    </li><li class="case-index-card" data-pending-case data-topics="European official" data-court="General Court" data-year="2026" data-month="05" data-search="T-342/26 General Court European Investment Bank L. Levi European official">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2026-07-27">OJ 27 Jul 2026</time>
@@ -810,7 +823,7 @@
         <span>Filed 29 May 2026</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0342" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="Maladministration" data-court="General Court" data-search="T-336/26 General Court European Commission F. Ancion, N. Flandin and S. Rodrigues Maladministration">
+    </li><li class="case-index-card" data-pending-case data-topics="Maladministration" data-court="General Court" data-year="2026" data-month="05" data-search="T-336/26 General Court European Commission F. Ancion, N. Flandin and S. Rodrigues Maladministration">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2026-07-20">OJ 20 Jul 2026</time>
@@ -826,7 +839,7 @@
         <span>Filed 29 May 2026</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0336" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="European official" data-court="General Court" data-search="T-341/26 General Court European Investment Bank L. Levi European official">
+    </li><li class="case-index-card" data-pending-case data-topics="European official" data-court="General Court" data-year="2026" data-month="05" data-search="T-341/26 General Court European Investment Bank L. Levi European official">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2026-07-27">OJ 27 Jul 2026</time>
@@ -842,7 +855,7 @@
         <span>Filed 27 May 2026</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0341" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card case-index-card--accent" data-pending-case data-topics="European official|Staff regulations (EU)|Maladministration" data-court="General Court" data-search="T-326/26 General Court European Parliament S. Rodrigues and A. Champetier European official Staff regulations (EU) Maladministration">
+    </li><li class="case-index-card case-index-card--accent" data-pending-case data-topics="European official|Staff regulations (EU)|Maladministration" data-court="General Court" data-year="2026" data-month="05" data-search="T-326/26 General Court European Parliament S. Rodrigues and A. Champetier European official Staff regulations (EU) Maladministration">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2026-07-27">OJ 27 Jul 2026</time>
@@ -858,7 +871,7 @@
         <span>Filed 27 May 2026</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0326" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="Maladministration" data-court="General Court" data-search="T-349/26 General Court European Commission A. Bueno Martinez Maladministration">
+    </li><li class="case-index-card" data-pending-case data-topics="Maladministration" data-court="General Court" data-year="2026" data-month="05" data-search="T-349/26 General Court European Commission A. Bueno Martinez Maladministration">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2026-09-07">OJ 7 Sep 2026</time>
@@ -874,7 +887,7 @@
         <span>Filed 27 May 2026</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0349" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="Maladministration" data-court="General Court" data-search="T-315/26 General Court Council of the European Union D. Rovetta, M. Campa, M. Moretto and V. Villante Maladministration">
+    </li><li class="case-index-card" data-pending-case data-topics="Maladministration" data-court="General Court" data-year="2026" data-month="05" data-search="T-315/26 General Court Council of the European Union D. Rovetta, M. Campa, M. Moretto and V. Villante Maladministration">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2026-07-27">OJ 27 Jul 2026</time>
@@ -890,7 +903,7 @@
         <span>Filed 25 May 2026</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0315" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="Staff regulations (EU)|Maladministration" data-court="General Court" data-search="T-310/26 General Court European Border and Coast Guard Agency (Frontex) T. Chiuariu and T. Şoldănescu Staff regulations (EU) Maladministration">
+    </li><li class="case-index-card" data-pending-case data-topics="Staff regulations (EU)|Maladministration" data-court="General Court" data-year="2026" data-month="05" data-search="T-310/26 General Court European Border and Coast Guard Agency (Frontex) T. Chiuariu and T. Şoldănescu Staff regulations (EU) Maladministration">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2026-07-13">OJ 13 Jul 2026</time>
@@ -906,7 +919,7 @@
         <span>Filed 22 May 2026</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0310" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-search="T-321/26 General Court European Border and Coast Guard Agency (Frontex) T. Chiuariu and T. Şoldănescu European official Staff regulations (EU)">
+    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-year="2026" data-month="05" data-search="T-321/26 General Court European Border and Coast Guard Agency (Frontex) T. Chiuariu and T. Şoldănescu European official Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2026-07-20">OJ 20 Jul 2026</time>
@@ -922,7 +935,7 @@
         <span>Filed 21 May 2026</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0321" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="Maladministration" data-court="General Court" data-search="T-294/26 General Court European Parliament T. Darkowski Maladministration">
+    </li><li class="case-index-card" data-pending-case data-topics="Maladministration" data-court="General Court" data-year="2026" data-month="05" data-search="T-294/26 General Court European Parliament T. Darkowski Maladministration">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2026-07-13">OJ 13 Jul 2026</time>
@@ -938,7 +951,7 @@
         <span>Filed 18 May 2026</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0294" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="Maladministration" data-court="General Court" data-search="T-295/26 General Court European Parliament L. Merodio Marcos and L. Bosser Maladministration">
+    </li><li class="case-index-card" data-pending-case data-topics="Maladministration" data-court="General Court" data-year="2026" data-month="05" data-search="T-295/26 General Court European Parliament L. Merodio Marcos and L. Bosser Maladministration">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2026-07-06">OJ 6 Jul 2026</time>
@@ -954,7 +967,7 @@
         <span>Filed 15 May 2026</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0295" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)|Maladministration" data-court="General Court" data-search="T-290/26 General Court European Union Institute for Security Studies (EUISS) T. Bontinck and P. Baudoux European official Staff regulations (EU) Maladministration">
+    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)|Maladministration" data-court="General Court" data-year="2026" data-month="05" data-search="T-290/26 General Court European Union Institute for Security Studies (EUISS) T. Bontinck and P. Baudoux European official Staff regulations (EU) Maladministration">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2026-06-29">OJ 29 Jun 2026</time>
@@ -970,7 +983,7 @@
         <span>Filed 12 May 2026</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0290" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-search="T-292/26 General Court European Commission L. Levi European official Staff regulations (EU)">
+    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-year="2026" data-month="05" data-search="T-292/26 General Court European Commission L. Levi European official Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2026-07-20">OJ 20 Jul 2026</time>
@@ -986,7 +999,7 @@
         <span>Filed 12 May 2026</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0292" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card case-index-card--accent" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-search="T-288/26 General Court European Border and Coast Guard Agency (Frontex) S. Pappas and A. Pappas European official Staff regulations (EU)">
+    </li><li class="case-index-card case-index-card--accent" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-year="2026" data-month="05" data-search="T-288/26 General Court European Border and Coast Guard Agency (Frontex) S. Pappas and A. Pappas European official Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2026-07-06">OJ 6 Jul 2026</time>
@@ -1002,7 +1015,7 @@
         <span>Filed 5 May 2026</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0288" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)|Maladministration" data-court="General Court" data-search="T-286/26 General Court European Parliament S. Pappas, A. Pappas et L. Jakobs European official Staff regulations (EU) Maladministration">
+    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)|Maladministration" data-court="General Court" data-year="2026" data-month="04" data-search="T-286/26 General Court European Parliament S. Pappas, A. Pappas et L. Jakobs European official Staff regulations (EU) Maladministration">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2026-07-20">OJ 20 Jul 2026</time>
@@ -1018,7 +1031,7 @@
         <span>Filed 30 Apr 2026</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0286" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="Staff regulations (EU)" data-court="General Court" data-search="T-285/26 General Court European Parliament S. Pappas, A. Pappas and L. Jakobs Staff regulations (EU)">
+    </li><li class="case-index-card" data-pending-case data-topics="Staff regulations (EU)" data-court="General Court" data-year="2026" data-month="04" data-search="T-285/26 General Court European Parliament S. Pappas, A. Pappas and L. Jakobs Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2026-07-20">OJ 20 Jul 2026</time>
@@ -1034,7 +1047,7 @@
         <span>Filed 30 Apr 2026</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0285" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="Maladministration" data-court="General Court" data-search="T-269/26 General Court European Commission G. Coppo and E. Rogiest Maladministration">
+    </li><li class="case-index-card" data-pending-case data-topics="Maladministration" data-court="General Court" data-year="2026" data-month="04" data-search="T-269/26 General Court European Commission G. Coppo and E. Rogiest Maladministration">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2026-07-13">OJ 13 Jul 2026</time>
@@ -1050,7 +1063,7 @@
         <span>Filed 30 Apr 2026</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0269" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="Staff regulations (EU)" data-court="General Court" data-search="T-268/26 General Court European Union Agency for the Operational Management of Large-Scale IT Systems in the Area of Freedom, Security and Justice A. Champetier and S. Rodrigues Staff regulations (EU)">
+    </li><li class="case-index-card" data-pending-case data-topics="Staff regulations (EU)" data-court="General Court" data-year="2026" data-month="04" data-search="T-268/26 General Court European Union Agency for the Operational Management of Large-Scale IT Systems in the Area of Freedom, Security and Justice A. Champetier and S. Rodrigues Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2026-06-29">OJ 29 Jun 2026</time>
@@ -1066,7 +1079,7 @@
         <span>Filed 24 Apr 2026</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0268" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="Maladministration" data-court="General Court" data-search="T-258/26 General Court Office for Harmonisation in the Internal Market (Trade Mark  Maladministration">
+    </li><li class="case-index-card" data-pending-case data-topics="Maladministration" data-court="General Court" data-year="2026" data-month="04" data-search="T-258/26 General Court Office for Harmonisation in the Internal Market (Trade Mark  Maladministration">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2026-06-15">OJ 15 Jun 2026</time>
@@ -1082,7 +1095,7 @@
         <span>Filed 24 Apr 2026</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0258" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)|Maladministration" data-court="General Court" data-search="T-256/26 General Court European Central Bank S. Orlandi European official Staff regulations (EU) Maladministration">
+    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)|Maladministration" data-court="General Court" data-year="2026" data-month="04" data-search="T-256/26 General Court European Central Bank S. Orlandi European official Staff regulations (EU) Maladministration">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2026-06-29">OJ 29 Jun 2026</time>
@@ -1098,7 +1111,7 @@
         <span>Filed 23 Apr 2026</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0256" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)|Maladministration" data-court="General Court" data-search="T-254/26 General Court European Central Bank S. Orlandi European official Staff regulations (EU) Maladministration">
+    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)|Maladministration" data-court="General Court" data-year="2026" data-month="04" data-search="T-254/26 General Court European Central Bank S. Orlandi European official Staff regulations (EU) Maladministration">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2026-06-29">OJ 29 Jun 2026</time>
@@ -1114,7 +1127,7 @@
         <span>Filed 23 Apr 2026</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0254" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-search="T-249/26 General Court European External Action Service N. de Montigny European official Staff regulations (EU)">
+    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-year="2026" data-month="04" data-search="T-249/26 General Court European External Action Service N. de Montigny European official Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2026-06-29">OJ 29 Jun 2026</time>
@@ -1130,7 +1143,7 @@
         <span>Filed 21 Apr 2026</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0249" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card case-index-card--accent" data-pending-case data-topics="Staff regulations (EU)" data-court="General Court" data-search="T-247/26 General Court European Parliament V. Novikevičius Staff regulations (EU)">
+    </li><li class="case-index-card case-index-card--accent" data-pending-case data-topics="Staff regulations (EU)" data-court="General Court" data-year="2026" data-month="04" data-search="T-247/26 General Court European Parliament V. Novikevičius Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2026-08-10">OJ 10 Aug 2026</time>
@@ -1146,7 +1159,7 @@
         <span>Filed 21 Apr 2026</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0247" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-search="T-41/26 General Court European Commission D. Birkenmaier European official Staff regulations (EU)">
+    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-year="2026" data-month="04" data-search="T-41/26 General Court European Commission D. Birkenmaier European official Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2026-06-08">OJ 8 Jun 2026</time>
@@ -1162,7 +1175,7 @@
         <span>Filed 20 Apr 2026</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0041" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="European official" data-court="General Court" data-search="T-218/26 General Court European Centre for the Development of Vocational Training S. Pappas and A. Pappas European official">
+    </li><li class="case-index-card" data-pending-case data-topics="European official" data-court="General Court" data-year="2026" data-month="04" data-search="T-218/26 General Court European Centre for the Development of Vocational Training S. Pappas and A. Pappas European official">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2026-06-15">OJ 15 Jun 2026</time>
@@ -1178,7 +1191,7 @@
         <span>Filed 1 Apr 2026</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0218" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="Maladministration" data-court="General Court" data-search="T-211/26 General Court European Commission J. Jiménez-Laiglesia Oñate, A. Giraud, S. Troch and A. Escrigas Cañameras Maladministration">
+    </li><li class="case-index-card" data-pending-case data-topics="Maladministration" data-court="General Court" data-year="2026" data-month="04" data-search="T-211/26 General Court European Commission J. Jiménez-Laiglesia Oñate, A. Giraud, S. Troch and A. Escrigas Cañameras Maladministration">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2026-05-26">OJ 26 May 2026</time>
@@ -1194,7 +1207,7 @@
         <span>Filed 1 Apr 2026</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0211" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="Staff regulations (EU)" data-court="General Court" data-search="T-210/26 General Court European Investment Bank L. Levi Staff regulations (EU)">
+    </li><li class="case-index-card" data-pending-case data-topics="Staff regulations (EU)" data-court="General Court" data-year="2026" data-month="03" data-search="T-210/26 General Court European Investment Bank L. Levi Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2026-06-08">OJ 8 Jun 2026</time>
@@ -1210,7 +1223,7 @@
         <span>Filed 31 Mar 2026</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0210" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="Maladministration" data-court="General Court" data-search="T-205/26 General Court European Commission M. Sánchez Rydelski Maladministration">
+    </li><li class="case-index-card" data-pending-case data-topics="Maladministration" data-court="General Court" data-year="2026" data-month="03" data-search="T-205/26 General Court European Commission M. Sánchez Rydelski Maladministration">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2026-06-08">OJ 8 Jun 2026</time>
@@ -1226,7 +1239,7 @@
         <span>Filed 30 Mar 2026</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0205" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="Staff regulations (EU)" data-court="General Court" data-search="T-209/26 General Court European Union Agency for Cybersecurity N. Flandin Staff regulations (EU)">
+    </li><li class="case-index-card" data-pending-case data-topics="Staff regulations (EU)" data-court="General Court" data-year="2026" data-month="03" data-search="T-209/26 General Court European Union Agency for Cybersecurity N. Flandin Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2026-05-26">OJ 26 May 2026</time>
@@ -1242,7 +1255,7 @@
         <span>Filed 27 Mar 2026</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0209" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="European official" data-court="General Court" data-search="T-192/26 General Court European Parliament L. Levi European official">
+    </li><li class="case-index-card" data-pending-case data-topics="European official" data-court="General Court" data-year="2026" data-month="03" data-search="T-192/26 General Court European Parliament L. Levi European official">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2026-05-11">OJ 11 May 2026</time>
@@ -1258,7 +1271,7 @@
         <span>Filed 23 Mar 2026</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0192" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-search="T-188/26 General Court European External Action Service T. Bontinck and C. André European official Staff regulations (EU)">
+    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-year="2026" data-month="03" data-search="T-188/26 General Court European External Action Service T. Bontinck and C. André European official Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2026-05-11">OJ 11 May 2026</time>
@@ -1274,7 +1287,7 @@
         <span>Filed 20 Mar 2026</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0188" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card case-index-card--accent" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-search="T-190/26 General Court European External Action Service, Institutions T. Bontinck and C. André European official Staff regulations (EU)">
+    </li><li class="case-index-card case-index-card--accent" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-year="2026" data-month="03" data-search="T-190/26 General Court European External Action Service, Institutions T. Bontinck and C. André European official Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2026-05-11">OJ 11 May 2026</time>
@@ -1290,7 +1303,7 @@
         <span>Filed 20 Mar 2026</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0190" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="Maladministration" data-court="General Court" data-search="T-186/26 General Court Council of the European Union B. Kloostra Maladministration">
+    </li><li class="case-index-card" data-pending-case data-topics="Maladministration" data-court="General Court" data-year="2026" data-month="03" data-search="T-186/26 General Court Council of the European Union B. Kloostra Maladministration">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2026-06-08">OJ 8 Jun 2026</time>
@@ -1306,7 +1319,7 @@
         <span>Filed 19 Mar 2026</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0186" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="Staff regulations (EU)" data-court="General Court" data-search="T-164/26 General Court European Commission D. Rovetta and V. Villante Staff regulations (EU)">
+    </li><li class="case-index-card" data-pending-case data-topics="Staff regulations (EU)" data-court="General Court" data-year="2026" data-month="03" data-search="T-164/26 General Court European Commission D. Rovetta and V. Villante Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2026-05-26">OJ 26 May 2026</time>
@@ -1322,7 +1335,7 @@
         <span>Filed 6 Mar 2026</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0164" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="European official" data-court="General Court" data-search="T-151/26 General Court European Investment Bank L. Levi European official">
+    </li><li class="case-index-card" data-pending-case data-topics="European official" data-court="General Court" data-year="2026" data-month="03" data-search="T-151/26 General Court European Investment Bank L. Levi European official">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2026-04-13">OJ 13 Apr 2026</time>
@@ -1338,7 +1351,7 @@
         <span>Filed 1 Mar 2026</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0151" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-search="T-143/26 General Court European Commission M. Vamvakas European official Staff regulations (EU)">
+    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-year="2026" data-month="02" data-search="T-143/26 General Court European Commission M. Vamvakas European official Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2026-05-11">OJ 11 May 2026</time>
@@ -1354,7 +1367,7 @@
         <span>Filed 27 Feb 2026</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0143" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-search="T-124/26 General Court European Commission J. Navas Marqués European official Staff regulations (EU)">
+    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-year="2026" data-month="02" data-search="T-124/26 General Court European Commission J. Navas Marqués European official Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2026-05-11">OJ 11 May 2026</time>
@@ -1370,7 +1383,7 @@
         <span>Filed 17 Feb 2026</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0124" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="Maladministration" data-court="General Court" data-search="T-91/26 General Court European Commission F. Wagner, I. Ioannidis and R. Spanó Maladministration">
+    </li><li class="case-index-card" data-pending-case data-topics="Maladministration" data-court="General Court" data-year="2026" data-month="02" data-search="T-91/26 General Court European Commission F. Wagner, I. Ioannidis and R. Spanó Maladministration">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2026-03-30">OJ 30 Mar 2026</time>
@@ -1386,7 +1399,7 @@
         <span>Filed 9 Feb 2026</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0091" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-search="T-76/26 General Court   European official Staff regulations (EU)">
+    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-year="2026" data-month="02" data-search="T-76/26 General Court   European official Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2026-04-27">OJ 27 Apr 2026</time>
@@ -1402,7 +1415,7 @@
         <span>Filed 4 Feb 2026</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0076" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="Maladministration" data-court="General Court" data-search="T-70/26 General Court European External Action Service N. Flandin Maladministration">
+    </li><li class="case-index-card" data-pending-case data-topics="Maladministration" data-court="General Court" data-year="2026" data-month="02" data-search="T-70/26 General Court European External Action Service N. Flandin Maladministration">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2026-03-30">OJ 30 Mar 2026</time>
@@ -1418,7 +1431,7 @@
         <span>Filed 3 Feb 2026</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0070" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card case-index-card--accent" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-search="T-60/26 General Court European Commission L. Levi and A. Champetier European official Staff regulations (EU)">
+    </li><li class="case-index-card case-index-card--accent" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-year="2026" data-month="01" data-search="T-60/26 General Court European Commission L. Levi and A. Champetier European official Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2026-03-16">OJ 16 Mar 2026</time>
@@ -1434,7 +1447,7 @@
         <span>Filed 29 Jan 2026</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0060" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)|Maladministration" data-court="General Court" data-search="T-50/26 General Court European Commission N. Flandin European official Staff regulations (EU) Maladministration">
+    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)|Maladministration" data-court="General Court" data-year="2026" data-month="01" data-search="T-50/26 General Court European Commission N. Flandin European official Staff regulations (EU) Maladministration">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2026-03-16">OJ 16 Mar 2026</time>
@@ -1450,7 +1463,7 @@
         <span>Filed 23 Jan 2026</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0050" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)|Maladministration" data-court="General Court" data-search="T-51/26 General Court European Commission N. Flandin European official Staff regulations (EU) Maladministration">
+    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)|Maladministration" data-court="General Court" data-year="2026" data-month="01" data-search="T-51/26 General Court European Commission N. Flandin European official Staff regulations (EU) Maladministration">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2026-03-16">OJ 16 Mar 2026</time>
@@ -1466,7 +1479,7 @@
         <span>Filed 23 Jan 2026</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0051" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)|Maladministration" data-court="General Court" data-search="T-45/26 General Court European Central Bank S. Orlandi European official Staff regulations (EU) Maladministration">
+    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)|Maladministration" data-court="General Court" data-year="2026" data-month="01" data-search="T-45/26 General Court European Central Bank S. Orlandi European official Staff regulations (EU) Maladministration">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2026-03-16">OJ 16 Mar 2026</time>
@@ -1482,7 +1495,7 @@
         <span>Filed 22 Jan 2026</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0045" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)|Maladministration" data-court="General Court" data-search="T-46/26 General Court European Central Bank S. Orlandi European official Staff regulations (EU) Maladministration">
+    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)|Maladministration" data-court="General Court" data-year="2026" data-month="01" data-search="T-46/26 General Court European Central Bank S. Orlandi European official Staff regulations (EU) Maladministration">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2026-03-16">OJ 16 Mar 2026</time>
@@ -1498,7 +1511,7 @@
         <span>Filed 22 Jan 2026</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0046" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="European official" data-court="General Court" data-search="T-33/26 General Court European Investment Bank L. Levi European official">
+    </li><li class="case-index-card" data-pending-case data-topics="European official" data-court="General Court" data-year="2026" data-month="01" data-search="T-33/26 General Court European Investment Bank L. Levi European official">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2026-03-09">OJ 9 Mar 2026</time>
@@ -1514,7 +1527,7 @@
         <span>Filed 19 Jan 2026</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0033" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-search="T-35/26 General Court European Commission S. Pappas and A. Pappas European official Staff regulations (EU)">
+    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-year="2026" data-month="01" data-search="T-35/26 General Court European Commission S. Pappas and A. Pappas European official Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2026-03-16">OJ 16 Mar 2026</time>
@@ -1530,7 +1543,7 @@
         <span>Filed 19 Jan 2026</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0035" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="European official" data-court="General Court" data-search="T-34/26 General Court European Commission S. Pappas and A. Pappas European official">
+    </li><li class="case-index-card" data-pending-case data-topics="European official" data-court="General Court" data-year="2026" data-month="01" data-search="T-34/26 General Court European Commission S. Pappas and A. Pappas European official">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2026-03-23">OJ 23 Mar 2026</time>
@@ -1546,7 +1559,7 @@
         <span>Filed 16 Jan 2026</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0034" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-search="T-36/26 General Court European Commission L. Levi and A. Champetier European official Staff regulations (EU)">
+    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-year="2026" data-month="01" data-search="T-36/26 General Court European Commission L. Levi and A. Champetier European official Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2026-04-07">OJ 7 Apr 2026</time>
@@ -1562,7 +1575,7 @@
         <span>Filed 16 Jan 2026</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0036" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card case-index-card--accent" data-pending-case data-topics="Staff regulations (EU)" data-court="General Court" data-search="T-28/26 General Court European Commission S. Pappas and A. Pappas Staff regulations (EU)">
+    </li><li class="case-index-card case-index-card--accent" data-pending-case data-topics="Staff regulations (EU)" data-court="General Court" data-year="2026" data-month="01" data-search="T-28/26 General Court European Commission S. Pappas and A. Pappas Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2026-03-16">OJ 16 Mar 2026</time>
@@ -1578,7 +1591,7 @@
         <span>Filed 15 Jan 2026</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0028" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="Maladministration" data-court="General Court" data-search="T-15/26 General Court European Parliament P. Adamidis Maladministration">
+    </li><li class="case-index-card" data-pending-case data-topics="Maladministration" data-court="General Court" data-year="2026" data-month="01" data-search="T-15/26 General Court European Parliament P. Adamidis Maladministration">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2026-03-30">OJ 30 Mar 2026</time>
@@ -1594,7 +1607,7 @@
         <span>Filed 9 Jan 2026</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0015" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="Staff regulations (EU)" data-court="General Court" data-search="T-3/26 General Court European Central Bank S. Pappas and A. Pappas Staff regulations (EU)">
+    </li><li class="case-index-card" data-pending-case data-topics="Staff regulations (EU)" data-court="General Court" data-year="2026" data-month="01" data-search="T-3/26 General Court European Central Bank S. Pappas and A. Pappas Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2026-02-23">OJ 23 Feb 2026</time>
@@ -1610,7 +1623,7 @@
         <span>Filed 6 Jan 2026</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0003" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-search="T-1/26 General Court European Public Prosecutor’s Office A and B European official Staff regulations (EU)">
+    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-year="2026" data-month="01" data-search="T-1/26 General Court European Public Prosecutor’s Office A and B European official Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2026-03-09">OJ 9 Mar 2026</time>
@@ -1626,7 +1639,7 @@
         <span>Filed 2 Jan 2026</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0001" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-search="T-905/25 General Court European Commission S. Orlandi European official Staff regulations (EU)">
+    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-year="2025" data-month="12" data-search="T-905/25 General Court European Commission S. Orlandi European official Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2026-03-02">OJ 2 Mar 2026</time>
@@ -1642,7 +1655,7 @@
         <span>Filed 30 Dec 2025</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0905" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="Staff regulations (EU)" data-court="General Court" data-search="T-913/25 General Court European Investment Bank L. Levi Staff regulations (EU)">
+    </li><li class="case-index-card" data-pending-case data-topics="Staff regulations (EU)" data-court="General Court" data-year="2025" data-month="12" data-search="T-913/25 General Court European Investment Bank L. Levi Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2026-03-09">OJ 9 Mar 2026</time>
@@ -1658,7 +1671,7 @@
         <span>Filed 29 Dec 2025</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0913" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="Maladministration" data-court="General Court" data-search="T-893/25 General Court European Investment Bank A. Bahrami and N. Korogiannakis Maladministration">
+    </li><li class="case-index-card" data-pending-case data-topics="Maladministration" data-court="General Court" data-year="2025" data-month="12" data-search="T-893/25 General Court European Investment Bank A. Bahrami and N. Korogiannakis Maladministration">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2026-02-16">OJ 16 Feb 2026</time>
@@ -1674,7 +1687,7 @@
         <span>Filed 23 Dec 2025</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0893" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="Staff regulations (EU)" data-court="General Court" data-search="T-868/25 General Court European Border and Coast Guard Agency N. de Montigny Staff regulations (EU)">
+    </li><li class="case-index-card" data-pending-case data-topics="Staff regulations (EU)" data-court="General Court" data-year="2025" data-month="12" data-search="T-868/25 General Court European Border and Coast Guard Agency N. de Montigny Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2026-02-09">OJ 9 Feb 2026</time>
@@ -1690,7 +1703,7 @@
         <span>Filed 18 Dec 2025</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0868" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="Staff regulations (EU)" data-court="General Court" data-search="T-866/25 General Court European Union Satellite Centre L. Levi and A. Champetier Staff regulations (EU)">
+    </li><li class="case-index-card" data-pending-case data-topics="Staff regulations (EU)" data-court="General Court" data-year="2025" data-month="12" data-search="T-866/25 General Court European Union Satellite Centre L. Levi and A. Champetier Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2026-02-16">OJ 16 Feb 2026</time>
@@ -1706,7 +1719,7 @@
         <span>Filed 17 Dec 2025</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0866" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card case-index-card--accent" data-pending-case data-topics="Maladministration" data-court="General Court" data-search="T-847/25 General Court European Commission B. Servais and V. Crochet Maladministration">
+    </li><li class="case-index-card case-index-card--accent" data-pending-case data-topics="Maladministration" data-court="General Court" data-year="2025" data-month="12" data-search="T-847/25 General Court European Commission B. Servais and V. Crochet Maladministration">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2026-02-02">OJ 2 Feb 2026</time>
@@ -1722,7 +1735,7 @@
         <span>Filed 10 Dec 2025</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0847" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="Staff regulations (EU)|Maladministration" data-court="General Court" data-search="T-798/25 General Court European Central Bank S. Pappas and A. Pappas Staff regulations (EU) Maladministration">
+    </li><li class="case-index-card" data-pending-case data-topics="Staff regulations (EU)|Maladministration" data-court="General Court" data-year="2025" data-month="11" data-search="T-798/25 General Court European Central Bank S. Pappas and A. Pappas Staff regulations (EU) Maladministration">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2026-01-12">OJ 12 Jan 2026</time>
@@ -1738,7 +1751,7 @@
         <span>Filed 24 Nov 2025</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0798" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="European official" data-court="General Court" data-search="T-778/25 General Court European Commission N. Korogiannakis European official">
+    </li><li class="case-index-card" data-pending-case data-topics="European official" data-court="General Court" data-year="2025" data-month="11" data-search="T-778/25 General Court European Commission N. Korogiannakis European official">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2026-02-09">OJ 9 Feb 2026</time>
@@ -1754,7 +1767,7 @@
         <span>Filed 10 Nov 2025</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0778" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="Staff regulations (EU)" data-court="General Court" data-search="T-767/25 General Court European Commission S. Pappas and A. Pappas Staff regulations (EU)">
+    </li><li class="case-index-card" data-pending-case data-topics="Staff regulations (EU)" data-court="General Court" data-year="2025" data-month="11" data-search="T-767/25 General Court European Commission S. Pappas and A. Pappas Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2025-12-22">OJ 22 Dec 2025</time>
@@ -1770,7 +1783,7 @@
         <span>Filed 3 Nov 2025</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0767" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="Staff regulations (EU)" data-court="General Court" data-search="T-751/25 General Court European Parliament L. Levi and P. Baudoux Staff regulations (EU)">
+    </li><li class="case-index-card" data-pending-case data-topics="Staff regulations (EU)" data-court="General Court" data-year="2025" data-month="10" data-search="T-751/25 General Court European Parliament L. Levi and P. Baudoux Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2025-12-22">OJ 22 Dec 2025</time>
@@ -1786,7 +1799,7 @@
         <span>Filed 28 Oct 2025</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0751" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-search="T-740/25 General Court European Institute for Gender Equality L. Levi European official Staff regulations (EU)">
+    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-year="2025" data-month="10" data-search="T-740/25 General Court European Institute for Gender Equality L. Levi European official Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2025-12-15">OJ 15 Dec 2025</time>
@@ -1802,7 +1815,7 @@
         <span>Filed 24 Oct 2025</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0740" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-search="T-709/25 General Court European Central Bank L. Levi and A. Champetier European official Staff regulations (EU)">
+    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-year="2025" data-month="10" data-search="T-709/25 General Court European Central Bank L. Levi and A. Champetier European official Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2025-12-01">OJ 1 Dec 2025</time>
@@ -1818,7 +1831,7 @@
         <span>Filed 17 Oct 2025</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0709" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="European official" data-court="General Court" data-search="T-737/25 General Court European Parliament C. Däuble and T. Herbrich European official">
+    </li><li class="case-index-card" data-pending-case data-topics="European official" data-court="General Court" data-year="2025" data-month="10" data-search="T-737/25 General Court European Parliament C. Däuble and T. Herbrich European official">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2026-01-05">OJ 5 Jan 2026</time>
@@ -1834,7 +1847,7 @@
         <span>Filed 17 Oct 2025</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0737" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="Staff regulations (EU)" data-court="General Court" data-search="T-706/25 General Court European Central Bank S. Pappas and A. Pappas Staff regulations (EU)">
+    </li><li class="case-index-card" data-pending-case data-topics="Staff regulations (EU)" data-court="General Court" data-year="2025" data-month="10" data-search="T-706/25 General Court European Central Bank S. Pappas and A. Pappas Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2026-01-05">OJ 5 Jan 2026</time>
@@ -1850,7 +1863,7 @@
         <span>Filed 13 Oct 2025</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0706" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card case-index-card--accent" data-pending-case data-topics="European official|Staff regulations (EU)|Maladministration" data-court="General Court" data-search="T-692/25 General Court   European official Staff regulations (EU) Maladministration">
+    </li><li class="case-index-card case-index-card--accent" data-pending-case data-topics="European official|Staff regulations (EU)|Maladministration" data-court="General Court" data-year="2025" data-month="10" data-search="T-692/25 General Court   European official Staff regulations (EU) Maladministration">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2025-11-24">OJ 24 Nov 2025</time>
@@ -1866,7 +1879,7 @@
         <span>Filed 9 Oct 2025</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0692" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="Staff regulations (EU)" data-court="General Court" data-search="T-687/25 General Court Council of the European Union O. Mader Staff regulations (EU)">
+    </li><li class="case-index-card" data-pending-case data-topics="Staff regulations (EU)" data-court="General Court" data-year="2025" data-month="10" data-search="T-687/25 General Court Council of the European Union O. Mader Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2025-12-22">OJ 22 Dec 2025</time>
@@ -1882,7 +1895,7 @@
         <span>Filed 3 Oct 2025</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0687" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-search="T-660/25 General Court European Union Agency for Law Enforcement Cooperation (Europol) S. Orlandi European official Staff regulations (EU)">
+    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-year="2025" data-month="09" data-search="T-660/25 General Court European Union Agency for Law Enforcement Cooperation (Europol) S. Orlandi European official Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2025-11-17">OJ 17 Nov 2025</time>
@@ -1898,7 +1911,7 @@
         <span>Filed 26 Sep 2025</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0660" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="European official" data-court="General Court" data-search="T-664/25 General Court European Central Bank S. Orlandi European official">
+    </li><li class="case-index-card" data-pending-case data-topics="European official" data-court="General Court" data-year="2025" data-month="09" data-search="T-664/25 General Court European Central Bank S. Orlandi European official">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2025-12-01">OJ 1 Dec 2025</time>
@@ -1914,7 +1927,7 @@
         <span>Filed 25 Sep 2025</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0664" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-search="T-647/25 General Court European Commission D. Rovetta and V. Villante European official Staff regulations (EU)">
+    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-year="2025" data-month="09" data-search="T-647/25 General Court European Commission D. Rovetta and V. Villante European official Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2025-11-03">OJ 3 Nov 2025</time>
@@ -1930,7 +1943,7 @@
         <span>Filed 22 Sep 2025</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0647" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-search="T-646/25 General Court European Commission D. Rovetta and V. Villante European official Staff regulations (EU)">
+    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-year="2025" data-month="09" data-search="T-646/25 General Court European Commission D. Rovetta and V. Villante European official Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2025-11-03">OJ 3 Nov 2025</time>
@@ -1946,7 +1959,7 @@
         <span>Filed 22 Sep 2025</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0646" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-search="T-624/25 General Court European Investment Bank L. Levi and P. Baudoux European official Staff regulations (EU)">
+    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-year="2025" data-month="09" data-search="T-624/25 General Court European Investment Bank L. Levi and P. Baudoux European official Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2025-10-27">OJ 27 Oct 2025</time>
@@ -1962,7 +1975,7 @@
         <span>Filed 15 Sep 2025</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0624" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-search="T-616/25 General Court European External Action Service N. de Montigny European official Staff regulations (EU)">
+    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-year="2025" data-month="09" data-search="T-616/25 General Court European External Action Service N. de Montigny European official Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2025-11-17">OJ 17 Nov 2025</time>
@@ -1978,7 +1991,7 @@
         <span>Filed 10 Sep 2025</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0616" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="Staff regulations (EU)" data-court="General Court" data-search="T-611/25 General Court European Commission S. Makoumbou Staff regulations (EU)">
+    </li><li class="case-index-card" data-pending-case data-topics="Staff regulations (EU)" data-court="General Court" data-year="2025" data-month="09" data-search="T-611/25 General Court European Commission S. Makoumbou Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2025-11-10">OJ 10 Nov 2025</time>
@@ -1994,7 +2007,7 @@
         <span>Filed 9 Sep 2025</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0611" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card case-index-card--accent" data-pending-case data-topics="European official" data-court="General Court" data-search="T-607/25 General Court European Commission F. Sciaudone, D. Fesler and G. Lovaste European official">
+    </li><li class="case-index-card case-index-card--accent" data-pending-case data-topics="European official" data-court="General Court" data-year="2025" data-month="09" data-search="T-607/25 General Court European Commission F. Sciaudone, D. Fesler and G. Lovaste European official">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2025-11-10">OJ 10 Nov 2025</time>
@@ -2010,7 +2023,7 @@
         <span>Filed 3 Sep 2025</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0607" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="Maladministration" data-court="General Court" data-search="T-601/25 General Court European Border and Coast Guard Agency N. de Montigny Maladministration">
+    </li><li class="case-index-card" data-pending-case data-topics="Maladministration" data-court="General Court" data-year="2025" data-month="09" data-search="T-601/25 General Court European Border and Coast Guard Agency N. de Montigny Maladministration">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2025-10-27">OJ 27 Oct 2025</time>
@@ -2026,7 +2039,7 @@
         <span>Filed 2 Sep 2025</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0601" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-search="T-604/25 General Court   European official Staff regulations (EU)">
+    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-year="2025" data-month="09" data-search="T-604/25 General Court   European official Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2025-11-03">OJ 3 Nov 2025</time>
@@ -2042,7 +2055,7 @@
         <span>Filed 1 Sep 2025</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0604" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="Staff regulations (EU)" data-court="General Court" data-search="T-592/25 General Court European Investment Bank L. Levi Staff regulations (EU)">
+    </li><li class="case-index-card" data-pending-case data-topics="Staff regulations (EU)" data-court="General Court" data-year="2025" data-month="08" data-search="T-592/25 General Court European Investment Bank L. Levi Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2025-10-20">OJ 20 Oct 2025</time>
@@ -2058,7 +2071,7 @@
         <span>Filed 27 Aug 2025</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0592" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="Maladministration" data-court="General Court" data-search="T-587/25 General Court Council of the European Union A. Bahrami and N. Korogiannakis Maladministration">
+    </li><li class="case-index-card" data-pending-case data-topics="Maladministration" data-court="General Court" data-year="2025" data-month="08" data-search="T-587/25 General Court Council of the European Union A. Bahrami and N. Korogiannakis Maladministration">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2025-10-13">OJ 13 Oct 2025</time>
@@ -2074,7 +2087,7 @@
         <span>Filed 23 Aug 2025</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0587" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="Maladministration" data-court="General Court" data-search="T-589/25 General Court European Investment Bank B. Maréchal Maladministration">
+    </li><li class="case-index-card" data-pending-case data-topics="Maladministration" data-court="General Court" data-year="2025" data-month="08" data-search="T-589/25 General Court European Investment Bank B. Maréchal Maladministration">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2025-11-10">OJ 10 Nov 2025</time>
@@ -2090,7 +2103,7 @@
         <span>Filed 23 Aug 2025</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0589" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)|Maladministration" data-court="General Court" data-search="T-585/25 General Court European Union Agency for Cybersecurity L. Levi and N. Flandin European official Staff regulations (EU) Maladministration">
+    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)|Maladministration" data-court="General Court" data-year="2025" data-month="08" data-search="T-585/25 General Court European Union Agency for Cybersecurity L. Levi and N. Flandin European official Staff regulations (EU) Maladministration">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2025-10-13">OJ 13 Oct 2025</time>
@@ -2106,7 +2119,7 @@
         <span>Filed 22 Aug 2025</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0585" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="Maladministration" data-court="General Court" data-search="T-583/25 General Court Council of the European Union T. Bontinck, M. Brésart, J. Goffin and F. Patuelli Maladministration">
+    </li><li class="case-index-card" data-pending-case data-topics="Maladministration" data-court="General Court" data-year="2025" data-month="08" data-search="T-583/25 General Court Council of the European Union T. Bontinck, M. Brésart, J. Goffin and F. Patuelli Maladministration">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2025-10-13">OJ 13 Oct 2025</time>
@@ -2122,7 +2135,7 @@
         <span>Filed 19 Aug 2025</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0583" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="European official|Maladministration" data-court="General Court" data-search="T-542/25 General Court European Commission S. Rodrigues and A. Champetier European official Maladministration">
+    </li><li class="case-index-card" data-pending-case data-topics="European official|Maladministration" data-court="General Court" data-year="2025" data-month="08" data-search="T-542/25 General Court European Commission S. Rodrigues and A. Champetier European official Maladministration">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2025-10-06">OJ 6 Oct 2025</time>
@@ -2138,7 +2151,7 @@
         <span>Filed 1 Aug 2025</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0542" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card case-index-card--accent" data-pending-case data-topics="Maladministration" data-court="General Court" data-search="T-524/25 General Court European Central Bank R. Martens, P. Darras Maladministration">
+    </li><li class="case-index-card case-index-card--accent" data-pending-case data-topics="Maladministration" data-court="General Court" data-year="2025" data-month="07" data-search="T-524/25 General Court European Central Bank R. Martens, P. Darras Maladministration">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2025-09-15">OJ 15 Sep 2025</time>
@@ -2154,7 +2167,7 @@
         <span>Filed 31 Jul 2025</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0524" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="Maladministration" data-court="General Court" data-search="T-526/25 General Court European Central Bank R. Martens, P. Darras Maladministration">
+    </li><li class="case-index-card" data-pending-case data-topics="Maladministration" data-court="General Court" data-year="2025" data-month="07" data-search="T-526/25 General Court European Central Bank R. Martens, P. Darras Maladministration">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2025-09-15">OJ 15 Sep 2025</time>
@@ -2170,7 +2183,7 @@
         <span>Filed 31 Jul 2025</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0526" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="Maladministration" data-court="General Court" data-search="T-525/25 General Court European Central Bank R. Martens and P. Darras Maladministration">
+    </li><li class="case-index-card" data-pending-case data-topics="Maladministration" data-court="General Court" data-year="2025" data-month="07" data-search="T-525/25 General Court European Central Bank R. Martens and P. Darras Maladministration">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2025-09-15">OJ 15 Sep 2025</time>
@@ -2186,7 +2199,7 @@
         <span>Filed 31 Jul 2025</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0525" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-search="T-514/25 General Court European Commission N. Korogiannakis European official Staff regulations (EU)">
+    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-year="2025" data-month="07" data-search="T-514/25 General Court European Commission N. Korogiannakis European official Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2025-10-13">OJ 13 Oct 2025</time>
@@ -2202,7 +2215,7 @@
         <span>Filed 28 Jul 2025</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0514" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="Maladministration" data-court="General Court" data-search="T-517/25 General Court European Commission S. Pappas and A. Pappas Maladministration">
+    </li><li class="case-index-card" data-pending-case data-topics="Maladministration" data-court="General Court" data-year="2025" data-month="07" data-search="T-517/25 General Court European Commission S. Pappas and A. Pappas Maladministration">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2025-09-15">OJ 15 Sep 2025</time>
@@ -2218,7 +2231,7 @@
         <span>Filed 28 Jul 2025</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0517" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-search="T-506/25 General Court European Commission S. Rodrigues and A. Champetier European official Staff regulations (EU)">
+    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-year="2025" data-month="07" data-search="T-506/25 General Court European Commission S. Rodrigues and A. Champetier European official Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2025-09-08">OJ 8 Sep 2025</time>
@@ -2234,7 +2247,7 @@
         <span>Filed 25 Jul 2025</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0506" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-search="T-469/25 General Court European Border and Coast Guard Agency A. Samartzis European official Staff regulations (EU)">
+    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-year="2025" data-month="07" data-search="T-469/25 General Court European Border and Coast Guard Agency A. Samartzis European official Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2025-08-25">OJ 25 Aug 2025</time>
@@ -2250,7 +2263,7 @@
         <span>Filed 16 Jul 2025</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0469" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-search="T-474/25 General Court European Commission E. Lazar European official Staff regulations (EU)">
+    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-year="2025" data-month="07" data-search="T-474/25 General Court European Commission E. Lazar European official Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2025-09-08">OJ 8 Sep 2025</time>
@@ -2266,7 +2279,7 @@
         <span>Filed 15 Jul 2025</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0474" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="Staff regulations (EU)" data-court="General Court" data-search="T-443/25 General Court European Union Agency for Law Enforcement Cooperation (Europol) M. Velardo Staff regulations (EU)">
+    </li><li class="case-index-card" data-pending-case data-topics="Staff regulations (EU)" data-court="General Court" data-year="2025" data-month="07" data-search="T-443/25 General Court European Union Agency for Law Enforcement Cooperation (Europol) M. Velardo Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2025-08-25">OJ 25 Aug 2025</time>
@@ -2282,7 +2295,7 @@
         <span>Filed 7 Jul 2025</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0443" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card case-index-card--accent" data-pending-case data-topics="Staff regulations (EU)" data-court="General Court" data-search="T-442/25 General Court European Union Agency for Law Enforcement Cooperation (Europol) M. Velardo Staff regulations (EU)">
+    </li><li class="case-index-card case-index-card--accent" data-pending-case data-topics="Staff regulations (EU)" data-court="General Court" data-year="2025" data-month="07" data-search="T-442/25 General Court European Union Agency for Law Enforcement Cooperation (Europol) M. Velardo Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2025-08-25">OJ 25 Aug 2025</time>
@@ -2298,7 +2311,7 @@
         <span>Filed 7 Jul 2025</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0442" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="Staff regulations (EU)" data-court="General Court" data-search="T-441/25 General Court European Union Agency for Law Enforcement Cooperation (Europol) M. Velardo Staff regulations (EU)">
+    </li><li class="case-index-card" data-pending-case data-topics="Staff regulations (EU)" data-court="General Court" data-year="2025" data-month="07" data-search="T-441/25 General Court European Union Agency for Law Enforcement Cooperation (Europol) M. Velardo Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2025-08-25">OJ 25 Aug 2025</time>
@@ -2314,7 +2327,7 @@
         <span>Filed 6 Jul 2025</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0441" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="Staff regulations (EU)" data-court="General Court" data-search="T-440/25 General Court European Union Agency for Law Enforcement Cooperation (Europol) M. Velardo Staff regulations (EU)">
+    </li><li class="case-index-card" data-pending-case data-topics="Staff regulations (EU)" data-court="General Court" data-year="2025" data-month="07" data-search="T-440/25 General Court European Union Agency for Law Enforcement Cooperation (Europol) M. Velardo Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2025-08-25">OJ 25 Aug 2025</time>
@@ -2330,7 +2343,7 @@
         <span>Filed 6 Jul 2025</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0440" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="Staff regulations (EU)" data-court="General Court" data-search="T-439/25 General Court European Union Agency for Law Enforcement Cooperation (Europol) M. Velardo Staff regulations (EU)">
+    </li><li class="case-index-card" data-pending-case data-topics="Staff regulations (EU)" data-court="General Court" data-year="2025" data-month="07" data-search="T-439/25 General Court European Union Agency for Law Enforcement Cooperation (Europol) M. Velardo Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2025-08-25">OJ 25 Aug 2025</time>
@@ -2346,7 +2359,7 @@
         <span>Filed 4 Jul 2025</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0439" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="Staff regulations (EU)" data-court="General Court" data-search="T-446/25 General Court European Union Agency for Law Enforcement Cooperation (Europol) M. Velardo Staff regulations (EU)">
+    </li><li class="case-index-card" data-pending-case data-topics="Staff regulations (EU)" data-court="General Court" data-year="2025" data-month="07" data-search="T-446/25 General Court European Union Agency for Law Enforcement Cooperation (Europol) M. Velardo Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2025-08-25">OJ 25 Aug 2025</time>
@@ -2362,7 +2375,7 @@
         <span>Filed 3 Jul 2025</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0446" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="Staff regulations (EU)" data-court="General Court" data-search="T-428/25 General Court European Union Agency for Law Enforcement Cooperation (Europol) M. Velardo Staff regulations (EU)">
+    </li><li class="case-index-card" data-pending-case data-topics="Staff regulations (EU)" data-court="General Court" data-year="2025" data-month="07" data-search="T-428/25 General Court European Union Agency for Law Enforcement Cooperation (Europol) M. Velardo Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2025-08-25">OJ 25 Aug 2025</time>
@@ -2378,7 +2391,7 @@
         <span>Filed 3 Jul 2025</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0428" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="Staff regulations (EU)" data-court="General Court" data-search="T-427/25 General Court European Union Agency for Law Enforcement Cooperation (Europol) M. Velardo Staff regulations (EU)">
+    </li><li class="case-index-card" data-pending-case data-topics="Staff regulations (EU)" data-court="General Court" data-year="2025" data-month="07" data-search="T-427/25 General Court European Union Agency for Law Enforcement Cooperation (Europol) M. Velardo Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2025-08-25">OJ 25 Aug 2025</time>
@@ -2394,7 +2407,7 @@
         <span>Filed 3 Jul 2025</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0427" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="Staff regulations (EU)" data-court="General Court" data-search="T-425/25 General Court European Union Agency for Law Enforcement Cooperation (Europol) M. Velardo Staff regulations (EU)">
+    </li><li class="case-index-card" data-pending-case data-topics="Staff regulations (EU)" data-court="General Court" data-year="2025" data-month="07" data-search="T-425/25 General Court European Union Agency for Law Enforcement Cooperation (Europol) M. Velardo Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2025-08-25">OJ 25 Aug 2025</time>
@@ -2410,7 +2423,7 @@
         <span>Filed 1 Jul 2025</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0425" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="Staff regulations (EU)" data-court="General Court" data-search="T-426/25 General Court European Union Agency for Law Enforcement Cooperation (Europol) M. Velardo Staff regulations (EU)">
+    </li><li class="case-index-card" data-pending-case data-topics="Staff regulations (EU)" data-court="General Court" data-year="2025" data-month="07" data-search="T-426/25 General Court European Union Agency for Law Enforcement Cooperation (Europol) M. Velardo Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2025-08-25">OJ 25 Aug 2025</time>
@@ -2426,7 +2439,7 @@
         <span>Filed 1 Jul 2025</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0426" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card case-index-card--accent" data-pending-case data-topics="Staff regulations (EU)" data-court="General Court" data-search="T-424/25 General Court European Parliament H. Kubik Staff regulations (EU)">
+    </li><li class="case-index-card case-index-card--accent" data-pending-case data-topics="Staff regulations (EU)" data-court="General Court" data-year="2025" data-month="07" data-search="T-424/25 General Court European Parliament H. Kubik Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2025-08-25">OJ 25 Aug 2025</time>
@@ -2442,7 +2455,7 @@
         <span>Filed 1 Jul 2025</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0424" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="European official" data-court="General Court" data-search="T-415/25 General Court European Commission A. Champetier and S. Rodrigues European official">
+    </li><li class="case-index-card" data-pending-case data-topics="European official" data-court="General Court" data-year="2025" data-month="06" data-search="T-415/25 General Court European Commission A. Champetier and S. Rodrigues European official">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2025-10-13">OJ 13 Oct 2025</time>
@@ -2458,7 +2471,7 @@
         <span>Filed 30 Jun 2025</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0415" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="Maladministration" data-court="General Court" data-search="T-416/25 General Court European Parliament H. Kubik Maladministration">
+    </li><li class="case-index-card" data-pending-case data-topics="Maladministration" data-court="General Court" data-year="2025" data-month="06" data-search="T-416/25 General Court European Parliament H. Kubik Maladministration">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2025-08-18">OJ 18 Aug 2025</time>
@@ -2474,7 +2487,7 @@
         <span>Filed 26 Jun 2025</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0416" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="Staff regulations (EU)" data-court="General Court" data-search="T-408/25 General Court European Parliament L. Levi and P. Baudoux Staff regulations (EU)">
+    </li><li class="case-index-card" data-pending-case data-topics="Staff regulations (EU)" data-court="General Court" data-year="2025" data-month="06" data-search="T-408/25 General Court European Parliament L. Levi and P. Baudoux Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2025-10-13">OJ 13 Oct 2025</time>
@@ -2490,7 +2503,7 @@
         <span>Filed 25 Jun 2025</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0408" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-search="T-399/25 General Court European Commission A. Cardinale European official Staff regulations (EU)">
+    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-year="2025" data-month="06" data-search="T-399/25 General Court European Commission A. Cardinale European official Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2025-08-25">OJ 25 Aug 2025</time>
@@ -2506,7 +2519,7 @@
         <span>Filed 20 Jun 2025</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0399" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-search="T-385/25 General Court European Parliament A. Champetier and S. Rodrigues European official Staff regulations (EU)">
+    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-year="2025" data-month="06" data-search="T-385/25 General Court European Parliament A. Champetier and S. Rodrigues European official Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2025-07-28">OJ 28 Jul 2025</time>
@@ -2522,7 +2535,7 @@
         <span>Filed 13 Jun 2025</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0385" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-search="T-370/25 General Court European Commission S. Orlandi European official Staff regulations (EU)">
+    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-year="2025" data-month="06" data-search="T-370/25 General Court European Commission S. Orlandi European official Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2025-07-21">OJ 21 Jul 2025</time>
@@ -2538,7 +2551,7 @@
         <span>Filed 3 Jun 2025</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0370" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="Maladministration" data-court="General Court" data-search="T-344/25 General Court European Central BankForm of order soughtThe applicants claim that the Court should:— annul the Decision of the ECB of 2 May 2025 rejecting the applicant’s tender in the procurement procedure ‘Digital Euro – App &amp; SDK (PRO-009488)’ N. Korogiannakis Maladministration">
+    </li><li class="case-index-card" data-pending-case data-topics="Maladministration" data-court="General Court" data-year="2025" data-month="06" data-search="T-344/25 General Court European Central BankForm of order soughtThe applicants claim that the Court should:— annul the Decision of the ECB of 2 May 2025 rejecting the applicant’s tender in the procurement procedure ‘Digital Euro – App &amp; SDK (PRO-009488)’ N. Korogiannakis Maladministration">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2025-08-11">OJ 11 Aug 2025</time>
@@ -2554,7 +2567,7 @@
         <span>Filed 1 Jun 2025</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0344" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-search="T-353/25 General Court European Ombudsman L. Levi European official Staff regulations (EU)">
+    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-year="2025" data-month="05" data-search="T-353/25 General Court European Ombudsman L. Levi European official Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2025-07-21">OJ 21 Jul 2025</time>
@@ -2570,7 +2583,7 @@
         <span>Filed 30 May 2025</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0353" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card case-index-card--accent" data-pending-case data-topics="Maladministration" data-court="General Court" data-search="T-316/25 General Court European Border and Coast Guard Agency K. Wójcik Maladministration">
+    </li><li class="case-index-card case-index-card--accent" data-pending-case data-topics="Maladministration" data-court="General Court" data-year="2025" data-month="05" data-search="T-316/25 General Court European Border and Coast Guard Agency K. Wójcik Maladministration">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2025-07-14">OJ 14 Jul 2025</time>
@@ -2586,7 +2599,7 @@
         <span>Filed 20 May 2025</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0316" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="Staff regulations (EU)" data-court="General Court" data-search="T-315/25 General Court European Commission D. Rovetta and V. Villante Staff regulations (EU)">
+    </li><li class="case-index-card" data-pending-case data-topics="Staff regulations (EU)" data-court="General Court" data-year="2025" data-month="05" data-search="T-315/25 General Court European Commission D. Rovetta and V. Villante Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2025-07-07">OJ 7 Jul 2025</time>
@@ -2602,7 +2615,7 @@
         <span>Filed 16 May 2025</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0315" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-search="T-306/25 General Court European External Action Service A. Guillerme, T. Bontinck and F. Patuelli European official Staff regulations (EU)">
+    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-year="2025" data-month="05" data-search="T-306/25 General Court European External Action Service A. Guillerme, T. Bontinck and F. Patuelli European official Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2025-07-21">OJ 21 Jul 2025</time>
@@ -2618,7 +2631,7 @@
         <span>Filed 14 May 2025</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0306" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-search="T-300/25 General Court European External Action Service S. Pappas and D.-A. Pappa European official Staff regulations (EU)">
+    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-year="2025" data-month="05" data-search="T-300/25 General Court European External Action Service S. Pappas and D.-A. Pappa European official Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2025-07-07">OJ 7 Jul 2025</time>
@@ -2634,7 +2647,7 @@
         <span>Filed 6 May 2025</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0300" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="Staff regulations (EU)" data-court="General Court" data-search="T-279/25 General Court European Commission H. Tagaras Staff regulations (EU)">
+    </li><li class="case-index-card" data-pending-case data-topics="Staff regulations (EU)" data-court="General Court" data-year="2025" data-month="04" data-search="T-279/25 General Court European Commission H. Tagaras Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2025-07-14">OJ 14 Jul 2025</time>
@@ -2650,7 +2663,7 @@
         <span>Filed 30 Apr 2025</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0279" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="Maladministration" data-court="General Court" data-search="T-285/25 General Court European Parliament P. Adamidis Maladministration">
+    </li><li class="case-index-card" data-pending-case data-topics="Maladministration" data-court="General Court" data-year="2025" data-month="04" data-search="T-285/25 General Court European Parliament P. Adamidis Maladministration">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2025-08-04">OJ 4 Aug 2025</time>
@@ -2666,7 +2679,7 @@
         <span>Filed 24 Apr 2025</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0285" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="Staff regulations (EU)" data-court="General Court" data-search="T-275/25 General Court   Staff regulations (EU)">
+    </li><li class="case-index-card" data-pending-case data-topics="Staff regulations (EU)" data-court="General Court" data-year="2025" data-month="04" data-search="T-275/25 General Court   Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2025-07-07">OJ 7 Jul 2025</time>
@@ -2682,7 +2695,7 @@
         <span>Filed 23 Apr 2025</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0275" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="Maladministration" data-court="General Court" data-search="T-259/25 General Court Council of the European Union  Maladministration">
+    </li><li class="case-index-card" data-pending-case data-topics="Maladministration" data-court="General Court" data-year="2025" data-month="04" data-search="T-259/25 General Court Council of the European Union  Maladministration">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2025-06-10">OJ 10 Jun 2025</time>
@@ -2698,7 +2711,7 @@
         <span>Filed 22 Apr 2025</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0259" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-search="T-263/25 General Court European Border and Coast Guard Agency F. Bello, F. D. Onofrio and M. Lopopolo European official Staff regulations (EU)">
+    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-year="2025" data-month="04" data-search="T-263/25 General Court European Border and Coast Guard Agency F. Bello, F. D. Onofrio and M. Lopopolo European official Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2025-06-24">OJ 24 Jun 2025</time>
@@ -2714,7 +2727,7 @@
         <span>Filed 18 Apr 2025</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0263" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card case-index-card--accent" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-search="T-214/25 General Court Council of the European Union S. Rodrigues and A. Champetier European official Staff regulations (EU)">
+    </li><li class="case-index-card case-index-card--accent" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-year="2025" data-month="03" data-search="T-214/25 General Court Council of the European Union S. Rodrigues and A. Champetier European official Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2025-05-19">OJ 19 May 2025</time>
@@ -2730,7 +2743,7 @@
         <span>Filed 27 Mar 2025</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0214" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-search="T-204/25 General Court European Defence Agency (EDA) J. Michielsen European official Staff regulations (EU)">
+    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-year="2025" data-month="03" data-search="T-204/25 General Court European Defence Agency (EDA) J. Michielsen European official Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2025-06-30">OJ 30 Jun 2025</time>
@@ -2746,7 +2759,7 @@
         <span>Filed 27 Mar 2025</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0204" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-search="T-199/25 General Court European Investment Bank L. Levi and A. Champetier European official Staff regulations (EU)">
+    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-year="2025" data-month="03" data-search="T-199/25 General Court European Investment Bank L. Levi and A. Champetier European official Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2025-06-24">OJ 24 Jun 2025</time>
@@ -2762,7 +2775,7 @@
         <span>Filed 25 Mar 2025</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0199" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-search="T-193/25 General Court European Commission  European official Staff regulations (EU)">
+    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-year="2025" data-month="03" data-search="T-193/25 General Court European Commission  European official Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2025-05-12">OJ 12 May 2025</time>
@@ -2778,7 +2791,7 @@
         <span>Filed 20 Mar 2025</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0193" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="Staff regulations (EU)" data-court="General Court" data-search="T-195/25 General Court European Commission L. Levi Staff regulations (EU)">
+    </li><li class="case-index-card" data-pending-case data-topics="Staff regulations (EU)" data-court="General Court" data-year="2025" data-month="03" data-search="T-195/25 General Court European Commission L. Levi Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2025-05-19">OJ 19 May 2025</time>
@@ -2794,7 +2807,7 @@
         <span>Filed 20 Mar 2025</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0195" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-search="T-192/25 General Court European Parliament J. Martins European official Staff regulations (EU)">
+    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-year="2025" data-month="03" data-search="T-192/25 General Court European Parliament J. Martins European official Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2025-06-10">OJ 10 Jun 2025</time>
@@ -2810,7 +2823,7 @@
         <span>Filed 19 Mar 2025</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0192" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-search="T-191/25 General Court European Parliament J. Martins European official Staff regulations (EU)">
+    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-year="2025" data-month="03" data-search="T-191/25 General Court European Parliament J. Martins European official Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2025-06-10">OJ 10 Jun 2025</time>
@@ -2826,7 +2839,7 @@
         <span>Filed 19 Mar 2025</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0191" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-search="T-188/25 General Court European Parliament M. Casado García-Hirschfeld European official Staff regulations (EU)">
+    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-year="2025" data-month="03" data-search="T-188/25 General Court European Parliament M. Casado García-Hirschfeld European official Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2025-05-12">OJ 12 May 2025</time>
@@ -2842,7 +2855,7 @@
         <span>Filed 18 Mar 2025</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0188" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="Staff regulations (EU)" data-court="General Court" data-search="T-187/25 General Court European Centre for Disease Prevention and Control N. de Montigny Staff regulations (EU)">
+    </li><li class="case-index-card" data-pending-case data-topics="Staff regulations (EU)" data-court="General Court" data-year="2025" data-month="03" data-search="T-187/25 General Court European Centre for Disease Prevention and Control N. de Montigny Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2025-05-12">OJ 12 May 2025</time>
@@ -2858,7 +2871,7 @@
         <span>Filed 18 Mar 2025</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0187" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card case-index-card--accent" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-search="T-185/25 General Court European Investment Bank L. Levi and A. Champetier European official Staff regulations (EU)">
+    </li><li class="case-index-card case-index-card--accent" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-year="2025" data-month="03" data-search="T-185/25 General Court European Investment Bank L. Levi and A. Champetier European official Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2025-05-19">OJ 19 May 2025</time>
@@ -2874,7 +2887,7 @@
         <span>Filed 17 Mar 2025</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0185" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="European official" data-court="General Court" data-search="T-175/25 General Court  L. Levi and M. Itani European official">
+    </li><li class="case-index-card" data-pending-case data-topics="European official" data-court="General Court" data-year="2025" data-month="03" data-search="T-175/25 General Court  L. Levi and M. Itani European official">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2025-04-22">OJ 22 Apr 2025</time>
@@ -2890,7 +2903,7 @@
         <span>Filed 11 Mar 2025</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0175" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-search="T-155/25 General Court European Investment Bank L. Levi European official Staff regulations (EU)">
+    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-year="2025" data-month="03" data-search="T-155/25 General Court European Investment Bank L. Levi European official Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2025-04-28">OJ 28 Apr 2025</time>
@@ -2906,7 +2919,7 @@
         <span>Filed 8 Mar 2025</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0155" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="European official" data-court="General Court" data-search="T-152/25 General Court European Commission L. Levi and M. Itani European official">
+    </li><li class="case-index-card" data-pending-case data-topics="European official" data-court="General Court" data-year="2025" data-month="03" data-search="T-152/25 General Court European Commission L. Levi and M. Itani European official">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2025-04-22">OJ 22 Apr 2025</time>
@@ -2922,7 +2935,7 @@
         <span>Filed 7 Mar 2025</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0152" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-search="T-136/25 General Court European Court of Auditors L. Levi and M. Itani European official Staff regulations (EU)">
+    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-year="2025" data-month="02" data-search="T-136/25 General Court European Court of Auditors L. Levi and M. Itani European official Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2025-04-22">OJ 22 Apr 2025</time>
@@ -2938,7 +2951,7 @@
         <span>Filed 25 Feb 2025</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0136" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-search="T-99/25 General Court European Court of Auditors  European official Staff regulations (EU)">
+    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-year="2025" data-month="02" data-search="T-99/25 General Court European Court of Auditors  European official Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2025-04-28">OJ 28 Apr 2025</time>
@@ -2954,7 +2967,7 @@
         <span>Filed 10 Feb 2025</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0099" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="Staff regulations (EU)|Maladministration" data-court="General Court" data-search="T-79/25 General Court Court of Justice of the European Union S. Makoumbou Staff regulations (EU) Maladministration">
+    </li><li class="case-index-card" data-pending-case data-topics="Staff regulations (EU)|Maladministration" data-court="General Court" data-year="2025" data-month="02" data-search="T-79/25 General Court Court of Justice of the European Union S. Makoumbou Staff regulations (EU) Maladministration">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2025-04-07">OJ 7 Apr 2025</time>
@@ -2970,7 +2983,7 @@
         <span>Filed 4 Feb 2025</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0079" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-search="T-84/25 General Court European Commission L. Levi and P. Baudoux European official Staff regulations (EU)">
+    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-year="2025" data-month="02" data-search="T-84/25 General Court European Commission L. Levi and P. Baudoux European official Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2025-04-07">OJ 7 Apr 2025</time>
@@ -2986,7 +2999,7 @@
         <span>Filed 3 Feb 2025</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0084" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-search="T-51/25 General Court European Commission M. Aboudi European official Staff regulations (EU)">
+    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-year="2025" data-month="01" data-search="T-51/25 General Court European Commission M. Aboudi European official Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2025-03-10">OJ 10 Mar 2025</time>
@@ -3002,7 +3015,7 @@
         <span>Filed 24 Jan 2025</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0051" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card case-index-card--accent" data-pending-case data-topics="Maladministration" data-court="General Court" data-search="T-53/25 General Court European Securities and Markets Authority F. Logue, Solicitor, and J. Hackl Maladministration">
+    </li><li class="case-index-card case-index-card--accent" data-pending-case data-topics="Maladministration" data-court="General Court" data-year="2025" data-month="01" data-search="T-53/25 General Court European Securities and Markets Authority F. Logue, Solicitor, and J. Hackl Maladministration">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2025-03-31">OJ 31 Mar 2025</time>
@@ -3018,7 +3031,7 @@
         <span>Filed 24 Jan 2025</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0053" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-search="T-30/25 General Court European Parliament S. Rodrigues and A. Champetier European official Staff regulations (EU)">
+    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-year="2025" data-month="01" data-search="T-30/25 General Court European Parliament S. Rodrigues and A. Champetier European official Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2025-03-17">OJ 17 Mar 2025</time>
@@ -3034,7 +3047,7 @@
         <span>Filed 17 Jan 2025</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0030" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-search="T-22/25 General Court European Securities and Markets Authority N. Flandin European official Staff regulations (EU)">
+    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-year="2025" data-month="01" data-search="T-22/25 General Court European Securities and Markets Authority N. Flandin European official Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2025-03-10">OJ 10 Mar 2025</time>
@@ -3050,7 +3063,7 @@
         <span>Filed 16 Jan 2025</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0022" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-search="T-13/25 General Court Court of Justice of the European Union L. Levi European official Staff regulations (EU)">
+    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-year="2025" data-month="01" data-search="T-13/25 General Court Court of Justice of the European Union L. Levi European official Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2025-02-24">OJ 24 Feb 2025</time>
@@ -3066,7 +3079,7 @@
         <span>Filed 10 Jan 2025</span>
         <a class="case-index-card__open" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TN0013" target="_blank" rel="noreferrer">Official notice <svg class="icon " aria-hidden="true" focusable="false"><use href="#i-arrow-ne"/></svg></a>
       </div>
-    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-search="T-10/25 General Court European Commission D. Grisay European official Staff regulations (EU)">
+    </li><li class="case-index-card" data-pending-case data-topics="European official|Staff regulations (EU)" data-court="General Court" data-year="2025" data-month="01" data-search="T-10/25 General Court European Commission D. Grisay European official Staff regulations (EU)">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         <time datetime="2025-02-17">OJ 17 Feb 2025</time>
