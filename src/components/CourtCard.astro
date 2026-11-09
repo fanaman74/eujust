@@ -14,7 +14,6 @@ const date = judged ? new Intl.DateTimeFormat('en-GB', { day: 'numeric', month: 
   <p class="court-card-court">{item.court ?? 'Court not recorded'}</p>
   {topics.length > 0 && <ul class="court-card-topics" aria-label="Matched topics">{topics.map((topic) => <li>{topic}</li>)}</ul>}
   {parsed.keywords.length > 0 && <p class="court-card-subject">{parsed.keywords.slice(0, 2).join(' · ')}</p>}
-  {item.summary && <p class="court-card-ai">AI summary available</p>}
   <div class="court-card-links">
     <a class="court-card-action" href={`/cases/${item.id}`}>View case record <Icon name="arrow-right" size={16} /></a>
     {item.official_url && <a class="court-card-source" href={item.official_url} target="_blank" rel="noreferrer">Official source <Icon name="external" size={13} /><span class="sr-only"> (opens in a new tab)</span></a>}

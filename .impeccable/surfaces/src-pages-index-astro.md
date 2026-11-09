@@ -11,7 +11,7 @@ Mode: Operate — find, then understand. Public and press visitors should unders
 
 Owner direction: Brainfish's theme, requested 12 October 2026. Reference inspected at desktop/mobile: home, product, blog and integrations. The shared system is recorded in DESIGN.md.
 
-Retained commitments: EU JUST name; top menu; owner-requested text-only Feed; real figures; latest five cases; view-all action; factual coverage and AI distinctions.
+Retained commitments: EU JUST name; top menu; owner-requested text-only Feed; real figures; latest five cases; view-all action; factual coverage.
 
 FIRST VIEWPORT: cream navigation and a full-viewport pale-green Europe map video with Fraunces headline and source-first explanation. Landscape and portrait Remotion compositions leave space for the headline. The owner removed the search/topic strip. Icon-only Pause/Play and fullscreen controls have accessible names. Natural Earth source credit remains visible. The framed Feed below the hero uses its full width without a photograph, with five records and three visible rows; Pause/Play and Next are now icon controls. RSS browser discovery remains; no subscription button.
 

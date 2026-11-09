@@ -22,7 +22,7 @@ export const pageGuides: Record<string, PageGuide> = {
   case: {
     label: 'Individual case',
     what: 'The selected case’s official title, court metadata, matched topics and links to the publishing source, with retrieved-text status shown for each document.',
-    coverage: 'The record reflects what the collection has imported. Generating an AI summary requires retrieved source text; any generated text is interpretation, not a court finding. The linked official document remains the authority.',
+    coverage: 'The record reflects what the collection has imported. The linked official document remains the authority.',
     related: [
       { href: '/cases', label: 'All court rulings' },
     ]
