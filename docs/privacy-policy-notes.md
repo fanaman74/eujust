@@ -1,8 +1,8 @@
 # Privacy-policy implementation notes
 
-Added 29 October 2026. The shared policy source is `content/privacy-policy.html`; the static build creates `/privacy/index.html`. Both site footers link to it. AI settings and API-key entry have since been removed. The static sitemap includes the page. Cookie information identifies the 180-day preference cookie; no inactive analytics choice or automatic consent prompt is offered.
+Added 29 October 2026. The shared policy source is `content/privacy-policy.html`; the static build creates `/privacy/index.html`. Both site footers link to it. All AI features (settings, API-key entry, summary generation and the research-prompt handoff) have since been removed. The static sitemap includes the page. Cookie information identifies the 180-day preference cookie; no inactive analytics choice or automatic consent prompt is offered.
 
-The policy uses the owner's supplied identity (msoit, Belgium, hello@msoit.eu), confirmed Amsterdam deployment and owner-confirmed Railway Hobby plan. It distinguishes the seven-day log-history window from underlying erasure and describes external services without offering provider configuration. Retired provider endpoints return 410 and do not read or forward submitted keys.
+The policy uses the owner's supplied identity (msoit, Belgium, hello@msoit.eu), confirmed Amsterdam deployment and owner-confirmed Railway Hobby plan. It distinguishes the seven-day log-history window from underlying erasure and states that the site does not use AI services. The former provider and summary endpoints have been deleted.
 
 Before treating the page as a completed compliance programme, msoit should:
 

@@ -154,7 +154,6 @@
       ".related-card",
       ".topic-context-panel",
       ".monitor-console",
-      ".provider-form",
       ".vote-card",
       ".curation-note",
       ".run-history__head",

@@ -173,7 +173,7 @@ function footer(root) {
       <p class="colophon__label">Coverage</p>
       <p>${caseCount} collected rulings<br>4 official feeds<br>5 latest records</p>
       <p class="colophon__label">Disclaimer</p>
-      <p>The linked official document is always the authority. AI summaries, where present, are labelled as generated.</p>
+      <p>The linked official document is always the authority.</p>
     </div>
   </div>
   <div class="colophon__lockup" aria-hidden="true"><span>EU</span><span>JUST</span></div>
@@ -499,7 +499,7 @@ function casesPage() {
       </div>
 
       <div class="load-row">
-        <button class="btn btn--pink" type="button" id="case-load-more">Load more records ${icon("arrow")}</button>
+        <button class="btn btn--blue" type="button" id="case-load-more">Load more records ${icon("arrow")}</button>
         <p id="case-loaded-note">Showing 18 of ${caseCount}.</p>
       </div>
     </div>
@@ -668,15 +668,8 @@ function casePage(entry) {
         </div>
       </section>
 
-      <section class="paper-panel paper-panel--ai" aria-labelledby="summary-title">
-        <div class="panel-heading"><p class="section-index"><span>02</span> Reading aid</p><span class="panel-rule"></span></div>
-        <div class="ai-heading"><h2 id="summary-title">AI summary</h2><span class="badge">Not generated</span></div>
-        <p class="ai-note">${icon("warning")} Generated interpretation is not a court finding. This static edition does not generate or store summaries.</p>
-        <p class="case-abstract">No summary is attached to this record in the recreation. Read the official source above before drawing a conclusion.</p>
-      </section>
-
       <section class="paper-panel" aria-labelledby="topics-title">
-        <div class="panel-heading"><p class="section-index"><span>03</span> Context</p><span class="panel-rule"></span></div>
+        <div class="panel-heading"><p class="section-index"><span>02</span> Context</p><span class="panel-rule"></span></div>
         <h2 id="topics-title">Matched <span class="marker">topics.</span></h2>
         <p class="case-abstract">Topics are assigned by keyword match, not legal analysis. A match does not establish that the court found harassment, discrimination or a psychosocial risk.</p>
         ${tagList(entry.tags, root, { linked: true, className: "tag-list--large" })}
@@ -687,7 +680,7 @@ function casePage(entry) {
       </section>
 
       <section class="paper-panel" aria-labelledby="trail-title">
-        <div class="panel-heading"><p class="section-index"><span>04</span> Provenance</p><span class="panel-rule"></span></div>
+        <div class="panel-heading"><p class="section-index"><span>03</span> Provenance</p><span class="panel-rule"></span></div>
         <h2 id="trail-title">Follow the <span class="marker">trail.</span></h2>
         <ol class="provenance">
           <li><span>01</span><div><strong>Official document</strong><p>The publishing authority publishes the judgment or decision. This is the authority.</p></div></li>
@@ -755,7 +748,7 @@ function topicsPage() {
   ];
 
   const cards = topics
-    .map((topic, index) => `<a class="topic-card${index === 0 ? " topic-card--pink" : ""}" href="${root}topics/${topic.slug}/index.html">
+    .map((topic, index) => `<a class="topic-card${index === 0 ? " topic-card--blue" : ""}" href="${root}topics/${topic.slug}/index.html">
       <span class="topic-card__tab">Topic / ${String(index + 1).padStart(2, "0")}</span>
       <div class="topic-card__top"><span class="topic-card__count">${topic.cases.length}</span><span class="topic-card__arrow">${icon("arrow-ne")}</span></div>
       <h2>${esc(topic.name)}</h2>
@@ -841,7 +834,7 @@ function topicPage(topic) {
 
     <div class="section-top"><p class="section-index"><span>02</span> Collected court rulings</p><span class="section-top__note">${topic.cases.length} linked records</span></div>
     <div class="case-grid case-grid--topic">${cards}</div>
-    ${topic.cases.length > featured.length ? `<div class="load-row"><a class="btn btn--pink" href="${root}cases/index.html?topic=${attr(topic.slug)}">View all ${topic.cases.length} records ${icon("arrow")}</a><p>Showing 12 of ${topic.cases.length} linked records.</p></div>` : ""}
+    ${topic.cases.length > featured.length ? `<div class="load-row"><a class="btn btn--blue" href="${root}cases/index.html?topic=${attr(topic.slug)}">View all ${topic.cases.length} records ${icon("arrow")}</a><p>Showing 12 of ${topic.cases.length} linked records.</p></div>` : ""}
 
     <div class="topic-search">
       <div>
@@ -960,7 +953,7 @@ function rulesPage() {
 function decisionsPage() {
   const root = "../";
   const cards = site.decisions
-    .map((record, index) => `<article class="decision-card${index === 0 ? " decision-card--pink" : index === 2 ? " decision-card--ink" : ""} tilt" data-tilt>
+    .map((record, index) => `<article class="decision-card${index === 0 ? " decision-card--blue" : index === 2 ? " decision-card--ink" : ""} tilt" data-tilt>
       <span class="tape tape--decision" aria-hidden="true"></span>
       <div class="decision-card__top"><span>Selected record / ${String(index + 1).padStart(2, "0")}</span><time datetime="${attr(record.dateISO)}">${esc(record.dateLabel)}</time></div>
       <p class="decision-card__kind">${esc(record.kind)}</p>
