@@ -489,7 +489,7 @@ function casesPage() {
       </div>
 
       <div class="load-row">
-        <button class="btn btn--pink" type="button" id="case-load-more">Load more records ${icon("arrow")}</button>
+        <button class="btn btn--blue" type="button" id="case-load-more">Load more records ${icon("arrow")}</button>
         <p id="case-loaded-note">Showing 18 of 85.</p>
       </div>
     </div>
@@ -745,7 +745,7 @@ function topicsPage() {
   ];
 
   const cards = topics
-    .map((topic, index) => `<a class="topic-card${index === 0 ? " topic-card--pink" : ""}" href="${root}topics/${topic.slug}/index.html">
+    .map((topic, index) => `<a class="topic-card${index === 0 ? " topic-card--blue" : ""}" href="${root}topics/${topic.slug}/index.html">
       <span class="topic-card__tab">Topic / ${String(index + 1).padStart(2, "0")}</span>
       <div class="topic-card__top"><span class="topic-card__count">${topic.cases.length}</span><span class="topic-card__arrow">${icon("arrow-ne")}</span></div>
       <h2>${esc(topic.name)}</h2>
@@ -831,7 +831,7 @@ function topicPage(topic) {
 
     <div class="section-top"><p class="section-index"><span>02</span> Collected court rulings</p><span class="section-top__note">${topic.cases.length} linked records</span></div>
     <div class="case-grid case-grid--topic">${cards}</div>
-    ${topic.cases.length > featured.length ? `<div class="load-row"><a class="btn btn--pink" href="${root}cases/index.html?topic=${attr(topic.slug)}">View all ${topic.cases.length} records ${icon("arrow")}</a><p>Showing 12 of ${topic.cases.length} linked records.</p></div>` : ""}
+    ${topic.cases.length > featured.length ? `<div class="load-row"><a class="btn btn--blue" href="${root}cases/index.html?topic=${attr(topic.slug)}">View all ${topic.cases.length} records ${icon("arrow")}</a><p>Showing 12 of ${topic.cases.length} linked records.</p></div>` : ""}
 
     <div class="topic-search">
       <div>
@@ -950,7 +950,7 @@ function rulesPage() {
 function decisionsPage() {
   const root = "../";
   const cards = site.decisions
-    .map((record, index) => `<article class="decision-card${index === 0 ? " decision-card--pink" : index === 2 ? " decision-card--ink" : ""} tilt" data-tilt>
+    .map((record, index) => `<article class="decision-card${index === 0 ? " decision-card--blue" : index === 2 ? " decision-card--ink" : ""} tilt" data-tilt>
       <span class="tape tape--decision" aria-hidden="true"></span>
       <div class="decision-card__top"><span>Selected record / ${String(index + 1).padStart(2, "0")}</span><time datetime="${attr(record.dateISO)}">${esc(record.dateLabel)}</time></div>
       <p class="decision-card__kind">${esc(record.kind)}</p>
