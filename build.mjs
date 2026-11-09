@@ -314,11 +314,20 @@ function pendingPage() {
   const focus = (entry) => entry.topics?.includes("Harassment at work");
   const harassmentCount = rows.filter(focus).length;
   const ordered = [...rows].sort((a, b) => Number(focus(b)) - Number(focus(a)) || String(b.filedISO || "").localeCompare(String(a.filedISO || "")));
+  const dateOf = (entry) => String(entry.filedISO || entry.ojISO || "");
+  const yearCounts = rows.reduce((acc, entry) => {
+    const year = dateOf(entry).slice(0, 4);
+    if (year) acc[year] = (acc[year] || 0) + 1;
+    return acc;
+  }, {});
+  const years = Object.keys(yearCounts).sort((a, b) => b.localeCompare(a));
+  const monthCounts = MONTHS.map((_, i) => rows.filter((entry) => dateOf(entry).slice(5, 7) === String(i + 1).padStart(2, "0")).length);
   const items = ordered.map((entry, index) => {
     const entryTopics = entry.topics || [];
+    const entryDate = dateOf(entry);
     const search = [entry.caseNo, entry.court, entry.defendant || "", entry.lawyers || "", ...entryTopics].join(" ");
     const cardClass = `case-index-card${index % 9 === 0 ? " case-index-card--accent" : ""}`;
-    return `<li class="${cardClass}" data-pending-case data-topics="${attr(entryTopics.join("|"))}" data-court="${attr(entry.court || "")}" data-search="${attr(search)}">
+    return `<li class="${cardClass}" data-pending-case data-topics="${attr(entryTopics.join("|"))}" data-court="${attr(entry.court || "")}" data-year="${attr(entryDate.slice(0, 4))}" data-month="${attr(entryDate.slice(5, 7))}" data-search="${attr(search)}">
       <div class="case-index-card__top">
         <span class="case-index-card__no">Pending application</span>
         ${entry.ojISO ? `<time datetime="${attr(entry.ojISO)}">OJ ${esc(shortDate(entry.ojISO))}</time>` : `<span>OJ date not recorded</span>`}
@@ -368,6 +377,19 @@ function pendingPage() {
         <div class="case-filter__actions"><button class="btn btn--ink" type="submit">Search cases ${icon("arrow")}</button><button class="case-filter__reset" id="pending-reset" type="reset">Reset</button></div>
       </div>
     </form>
+    <div class="date-chips" id="pending-date-chips">
+      <div class="date-chips__row" role="group" aria-label="Filter by year">
+        <span class="date-chips__label">Year</span>
+        <button type="button" class="topic-chip is-active" data-year-filter="" aria-pressed="true">All years <span>${rows.length}</span></button>
+        ${years.map((year) => `<button type="button" class="topic-chip" data-year-filter="${attr(year)}" aria-pressed="false">${esc(year)} <span>${yearCounts[year]}</span></button>`).join("")}
+      </div>
+      <div class="date-chips__row" role="group" aria-label="Filter by month">
+        <span class="date-chips__label">Month</span>
+        <button type="button" class="topic-chip is-active" data-month-filter="" aria-pressed="true">All months <span>${rows.length}</span></button>
+        ${MONTHS.map((month, i) => `<button type="button" class="topic-chip" data-month-filter="${String(i + 1).padStart(2, "0")}" aria-pressed="false"${monthCounts[i] ? "" : " disabled"}>${month} <span>${monthCounts[i]}</span></button>`).join("")}
+      </div>
+      <p class="date-chips__note">Dates are the filing date, or the Official Journal date where no filing date is recorded.</p>
+    </div>
     <p class="results-line" id="pending-result" role="status" aria-live="polite">Showing all ${rows.length} pending applications.</p>
     ${rows.length ? `<ol class="case-grid pending-card-grid" id="pending-list" aria-label="Pending court applications">${items}</ol>` : `<div class="case-empty"><h2>No pending cases are listed.</h2><p>New applications appear after the next EUR-Lex source check.</p></div>`}
     <p class="pending-source pending-page__source">Source: Official Journal C notices of actions brought (CELEX …TN…), harvested from EUR-Lex Cellar on ${esc(pending.generatedAt || "—")}. The linked notice is the official source.</p>
