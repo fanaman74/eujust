@@ -22,7 +22,7 @@ export function assembleStaticSite(root, pages) {
     }
   }
   try {
-    for (const file of [...pages, 'index.html', 'styles.css', 'pages.css', 'privacy.css', 'main.js', 'pages.js', 'cookie-consent.js', 'sitemap.xml', 'assets']) copy(file);
+    for (const file of [...pages, 'index.html', 'styles.css', 'pages.css', 'privacy.css', 'main.js', 'pages.js', 'cookie-consent.js', 'freshness.js', 'freshness-banner.js', 'sitemap.xml', 'assets']) copy(file);
     fs.rmSync(output, { recursive: true, force: true });
     fs.renameSync(staging, output);
   } catch (error) {

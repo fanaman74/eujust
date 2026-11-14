@@ -1,8 +1,8 @@
 // Daily source check for the static edition.
 //
-// Runs without a database: one pass, no poll loop, no advisory lock - Windows Task Scheduler starts it at
-// 06:30 Europe/Brussels and a missed day shows up in the log instead of being
-// silently caught up.
+// Runs without a database: one pass, no poll loop, no advisory lock. The GitHub
+// Actions workflow .github/workflows/daily-check.yml starts it at about 06:30
+// Europe/Brussels and commits the data files, which redeploys the site.
 //
 //   node daily-check.mjs            # check, write log, rebuild
 //   node daily-check.mjs --no-build # check and log only
@@ -43,7 +43,8 @@ const writeJson = (file, value) => {
   fs.writeFileSync(file, JSON.stringify(value, null, 2));
 };
 const describeError = (error) => {
-  const cause = error?.cause?.code || error?.cause?.errno || "";
+  // undici reports every network fault as "fetch failed"; the real reason is on .cause.
+  const cause = error?.cause?.code || error?.cause?.errno || error?.cause?.message || "";
   return `${error.message}${cause ? ` (${cause})` : ""}`.slice(0, 200);
 };
 const refs = (items, limit = 4) =>

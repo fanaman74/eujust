@@ -233,6 +233,8 @@ ${page === "privacy" ? `  <link rel="stylesheet" href="${root}privacy.css">\n` :
   <script src="${root}assets/vendor/gsap.min.js"></script>
   <script src="${root}assets/vendor/ScrollTrigger.min.js"></script>
   <script src="${root}pages.js"></script>
+  <script src="${root}freshness.js"></script>
+  <script src="${root}freshness-banner.js"></script>
 </body>
 </html>`;
 }
@@ -1269,11 +1271,11 @@ function monitoringPage() {
         <dl class="schedule-list">
           <div><dt>Time</dt><dd>${esc(data.schedule.time)}</dd></div>
           <div><dt>Timezone</dt><dd>${esc(data.schedule.timezone)}</dd></div>
-          <div><dt>Cadence</dt><dd>${data.live ? "Daily, Windows Task Scheduler" : "Daily while the worker runs"}</dd></div>
+          <div><dt>Cadence</dt><dd>${data.live ? "Daily, GitHub Actions" : "Daily while the worker runs"}</dd></div>
           <div><dt>Last checked</dt><dd>${esc(data.lastChecked)}</dd></div>
           <div><dt>Last successful run</dt><dd>${esc(data.lastSuccess || "Never")}</dd></div>
         </dl>
-        <p class="small-note">${data.live ? "Runs as a scheduled task: node daily-check.mjs at 06:30 Europe/Brussels. A failed source is recorded and the run exits nonzero; a missed day stays visible in the history below." : "The schedule only runs while the worker process is running. This static edition does not schedule checks."}</p>
+        <p class="small-note">${data.live ? "Runs as a scheduled GitHub Actions workflow: node daily-check.mjs at about 06:30 Europe/Brussels, then the run log is committed and the site redeploys. A failed source is recorded, the run fails and a GitHub issue is opened. If no check has run for 36 hours, every page shows a warning." : "The schedule only runs while the worker process is running. This static edition does not schedule checks."}</p>
       </section>
 
       <section class="paper-panel failure-panel">
@@ -1338,6 +1340,17 @@ function writePage(file, html) {
   fs.writeFileSync(file, html);
   publishedPages.push(file);
 }
+
+/* Freshness data for freshness-banner.js. Generated, not committed: the banner judges age in the browser. */
+const latestRun = lastRunLog.runs?.[0];
+fs.writeFileSync(
+  "freshness.js",
+  `window.EUJUST_FRESHNESS = ${JSON.stringify({
+    lastCheck: latestRun?.startedAt || null,
+    timezone: lastRunLog.schedule?.timezone || "Europe/Brussels",
+    failedSources: (latestRun?.sources || []).filter((source) => source.status === "Failed").map((source) => source.name)
+  })};\n`
+);
 
 writePage("cases/index.html", casesPage());
 writePage("case-insights/index.html", caseInsightsPage());

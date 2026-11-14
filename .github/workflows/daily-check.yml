@@ -1,0 +1,84 @@
+# Daily source check. Replaces the Windows scheduled task, which could only update
+# the live site when someone committed and pushed its output by hand.
+#
+# Runs daily-check.mjs, commits data/*.json to main (Railway redeploys on push),
+# and on any failure opens or updates a "Daily check failed" issue so it is noticed.
+name: Daily source check
+
+on:
+  schedule:
+    # 05:30 UTC = 06:30 Europe/Brussels in winter (07:30 in summer). GitHub may start it late.
+    - cron: "30 5 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: daily-check
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - run: npm ci
+
+      - name: Run source check
+        id: check
+        # Record the outcome but keep going: a failed source is still logged and published.
+        run: |
+          set +e
+          node daily-check.mjs --no-build
+          echo "exit=$?" >> "$GITHUB_OUTPUT"
+
+      - name: Verify the site still builds
+        run: npm run build
+
+      - name: Commit run log and data
+        run: |
+          git config user.name "eujust-daily-check"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/monitoring.json data/pending.json data/inbox.json
+          if git diff --cached --quiet; then
+            echo "nothing to commit"
+            exit 0
+          fi
+          git commit -m "Daily source check $(date -u +%Y-%m-%d)"
+          for attempt in 1 2 3; do
+            git pull --rebase origin main && git push origin HEAD:main && exit 0
+            sleep $((attempt * 10))
+          done
+          exit 1
+
+      - name: Fail if a source failed
+        if: steps.check.outputs.exit != '0'
+        run: |
+          echo "::error::One or more sources failed. See data/monitoring.json."
+          exit 1
+
+      - name: Open or update failure issue
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          title="Daily check failed"
+          body="The daily source check failed on $(date -u +%Y-%m-%d). Run: $RUN_URL"
+          number=$(gh issue list --state open --search "\"$title\" in:title" --json number --jq '.[0].number')
+          if [ -n "$number" ]; then
+            gh issue comment "$number" --body "$body"
+          else
+            gh issue create --title "$title" --body "$body"
+          fi
