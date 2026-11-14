@@ -53,7 +53,7 @@ test('publication manifest excludes repository data and rejects asset symlinks',
   t.after(() => rm(root, { recursive: true, force: true }));
   await mkdir(path.join(root, 'privacy'), { recursive: true });
   await mkdir(path.join(root, 'assets'), { recursive: true });
-  for (const name of ['privacy/index.html', 'index.html', 'styles.css', 'pages.css', 'privacy.css', 'main.js', 'pages.js', 'cookie-consent.js', 'sitemap.xml']) await writeFile(path.join(root, name), name);
+  for (const name of ['privacy/index.html', 'index.html', 'styles.css', 'pages.css', 'privacy.css', 'main.js', 'pages.js', 'cookie-consent.js', 'freshness.js', 'freshness-banner.js', 'sitemap.xml']) await writeFile(path.join(root, name), name);
   await writeFile(path.join(root, '.env'), 'private fixture');
   await writeFile(path.join(root, 'serve.js'), 'server fixture');
   assembleStaticSite(root, ['privacy/index.html']);

@@ -2249,3 +2249,29 @@ main#main:focus { outline: none; }
   text-align: left;
   cursor: pointer;
 }
+
+/* ---------- source-check freshness warning (freshness-banner.js) ---------- */
+.freshness-banner {
+  position: relative;
+  z-index: 5;
+  margin: 0 auto;
+  padding: .85rem var(--gutter);
+  border-bottom: var(--line);
+  background: var(--paper-hi);
+  color: var(--ink);
+  font-family: var(--mono);
+  font-size: 12px;
+  line-height: 1.5;
+}
+.freshness-banner--stale { background: var(--ink); color: var(--cream); }
+.freshness-banner p { max-width: var(--wrap); margin: 0 auto; }
+.freshness-banner strong {
+  margin-right: .4rem;
+  padding: .1rem .45rem;
+  background: var(--blue);
+  color: var(--ink);
+  text-transform: uppercase;
+  letter-spacing: .06em;
+}
+.freshness-banner a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+.live-dot.live-dot--stale { background: var(--muted-light); animation: none; box-shadow: none; }
