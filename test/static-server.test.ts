@@ -14,6 +14,8 @@ test('published server keeps private files and symlink targets inaccessible, and
   await mkdir(path.join(root, 'privacy'), { recursive: true });
   await writeFile(path.join(root, 'index.html'), '<h1>Public home</h1>');
   await writeFile(path.join(root, 'privacy/index.html'), '<h1>Privacy policy</h1>');
+  await writeFile(path.join(root, 'freshness.js'), 'window.EUJUST_FRESHNESS = {};');
+  await writeFile(path.join(root, 'pages.js'), '// pages');
   await writeFile(path.join(root, '.hidden.html'), 'private fixture');
   await writeFile(path.join(temporary, 'outside.html'), 'outside fixture');
   await symlink(path.join(temporary, 'outside.html'), path.join(root, 'linked.html'));
@@ -46,6 +48,9 @@ test('published server keeps private files and symlink targets inaccessible, and
   assert.equal(policy.headers['referrer-policy'], 'no-referrer');
   assert.equal((await request('/privacy/', 'HEAD')).body, '');
   assert.equal((await request('/')).status, 200);
+  // The last-check data must not sit in browser caches, or the stale banner outlives a fresh run.
+  assert.equal((await request('/freshness.js')).headers['cache-control'], 'no-cache');
+  assert.equal((await request('/pages.js')).headers['cache-control'], 'public, max-age=3600');
 });
 
 test('publication manifest excludes repository data and rejects asset symlinks', async (t) => {

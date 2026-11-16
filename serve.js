@@ -54,7 +54,8 @@ export function createStaticServer(root = publicRoot) {
         reply(404, 'Not found'); return;
       }
       const data = await readFile(filePath);
-      const isPage = path.extname(filePath) === '.html';
+      // freshness.js carries the last-check time and changes with every daily run, so revalidate it like a page.
+      const isPage = path.extname(filePath) === '.html' || path.basename(filePath) === 'freshness.js';
       res.writeHead(200, { 'Content-Type': types[path.extname(filePath)], 'Content-Length': data.length, 'Cache-Control': isPage ? 'no-cache' : 'public, max-age=3600' });
       res.end(req.method === 'HEAD' ? undefined : data);
     } catch { reply(404, 'Not found'); }
