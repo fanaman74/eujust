@@ -158,7 +158,7 @@ function footer(root) {
       <ul>
         <li><a href="${root}monitoring/index.html">Monitoring</a></li>
         <li><a href="${root}privacy/index.html">Privacy policy</a></li>
-        <li><button class="text-link text-link--light cookie-preferences-link" type="button" data-cc="show-preferencesModal">Cookie preferences</button></li>
+        <li><button class="cookie-preferences-link" type="button" data-cc="show-preferencesModal">Cookie preferences</button></li>
       </ul>
       <h2 class="colophon__nav-second" id="footer-sources">Official sources</h2>
       <ul aria-labelledby="footer-sources">

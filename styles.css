@@ -1948,7 +1948,8 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 }
 .colophon__nav-second { margin-top: 2rem; }
 .colophon__nav li { margin-bottom: .4rem; }
-.colophon__nav a {
+.colophon__nav a,
+.colophon__nav .cookie-preferences-link {
   display: inline-flex;
   align-items: center;
   gap: .35rem;
@@ -1957,7 +1958,8 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   line-height: 1.4;
   text-decoration: none;
 }
-.colophon__nav a:hover { color: var(--blue); }
+.colophon__nav a:hover,
+.colophon__nav .cookie-preferences-link:hover { color: var(--blue); }
 .colophon__nav .icon { width: 11px; height: 11px; }
 
 .colophon__meta p { color: rgba(244, 239, 227, .6); font-size: .78rem; line-height: 1.5; }
