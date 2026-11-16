@@ -22,13 +22,13 @@ concurrency:
 jobs:
   check:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 30
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           ref: main
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         with:
           node-version: 24
           cache: npm
@@ -56,6 +56,9 @@ jobs:
             exit 0
           fi
           git commit -m "Daily source check $(date -u +%Y-%m-%d)"
+          # The build step rewrites tracked HTML pages; Railway rebuilds them itself,
+          # so drop them here or "git pull --rebase" refuses to run.
+          git reset --hard HEAD
           for attempt in 1 2 3; do
             git pull --rebase origin main && git push origin HEAD:main && exit 0
             sleep $((attempt * 10))

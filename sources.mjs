@@ -18,14 +18,29 @@ export const CONCEPTS = {
 
 const COURT = { GCEU: "General Court", CJEU: "Court of Justice", CST: "Civil Service Tribunal" };
 
-export async function sparql(query) {
+// The pending-actions query can take over a minute on a cold Cellar cache, so allow
+// three minutes and retry once on a timeout, network fault or 5xx.
+const SPARQL_TIMEOUT_MS = Number(process.env.SPARQL_TIMEOUT_MS || 180_000);
+
+async function sparqlOnce(query) {
   const res = await fetch(`${SPARQL}?query=${encodeURIComponent(query)}&format=application%2Fsparql-results%2Bjson`, {
     headers: { "User-Agent": "eu-just-harvester/1.0", Accept: "application/sparql-results+json" },
-    signal: AbortSignal.timeout(60_000),
+    signal: AbortSignal.timeout(SPARQL_TIMEOUT_MS),
   });
   const body = await res.text();
-  if (!res.ok) throw new Error(`SPARQL ${res.status}: ${body.slice(0, 240)}`);
+  if (!res.ok) throw Object.assign(new Error(`SPARQL ${res.status}: ${body.slice(0, 240)}`), { status: res.status });
   return JSON.parse(body).results.bindings;
+}
+
+export async function sparql(query) {
+  try {
+    return await sparqlOnce(query);
+  } catch (error) {
+    if (error.status && error.status < 500) throw error;
+    console.warn(`SPARQL attempt 1 failed (${error.message.slice(0, 120)}); retrying in 15s`);
+    await new Promise((resolve) => setTimeout(resolve, 15_000));
+    return sparqlOnce(query);
+  }
 }
 
 /* ---------- pending actions: OJ C "case brought" notices (CELEX ...TN...) ---------- */
