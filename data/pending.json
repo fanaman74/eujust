@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-10-25",
+  "generatedAt": "2026-11-16",
   "source": "EUR-Lex / Cellar SPARQL — OJ C notices of actions brought (CELEX …TN…)",
-  "count": 185,
+  "count": 187,
   "cases": [
     {
       "id": "62026TN0600",
@@ -26,6 +26,37 @@
         "Maladministration"
       ],
       "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0593"
+    },
+    {
+      "id": "62026TN0587",
+      "celex": "62026TN0587",
+      "caseNo": "T-587/26",
+      "court": "General Court",
+      "filedISO": "2026-09-02",
+      "ojISO": "2026-11-03",
+      "topics": [
+        "Staff regulations (EU)"
+      ],
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0587",
+      "lawyers": "L.Levi",
+      "defendant": "European Institute for Gender Equality"
+    },
+    {
+      "id": "62026TN0544",
+      "celex": "62026TN0544",
+      "caseNo": "T-544/26",
+      "court": "General Court",
+      "filedISO": "2026-08-12",
+      "ojISO": "2026-10-26",
+      "topics": [
+        "Harassment at work",
+        "European official",
+        "Staff regulations (EU)",
+        "Maladministration"
+      ],
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0544",
+      "lawyers": "N.de Montigny",
+      "defendant": "European External Action Service"
     },
     {
       "id": "62025TN0367",
@@ -231,6 +262,20 @@
       "defendant": "European Union Agency for Asylum"
     },
     {
+      "id": "62026TN0375",
+      "celex": "62026TN0375",
+      "caseNo": "T-375/26",
+      "court": "General Court",
+      "filedISO": "2026-06-15",
+      "ojISO": "2026-08-03",
+      "topics": [
+        "European official"
+      ],
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0375",
+      "lawyers": "A. Champetier and S. Rodrigues",
+      "defendant": "Court of Justice of the European Union"
+    },
+    {
       "id": "62026TN0377",
       "celex": "62026TN0377",
       "caseNo": "T-377/26",
@@ -244,20 +289,6 @@
       "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0377",
       "lawyers": "L. Levi",
       "defendant": "European Commission"
-    },
-    {
-      "id": "62026TN0375",
-      "celex": "62026TN0375",
-      "caseNo": "T-375/26",
-      "court": "General Court",
-      "filedISO": "2026-06-15",
-      "ojISO": "2026-08-03",
-      "topics": [
-        "European official"
-      ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0375",
-      "lawyers": "A. Champetier and S. Rodrigues",
-      "defendant": "Court of Justice of the European Union"
     },
     {
       "id": "62026TN0379",
@@ -536,6 +567,21 @@
       "defendant": "European Parliament"
     },
     {
+      "id": "62026TN0292",
+      "celex": "62026TN0292",
+      "caseNo": "T-292/26",
+      "court": "General Court",
+      "filedISO": "2026-05-12",
+      "ojISO": "2026-07-20",
+      "topics": [
+        "European official",
+        "Staff regulations (EU)"
+      ],
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0292",
+      "lawyers": "L. Levi",
+      "defendant": "European Commission"
+    },
+    {
       "id": "62026TN0290",
       "celex": "62026TN0290",
       "caseNo": "T-290/26",
@@ -550,21 +596,6 @@
       "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0290",
       "lawyers": "T. Bontinck and P. Baudoux",
       "defendant": "European Union Institute for Security Studies (EUISS)"
-    },
-    {
-      "id": "62026TN0292",
-      "celex": "62026TN0292",
-      "caseNo": "T-292/26",
-      "court": "General Court",
-      "filedISO": "2026-05-12",
-      "ojISO": "2026-07-20",
-      "topics": [
-        "European official",
-        "Staff regulations (EU)"
-      ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0292",
-      "lawyers": "L. Levi",
-      "defendant": "European Commission"
     },
     {
       "id": "62026TN0288",
@@ -653,22 +684,6 @@
       "defendant": "Office for Harmonisation in the Internal Market (Trade Mark"
     },
     {
-      "id": "62026TN0256",
-      "celex": "62026TN0256",
-      "caseNo": "T-256/26",
-      "court": "General Court",
-      "filedISO": "2026-04-23",
-      "ojISO": "2026-06-29",
-      "topics": [
-        "European official",
-        "Staff regulations (EU)",
-        "Maladministration"
-      ],
-      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0256",
-      "lawyers": "S. Orlandi",
-      "defendant": "European Central Bank"
-    },
-    {
       "id": "62026TN0254",
       "celex": "62026TN0254",
       "caseNo": "T-254/26",
@@ -681,6 +696,22 @@
         "Maladministration"
       ],
       "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0254",
+      "lawyers": "S. Orlandi",
+      "defendant": "European Central Bank"
+    },
+    {
+      "id": "62026TN0256",
+      "celex": "62026TN0256",
+      "caseNo": "T-256/26",
+      "court": "General Court",
+      "filedISO": "2026-04-23",
+      "ojISO": "2026-06-29",
+      "topics": [
+        "European official",
+        "Staff regulations (EU)",
+        "Maladministration"
+      ],
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0256",
       "lawyers": "S. Orlandi",
       "defendant": "European Central Bank"
     },

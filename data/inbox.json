@@ -1,8 +1,40 @@
 {
-  "generatedAt": "2026-10-25",
-  "windowStart": "2026-09-10",
-  "count": 4,
+  "generatedAt": "2026-11-16",
+  "windowStart": "2026-10-02",
+  "count": 7,
   "items": [
+    {
+      "celex": "62025TJ0418",
+      "caseNo": "T-418/25",
+      "court": "General Court",
+      "kind": "Judgment",
+      "dateISO": "2026-11-11",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TJ0418"
+    },
+    {
+      "celex": "62025TJ0191",
+      "caseNo": "T-191/25",
+      "court": "General Court",
+      "kind": "Judgment",
+      "dateISO": "2026-11-04",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TJ0191"
+    },
+    {
+      "celex": "62024TJ0355",
+      "caseNo": "T-355/24",
+      "court": "General Court",
+      "kind": "Judgment",
+      "dateISO": "2026-11-04",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62024TJ0355"
+    },
+    {
+      "celex": "62025TJ0275",
+      "caseNo": "T-275/25",
+      "court": "General Court",
+      "kind": "Judgment",
+      "dateISO": "2026-11-04",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TJ0275"
+    },
     {
       "celex": "62024TJ0537",
       "caseNo": "T-537/24",
@@ -26,14 +58,6 @@
       "kind": "Judgment",
       "dateISO": "2026-10-07",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TJ0408"
-    },
-    {
-      "celex": "62026TO0436(01)",
-      "caseNo": "T-436/26",
-      "court": "General Court",
-      "kind": "Order",
-      "dateISO": "2026-09-25",
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62026TO0436(01)"
     }
   ]
 }
