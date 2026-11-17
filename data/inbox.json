@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-11-16",
-  "windowStart": "2026-10-02",
-  "count": 7,
+  "generatedAt": "2026-11-17",
+  "windowStart": "2026-10-03",
+  "count": 8,
   "items": [
     {
       "celex": "62025TJ0418",
@@ -10,6 +10,14 @@
       "kind": "Judgment",
       "dateISO": "2026-11-11",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TJ0418"
+    },
+    {
+      "celex": "62025TO0560",
+      "caseNo": "T-560/25",
+      "court": "General Court",
+      "kind": "Order",
+      "dateISO": "2026-11-11",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TO0560"
     },
     {
       "celex": "62025TJ0191",

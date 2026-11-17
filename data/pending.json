@@ -1,8 +1,36 @@
 {
-  "generatedAt": "2026-11-16",
+  "generatedAt": "2026-11-17",
   "source": "EUR-Lex / Cellar SPARQL — OJ C notices of actions brought (CELEX …TN…)",
-  "count": 187,
+  "count": 189,
   "cases": [
+    {
+      "id": "62026TN0653",
+      "celex": "62026TN0653",
+      "caseNo": "T-653/26",
+      "court": "General Court",
+      "filedISO": "2026-10-05",
+      "ojISO": "2026-11-16",
+      "topics": [
+        "Maladministration"
+      ],
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0653",
+      "lawyers": "M.Campa, M.Moretto and V.Villante",
+      "defendant": "Council of the European Union"
+    },
+    {
+      "id": "62026TN0658",
+      "celex": "62026TN0658",
+      "caseNo": "T-658/26",
+      "court": "General Court",
+      "filedISO": "2026-10-05",
+      "ojISO": "2026-11-16",
+      "topics": [
+        "Maladministration"
+      ],
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62026TN0658",
+      "lawyers": "M.Campa, M.Moretto and V.Villante",
+      "defendant": "Council of the European Union"
+    },
     {
       "id": "62026TN0600",
       "celex": "62026TN0600",
