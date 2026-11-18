@@ -1,11 +1,36 @@
 {
-  "updatedAt": "2026-11-17T14:48:22.402Z",
+  "updatedAt": "2026-11-18T14:27:55.384Z",
   "schedule": {
     "time": "06:30",
     "timezone": "Europe/Brussels",
     "cadence": "Daily"
   },
   "runs": [
+    {
+      "startedAt": "2026-11-18T14:27:55.384Z",
+      "day": "2026-11-18",
+      "durationMs": 1935,
+      "sources": [
+        {
+          "key": "eurlex-tn",
+          "name": "EUR-Lex / Cellar SPARQL — pending actions",
+          "status": "Success",
+          "discovered": 189,
+          "new": 0,
+          "failed": 0,
+          "note": "189 actions in scope, none new"
+        },
+        {
+          "key": "eurlex-tj",
+          "name": "EUR-Lex / Cellar SPARQL — staff judgments & orders",
+          "status": "Success",
+          "discovered": 9,
+          "new": 8,
+          "failed": 0,
+          "note": "new: T-418/25, T-560/25, T-191/25, T-355/24 +4"
+        }
+      ]
+    },
     {
       "startedAt": "2026-11-17T14:48:22.402Z",
       "day": "2026-11-17",
