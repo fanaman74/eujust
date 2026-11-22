@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-11-21",
-  "windowStart": "2026-10-07",
-  "count": 11,
+  "generatedAt": "2026-11-22",
+  "windowStart": "2026-10-08",
+  "count": 10,
   "items": [
     {
       "celex": "62025TJ0710",
@@ -82,14 +82,6 @@
       "kind": "Judgment",
       "dateISO": "2026-10-14",
       "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TJ0506"
-    },
-    {
-      "celex": "62025TJ0408",
-      "caseNo": "T-408/25",
-      "court": "General Court",
-      "kind": "Judgment",
-      "dateISO": "2026-10-07",
-      "url": "https://eur-lex.europa.eu/legal-content/EN/CASE/?uri=CELEX:62025TJ0408"
     }
   ]
 }
