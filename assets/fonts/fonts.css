@@ -38,3 +38,17 @@
   font-display: swap;
   src: url("plex-mono-600.woff2") format("woff2");
 }
+
+@font-face {
+  font-family: "Dela Gothic One";
+  src: url("dela-gothic-one-latin.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Space Grotesk";
+  src: url("space-grotesk-latin.woff2") format("woff2");
+  font-weight: 400 700;
+  font-display: swap;
+}

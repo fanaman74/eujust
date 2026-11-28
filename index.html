@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#eee8da">
+  <meta name="theme-color" content="#F8F4E8">
   <title>EU JUST — Workplace rights. Straight to the source.</title>
   <meta name="description" content="Follow European court rulings on harassment, discrimination and psychosocial risk at work. Find the record, understand the context, and go straight to the official source.">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="preload" href="assets/fonts/archivo-black-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="assets/fonts/archivo-var-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/dela-gothic-one-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/fonts/fonts.css">
   <link rel="stylesheet" href="assets/vendor/cookieconsent.css">
   <link rel="stylesheet" href="styles.css">
@@ -36,45 +36,7 @@
   <div class="page-edge page-edge--left" aria-hidden="true"></div>
   <div class="page-edge page-edge--right" aria-hidden="true"></div>
 
-  <div class="loader" id="loader" aria-hidden="true">
-    <div class="loader__inner">
-      <div class="loader__top">
-        <span>EU JUST / CASE FILE 085</span>
-        <span>2026</span>
-      </div>
-      <div class="loader__word">EU<span>JUST</span></div>
-      <div class="loader__bar"><span></span></div>
-      <div class="loader__meta">
-        <span>Opening the record</span>
-        <span class="loader__count">000</span>
-      </div>
-    </div>
-    <div class="loader__curtain loader__curtain--top"></div>
-    <div class="loader__curtain loader__curtain--bottom"></div>
-  </div>
-
-  <div class="cursor" aria-hidden="true">
-    <span class="cursor__dot"></span>
-    <span class="cursor__ring"></span>
-    <span class="cursor__label">OPEN</span>
-  </div>
-
-  <div class="ticker" aria-hidden="true">
-    <div class="ticker__track">
-      <span>Official source or it didn’t happen</span><i>✳</i>
-      <span>85 court rulings on record</span><i>✳</i>
-      <span>4 official feeds monitored</span><i>✳</i>
-      <span>Court feed checked 25 Oct 2026</span><i>✳</i>
-      <span>Research support — not legal advice</span><i>✳</i>
-      <span>Keyword-matched / bounded window</span><i>✳</i>
-      <span>Official source or it didn’t happen</span><i>✳</i>
-      <span>85 court rulings on record</span><i>✳</i>
-      <span>4 official feeds monitored</span><i>✳</i>
-      <span>Court feed checked 25 Oct 2026</span><i>✳</i>
-      <span>Research support — not legal advice</span><i>✳</i>
-      <span>Keyword-matched / bounded window</span><i>✳</i>
-    </div>
-  </div>
+  <div class="cursor" aria-hidden="true"></div>
 
   <header class="masthead">
     <div class="masthead__inner wrap">
@@ -122,80 +84,53 @@
 
   <main id="main" tabindex="-1">
     <section class="hero" id="top">
-      <div class="hero__map" aria-hidden="true">
-        <img src="assets/europe-map.svg" alt="" width="1000" height="620" loading="eager">
-        <span class="hero__map-label">Europe / official feeds</span>
-      </div>
-      <span class="crosshair crosshair--a" aria-hidden="true"></span>
-      <span class="crosshair crosshair--b" aria-hidden="true"></span>
-
       <div class="wrap hero__inner">
-        <div class="hero__kicker">
-          <span class="file-no">File № 085</span>
-          <span class="rule"></span>
-          <span>EU employment law / 2026</span>
-          <span class="hero__kicker-end">Public record <b>→</b></span>
+        <div class="hero__copy">
+          <span class="hero__sticker">EU employment law</span>
+          <h1 class="hero__title">
+            <span>Workplace<br>rights.</span>
+            <span class="hero__source">Straight to<br>the source.</span>
+          </h1>
+          <p class="hero__lede">Follow European court rulings on harassment, discrimination and psychosocial risk at work. Find the record and go straight to the official source.</p>
+          <div class="hero__actions">
+            <a class="btn btn--ink" href="cases/index.html">Find a ruling <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            <a class="btn hero__secondary" href="#latest">Latest rulings</a>
+          </div>
         </div>
-
-        <h1 class="hero__title" aria-label="Workplace rights. Straight to the source.">
-          <span class="hero__line"><span class="hero__line-inner">Workplace rights.</span></span>
-          <span class="hero__line hero__line--mark"><span class="hero__mark-bg" aria-hidden="true"></span><span class="hero__line-inner">Straight to the source.</span></span>
-        </h1>
-
-        <div class="hero__body">
-          <div class="hero__copy">
-            <p class="hero__lede">Follow European court rulings on harassment, discrimination and psychosocial risk at work. Find the record, understand the context, and go straight to the official source.</p>
-
-            <div class="hero__actions">
-              <a class="btn btn--ink magnet" href="cases/index.html">Find a ruling <svg class="icon"><use href="#i-arrow"/></svg></a>
-              <a class="text-link" href="#latest">Scroll the evidence <svg class="icon"><use href="#i-chevron"/></svg></a>
+        <div class="hero__visual">
+          <figure class="hero__photo">
+            <img src="public/img/court-entrance-1200.webp" alt="Palais of the Court of Justice of the European Union in Luxembourg" width="1200" height="900" fetchpriority="high">
+            <figcaption><a href="https://commons.wikimedia.org/wiki/File:A_Bold_Entrance_to_European_Justice.jpg">Photo by Simo.Albo80</a> · <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></figcaption>
+          </figure>
+          <article class="dossier">
+            <p class="dossier__top"><span>Featured ruling</span><time datetime="2026-10-21">21 Oct 2026</time></p>
+            <p class="dossier__case">T-199/25</p>
+            <h2 class="dossier__title"><a href="cases/1737/index.html">IO v European Investment Bank</a></h2>
+            <div class="dossier__links">
+              <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TJ0199" target="_blank" rel="noreferrer">Official source <svg class="icon" aria-hidden="true"><use href="#i-arrow-ne"/></svg></a>
             </div>
-
-            <div class="hero__micro">
-              <span><b>85</b> rulings on record</span>
-              <span><b>4</b> official feeds</span>
-              <span><b>25.10.26</b> last checked</span>
-            </div>
-
-            <p class="hero__scribble" aria-hidden="true">read the record,<br>not the noise <span>↘</span></p>
-          </div>
-
-          <div class="hero__visual">
-            <div class="dossier" data-tilt>
-              <span class="tape tape--dossier" aria-hidden="true"></span>
-              <span class="paperclip" aria-hidden="true"></span>
-              <div class="dossier__top">
-                <span>Latest on file</span>
-                <span>Judgment · 01/05</span>
-              </div>
-              <div class="dossier__case">T-199/25</div>
-              <h2 class="dossier__title"><a href="cases/1737/index.html">IO v European Investment Bank</a></h2>
-              <p class="dossier__court">General Court of the European Union</p>
-              <div class="dossier__meta">
-                <time datetime="2026-10-21">21 Oct 2026</time>
-                <span class="stamp-tag">Workplace harassment</span>
-              </div>
-              <div class="dossier__rule"></div>
-              <p class="dossier__note">Read the case record, follow the matched topics, then open the official judgment.</p>
-              <div class="dossier__links">
-                <a href="cases/1737/index.html">View case record <svg class="icon"><use href="#i-arrow"/></svg></a>
-                <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62025TJ0199" target="_blank" rel="noreferrer">Official source <svg class="icon"><use href="#i-arrow-ne"/></svg></a>
-              </div>
-              <span class="seal" aria-hidden="true"><span>Primary source</span><strong>LINKED</strong><span>Check the original</span></span>
-              <span class="dossier__annotation" aria-hidden="true">no black box →</span>
-            </div>
-
-            <p class="hero__source-note"><span>Linked source</span> Every record points back to EUR-Lex or the publishing institution. No dead ends.</p>
-          </div>
+          </article>
         </div>
       </div>
-
-      <a class="hero__scroll" href="#overview" aria-label="Scroll to collection overview">
-        <span>Scroll</span>
-        <span class="hero__scroll-line"></span>
-        <span>01—05</span>
-      </a>
     </section>
+
+    <div class="ticker">
+      <div class="ticker__track" aria-hidden="true">
+        <span>European workplace rights</span><i>✳</i>
+        <span>85 court rulings on record</span><i>✳</i>
+        <span>4 official feeds monitored</span><i>✳</i>
+        <span>Court feed checked 25 Oct 2026</span><i>✳</i>
+        <span>Research support — not legal advice</span><i>✳</i>
+        <span>Keyword-matched / bounded window</span><i>✳</i>
+        <span>European workplace rights</span><i>✳</i>
+        <span>85 court rulings on record</span><i>✳</i>
+        <span>4 official feeds monitored</span><i>✳</i>
+        <span>Court feed checked 25 Oct 2026</span><i>✳</i>
+        <span>Research support — not legal advice</span><i>✳</i>
+        <span>Keyword-matched / bounded window</span><i>✳</i>
+      </div>
+      <button class="ticker__toggle" type="button" aria-pressed="false" hidden>Pause marquee</button>
+    </div>
 
     <section class="overview wrap" id="overview" aria-labelledby="overview-title">
       <div class="section-top">
@@ -317,10 +252,13 @@
               <a href="cases/index.html">Search all 85 rulings <svg class="icon"><use href="#i-arrow"/></svg></a>
             </div>
           </div>
-          <div class="latest__counter" aria-hidden="true"><span data-current>01</span><i>/</i><span>05</span></div>
+          <div class="latest__controls" hidden>
+            <button class="btn" type="button" data-rail-step="-1" aria-label="Previous rulings" aria-controls="latest-viewport"><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+            <button class="btn" type="button" data-rail-step="1" aria-label="Next rulings" aria-controls="latest-viewport"><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+          </div>
         </div>
 
-        <div class="latest__viewport" id="latest-viewport">
+        <div class="latest__viewport" id="latest-viewport" tabindex="0" role="region" aria-label="Latest court rulings">
           <div class="latest__track" id="latest-track">
             <article class="case-card case-card--blue" style="--r:-1.7deg" data-tilt>
               <span class="tape tape--card" aria-hidden="true"></span>
@@ -401,7 +339,7 @@
         </div>
 
         <div class="latest__foot wrap">
-          <p class="latest__hint" aria-hidden="true">Scroll to move through the docket <svg class="icon"><use href="#i-arrow"/></svg></p>
+          <p class="latest__hint" aria-hidden="true">Scroll sideways to browse rulings <svg class="icon"><use href="#i-arrow"/></svg></p>
           <div class="latest__progress" aria-hidden="true"><span></span></div>
           <a class="text-link text-link--light" href="cases/index.html">Browse the collection <svg class="icon"><use href="#i-arrow"/></svg></a>
         </div>
@@ -544,8 +482,6 @@
 
   <script src="assets/vendor/cookieconsent.umd.js"></script>
   <script src="cookie-consent.js"></script>
-  <script src="assets/vendor/gsap.min.js"></script>
-  <script src="assets/vendor/ScrollTrigger.min.js"></script>
   <script src="main.js"></script>
 </body>
 </html>

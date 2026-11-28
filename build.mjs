@@ -199,12 +199,12 @@ function shell({ root, title, description, active, body, bodyClass = "", page = 
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#ece6d8">
+  <meta name="theme-color" content="#F8F4E8">
   <title>${esc(title)}</title>
   <meta name="description" content="${attr(description)}">
 ${page === "privacy" ? `  <link rel="stylesheet" href="${root}privacy.css">\n` : ""}  <link rel="icon" href="${root}assets/favicon.svg" type="image/svg+xml">
-  <link rel="preload" href="${root}assets/fonts/archivo-black-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="${root}assets/fonts/archivo-var-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="${root}assets/fonts/dela-gothic-one-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="${root}assets/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="${root}assets/fonts/fonts.css">
   <link rel="stylesheet" href="${root}assets/vendor/cookieconsent.css">
   <link rel="stylesheet" href="${root}styles.css">
@@ -1380,4 +1380,4 @@ fs.writeFileSync(
 console.log("Built pages:", publishedPages.length + 1);
 console.log("Case pages:", cases.length);
 console.log("Topic pages:", topics.length);
-assembleStaticSite(process.cwd(), publishedPages);
+assembleStaticSite(process.cwd(), [...publishedPages, "public/img/court-entrance-1200.webp"]);
